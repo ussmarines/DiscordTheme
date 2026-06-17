@@ -1324,7 +1324,7 @@ body {
     --top-bar-height: 28px;
     --custom-app-top-bar-height: var(--top-bar-height);
     --panel-backdrop-filter: none;
-    --proto-app-surface: color-mix(in srgb, var(--bg-3) 96%, transparent);
+    --proto-app-surface: var(--bg-4);
     --proto-side-surface: color-mix(in srgb, var(--bg-4) 94%, transparent);
     --proto-chat-surface: color-mix(in srgb, var(--bg-4) 96%, transparent);
     --proto-hover-surface: color-mix(in srgb, var(--text-1) 4%, transparent);
@@ -1337,26 +1337,33 @@ body {
 .app_de4237,
 .layers__960e4,
 .layer__960e4,
-.base_c48ade {
+.base_c48ade,
+.content__5e434,
+.page__5e434 {
     background: var(--proto-app-surface) !important;
 }
 
 /* keep the server rail fused with the application background */
+.guilds_c48ade,
+.sidebar_c48ade,
 .guilds__5e434,
 .wrapper_ef3116,
 .scroller_ef3116,
 .stack_dbd263,
 .itemsContainer_ef3116,
 .unreadMentionsIndicatorTop_ef3116,
-.unreadMentionsIndicatorBottom_ef3116 {
-    background: transparent !important;
+.unreadMentionsIndicatorBottom_ef3116,
+nav[class*='guilds'] {
+    background: var(--proto-app-surface) !important;
     border: none !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
 }
 
-.guilds__5e434 {
-    margin: 0 8px 0 0;
+.guilds__5e434,
+.guilds_c48ade,
+.sidebar_c48ade {
+    margin: 0 !important;
     border-radius: 0 !important;
     overflow: visible;
 }
@@ -1570,16 +1577,23 @@ body {
     margin: 0 0 var(--gap) var(--gap);
 }
 
-/* top strip: no cards behind the controls */
+/* top strip: same surface as the application shell */
+.bar_c38106,
+.base_c48ade > .bar_c38106,
+.container__89463,
 .container__89463 > .toolbar__89463,
 .container__89463 > .contentContainer__89463,
 .subtitleContainer_f75fb0,
+.chat_f75fb0 > .subtitleContainer_f75fb0,
 .container__9293f,
 .headerBar__1a9ce,
-.bar_c38106,
 .title_f75fb0,
-.titleWrapper_fc4f04 {
-    background: transparent !important;
+.titleWrapper_fc4f04,
+.trailing_c38106,
+.children__9293f,
+.toolbar__9293f,
+.upperContainer__9293f {
+    background: var(--proto-app-surface) !important;
     border: none !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
@@ -1587,9 +1601,10 @@ body {
 
 .container__9293f,
 .subtitleContainer_f75fb0,
-.headerBar__1a9ce {
+.headerBar__1a9ce,
+.bar_c38106 {
     min-height: var(--proto-topbar-height);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     border-radius: 0 !important;
 }
 
@@ -1656,7 +1671,7 @@ body {
     min-width: 220px;
     padding-left: 12px;
     padding-right: 12px;
-    background: color-mix(in srgb, var(--bg-2) 42%, transparent) !important;
+    background: color-mix(in srgb, var(--proto-app-surface) 84%, var(--bg-2)) !important;
 }
 
 .searchBar__97492,
@@ -1667,7 +1682,7 @@ body {
     background: transparent !important;
 }
 
-/* keep the message column stable on hover */
+/* keep the message column static on hover */
 .messagesWrapper__36d07,
 .scroller__36d07,
 .container__95796,
@@ -1680,6 +1695,16 @@ body {
     padding-top: 8px;
 }
 
+.message__5126c,
+.messageListItem__5126c,
+.cozy_c19a55.wrapper_c19a55,
+.compact_c19a55.wrapper_c19a55 {
+    margin-left: 0 !important;
+    transform: none !important;
+    translate: none !important;
+    animation: none !important;
+}
+
 .message__5126c {
     margin: 0 8px 2px;
     padding-right: 8px;
@@ -1688,13 +1713,37 @@ body {
     transition:
         background-color 0.14s ease,
         border-color 0.14s ease,
-        color 0.14s ease;
+        color 0.14s ease !important;
 }
 
-.message__5126c:hover {
+.message__5126c:hover,
+.message__5126c:focus-within,
+.messageListItem__5126c:hover,
+.messageListItem__5126c:focus-within,
+.mouse-mode.full-motion .message__5126c:hover,
+.mouse-mode.full-motion .messageListItem__5126c:hover,
+.cozy_c19a55.wrapper_c19a55:hover,
+.compact_c19a55.wrapper_c19a55:hover {
+    margin-left: 0 !important;
     transform: none !important;
+    translate: none !important;
     background: var(--message-hover);
     border-color: transparent;
+}
+
+.message__5126c:hover .contents_c19a55,
+.message__5126c:hover .messageContent_c19a55,
+.message__5126c:hover .header_c19a55,
+.message__5126c:hover .repliedMessage_c19a55,
+.message__5126c:hover .repliedTextPreview_c19a55,
+.messageListItem__5126c:hover .contents_c19a55,
+.messageListItem__5126c:hover .messageContent_c19a55,
+.messageListItem__5126c:hover .header_c19a55,
+.messageListItem__5126c:hover .repliedMessage_c19a55,
+.messageListItem__5126c:hover .repliedTextPreview_c19a55 {
+    margin-left: 0 !important;
+    transform: none !important;
+    translate: none !important;
 }
 
 .message__5126c.mentioned__5126c,
