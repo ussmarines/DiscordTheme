@@ -1,0 +1,56 @@
+body {
+    /* font options */
+    --font: 'figtree'; /* change to '' for default discord font */
+    --code-font: ''; /* change to '' for default discord font */
+    font-weight: 400; /* normal text font weight. DOES NOT AFFECT BOLD TEXT */
+
+    /* sizes */
+    --gap: 12px; /* spacing between panels */
+    --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
+    --border-thickness: 1px; /* thickness of borders around main panels. DOES NOT AFFECT OTHER BORDERS */
+
+    /* animation/transition options */
+    --animations: on; /* off: disable animations/transitions, on: enable animations/transitions */
+    --list-item-transition: 0.2s ease; /* transition for list items */
+    --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
+    --border-hover-transition: 0.2s ease; /* transition for borders when hovered */
+
+    /* top bar options */
+    --top-bar-height: var(--gap); /* height of the top bar */
+    --top-bar-button-position: titlebar; /* off, hide, serverlist, titlebar */
+    --top-bar-title-position: off; /* off, hide, left */
+    --subtle-top-bar-title: off; /* off, on */
+
+    /* window controls */
+    --custom-window-controls: on; /* off, on */
+    --window-control-size: 14px; /* size of custom window controls */
+
+    /* dms button options */
+    --custom-dms-icon: custom; /* off, hide, custom */
+    --dms-icon-svg-url: url('https://refact0r.github.io/midnight-discord/assets/Font_Awesome_5_solid_moon.svg'); /* icon svg url. MUST BE A SVG. */
+    --dms-icon-svg-size: 90%; /* size of the svg */
+    --dms-icon-color-before: var(--icon-subtle); /* normal icon color */
+    --dms-icon-color-after: var(--white); /* hover/selected icon color */
+    --custom-dms-background: off; /* off, image, color */
+    --dms-background-image-url: url(''); /* url of the background image */
+    --dms-background-image-size: cover; /* background-size */
+    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2));
+
+    /* background image options */
+    --background-image: off; /* off, on */
+    --background-image-url: url(''); /* url of the background image */
+
+    /* transparency/blur options */
+    --transparency-tweaks: off; /* off, on */
+    --remove-bg-layer: off; /* off, on */
+    --panel-blur: off; /* off, on */
+    --blur-amount: 12px; /* amount of blur */
+    --bg-floating: var(--bg-3); /* floating panels color */
+
+    /* chatbar options */
+    --custom-chatbar: off; /* off, separated */
+    --chatbar-height: 47px; /* 47px aligns with small user panel */
+
+    /* other options */
+    --small-user-panel: on; /* off, on */
+}
