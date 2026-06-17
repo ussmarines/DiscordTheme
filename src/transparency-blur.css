@@ -2,11 +2,6 @@ body {
     --panel-backdrop-filter: none;
 }
 
-/* Midnight-compatible variables. When panel blur is enabled manually, panels use this filter. */
-body:has(*) {
-    --panel-backdrop-filter: none;
-}
-
 .layer__960e4,
 .layers__960e4,
 .app__160d8,

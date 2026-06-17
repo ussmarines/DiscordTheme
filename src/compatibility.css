@@ -1,0 +1,13 @@
+*:focus-visible {
+    outline: 2px solid rgba(64, 224, 255, 0.7) !important;
+    outline-offset: 2px !important;
+}
+
+@supports not (color: color-mix(in hsl, white, black)) {
+    :root {
+        --mention: linear-gradient(to right, rgba(55, 180, 255, 0.14) 40%, transparent);
+        --mention-hover: linear-gradient(to right, rgba(55, 180, 255, 0.22) 40%, transparent);
+        --reply: linear-gradient(to right, rgba(219, 232, 255, 0.08) 40%, transparent);
+        --reply-hover: linear-gradient(to right, rgba(219, 232, 255, 0.14) 40%, transparent);
+    }
+}

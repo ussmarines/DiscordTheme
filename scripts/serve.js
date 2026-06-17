@@ -1,11 +1,3 @@
-/*
- * Browser dev server for Sibylla Midnight.
- * Endpoints:
- *   GET /sibylla.css — combined theme CSS
- *   GET /version     — { version } stamp, bumps on every rebuild
- *   GET /inject.js   — bootstrap script to eval in Discord DevTools
- */
-
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -13,41 +5,20 @@ const chokidar = require('chokidar');
 
 const PORT = Number(process.env.PORT) || 8765;
 const HOST = process.env.HOST || '127.0.0.1';
-
 const root = path.join(__dirname, '..');
 const baseFile = path.join(root, 'themes', 'sibylla.theme.css');
 const buildFile = path.join(root, 'build', 'sibylla.css');
 const srcDir = path.join(root, 'src');
 const injectFile = path.join(__dirname, 'inject.js');
 
-const order = [
-    'main.css',
-    'colors.css',
-    'animations.css',
-    'background-image.css',
-    'chatbar.css',
-    'dms-button.css',
-    'top-bar.css',
-    'transparency-blur.css',
-    'user-panel.css',
-    'window-controls.css',
-    'sibylla.css',
-];
-
-function buildSrc() {
-    const combined = order
-        .map((name) => {
-            const file = path.join(srcDir, name);
-            return `/* ${name} */\n${fs.readFileSync(file, 'utf8').trimEnd()}\n`;
-        })
-        .join('\n');
-    fs.mkdirSync(path.dirname(buildFile), { recursive: true });
-    fs.writeFileSync(buildFile, combined);
-    return combined;
+function runBuild() {
+    delete require.cache[require.resolve('./build.js')];
+    require('./build.js');
 }
 
 function buildCombined() {
-    const compiled = buildSrc();
+    runBuild();
+    const compiled = fs.readFileSync(buildFile, 'utf8');
     const base = fs.readFileSync(baseFile, 'utf8');
     return base.replace(/@import\s+url\(['"]?[^'"]+['"]?\);/g, compiled);
 }
@@ -90,5 +61,5 @@ server.listen(PORT, HOST, () => {
     console.log(`one-liner: fetch('http://${HOST}:${PORT}/inject.js').then(r=>r.text()).then(eval)`);
 });
 
-const watcher = chokidar.watch([baseFile, `${srcDir}/**/*.css`], { ignoreInitial: true });
-watcher.on('all', (event, file) => rebuild(`${event} ${path.relative(root, file)}`));
+chokidar.watch([baseFile, `${srcDir}/**/*.css`], { ignoreInitial: true })
+    .on('all', (event, file) => rebuild(`${event} ${path.relative(root, file)}`));

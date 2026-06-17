@@ -1,11 +1,11 @@
-# Agent notes
+# Agent Notes
 
-This repository follows the Midnight model but is adapted for Sibylla.
+This repo follows the Midnight development workflow but the active theme is `Sibylla Midnight`.
 
-Hard rules:
+Rules:
 
-- Keep only `themes/sibylla.theme.css` as the installable theme.
-- Do not recreate `themes/flavors/`.
-- Do not add runtime imports from `refact0r.github.io` or `raw.githubusercontent.com/refact0r`.
-- Keep upstream MIT credits in `NOTICE.md` and `LICENSE`.
-- Run `npm run verify` before publishing.
+- no flavors;
+- no runtime imports from upstream Midnight;
+- keep MIT credits;
+- never hide critical Discord wrappers;
+- always run `npm run verify` after editing.

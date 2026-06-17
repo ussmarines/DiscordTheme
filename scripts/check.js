@@ -3,6 +3,19 @@ const path = require('path');
 
 const root = path.join(__dirname, '..');
 const runtimeFiles = ['themes/sibylla.theme.css', 'build/sibylla.css'];
+const criticalSelectors = [
+    '#app-mount',
+    '.appMount__51fd7',
+    '.app__160d8',
+    '.layers__960e4',
+    '.layer__960e4',
+    '.wrapper_ef3116',
+    '.guilds__5e434',
+    '.sidebarList__5e434',
+    '.chat_f75fb0',
+    '.chatContent_f75fb0',
+    '.page__5e434',
+];
 
 function read(file) {
     return fs.readFileSync(path.join(root, file), 'utf8');
@@ -19,6 +32,7 @@ function assert(condition, message) {
 
 function walk(dir, out = []) {
     for (const name of fs.readdirSync(dir)) {
+        if (name === '.git' || name === 'node_modules') continue;
         const full = path.join(dir, name);
         const rel = path.relative(root, full).replace(/\\/g, '/');
         if (fs.statSync(full).isDirectory()) walk(full, out);
@@ -27,15 +41,30 @@ function walk(dir, out = []) {
     return out;
 }
 
+function stripComments(content) {
+    return content.replace(/\/\*[\s\S]*?\*\//g, '');
+}
+
 function checkBalance(file, content) {
-    for (const [open, close] of [
-        ['{', '}'],
-        ['(', ')'],
-        ['[', ']'],
-    ]) {
-        const a = [...content].filter((ch) => ch === open).length;
-        const b = [...content].filter((ch) => ch === close).length;
+    const stripped = stripComments(content);
+    for (const [open, close] of [['{', '}'], ['(', ')'], ['[', ']']]) {
+        const a = [...stripped].filter((ch) => ch === open).length;
+        const b = [...stripped].filter((ch) => ch === close).length;
         assert(a === b, `${file}: unbalanced ${open}${close} (${a}/${b})`);
+    }
+}
+
+function checkDangerousHides(file, content) {
+    const css = stripComments(content);
+    const blocks = css.match(/[^{}]+\{[^{}]*\}/g) || [];
+    for (const block of blocks) {
+        const selector = block.slice(0, block.indexOf('{')).trim();
+        const body = block.slice(block.indexOf('{') + 1, block.lastIndexOf('}'));
+        const targetsCritical = criticalSelectors.some((critical) => selector.split(',').map((s) => s.trim()).includes(critical));
+        if (!targetsCritical) continue;
+        assert(!/display\s*:\s*none\s*!?important?/i.test(body), `${file}: critical selector hidden with display:none -> ${selector}`);
+        assert(!/visibility\s*:\s*hidden\s*!?important?/i.test(body), `${file}: critical selector hidden with visibility:hidden -> ${selector}`);
+        assert(!/opacity\s*:\s*0\s*!?important?/i.test(body), `${file}: critical selector hidden with opacity:0 -> ${selector}`);
     }
 }
 
@@ -43,6 +72,7 @@ for (const file of runtimeFiles) {
     const content = read(file);
     assert(content.trim().length > 0, `${file}: empty file`);
     checkBalance(file, content);
+    checkDangerousHides(file, content);
     assert(!/refact0r\.github\.io/i.test(content), `${file}: upstream refact0r runtime import found`);
     assert(!/raw\.githubusercontent\.com\/refact0r/i.test(content), `${file}: upstream refact0r raw runtime import found`);
 }
@@ -53,6 +83,7 @@ assert(!files.some((file) => /nord/i.test(file)), 'Legacy Nord file/reference st
 assert(fs.existsSync(path.join(root, 'assets/icons/sibylla-mark.svg')), 'Missing self-hosted Sibylla SVG icon');
 assert(read('themes/sibylla.theme.css').includes('raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibylla.css'), 'Theme does not import from ussmarines GitHub raw URL');
 assert(read('NOTICE.md').includes('refact0r/midnight-discord'), 'Missing upstream credit notice');
+assert(read('build/sibylla.css').includes('.wrapper_ef3116') && read('build/sibylla.css').includes('mask: none'), 'Missing safe wrapper_ef3116 mask fix');
 
 if (process.exitCode) process.exit(process.exitCode);
 console.log('All checks passed.');

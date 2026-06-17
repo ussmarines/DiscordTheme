@@ -5,7 +5,6 @@ const root = path.join(__dirname, '..');
 const srcDir = path.join(root, 'src');
 const buildFile = path.join(root, 'build', 'sibylla.css');
 const themeFile = path.join(root, 'themes', 'sibylla.theme.css');
-
 const order = [
     'main.css',
     'colors.css',
@@ -17,28 +16,51 @@ const order = [
     'transparency-blur.css',
     'user-panel.css',
     'window-controls.css',
+    'settings-pages.css',
     'sibylla.css',
+    'compatibility.css',
 ];
 
-function combine() {
-    const css = order
-        .map((name) => {
-            const file = path.join(srcDir, name);
-            if (!fs.existsSync(file)) throw new Error(`Missing source file: src/${name}`);
-            return `/* ${name} */\n${fs.readFileSync(file, 'utf8').trimEnd()}\n`;
-        })
-        .join('\n');
-    fs.mkdirSync(path.dirname(buildFile), { recursive: true });
-    fs.writeFileSync(buildFile, css.trimEnd() + '\n');
-    return css;
+function read(file) {
+    return fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n').trimEnd();
 }
 
-function assertThemeImport() {
-    const theme = fs.readFileSync(themeFile, 'utf8');
-    const expected = "@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibylla.css');";
-    if (!theme.includes(expected)) throw new Error('themes/sibylla.theme.css does not import build/sibylla.css from ussmarines/DiscordTheme');
+function write(file, content) {
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, content.replace(/\r\n/g, '\n').trimEnd() + '\n');
 }
 
-combine();
-assertThemeImport();
+function buildSrc() {
+    const chunks = [];
+    for (const file of order) {
+        const full = path.join(srcDir, file);
+        if (!fs.existsSync(full)) throw new Error(`Missing source file: src/${file}`);
+        chunks.push(`/* ${file} */\n${read(full)}`);
+    }
+    const combined = chunks.join('\n\n');
+    write(buildFile, combined);
+    return combined;
+}
+
+function buildTheme() {
+    const meta = `/**
+ * @name Sibylla Midnight
+ * @description Thème Discord custom Sibylla basé sur l'architecture Midnight, compatible Vencord et BetterDiscord.
+ * @author Sibylla Corporation
+ * @version 1.2.0
+ * @invite nz87hXyvcy
+ * @website https://github.com/ussmarines/DiscordTheme
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibylla.theme.css
+ * @updateUrl https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/sibylla.theme.css
+ * @authorLink https://sibyllasc.fr/
+ * @credits refact0r/midnight-discord — MIT License
+ */`;
+    const importLine = "@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibylla.css');";
+    const settings = read(path.join(srcDir, 'settings-template.css'));
+    write(themeFile, `${meta}\n\n/* import theme modules from this repository */\n${importLine}\n\n${settings}`);
+}
+
+buildSrc();
+buildTheme();
 console.log('Built build/sibylla.css');
+console.log('Built themes/sibylla.theme.css');
