@@ -1,11 +1,448 @@
 /**
  * @name Sibylla Midnight
- * @description Thème Discord custom Sibylla basé sur l'esprit Midnight, compatible Vencord et BetterDiscord.
+ * @description Thème Discord Sibylla, inspiré de Midnight, compatible Vencord et BetterDiscord.
  * @author Sibylla Corporation
- * @version 1.0.0
+ * @version 1.1.0
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibylla.theme.css
  * @updateUrl https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/sibylla.theme.css
  */
 
-@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibylla.css');
+/*
+ * Sibylla Midnight — safe runtime CSS
+ * V3 objective:
+ * - no upstream runtime import;
+ * - no flavor duplicate;
+ * - no destructive fullscreen/layout overrides;
+ * - safe for Vencord Online Themes and BetterDiscord local themes.
+ */
+
+/* =========================
+   Sibylla design tokens
+   ========================= */
+
+:root {
+    color-scheme: dark;
+
+    /* Sibylla website DA */
+    --sibylla-bg-0: #04040b;
+    --sibylla-bg-1: #060a12;
+    --sibylla-bg-2: #0a0f18;
+    --sibylla-bg-3: #101827;
+    --sibylla-panel: rgba(10, 15, 24, 0.96);
+    --sibylla-panel-2: rgba(13, 21, 34, 0.94);
+    --sibylla-panel-3: rgba(17, 28, 45, 0.92);
+    --sibylla-text: #dbe8ff;
+    --sibylla-text-2: #b9d0f0;
+    --sibylla-text-3: #9fb6d7;
+    --sibylla-muted: #42526d;
+    --sibylla-line: rgba(219, 232, 255, 0.08);
+    --sibylla-line-2: rgba(55, 180, 255, 0.22);
+    --sibylla-line-hover: rgba(64, 224, 255, 0.42);
+    --sibylla-cyan: #40e0ff;
+    --sibylla-blue: #37b4ff;
+    --sibylla-blue-2: #4da3ff;
+    --sibylla-gold: #fbc900;
+    --sibylla-red: #ff4d6d;
+    --sibylla-green: #5ee6a8;
+    --sibylla-purple: #a48cff;
+    --sibylla-radius: 16px;
+    --sibylla-radius-sm: 10px;
+    --sibylla-glow: 0 0 24px rgba(55, 180, 255, 0.16);
+
+    /* Discord variable layer */
+    --background-base-lowest: var(--sibylla-bg-0);
+    --background-base-lower: var(--sibylla-panel);
+    --background-base-low: var(--sibylla-panel-2);
+    --background-surface-high: var(--sibylla-panel-3);
+    --background-primary: var(--sibylla-panel);
+    --background-secondary: var(--sibylla-panel-2);
+    --background-secondary-alt: var(--sibylla-bg-3);
+    --background-tertiary: var(--sibylla-bg-1);
+    --background-floating: rgba(10, 15, 24, 0.98);
+    --background-modifier-hover: rgba(55, 180, 255, 0.10);
+    --background-modifier-active: rgba(55, 180, 255, 0.18);
+    --background-modifier-selected: rgba(55, 180, 255, 0.22);
+    --background-mentioned: rgba(55, 180, 255, 0.12);
+    --background-mentioned-hover: rgba(55, 180, 255, 0.18);
+
+    --text-normal: var(--sibylla-text);
+    --text-muted: var(--sibylla-text-3);
+    --header-primary: var(--sibylla-text);
+    --header-secondary: var(--sibylla-text-2);
+    --interactive-normal: var(--sibylla-text-2);
+    --interactive-hover: var(--sibylla-text);
+    --interactive-active: #ffffff;
+    --interactive-muted: var(--sibylla-muted);
+
+    --brand-experiment: var(--sibylla-blue);
+    --brand-experiment-560: var(--sibylla-blue);
+    --brand-500: var(--sibylla-blue);
+    --focus-primary: var(--sibylla-cyan);
+    --status-positive: var(--sibylla-green);
+    --status-warning: var(--sibylla-gold);
+    --status-danger: var(--sibylla-red);
+    --status-speaking: var(--sibylla-cyan);
+    --channels-default: var(--sibylla-text-3);
+    --channel-icon: var(--sibylla-text-3);
+
+    --mention: linear-gradient(to right, rgba(55, 180, 255, 0.14), transparent 70%);
+    --reply: linear-gradient(to right, rgba(219, 232, 255, 0.08), transparent 70%);
+}
+
+/* Midnight-compatible user options kept as CSS variables */
+body {
+    --font: "Rajdhani", "Figtree", "Inter", "Segoe UI", sans-serif;
+    --code-font: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+    --gap: 12px;
+    --divider-thickness: 4px;
+    --border-thickness: 1px;
+    --animations: on;
+    --list-item-transition: 0.18s ease;
+    --border-hover-transition: 0.18s ease;
+    --small-user-panel: on;
+    --custom-chatbar: separated;
+    --chatbar-height: 48px;
+    --custom-dms-icon: off;
+    --custom-window-controls: off;
+
+    color: var(--sibylla-text);
+    background:
+        radial-gradient(circle at 18% 12%, rgba(55, 180, 255, 0.14), transparent 28%),
+        radial-gradient(circle at 82% 8%, rgba(251, 201, 0, 0.08), transparent 24%),
+        linear-gradient(180deg, var(--sibylla-bg-2), var(--sibylla-bg-0)) !important;
+    font-family: var(--font);
+    font-weight: 500;
+}
+
+/* =========================
+   Safe app background
+   ========================= */
+
+#app-mount,
+.appMount__51fd7,
+.app__160d8,
+.bg__960e4,
+.visual-refresh {
+    color: var(--sibylla-text);
+    background:
+        radial-gradient(circle at 20% 0%, rgba(55, 180, 255, 0.12), transparent 32%),
+        linear-gradient(180deg, var(--sibylla-bg-2), var(--sibylla-bg-0)) !important;
+}
+
+/* No fixed overlay pseudo-elements in V3.
+   V2 used decorative fixed layers; they are removed to avoid blank/covered UI. */
+
+/* =========================
+   Midnight-style panels, safe version
+   ========================= */
+
+.guilds__5e434,
+.sidebarList__5e434,
+.panels__5e434,
+.chatContent_f75fb0,
+.container_c8ffbb,
+.peopleColumn__133bf,
+.nowPlayingColumn__133bf,
+.searchResultsWrap_a98f3b,
+.container_f369db,
+.chat_fb64c9,
+.container_a592e1,
+.callContainer_cb9592,
+.container__8a031,
+.container__9293f,
+.subtitleContainer_f75fb0,
+.container__01ae2 > .container__9293f,
+.container_fb64c9 > .container__9293f,
+.homeWrapper__0920e > .container__9293f,
+.container__133bf > .container__9293f {
+    background: linear-gradient(180deg, rgba(17, 28, 45, 0.92), rgba(8, 13, 22, 0.96)) !important;
+    border: var(--border-thickness) solid var(--sibylla-line);
+    border-radius: var(--sibylla-radius);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(219, 232, 255, 0.04);
+    box-sizing: border-box;
+}
+
+.guilds__5e434:hover,
+.sidebarList__5e434:hover,
+.panels__5e434:hover,
+.chatContent_f75fb0:hover,
+.container_c8ffbb:hover,
+.peopleColumn__133bf:hover,
+.nowPlayingColumn__133bf:hover,
+.searchResultsWrap_a98f3b:hover,
+.container_f369db:hover,
+.container__8a031:hover {
+    border-color: var(--sibylla-line-hover);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.30), var(--sibylla-glow), inset 0 1px 0 rgba(219, 232, 255, 0.06);
+}
+
+/* Transparent outer wrappers only — no layout removal */
+.chat_f75fb0,
+.container__133bf,
+.page__5e434,
+.applicationStore_f07d62,
+.homeWrapper__0920e,
+.tabBody__133bf,
+.wrapper_cb9592,
+.standardSidebarView__23e6b,
+.contentRegion__23e6b,
+.contentRegionScroller__23e6b {
+    background: transparent !important;
+}
+
+/* =========================
+   Text, links, headers
+   ========================= */
+
+.name_f37cb1,
+.title_f75fb0,
+.title__9293f,
+.header_f37cb1,
+.container__9293f,
+.heading-xl-semibold__3fcff,
+.heading-lg-semibold__3fcff,
+.heading-md-semibold__3fcff {
+    color: var(--sibylla-text) !important;
+    letter-spacing: 0.02em;
+}
+
+a,
+.anchor_edefb8,
+.markup__75297 a {
+    color: var(--sibylla-cyan) !important;
+    text-decoration-color: rgba(64, 224, 255, 0.4) !important;
+}
+
+a:hover,
+.anchor_edefb8:hover,
+.markup__75297 a:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 12px rgba(64, 224, 255, 0.42);
+}
+
+/* =========================
+   Channels, members, selection
+   ========================= */
+
+.wrapper__2ea32,
+.containerDefault_c69b6d,
+.channel__972a0,
+.interactive_bf202d,
+.member_c8ffbb,
+.clickable__91a9d,
+.item__133bf {
+    transition:
+        background-color var(--list-item-transition),
+        color var(--list-item-transition),
+        box-shadow var(--list-item-transition),
+        border-color var(--list-item-transition);
+}
+
+.modeSelected__2ea32 .link__2ea32,
+.wrapper__2ea32:hover .link__2ea32,
+.interactiveSelected__972a0,
+.member_c8ffbb:hover,
+.channel__972a0:hover,
+.item__133bf:hover,
+.item__133bf[aria-selected="true"],
+.selected__91a9d {
+    background: linear-gradient(90deg, rgba(55, 180, 255, 0.18), rgba(64, 224, 255, 0.04)) !important;
+    color: #ffffff !important;
+}
+
+/* Server selected marker */
+.item__58105 {
+    background: var(--sibylla-cyan) !important;
+    box-shadow: 0 0 14px rgba(64, 224, 255, 0.58);
+}
+
+/* =========================
+   Messages
+   ========================= */
+
+.message__5126c {
+    border-radius: 12px;
+    margin-left: 4px;
+    transition: background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.message__5126c:hover {
+    background: rgba(55, 180, 255, 0.045) !important;
+    box-shadow: inset 3px 0 0 rgba(55, 180, 255, 0.16);
+}
+
+.message__5126c.mentioned__5126c,
+.mentioned__5126c {
+    background: var(--mention) !important;
+}
+
+.replying__5126c {
+    background: var(--reply) !important;
+}
+
+.divider__908e2 {
+    border-width: var(--divider-thickness);
+    border-radius: var(--divider-thickness);
+    border-color: var(--sibylla-blue) !important;
+}
+
+.divider__908e2 .content__908e2 {
+    color: var(--sibylla-cyan);
+    background: var(--sibylla-bg-1);
+    border: 1px solid var(--sibylla-line-2);
+    border-radius: 999px;
+}
+
+/* =========================
+   Chatbar and inputs
+   ========================= */
+
+.channelTextArea_f75fb0,
+.form_f75fb0 .channelTextArea_f75fb0,
+.themedBackground__74017,
+.scrollableContainer__74017,
+.input__0f084,
+.inputDefault__0f084,
+.searchBar__97492,
+.searchBarComponent__35e86,
+.container__33507,
+.inner__999f6 {
+    background: rgba(4, 7, 13, 0.74) !important;
+    border: 1px solid var(--sibylla-line);
+    border-radius: 14px !important;
+    color: var(--sibylla-text) !important;
+}
+
+.channelTextArea_f75fb0:focus-within,
+.scrollableContainer__74017:focus-within,
+.input__0f084:focus,
+.inputDefault__0f084:focus,
+.searchBar__97492:focus-within,
+.container__33507:focus-within,
+.inner__999f6:focus-within {
+    border-color: var(--sibylla-line-hover);
+    box-shadow: 0 0 0 1px rgba(64, 224, 255, 0.14), 0 0 24px rgba(55, 180, 255, 0.12);
+}
+
+.slateTextArea_ec4baf,
+.placeholder__1b31f {
+    color: var(--sibylla-text-2) !important;
+}
+
+/* =========================
+   Buttons, badges, roles
+   ========================= */
+
+.lookFilled__201d5.colorBrand__201d5,
+.lookFilled__201d5.colorGreen__201d5 {
+    color: var(--sibylla-bg-0) !important;
+    background: linear-gradient(135deg, var(--sibylla-cyan), var(--sibylla-blue)) !important;
+    border: 1px solid rgba(219, 232, 255, 0.22);
+    box-shadow: 0 0 24px rgba(55, 180, 255, 0.18);
+}
+
+.lookFilled__201d5.colorBrand__201d5:hover,
+.lookFilled__201d5.colorGreen__201d5:hover {
+    filter: brightness(1.08);
+    box-shadow: 0 0 30px rgba(64, 224, 255, 0.26);
+}
+
+.colorDanger__201d5,
+.lookFilled__201d5.colorRed__201d5,
+.dangerous_b3f026 {
+    background: linear-gradient(135deg, var(--sibylla-red), #8e1634) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 77, 109, 0.42) !important;
+}
+
+.mention,
+.wrapper_f61d60,
+.numberBadge__2b1f5,
+.textBadge_f05120 {
+    background: linear-gradient(135deg, var(--sibylla-blue), var(--sibylla-cyan)) !important;
+    color: var(--sibylla-bg-0) !important;
+    border: 1px solid rgba(219, 232, 255, 0.20);
+    box-shadow: 0 0 12px rgba(55, 180, 255, 0.24);
+}
+
+.role_dfa8b6,
+.role__48c1c,
+.botTagRegular__82f07,
+.botTag__82f07 {
+    background: rgba(55, 180, 255, 0.08) !important;
+    border: 1px solid rgba(55, 180, 255, 0.18) !important;
+    border-radius: 999px !important;
+}
+
+/* =========================
+   Cards, popouts, embeds
+   ========================= */
+
+.embedFull__623de,
+.wrapper_d5f3cd,
+.card__73069,
+.cardPrimary__73069,
+.cardPrimaryOutline__73069,
+.root__49fc1,
+.menu_c1e9c4,
+.messagesPopoutWrap__45690,
+.recentMentionsPopout__95796,
+.container__55c99,
+.autocomplete__13533,
+.inner_c0bea0,
+.userPopoutInner_c69a7b {
+    background: rgba(6, 10, 18, 0.96) !important;
+    border: 1px solid var(--sibylla-line) !important;
+    border-radius: var(--sibylla-radius-sm) !important;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.30);
+}
+
+.embedFull__623de {
+    border-left: 4px solid var(--sibylla-blue) !important;
+}
+
+/* =========================
+   Scrollbars
+   ========================= */
+
+::-webkit-scrollbar {
+    width: 10px !important;
+    height: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(4, 7, 13, 0.58) !important;
+    border-radius: 999px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(64, 224, 255, 0.46), rgba(55, 180, 255, 0.22)) !important;
+    border: 2px solid rgba(4, 7, 13, 0.8) !important;
+    border-radius: 999px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(64, 224, 255, 0.72), rgba(55, 180, 255, 0.40)) !important;
+}
+
+/* =========================
+   Vencord / BetterDiscord basics
+   ========================= */
+
+#vc-spotify-player,
+.vc-spotify-player,
+.vc-addon-card,
+.vc-settings-card,
+.vc-plugins-card,
+.bd-addon-card,
+.bd-setting-item {
+    background: rgba(10, 15, 24, 0.86) !important;
+    border: 1px solid var(--sibylla-line) !important;
+    border-radius: var(--sibylla-radius-sm) !important;
+}
+
+*:focus-visible {
+    outline: 2px solid rgba(64, 224, 255, 0.70) !important;
+    outline-offset: 2px !important;
+}
