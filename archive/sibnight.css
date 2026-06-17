@@ -14,33 +14,33 @@
     /* color of status indicators and window controls */
     --online-indicator: hsl(156, 38%, 52%); /* change to #23a55a for default green */
     --dnd-indicator: hsl(12, 68%, 58%); /* change to #f23f43 for default red */
-    --idle-indicator: hsl(43, 68%, 62%); /* change to #f0b232 for default yellow */
+    --idle-indicator: hsl(43, 54%, 60%); /* change to #f0b232 for default yellow */
     --streaming-indicator: hsl(285, 36%, 58%); /* change to #593695 for default purple */
 
     /* accent colors */
-    --accent-1: hsl(44, 72%, 74%); /* links */
-    --accent-2: hsl(43, 68%, 62%); /* general unread/mention elements */
-    --accent-3: hsl(41, 70%, 54%); /* accent buttons */
-    --accent-4: hsl(39, 72%, 46%); /* accent buttons when hovered */
-    --accent-5: hsl(37, 74%, 38%); /* accent buttons when clicked */
-    --mention: hsla(43, 84%, 62%, 0.12); /* mentions & mention messages */
-    --mention-hover: hsla(43, 84%, 62%, 0.06); /* mentions & mention messages when hovered */
+    --accent-1: hsl(210, 84%, 78%); /* links */
+    --accent-2: hsl(210, 74%, 66%); /* general unread/mention elements */
+    --accent-3: hsl(211, 68%, 56%); /* accent buttons */
+    --accent-4: hsl(214, 64%, 48%); /* accent buttons when hovered */
+    --accent-5: hsl(218, 60%, 40%); /* accent buttons when clicked */
+    --mention: hsla(210, 84%, 62%, 0.12); /* mentions & mention messages */
+    --mention-hover: hsla(210, 84%, 62%, 0.06); /* mentions & mention messages when hovered */
 
     /* text colors */
     --text-0: white; /* text on colored elements */
-    --text-1: hsl(42, 35%, 92%); /* other normally white text */
-    --text-2: hsl(42, 24%, 78%); /* headings and important text */
-    --text-3: hsl(40, 16%, 64%); /* normal text */
-    --text-4: hsl(38, 12%, 48%); /* icon buttons and channels */
-    --text-5: hsl(35, 10%, 32%); /* muted channels/chats and timestamps */
+    --text-1: hsl(220, 30%, 92%); /* other normally white text */
+    --text-2: hsl(218, 18%, 80%); /* headings and important text */
+    --text-3: hsl(216, 12%, 66%); /* normal text */
+    --text-4: hsl(214, 10%, 50%); /* icon buttons and channels */
+    --text-5: hsl(212, 9%, 36%); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
     --bg-1: hsl(224, 20%, 18%); /* dark buttons when clicked */
     --bg-2: hsl(225, 22%, 14%); /* dark buttons */
     --bg-3: hsl(226, 24%, 11%); /* spacing, secondary elements */
     --bg-4: hsl(228, 26%, 8%); /* main background color */
-    --hover: hsla(44, 65%, 70%, 0.08); /* channels and buttons when hovered */
-    --active: hsla(44, 70%, 68%, 0.16); /* channels and buttons when clicked or selected */
+    --hover: hsla(212, 72%, 68%, 0.08); /* channels and buttons when hovered */
+    --active: hsla(212, 74%, 64%, 0.14); /* channels and buttons when clicked or selected */
     --message-hover: hsla(225, 20%, 4%, 0.35); /* messages when hovered */
 
     /* amount of spacing and padding */
@@ -66,7 +66,7 @@
     --discord-icon: none; /* discord icon */
     --moon-icon: block; /* Sibylla icon */
     --moon-icon-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.png'); /* custom logo asset url */
-    --moon-icon-size: 90%;
+    --moon-icon-size: 104%;
 
     /* filter uncolorable elements to fit theme */
     /* (just set to none, they're too much work to configure) */
@@ -785,7 +785,7 @@ button.fullRegionButton_f1ceac /* fix vc button again */ {
     content: '';
     display: var(--moon-icon);
     position: absolute;
-    inset: 11%;
+    inset: 7%;
     background-image: var(--moon-icon-url);
     background-position: center;
     background-repeat: no-repeat;
@@ -796,7 +796,7 @@ button.fullRegionButton_f1ceac /* fix vc button again */ {
 }
 .wrapper__6e9f8:hover > .childWrapper__6e9f8::before,
 .wrapper__6e9f8.selected__6e9f8 > .childWrapper__6e9f8::before {
-    transform: scale(0.94);
+    transform: scale(0.98);
     filter: brightness(1.06) drop-shadow(0 0 8px rgba(250, 218, 125, 0.28));
 }
 .lowerBadge_cc5dd2::before {

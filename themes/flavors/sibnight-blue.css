@@ -16,6 +16,7 @@
    @import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css');
 
    body {
+       --dms-icon-svg-size: 104%;
        --accent-1: hsl(198, 96%, 78%);
        --accent-2: hsl(199, 90%, 68%);
        --accent-3: hsl(203, 86%, 58%);

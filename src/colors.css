@@ -7,20 +7,20 @@
 :root {
     /* text colors */
     --text-0: var(--bg-4); /* text on colored elements */
-    --text-1: hsl(42, 35%, 94%); /* other normally white text */
-    --text-2: hsl(42, 24%, 78%); /* headings and important text */
-    --text-3: hsl(40, 16%, 64%); /* normal text */
-    --text-4: hsl(38, 12%, 48%); /* icon buttons and channels */
-    --text-5: hsl(35, 10%, 32%); /* muted channels/chats and timestamps */
+    --text-1: hsl(220, 30%, 94%); /* other normally white text */
+    --text-2: hsl(218, 18%, 80%); /* headings and important text */
+    --text-3: hsl(216, 12%, 66%); /* normal text */
+    --text-4: hsl(214, 10%, 50%); /* icon buttons and channels */
+    --text-5: hsl(212, 9%, 36%); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
     --bg-1: hsl(224, 20%, 18%); /* dark buttons when clicked */
     --bg-2: hsl(225, 22%, 14%); /* dark buttons */
     --bg-3: hsl(226, 24%, 11%); /* spacing, secondary elements */
     --bg-4: hsl(228, 26%, 8%); /* main background color */
-    --hover: hsla(44, 65%, 70%, 0.08); /* channels and buttons when hovered */
-    --active: hsla(44, 70%, 68%, 0.16); /* channels and buttons when clicked or selected */
-    --active-2: hsla(44, 70%, 68%, 0.24); /* extra state for transparent buttons */
+    --hover: hsla(212, 72%, 68%, 0.08); /* channels and buttons when hovered */
+    --active: hsla(212, 74%, 64%, 0.14); /* channels and buttons when clicked or selected */
+    --active-2: hsla(212, 74%, 64%, 0.22); /* extra state for transparent buttons */
     --message-hover: hsla(225, 20%, 4%, 0.35); /* messages when hovered */
 
     /* accent colors */
@@ -43,10 +43,10 @@
     --offline: var(--text-4); /* change to #83838b for default offline color */
 
     /* border colors */
-    --border-light: hsla(44, 38%, 70%, 0.08); /* light border color */
-    --border: hsla(44, 42%, 68%, 0.16); /* normal border color */
-    --border-hover: hsla(44, 50%, 72%, 0.24); /* hover border color */
-    --button-border: hsla(42, 30%, 88%, 0.12); /* neutral border color of buttons */
+    --border-light: hsla(212, 40%, 74%, 0.08); /* light border color */
+    --border: hsla(212, 46%, 70%, 0.14); /* normal border color */
+    --border-hover: hsla(212, 50%, 74%, 0.22); /* hover border color */
+    --button-border: hsla(216, 24%, 88%, 0.12); /* neutral border color of buttons */
 
     /* base colors */
     --red-1: oklch(75% 0.14 28);
@@ -61,17 +61,17 @@
     --green-4: oklch(60% 0.11 160);
     --green-5: oklch(54% 0.11 160);
 
-    --blue-1: oklch(84% 0.10 86);
-    --blue-2: oklch(78% 0.11 84);
-    --blue-3: oklch(72% 0.12 82);
-    --blue-4: oklch(66% 0.11 80);
-    --blue-5: oklch(60% 0.10 78);
+    --blue-1: oklch(82% 0.11 240);
+    --blue-2: oklch(76% 0.11 238);
+    --blue-3: oklch(70% 0.12 235);
+    --blue-4: oklch(64% 0.11 232);
+    --blue-5: oklch(58% 0.10 229);
 
-    --yellow-1: oklch(86% 0.11 94);
-    --yellow-2: oklch(80% 0.11 92);
-    --yellow-3: oklch(74% 0.11 90);
-    --yellow-4: oklch(68% 0.11 88);
-    --yellow-5: oklch(62% 0.11 86);
+    --yellow-1: oklch(84% 0.08 92);
+    --yellow-2: oklch(78% 0.08 90);
+    --yellow-3: oklch(72% 0.08 88);
+    --yellow-4: oklch(66% 0.08 86);
+    --yellow-5: oklch(60% 0.08 84);
 
     --purple-1: oklch(74% 0.09 315);
     --purple-2: oklch(68% 0.09 315);

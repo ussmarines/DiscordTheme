@@ -11,16 +11,16 @@
 ## À propos
 
 **sibnight-discord** est un thème Discord personnalisé maintenu par **ussmarines**.
-Le projet adapte une base existante à l'univers graphique de **Sibylla**.
+Le projet reprend une base existante, la réoriente vers l'univers graphique de **Sibylla**, et propose plusieurs variantes prêtes à l'emploi.
 
 ## Installation
 
 ### BetterDiscord / Vencord
 
 1. Télécharge `themes/sibnight.theme.css`
-2. Place le fichier dans le dossier des thèmes Discord
+2. Place le fichier dans ton dossier de thèmes Discord
 3. Active le thème
-4. Modifie les variables dans `themes/sibnight.theme.css` si tu veux personnaliser le rendu
+4. Ajuste les variables dans `themes/sibnight.theme.css` si tu veux personnaliser le rendu
 
 ### Import direct
 
@@ -28,7 +28,7 @@ Le projet adapte une base existante à l'univers graphique de **Sibylla**.
 @import url("https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css");
 ```
 
-## Structure utile
+## Structure du projet
 
 ```text
 assets/
@@ -46,23 +46,32 @@ themes/
   flavors/
 ```
 
-## Personnalisation
+## Fichiers principaux
 
-Les fichiers principaux à modifier sont :
-
-- `themes/sibnight.theme.css` pour les variables exposées aux utilisateurs
-- `src/colors.css` pour la palette
-- `src/dms-button.css` pour le bouton des messages privés
-- `build/sibnight.css` pour la version compilée utilisée par le thème
-
-
+- `themes/sibnight.theme.css` : variables exposées aux utilisateurs
+- `src/colors.css` : palette principale
+- `src/dms-button.css` : bouton des messages privés
+- `build/sibnight.css` : build utilisé par le thème
+- `themes/flavors/` : variantes prêtes à l'emploi
 
 ## Flavors
 
-- `themes/flavors/sibnight-blue.css` : variante plus bleue, toujours dans l'univers sibnight
-- `themes/flavors/sibnight-space.css` : variante plus spatiale, avec une nébuleuse bleue en fond
+- `themes/flavors/sibnight-blue.css` : variante plus bleue, toujours dans l'univers Sibylla
+- `themes/flavors/sibnight-space.css` : variante plus spatiale avec une nébuleuse bleue
+- `themes/flavors/sibnight-sun.css` : copie de la version chaude du thème principal
+- `themes/flavors/sibnight-north-Polar.css` : variante Nord basée sur Polar Night
+- `themes/flavors/sibnight-north-Snow.css` : variante Nord basée sur Snow Storm
+- `themes/flavors/sibnight-north-Aurora.css` : variante Nord basée sur Aurora
 
-Ces fichiers peuvent être utilisés comme variantes prêtes à l'emploi.
+## Personnalisation
+
+Tu peux modifier directement les variables CSS pour changer :
+
+- les couleurs
+- les accents
+- l'image de fond
+- l'apparence du bouton MP
+- les espacements et bordures
 
 ## Crédits
 
