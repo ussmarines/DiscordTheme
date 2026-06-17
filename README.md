@@ -1,68 +1,76 @@
-# DiscordTheme — Midnight Nord Base V1
+# DiscordTheme — Sibylla Midnight
 
-Base de travail pour un thème Discord custom compatible **Vencord** et **BetterDiscord**.
+Thème Discord custom pour **Vencord** et **BetterDiscord**.
 
-Cette V1 reprend le comportement du flavor **midnight (nord)** de refact0r : même import du build Midnight, mêmes variables principales, même design Nord, mêmes options de customisation.
+Cette version remplace l’ancienne base par une direction artistique **Sibylla** : interface sombre bleu/noir, accents cyan, touches dorées, panneaux sci-fi/corporate, bordures lumineuses et contraste renforcé.
 
-## Installation rapide
+## Important
+
+Les fichiers installables n'appellent plus le GitHub d'origine du thème Midnight.
+
+Le thème public appelle uniquement ce repo :
+
+```text
+https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibylla.css
+```
+
+## Installation
 
 ### BetterDiscord
 
-1. Ouvre les paramètres BetterDiscord.
-2. Va dans **Themes**.
-3. Clique sur **Open Themes Folder**.
-4. Copie le fichier suivant dans le dossier :
+1. Copie ce fichier dans le dossier des thèmes BetterDiscord :
 
 ```text
-themes/flavors/midnight-nord.theme.css
+themes/sibylla.theme.css
 ```
 
-5. Active le thème dans BetterDiscord.
-
-### Vencord — thème local
-
-1. Ouvre les paramètres Vencord.
-2. Va dans **Themes**.
-3. Active les thèmes locaux si nécessaire.
-4. Copie le fichier suivant dans ton dossier de thèmes :
-
-```text
-themes/flavors/midnight-nord.theme.css
-```
-
-5. Recharge Discord puis active le thème.
+2. Active **Sibylla Midnight**.
 
 ### Vencord — Online Theme
 
-Quand le repo GitHub est à jour, tu peux utiliser ce lien :
+Après avoir push le repo sur GitHub, ajoute ce lien dans Vencord :
 
 ```text
-https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/flavors/midnight-nord.theme.css
+https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/sibylla.theme.css
 ```
+
+### Vencord / BetterDiscord — Flavor alias
+
+Un alias existe aussi ici :
+
+```text
+themes/flavors/sibylla.theme.css
+```
+
+Il pointe vers le même build self-hosted.
 
 ## Structure
 
 ```text
 DiscordTheme/
 ├─ themes/
-│  ├─ midnight.theme.css
+│  ├─ sibylla.theme.css
 │  └─ flavors/
-│     └─ midnight-nord.theme.css
+│     └─ sibylla.theme.css
 ├─ build/
-│  └─ midnight-nord.css
+│  └─ sibylla.css
 ├─ src/
 │  ├─ base/
-│  │  └─ import.css
+│  │  └─ layout.css
 │  ├─ options/
 │  │  └─ settings.css
-│  ├─ flavors/
-│  │  └─ nord.css
-│  └─ header-midnight-nord.txt
+│  ├─ theme/
+│  │  └─ sibylla.css
+│  ├─ fixes/
+│  │  └─ compat.css
+│  └─ header-sibylla.txt
+├─ assets/
+│  └─ icons/
+│     └─ sibylla-moon.svg
 ├─ scripts/
 │  ├─ build.js
 │  └─ check.js
-├─ assets/
-│  └─ README.md
+├─ .github/workflows/check.yml
 ├─ CHANGELOG.md
 ├─ NOTICE.md
 ├─ LICENSE
@@ -70,49 +78,48 @@ DiscordTheme/
 └─ README.md
 ```
 
-## Modification du thème
+## Développement
 
-La version installable est générée depuis les fichiers dans `src/`.
-
-Pour modifier les options globales :
-
-```text
-src/options/settings.css
-```
-
-Pour modifier les couleurs Nord :
-
-```text
-src/flavors/nord.css
-```
-
-Pour reconstruire les fichiers installables :
+Reconstruire le thème :
 
 ```bash
 npm run build
+```
+
+Vérifier le thème :
+
+```bash
 npm run check
 ```
 
-## Objectif de cette V1
+Tout vérifier :
 
-Cette version sert de base saine avant une future variante **Sibylla**.
+```bash
+npm run verify
+```
 
-Elle doit rester proche du thème Midnight Nord original pour faciliter les tests :
+Le script de vérification contrôle notamment :
 
-- même import central `midnight.css` ;
-- même layout sombre ;
-- mêmes panneaux espacés ;
-- mêmes options de top bar ;
-- mêmes contrôles de fenêtre custom ;
-- même icône DM lune ;
-- même petite zone utilisateur ;
-- même palette Nord.
+- absence d'import runtime vers le GitHub d'origine ;
+- absence de fichiers ou références à l’ancienne flavor ;
+- présence de l'icône DM hébergée dans ce repo ;
+- équilibre basique des accolades, parenthèses et crochets CSS.
 
-## Crédits
+## Palette Sibylla
 
-Basé sur le projet original :
+```css
+--sibylla-bg-0: #04040b;
+--sibylla-bg-2: #0a0f18;
+--sibylla-text: #dbe8ff;
+--sibylla-blue: #37b4ff;
+--sibylla-blue-2: #4da3ff;
+--sibylla-cyan: #40e0ff;
+--sibylla-gold: #fbc900;
+--sibylla-red: #ff4d6d;
+```
 
-- midnight-discord par refact0r
-- Flavor Nord basé sur Nord Theme
+## Crédit
 
-Le projet original est sous licence MIT. Voir `NOTICE.md` et `LICENSE`.
+Cette V1 part de l'esprit et de l'organisation du thème Midnight, mais les fichiers runtime de ce repo sont maintenant self-hosted pour le projet `ussmarines/DiscordTheme`.
+
+Voir `NOTICE.md` et `LICENSE`.

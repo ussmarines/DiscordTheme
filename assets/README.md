@@ -1,5 +1,11 @@
 # Assets
 
-Dossier réservé aux futurs assets du thème : icônes, fonds, logos ou aperçus.
+Assets hosted by this repository and used by the theme.
 
-La V1 n'ajoute aucun asset local afin de conserver le comportement exact du flavor Midnight Nord, qui utilise l'icône DM distante fournie par le thème original.
+Runtime asset paths should use:
+
+```text
+https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/...
+```
+
+No runtime asset should point to the original Midnight repository.

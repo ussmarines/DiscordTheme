@@ -1,16 +1,27 @@
 # Notice
 
-This project is based on midnight-discord by refact0r.
+This project is a custom Discord theme created for Sibylla Corporation.
 
-Original repository:
+It was initially structured as a derivative work inspired by the Midnight Discord theme by refact0r. The original project is licensed under the MIT License.
+
+Original project:
+
+```text
+midnight-discord by refact0r
 https://github.com/refact0r/midnight-discord
+```
 
-Original flavor used as reference:
-https://github.com/refact0r/midnight-discord/blob/master/themes/flavors/midnight-nord.theme.css
+Original license:
 
-Original project license: MIT License.
+```text
+MIT License
+Copyright (c) 2025 refact0r
+```
 
-The installable theme in this repository imports the upstream Midnight build:
-https://refact0r.github.io/midnight-discord/build/midnight.css
+This repository keeps credit for the original design inspiration while hosting its own runtime files under:
 
-The V1 keeps the Nord variables and layout behavior as a clean base for future customization.
+```text
+https://github.com/ussmarines/DiscordTheme
+```
+
+The previous flavor layer has been removed from this project and replaced by the Sibylla visual identity.

@@ -1,20 +1,20 @@
 {
-  "name": "discordtheme-midnight-nord-base",
+  "name": "discordtheme-sibylla",
   "version": "1.0.0",
-  "description": "Base V1 d'un thème Discord compatible Vencord et BetterDiscord, basée sur midnight-discord Nord.",
+  "description": "Sibylla Discord theme compatible with Vencord and BetterDiscord.",
   "private": true,
-  "license": "MIT",
   "scripts": {
+    "cleanup:legacy": "node scripts/cleanup-legacy.js",
     "build": "node scripts/build.js",
     "check": "node scripts/check.js",
-    "dev": "node scripts/build.js --watch"
+    "verify": "npm run build && npm run check"
   },
   "keywords": [
     "discord",
     "theme",
-    "betterdiscord",
     "vencord",
-    "midnight",
-    "nord"
-  ]
+    "betterdiscord",
+    "sibylla"
+  ],
+  "license": "MIT"
 }
