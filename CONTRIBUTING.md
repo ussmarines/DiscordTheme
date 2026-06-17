@@ -9,7 +9,7 @@ to run locally:
 3. create a `.env` file in the project root with the paths of any local theme files you want to update (comma separated)
 
 ```
-DEV_OUTPUT_PATH=C:\Users\USERNAME\AppData\Roaming\Vencord\themes\midnight-dev.theme.css
+DEV_OUTPUT_PATH=C:\Users\USERNAME\AppData\Roaming\Vencord\themes\sibnight-dev.theme.css
 ```
 
 4. run `npm run dev`.
