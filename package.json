@@ -1,6 +1,6 @@
 {
   "name": "discordtheme-sibylla",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Sibylla Discord theme based on the Midnight architecture, compatible with Vencord and BetterDiscord.",
   "private": true,
   "scripts": {

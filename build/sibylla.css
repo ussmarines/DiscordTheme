@@ -51,15 +51,39 @@ body {
 }
 
 #app-mount,
-.appMount__51fd7,
-.app__160d8,
-.bg__960e4 {
+.appMount__51fd7 {
     color: var(--text-2);
     background:
         radial-gradient(circle at 18% 12%, rgba(55, 180, 255, 0.14), transparent 30%),
         radial-gradient(circle at 82% 8%, rgba(251, 201, 0, 0.07), transparent 26%),
         radial-gradient(circle at 50% 110%, rgba(64, 224, 255, 0.08), transparent 40%),
         linear-gradient(180deg, var(--bg-3), var(--bg-4)) !important;
+    isolation: isolate;
+}
+
+/* Safety fix: Discord's .bg layer must never become an opaque foreground layer. */
+.app__160d8 {
+    color: var(--text-2);
+    background: transparent !important;
+}
+
+.bg__960e4 {
+    background: transparent !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+}
+
+.layers__960e4,
+.layer__960e4,
+.app__160d8,
+.page__5e434,
+.chat_f75fb0,
+.sidebar__5e434,
+.guilds__5e434,
+.sidebarList__5e434,
+.chatContent_f75fb0 {
+    position: relative;
+    z-index: 1;
 }
 
 /* panel separation: Midnight's functional model, recolored for Sibylla */

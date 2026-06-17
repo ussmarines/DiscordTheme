@@ -47,7 +47,7 @@ function buildTheme() {
  * @name Sibylla Midnight
  * @description Thème Discord custom Sibylla basé sur l'architecture Midnight, compatible Vencord et BetterDiscord.
  * @author Sibylla Corporation
- * @version 1.2.0
+ * @version 1.3.0
  * @invite nz87hXyvcy
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibylla.theme.css

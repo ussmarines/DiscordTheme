@@ -68,11 +68,49 @@ function checkDangerousHides(file, content) {
     }
 }
 
+
+function readDeclarations(body) {
+    const out = new Map();
+    for (const declaration of body.split(';')) {
+        const index = declaration.indexOf(':');
+        if (index === -1) continue;
+        const name = declaration.slice(0, index).trim().toLowerCase();
+        const value = declaration.slice(index + 1).trim().toLowerCase();
+        if (name) out.set(name, value);
+    }
+    return out;
+}
+
+function checkForegroundBackgroundLayer(file, content) {
+    const css = stripComments(content);
+    const blocks = css.match(/[^{}]+\{[^{}]*\}/g) || [];
+    for (const block of blocks) {
+        const selector = block.slice(0, block.indexOf('{')).trim();
+        const body = block.slice(block.indexOf('{') + 1, block.lastIndexOf('}'));
+        const selectors = selector.split(',').map((s) => s.trim());
+        if (!selectors.includes('.bg__960e4')) continue;
+        const declarations = readDeclarations(body);
+        const background = declarations.get('background') || '';
+        const backgroundColor = declarations.get('background-color') || '';
+        const zIndex = declarations.get('z-index') || '';
+        assert(!background || background.startsWith('transparent'), `${file}: .bg__960e4 must not paint an opaque foreground background -> ${selector}`);
+        assert(!backgroundColor || backgroundColor.startsWith('transparent'), `${file}: .bg__960e4 must not paint an opaque foreground background-color -> ${selector}`);
+        assert(!zIndex || zIndex.startsWith('-1'), `${file}: .bg__960e4 must stay behind the app -> ${selector}`);
+    }
+}
+
+function checkNoRiskyHasGlobal(file, content) {
+    const css = stripComments(content);
+    assert(!/body:has\(\*\)\s+\*/i.test(css), `${file}: risky global body:has(*) * selector found`);
+}
+
 for (const file of runtimeFiles) {
     const content = read(file);
     assert(content.trim().length > 0, `${file}: empty file`);
     checkBalance(file, content);
     checkDangerousHides(file, content);
+    checkForegroundBackgroundLayer(file, content);
+    checkNoRiskyHasGlobal(file, content);
     assert(!/refact0r\.github\.io/i.test(content), `${file}: upstream refact0r runtime import found`);
     assert(!/raw\.githubusercontent\.com\/refact0r/i.test(content), `${file}: upstream refact0r raw runtime import found`);
 }
@@ -84,6 +122,9 @@ assert(fs.existsSync(path.join(root, 'assets/icons/sibylla-mark.svg')), 'Missing
 assert(read('themes/sibylla.theme.css').includes('raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibylla.css'), 'Theme does not import from ussmarines GitHub raw URL');
 assert(read('NOTICE.md').includes('refact0r/midnight-discord'), 'Missing upstream credit notice');
 assert(read('build/sibylla.css').includes('.wrapper_ef3116') && read('build/sibylla.css').includes('mask: none'), 'Missing safe wrapper_ef3116 mask fix');
+
+assert(!/#[^{]*#app-mount[^{]*,\s*\.appMount__51fd7[^{]*,\s*\.app__160d8[^{]*,\s*\.bg__960e4/i.test(read('build/sibylla.css')), 'Unsafe app/background grouping found');
+assert(read('build/sibylla.css').includes('.bg__960e4') && read('build/sibylla.css').includes('z-index: -1'), 'Missing .bg__960e4 background safety rule');
 
 if (process.exitCode) process.exit(process.exitCode);
 console.log('All checks passed.');
