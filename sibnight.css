@@ -65,8 +65,8 @@
     /* change to block to show, none to hide */
     --discord-icon: none; /* discord icon */
     --moon-icon: block; /* Sibylla icon */
-    --moon-icon-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.png'); /* custom icon asset url */
-    --moon-icon-size: contain;
+    --moon-icon-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.png'); /* custom logo asset url */
+    --moon-icon-size: 78%;
 
     /* filter uncolorable elements to fit theme */
     /* (just set to none, they're too much work to configure) */
@@ -778,26 +778,26 @@ button.fullRegionButton_f1ceac /* fix vc button again */ {
 .childWrapper__6e9f8 > svg:not(.favoriteIcon_c9fddf) {
     display: var(--discord-icon);
 }
+.childWrapper__6e9f8:has(> svg:not(.favoriteIcon_c9fddf)) {
+    position: relative;
+}
 .childWrapper__6e9f8:has(> svg:not(.favoriteIcon_c9fddf))::before {
     content: '';
     display: var(--moon-icon);
     position: absolute;
-    width: 65%;
-    height: 65%;
-    background: var(--text-4);
-    -webkit-mask-image: var(--moon-icon-url);
-    -webkit-mask-size: var(--moon-icon-size);
-    -webkit-mask-repeat: none;
-}
-.wrapper__6e9f8:hover .childWrapper__6e9f8::before {
-    /* prettier-ignore */
-    transition: background-color 0.15s ease-out, transform var(--moon-spin-transition);
-    transform: rotate(0deg) scale(1);
+    inset: 11%;
+    background-image: var(--moon-icon-url);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: var(--moon-icon-size);
+    pointer-events: none;
+    filter: drop-shadow(0 0 6px rgba(250, 218, 125, 0.18));
+    transition: transform var(--moon-spin-transition), filter 0.15s ease-out;
 }
 .wrapper__6e9f8:hover > .childWrapper__6e9f8::before,
 .wrapper__6e9f8.selected__6e9f8 > .childWrapper__6e9f8::before {
-    background: var(--text-0);
-    transform: rotate(-360deg) scale(0.8);
+    transform: scale(0.94);
+    filter: brightness(1.06) drop-shadow(0 0 8px rgba(250, 218, 125, 0.28));
 }
 .lowerBadge_cc5dd2::before {
     content: '';
@@ -812,7 +812,7 @@ button.fullRegionButton_f1ceac /* fix vc button again */ {
 }
 /* custom dm button background instead of icon */
 /* .childWrapper__6e9f8:has(> svg:not(.favoriteIcon_c9fddf)) {
-	background: url('https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png');
+	background: url('https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/sibylla-logo.png');
 	background-color: transparent !important;
 	background-size: cover;
 } */

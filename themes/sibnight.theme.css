@@ -45,8 +45,8 @@ body {
 
     /* dms button options */
     --custom-dms-icon: custom; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
-    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo-button.png'); /* icon asset url. home button icon asset url. */
-    --dms-icon-svg-size: 82%; /* size of the icon asset (css background-size property) */
+    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.png'); /* logo asset url */
+    --dms-icon-svg-size: 78%; /* size of the logo image (css background-size property) */
     --dms-icon-color-before: var(--icon-subtle); /* normal icon color */
     --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
     --custom-dms-background: off; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
