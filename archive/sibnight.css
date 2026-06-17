@@ -1799,3 +1799,129 @@ nav[class*='guilds'] {
     border-radius: var(--proto-radius-lg);
 }
 
+
+/* layout corrections v2.2.2 */
+body {
+    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.png');
+    --dms-icon-svg-size: contain;
+}
+
+.wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8::before {
+    inset: 5%;
+    background-size: var(--dms-icon-svg-size);
+}
+
+.guilds_c48ade,
+.sidebar_c48ade,
+.guilds__5e434,
+.wrapper_ef3116,
+.scroller_ef3116,
+.stack_dbd263,
+.itemsContainer_ef3116,
+.unreadMentionsIndicatorTop_ef3116,
+.unreadMentionsIndicatorBottom_ef3116,
+nav[class*='guilds'],
+.bar_c38106,
+.base_c48ade > .bar_c38106,
+.container__89463,
+.container__89463 > .toolbar__89463,
+.container__89463 > .contentContainer__89463,
+.subtitleContainer_f75fb0,
+.chat_f75fb0 > .subtitleContainer_f75fb0,
+.container__9293f,
+.headerBar__1a9ce,
+.title_f75fb0,
+.titleWrapper_fc4f04,
+.trailing_c38106,
+.children__9293f,
+.toolbar__9293f,
+.upperContainer__9293f {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+.tutorialContainer__1f388,
+.listItem__650eb,
+.stack_dbd263,
+.guilds__5e434,
+.guilds_c48ade,
+.sidebar_c48ade,
+.scroller_ef3116 {
+    overflow: visible !important;
+}
+
+.tutorialContainer__1f388,
+.listItem__650eb {
+    display: flex;
+    justify-content: center;
+}
+
+.container__9293f,
+.subtitleContainer_f75fb0,
+.headerBar__1a9ce,
+.bar_c38106 {
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+}
+
+.sidebar__5e434 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.sidebarList__5e434 {
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.panels__5e434 {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    overflow: hidden;
+}
+
+.message__5126c,
+.messageListItem__5126c,
+.cozy_c19a55.wrapper_c19a55,
+.compact_c19a55.wrapper_c19a55,
+.message__5126c *,
+.messageListItem__5126c *,
+.cozy_c19a55.wrapper_c19a55 *,
+.compact_c19a55.wrapper_c19a55 * {
+    margin-left: 0 !important;
+    transform: none !important;
+    translate: none !important;
+    animation: none !important;
+}
+
+.message__5126c:hover,
+.message__5126c:focus-within,
+.messageListItem__5126c:hover,
+.messageListItem__5126c:focus-within,
+.mouse-mode.full-motion .message__5126c:hover,
+.mouse-mode.full-motion .messageListItem__5126c:hover,
+.cozy_c19a55.wrapper_c19a55:hover,
+.compact_c19a55.wrapper_c19a55:hover {
+    margin-left: 0 !important;
+    transform: none !important;
+    translate: none !important;
+}
+
+.message__5126c:hover :is([class*='contents'], [class*='messageContent'], [class*='markup'], [class*='header'], [class*='repliedMessage'], [class*='repliedTextPreview'], [class*='username'], [class*='timestamp']),
+.messageListItem__5126c:hover :is([class*='contents'], [class*='messageContent'], [class*='markup'], [class*='header'], [class*='repliedMessage'], [class*='repliedTextPreview'], [class*='username'], [class*='timestamp']) {
+    margin-left: 0 !important;
+    transform: none !important;
+    translate: none !important;
+    left: auto !important;
+    inset-inline-start: auto !important;
+}
