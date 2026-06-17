@@ -2,15 +2,12 @@
  * Browser dev server for sibnight-discord.
  *
  * Combines themes/sibnight.theme.css with build/sibnight.css (built from src/*.css)
- * and serves the result over HTTP with CORS so that Discord running in a normal
- * browser tab can fetch + inject it from DevTools.
+ * and serves the result over HTTP with CORS so Discord can fetch + inject it from DevTools.
  *
  * Endpoints:
  *   GET /sibnight.css  — combined theme CSS
  *   GET /version       — { version } stamp, bumps on every rebuild
  *   GET /inject.js     — bootstrap script to eval in Discord DevTools
- *
- * See BROWSER_DEV.md for the workflow and CLAUDE.md for agent automation notes.
  */
 
 const fs = require('fs');
@@ -31,6 +28,7 @@ function buildSrc() {
     const files = fs
         .readdirSync(srcDir)
         .filter((f) => f.endsWith('.css'))
+        .sort((a, b) => a.localeCompare(b))
         .map((f) => path.join(srcDir, f));
     const main = files.find((f) => path.basename(f) === 'main.css');
     const rest = files.filter((f) => f !== main);
