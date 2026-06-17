@@ -36,19 +36,19 @@ body {
     --text-4: #81a1c1;
     --text-5: rgba(216, 222, 233, 0.62);
 
-    --bg-1: #4c566a;
-    --bg-2: #434c5e;
-    --bg-3: #3b4252;
-    --bg-4: #2e3440;
-    --hover: rgba(136, 192, 208, 0.08);
-    --active: rgba(136, 192, 208, 0.16);
-    --active-2: rgba(136, 192, 208, 0.24);
-    --message-hover: rgba(59, 66, 82, 0.35);
+    --bg-1: #3b4252;
+    --bg-2: #343b48;
+    --bg-3: #2e3440;
+    --bg-4: #232831;
+    --hover: rgba(136, 192, 208, 0.07);
+    --active: rgba(136, 192, 208, 0.14);
+    --active-2: rgba(136, 192, 208, 0.22);
+    --message-hover: rgba(46, 52, 64, 0.42);
 
-    --border-light: rgba(216, 222, 233, 0.08);
-    --border: rgba(216, 222, 233, 0.14);
-    --border-hover: rgba(136, 192, 208, 0.24);
-    --button-border: rgba(236, 239, 244, 0.12);
+    --border-light: rgba(236, 239, 244, 0.05);
+    --border: rgba(236, 239, 244, 0.10);
+    --border-hover: rgba(136, 192, 208, 0.22);
+    --button-border: rgba(236, 239, 244, 0.10);
 
     --online: #a3be8c;
     --dnd: #bf616a;
