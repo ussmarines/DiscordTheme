@@ -1740,7 +1740,7 @@ body {
 /* dms-button.css */
 body {
     --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.png'); /* logo asset url */
-    --dms-icon-svg-size: 104%; /* size of the logo image (background-size property) */
+    --dms-icon-svg-size: contain; /* size of the logo image (background-size property) */
     --dms-icon-color-before: var(--icon-subtle); /* legacy variable kept for compatibility */
     --dms-icon-color-after: var(--white); /* legacy variable kept for compatibility */
     --dms-background-image-url: url(''); /* url of the background image */
@@ -1776,7 +1776,7 @@ body {
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8::before {
         content: '';
         position: absolute;
-        inset: 4%;
+        inset: 5%;
         background-image: var(--dms-icon-svg-url);
         background-position: center;
         background-repeat: no-repeat;
@@ -2352,7 +2352,7 @@ body {
 .unreadMentionsIndicatorTop_ef3116,
 .unreadMentionsIndicatorBottom_ef3116,
 nav[class*='guilds'] {
-    background: var(--proto-app-surface) !important;
+    background: transparent !important;
     border: none !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
@@ -2363,14 +2363,33 @@ nav[class*='guilds'] {
 .sidebar_c48ade {
     margin: 0 !important;
     border-radius: 0 !important;
-    overflow: visible;
+    overflow: visible !important;
+    background: transparent !important;
 }
 
 .scroller_ef3116 {
     padding-top: calc(var(--custom-guild-list-padding) + 4px) !important;
     padding-bottom: var(--custom-guild-list-padding);
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    background: transparent !important;
+    overflow: visible !important;
+}
+
+.tutorialContainer__1f388,
+.listItem__650eb,
+.stack_dbd263 {
+    overflow: visible !important;
+}
+
+.tutorialContainer__1f388,
+.listItem__650eb {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8 {
+    overflow: hidden;
 }
 
 .wrapper__6e9f8 .childWrapper__6e9f8,
@@ -2408,6 +2427,10 @@ nav[class*='guilds'] {
 
 /* one large left column for channels + profile */
 .sidebar__5e434 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
     margin: 0 var(--gap) var(--gap) var(--gap);
 }
 
@@ -2421,6 +2444,8 @@ nav[class*='guilds'] {
 }
 
 .sidebarList__5e434 {
+    flex: 1 1 auto;
+    min-height: 0;
     margin-bottom: 0 !important;
     border-radius: var(--proto-radius-lg) var(--proto-radius-lg) 0 0;
     border: var(--border-thickness) solid var(--border-subtle);
@@ -2429,15 +2454,20 @@ nav[class*='guilds'] {
 }
 
 .panels__5e434 {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex: 0 0 auto;
     margin: 0 !important;
     padding: 8px 10px 10px;
     border-radius: 0 0 var(--proto-radius-lg) var(--proto-radius-lg);
     border: var(--border-thickness) solid var(--border-subtle);
     border-top: none;
+    overflow: hidden;
 }
 
 .container__37e49 .container_df39b2,
@@ -2591,7 +2621,7 @@ nav[class*='guilds'] {
 .children__9293f,
 .toolbar__9293f,
 .upperContainer__9293f {
-    background: var(--proto-app-surface) !important;
+    background: transparent !important;
     border: none !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
@@ -2602,7 +2632,7 @@ nav[class*='guilds'] {
 .headerBar__1a9ce,
 .bar_c38106 {
     min-height: var(--proto-topbar-height);
-    margin-bottom: 6px;
+    margin-bottom: 0;
     border-radius: 0 !important;
 }
 
@@ -2696,11 +2726,22 @@ nav[class*='guilds'] {
 .message__5126c,
 .messageListItem__5126c,
 .cozy_c19a55.wrapper_c19a55,
-.compact_c19a55.wrapper_c19a55 {
+.compact_c19a55.wrapper_c19a55,
+.message__5126c *,
+.messageListItem__5126c *,
+.cozy_c19a55.wrapper_c19a55 *,
+.compact_c19a55.wrapper_c19a55 * {
     margin-left: 0 !important;
     transform: none !important;
     translate: none !important;
     animation: none !important;
+}
+
+.message__5126c :is([class*='contents'], [class*='messageContent'], [class*='markup'], [class*='header'], [class*='repliedMessage'], [class*='repliedTextPreview'], [class*='username'], [class*='timestamp']),
+.messageListItem__5126c :is([class*='contents'], [class*='messageContent'], [class*='markup'], [class*='header'], [class*='repliedMessage'], [class*='repliedTextPreview'], [class*='username'], [class*='timestamp']) {
+    left: auto !important;
+    inset-inline-start: auto !important;
+    transition: color 0.14s ease, opacity 0.14s ease, background-color 0.14s ease !important;
 }
 
 .message__5126c {
@@ -2738,10 +2779,14 @@ nav[class*='guilds'] {
 .messageListItem__5126c:hover .messageContent_c19a55,
 .messageListItem__5126c:hover .header_c19a55,
 .messageListItem__5126c:hover .repliedMessage_c19a55,
-.messageListItem__5126c:hover .repliedTextPreview_c19a55 {
+.messageListItem__5126c:hover .repliedTextPreview_c19a55,
+.message__5126c:hover :is([class*='contents'], [class*='messageContent'], [class*='markup'], [class*='header'], [class*='repliedMessage'], [class*='repliedTextPreview'], [class*='username'], [class*='timestamp']),
+.messageListItem__5126c:hover :is([class*='contents'], [class*='messageContent'], [class*='markup'], [class*='header'], [class*='repliedMessage'], [class*='repliedTextPreview'], [class*='username'], [class*='timestamp']) {
     margin-left: 0 !important;
     transform: none !important;
     translate: none !important;
+    left: auto !important;
+    inset-inline-start: auto !important;
 }
 
 .message__5126c.mentioned__5126c,
