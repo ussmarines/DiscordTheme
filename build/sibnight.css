@@ -2427,18 +2427,30 @@ nav[class*='guilds'] {
 }
 
 /* one large left column for channels + profile */
-.sidebar__5e434 {
+/* one large left column for channels + profile */
+.sidebar__5e434,
+.sidebar_c48ade,
+.base_c48ade > .content__5e434 > [class*='sidebar']:has(> [class*='sidebarList']),
+.page__5e434 > [class*='sidebar']:has(> [class*='sidebarList']) {
     position: relative;
+    display: flex !important;
+    flex-direction: column !important;
+    align-self: stretch !important;
     flex: 0 0 var(--proto-left-column-width) !important;
     width: var(--proto-left-column-width) !important;
     min-width: var(--proto-left-column-width) !important;
     max-width: var(--proto-left-column-width) !important;
-    margin: 0 var(--gap) var(--gap) var(--gap);
+    margin: 0 var(--gap) var(--gap) var(--gap) !important;
+    overflow: visible !important;
     z-index: 2;
 }
 
 .sidebarList__5e434,
-.panels__5e434 {
+.panels__5e434,
+.sidebar_c48ade > [class*='sidebarList'],
+.sidebar_c48ade > [class*='panels'],
+.base_c48ade > .content__5e434 > [class*='sidebar']:has(> [class*='sidebarList']) > [class*='sidebarList'],
+.base_c48ade > .content__5e434 > [class*='sidebar']:has(> [class*='panels']) > [class*='panels'] {
     background: var(--proto-side-surface) !important;
     box-shadow:
         inset 0 1px 0 var(--border-light),
@@ -2448,23 +2460,33 @@ nav[class*='guilds'] {
     opacity: 1 !important;
 }
 
-.sidebarList__5e434 {
+.sidebarList__5e434,
+.sidebar_c48ade > [class*='sidebarList'],
+.base_c48ade > .content__5e434 > [class*='sidebar']:has(> [class*='sidebarList']) > [class*='sidebarList'] {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
-    margin-bottom: var(--custom-app-panels-height, 0) !important;
+    min-height: 0 !important;
+    margin-bottom: 0 !important;
     border-radius: var(--proto-radius-lg) var(--proto-radius-lg) 0 0;
     border: var(--border-thickness) solid var(--border-subtle);
     border-bottom: none;
     overflow: hidden;
 }
 
-.panels__5e434 {
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    width: auto !important;
-    max-width: none;
+.panels__5e434,
+.sidebar_c48ade > [class*='panels'],
+.base_c48ade > .content__5e434 > [class*='sidebar']:has(> [class*='panels']) > [class*='panels'] {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
     box-sizing: border-box;
     margin: 0 !important;
     padding: 8px 10px 10px;
@@ -2850,5 +2872,88 @@ nav[class*='guilds'] {
 .page__5e434 > div > .chatLayerWrapper__01ae2 .container__9293f,
 .page__5e434 > div > .chatLayerWrapper__01ae2 .chatContent_f75fb0 {
     border-radius: var(--proto-radius-lg);
+}
+
+
+/* restore the left navigation blocks in both servers and DMs */
+.base_c48ade > .content__5e434,
+.page__5e434,
+.container__133bf,
+.tabBody__133bf,
+.chat_f75fb0,
+.content_f75fb0 {
+    min-width: 0 !important;
+}
+
+.base_c48ade > .content__5e434 > .chat_f75fb0,
+.base_c48ade > .content__5e434 > .container__133bf,
+.page__5e434 > .chat_f75fb0,
+.page__5e434 > .container__133bf {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+}
+
+.sidebar_c48ade > .sidebarList__5e434,
+.sidebar__5e434 > .sidebarList__5e434,
+.sidebar_c48ade > [class*='sidebarList'],
+.sidebar__5e434 > [class*='sidebarList'],
+.sidebar_c48ade > .panels__5e434,
+.sidebar__5e434 > .panels__5e434,
+.sidebar_c48ade > [class*='panels'],
+.sidebar__5e434 > [class*='panels'] {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.container__2637a,
+.privateChannels_e6b769,
+.privateChannels__35e86,
+.scroller__629e4,
+.scroller__99e7c,
+.scroller__35e86 {
+    display: block !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.container__37e49,
+.container__37e49 > *,
+.actionButtons_e131a9,
+.avatarWrapper__37e49 {
+    min-width: 0 !important;
+}
+
+.standardSidebarView__23e6b,
+.sidebarRegionScroller__23e6b,
+.contentRegionScroller__23e6b {
+    min-width: 0;
+}
+
+
+/* extra hover lock: keep message content perfectly still */
+.messageListItem__5126c,
+.message__5126c,
+.cozy_c19a55.wrapper_c19a55,
+.compact_c19a55.wrapper_c19a55,
+.message__5126c *,
+.messageListItem__5126c * {
+    transform: none !important;
+    translate: none !important;
+}
+
+.message__5126c {
+    margin-left: 0 !important;
+}
+
+.message__5126c:hover,
+.messageListItem__5126c:hover,
+.cozy_c19a55.wrapper_c19a55:hover,
+.compact_c19a55.wrapper_c19a55:hover {
+    margin-left: 0 !important;
+    padding-left: inherit !important;
+    padding-right: inherit !important;
 }
 
