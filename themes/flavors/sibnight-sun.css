@@ -1,10 +1,10 @@
 /**
- * @name sibnight-discord
- * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
+ * @name sibnight-sun
+ * @description The original warm Sibylla palette preserved as a flavor for sibnight-discord.
  * @author ussmarines
- * @version 2.2.0
+ * @version 1.0.0
  * @website https://github.com/ussmarines/DiscordTheme
- * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-sun.css
  * @authorLink https://github.com/ussmarines
 */
 /* credits
@@ -80,20 +80,20 @@ body {
 
     /* text colors */
     --text-0: var(--bg-4); /* text on colored elements */
-    --text-1: hsl(220, 30%, 94%); /* other normally white text */
-    --text-2: hsl(218, 18%, 80%); /* headings and important text */
-    --text-3: hsl(216, 12%, 66%); /* normal text */
-    --text-4: hsl(214, 10%, 50%); /* icon buttons and channels */
-    --text-5: hsl(212, 9%, 36%); /* muted channels/chats and timestamps */
+    --text-1: hsl(42, 35%, 94%); /* other normally white text */
+    --text-2: hsl(42, 24%, 78%); /* headings and important text */
+    --text-3: hsl(40, 16%, 64%); /* normal text */
+    --text-4: hsl(38, 12%, 48%); /* icon buttons and channels */
+    --text-5: hsl(35, 10%, 32%); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
     --bg-1: hsla(224, 20%, 18%, 1); /* dark buttons when clicked */
     --bg-2: hsla(225, 22%, 14%, 1); /* dark buttons */
     --bg-3: hsla(226, 24%, 11%, 1); /* spacing, secondary elements */
     --bg-4: hsla(228, 26%, 8%, 1); /* main background color */
-    --hover: hsla(212, 72%, 68%, 0.08); /* channels and buttons when hovered */
-    --active: hsla(212, 74%, 64%, 0.14); /* channels and buttons when clicked or selected */
-    --active-2: hsla(212, 74%, 64%, 0.22); /* extra state for transparent buttons */
+    --hover: hsla(44, 65%, 70%, 0.08); /* channels and buttons when hovered */
+    --active: hsla(44, 70%, 68%, 0.16); /* channels and buttons when clicked or selected */
+    --active-2: hsla(44, 70%, 68%, 0.24); /* extra state for transparent buttons */
     --message-hover: hsla(225, 20%, 4%, 0.35); /* messages when hovered */
 
     /* accent colors */
@@ -118,8 +118,8 @@ body {
     /* border colors */
     --border-light: var(--hover); /* general light border color */
     --border: var(--active); /* general normal border color */
-    --border-hover: hsla(212, 50%, 74%, 0.22); /* border color of panels when hovered */
-    --button-border: hsla(216, 24%, 88%, 0.12); /* neutral border color of buttons */
+    --border-hover: hsla(44, 50%, 72%, 0.24); /* border color of panels when hovered */
+    --button-border: hsla(42, 30%, 88%, 0.12); /* neutral border color of buttons */
 
     /* base colors */
     --red-1: oklch(75% 0.14 28);
@@ -134,17 +134,17 @@ body {
     --green-4: oklch(60% 0.11 160);
     --green-5: oklch(54% 0.11 160);
 
-    --blue-1: oklch(82% 0.11 240);
-    --blue-2: oklch(76% 0.11 238);
-    --blue-3: oklch(70% 0.12 235);
-    --blue-4: oklch(64% 0.11 232);
-    --blue-5: oklch(58% 0.10 229);
+    --blue-1: oklch(84% 0.10 86);
+    --blue-2: oklch(78% 0.11 84);
+    --blue-3: oklch(72% 0.12 82);
+    --blue-4: oklch(66% 0.11 80);
+    --blue-5: oklch(60% 0.10 78);
 
-    --yellow-1: oklch(84% 0.08 92);
-    --yellow-2: oklch(78% 0.08 90);
-    --yellow-3: oklch(72% 0.08 88);
-    --yellow-4: oklch(66% 0.08 86);
-    --yellow-5: oklch(60% 0.08 84);
+    --yellow-1: oklch(86% 0.11 94);
+    --yellow-2: oklch(80% 0.11 92);
+    --yellow-3: oklch(74% 0.11 90);
+    --yellow-4: oklch(68% 0.11 88);
+    --yellow-5: oklch(62% 0.11 86);
 
     --purple-1: oklch(74% 0.09 315);
     --purple-2: oklch(68% 0.09 315);

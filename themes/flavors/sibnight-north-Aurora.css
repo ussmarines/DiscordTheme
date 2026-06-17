@@ -1,0 +1,66 @@
+/**
+ * @name sibnight-north-aurora
+ * @description A Nord Aurora flavor for sibnight-discord.
+ * @author ussmarines
+ * @version 1.0.0
+ * @website https://github.com/ussmarines/DiscordTheme
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-Aurora.css
+ * @authorLink https://github.com/ussmarines
+ */
+/* credits
+ * original design inspired by https://github.com/schnensch0/zelk
+ * theme design inspired by https://github.com/refact0r/midnight-discord
+ * window controls inspired by https://github.com/Dyzean/Tokyo-Night
+ */
+
+
+/* import theme modules */
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css');
+
+body {
+    --dms-icon-svg-size: 104%;
+
+    --accent-1: #ebcb8b;
+    --accent-2: #b48ead;
+    --accent-3: #b48ead;
+    --accent-4: #9e7b98;
+    --accent-5: #876883;
+    --accent-new: #d08770;
+    --mention: linear-gradient(to right, rgba(180, 142, 173, 0.18) 40%, transparent);
+    --mention-hover: linear-gradient(to right, rgba(180, 142, 173, 0.10) 40%, transparent);
+
+    --text-0: #eceff4;
+    --text-1: #eceff4;
+    --text-2: #e5e9f0;
+    --text-3: #d8dee9;
+    --text-4: #b48ead;
+    --text-5: rgba(216, 222, 233, 0.62);
+
+    --bg-1: #4c566a;
+    --bg-2: #434c5e;
+    --bg-3: #3b4252;
+    --bg-4: #2e3440;
+    --hover: rgba(180, 142, 173, 0.08);
+    --active: rgba(180, 142, 173, 0.16);
+    --active-2: rgba(180, 142, 173, 0.24);
+    --message-hover: rgba(59, 66, 82, 0.35);
+
+    --border-light: rgba(216, 222, 233, 0.08);
+    --border: rgba(216, 222, 233, 0.14);
+    --border-hover: rgba(180, 142, 173, 0.24);
+    --button-border: rgba(236, 239, 244, 0.12);
+
+    --online: #a3be8c;
+    --dnd: #bf616a;
+    --idle: #ebcb8b;
+    --streaming: #b48ead;
+
+    --background-image: on;
+    --background-image-url:
+        radial-gradient(circle at 18% 18%, rgba(180, 142, 173, 0.22), transparent 24%),
+        radial-gradient(circle at 76% 16%, rgba(208, 135, 112, 0.18), transparent 22%),
+        radial-gradient(circle at 66% 78%, rgba(163, 190, 140, 0.16), transparent 24%),
+        radial-gradient(circle at 28% 78%, rgba(191, 97, 106, 0.14), transparent 20%),
+        linear-gradient(180deg, rgba(46, 52, 64, 0.96), rgba(46, 52, 64, 0.99));
+    --dms-background-color: linear-gradient(135deg, #b48ead, #d08770, #a3be8c);
+}

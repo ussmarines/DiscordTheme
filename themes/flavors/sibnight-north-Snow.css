@@ -1,0 +1,59 @@
+/**
+ * @name sibnight-north-snow
+ * @description A Nord Snow Storm flavor for sibnight-discord.
+ * @author ussmarines
+ * @version 1.0.0
+ * @website https://github.com/ussmarines/DiscordTheme
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-Snow.css
+ * @authorLink https://github.com/ussmarines
+ */
+/* credits
+ * original design inspired by https://github.com/schnensch0/zelk
+ * theme design inspired by https://github.com/refact0r/midnight-discord
+ * window controls inspired by https://github.com/Dyzean/Tokyo-Night
+ */
+
+
+/* import theme modules */
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css');
+
+body {
+    --dms-icon-svg-size: 104%;
+
+    --accent-1: #5e81ac;
+    --accent-2: #81a1c1;
+    --accent-3: #88c0d0;
+    --accent-4: #81a1c1;
+    --accent-5: #5e81ac;
+    --accent-new: #d08770;
+    --mention: linear-gradient(to right, rgba(129, 161, 193, 0.18) 40%, transparent);
+    --mention-hover: linear-gradient(to right, rgba(129, 161, 193, 0.10) 40%, transparent);
+
+    --text-0: #2e3440;
+    --text-1: #2e3440;
+    --text-2: #3b4252;
+    --text-3: #434c5e;
+    --text-4: #4c566a;
+    --text-5: rgba(76, 86, 106, 0.78);
+
+    --bg-1: #cfd6e3;
+    --bg-2: #d8dee9;
+    --bg-3: #e5e9f0;
+    --bg-4: #eceff4;
+    --hover: rgba(94, 129, 172, 0.08);
+    --active: rgba(94, 129, 172, 0.16);
+    --active-2: rgba(94, 129, 172, 0.22);
+    --message-hover: rgba(59, 66, 82, 0.06);
+
+    --border-light: rgba(59, 66, 82, 0.06);
+    --border: rgba(59, 66, 82, 0.14);
+    --border-hover: rgba(94, 129, 172, 0.24);
+    --button-border: rgba(46, 52, 64, 0.16);
+
+    --online: #a3be8c;
+    --dnd: #bf616a;
+    --idle: #ebcb8b;
+    --streaming: #b48ead;
+
+    --dms-background-color: linear-gradient(135deg, #eceff4, #e5e9f0, #d8dee9);
+}
