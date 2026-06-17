@@ -1,8 +1,8 @@
 body {
-    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo-button.png'); /* home button icon asset url */
-    --dms-icon-svg-size: 78%; /* size of the icon asset (css background-size property) */
-    --dms-icon-color-before: var(--icon-subtle); /* retained for compatibility */
-    --dms-icon-color-after: var(--white); /* retained for compatibility */
+    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.png'); /* logo asset url */
+    --dms-icon-svg-size: 78%; /* size of the logo image (background-size property) */
+    --dms-icon-color-before: var(--icon-subtle); /* legacy variable kept for compatibility */
+    --dms-icon-color-after: var(--white); /* legacy variable kept for compatibility */
     --dms-background-image-url: url(''); /* url of the background image */
     --dms-background-image-size: cover; /* size of the background image (css background-size property) */
     --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background property) */
@@ -27,7 +27,6 @@ body {
 @container body style(--custom-dms-icon: custom) {
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8 {
         position: relative;
-        overflow: hidden;
     }
 
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8 > svg {
@@ -37,30 +36,23 @@ body {
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8::before {
         content: '';
         position: absolute;
-        inset: 0;
+        inset: 11%;
         background-image: var(--dms-icon-svg-url);
-        background-size: var(--dms-icon-svg-size);
         background-position: center;
         background-repeat: no-repeat;
+        background-size: var(--dms-icon-svg-size);
         pointer-events: none;
-        transform: scale(1);
+        filter: drop-shadow(0 0 6px rgba(250, 218, 125, 0.18));
         transition:
-            transform 0.15s ease-out,
-            filter 0.15s ease-out;
+            transform var(--dms-icon-svg-transition),
+            filter 0.15s ease-out,
+            opacity 0.15s ease-out;
     }
 
     .wrapper__6e9f8[data-list-item-id='guildsnav___home']:hover > .childWrapper__6e9f8::before,
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'].selected__6e9f8 > .childWrapper__6e9f8::before {
-        filter: brightness(1.08);
         transform: scale(0.94);
-    }
-
-    @container body style(--animations: on) {
-        .wrapper__6e9f8[data-list-item-id='guildsnav___home'] .childWrapper__6e9f8::before {
-            transition:
-                transform var(--dms-icon-svg-transition),
-                filter 0.15s ease-out;
-        }
+        filter: brightness(1.06) drop-shadow(0 0 8px rgba(250, 218, 125, 0.28));
     }
 }
 
