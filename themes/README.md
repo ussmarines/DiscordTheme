@@ -18,10 +18,10 @@
 
 ### BetterDiscord / Vencord
 
-1. Download [`themes/sibnight.theme.css`](https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css)
+1. Download [`sibnight.theme.css`](https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css)
 2. Move the file to your Discord themes folder
 3. Enable the theme
-4. Edit the variables inside `themes/sibnight.theme.css` to customize it
+4. Edit the variables inside `sibnight.theme.css` to customize it
 
 ### import URL
 
@@ -47,7 +47,7 @@ Preset variants are available in [`themes/flavors`](https://github.com/ussmarine
 
 ## project structure
 
-- `themes/sibnight.theme.css` — main distributable theme file
+- `sibnight.theme.css` — main distributable theme file
 - `build/sibnight.css` — compiled stylesheet imported by the theme
 - `src/` — modular source files used to rebuild `build/sibnight.css`
 - `themes/flavors/` — alternate presets
@@ -74,4 +74,4 @@ DEV_OUTPUT_PATH=C:\Users\USERNAME\AppData\Roaming\Vencord\themes\sibnight-dev.th
 
 ## license
 
-MIT. The original upstream attribution is preserved in [`LICENSE`](./LICENSE).
+MIT. The original upstream attribution is preserved in [`LICENSE`](../LICENSE).

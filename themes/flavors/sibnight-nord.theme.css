@@ -1,26 +1,21 @@
 /**
- * @name sibnight-discord
- * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
+ * @name sibnight (nord)
+ * @description a dark, customizable discord theme. based on nord theme (https://nordtheme.com).
  * @author ussmarines
  * @version 2.1.1
  * @website https://github.com/ussmarines/DiscordTheme
- * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-nord.theme.css
  * @authorLink https://github.com/ussmarines
 */
-/* credits
- * original design inspired by https://github.com/schnensch0/zelk
- * theme design inspired by https://github.com/refact0r/midnight-discord
- * window controls inspired by https://github.com/Dyzean/Tokyo-Night
- */
 
 /* import theme modules */
 @import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css');
 
 body {
-    /* font options */
+    /* font, change to '' for default discord font */
     --font: 'figtree'; /* change to '' for default discord font */
     --code-font: ''; /* change to '' for default discord font */
-    font-weight: 400; /* normal text font weight. DOES NOT AFFECT BOLD TEXT */
+    font-weight: 400 /* normal text font weight. DOES NOT AFFECT BOLD TEXT */;
 
     /* sizes */
     --gap: 12px; /* spacing between panels */
@@ -79,22 +74,22 @@ body {
     --colors: on; /* off: discord default colors, on: sibnight custom colors */
 
     /* text colors */
-    --text-0: var(--bg-4); /* text on colored elements */
-    --text-1: hsl(42, 35%, 94%); /* other normally white text */
-    --text-2: hsl(42, 24%, 78%); /* headings and important text */
-    --text-3: hsl(40, 16%, 64%); /* normal text */
-    --text-4: hsl(38, 12%, 48%); /* icon buttons and channels */
-    --text-5: hsl(35, 10%, 32%); /* muted channels/chats and timestamps */
+    --text-0: var(--bg-3); /* text on colored elements */
+    --text-1: #eceff4; /* other normally white text */
+    --text-2: #e5e9f0; /* headings and important text */
+    --text-3: #d8dee9; /* normal text */
+    --text-4: hsl(220, 20%, 67%); /* icon buttons and channels */
+    --text-5: #4c566a; /* muted channels/chats and timestamps */
 
     /* background and dark colors */
-    --bg-1: hsla(224, 20%, 18%, 1); /* dark buttons when clicked */
-    --bg-2: hsla(225, 22%, 14%, 1); /* dark buttons */
-    --bg-3: hsla(226, 24%, 11%, 1); /* spacing, secondary elements */
-    --bg-4: hsla(228, 26%, 8%, 1); /* main background color */
-    --hover: hsla(44, 65%, 70%, 0.08); /* channels and buttons when hovered */
-    --active: hsla(44, 70%, 68%, 0.16); /* channels and buttons when clicked or selected */
-    --active-2: hsla(44, 70%, 68%, 0.24); /* extra state for transparent buttons */
-    --message-hover: hsla(225, 20%, 4%, 0.35); /* messages when hovered */
+    --bg-1: #434c5e; /* dark buttons when clicked */
+    --bg-2: #3b4252; /* dark buttons */
+    --bg-3: #272b35; /* spacing, secondary elements */
+    --bg-4: #2e3440; /* main background color */
+    --hover: hsla(220, 20%, 50%, 0.1); /* channels and buttons when hovered */
+    --active: hsla(220, 20%, 50%, 0.2); /* channels and buttons when clicked or selected */
+    --active-2: hsla(220, 20%, 50%, 0.3); /* extra state for transparent buttons */
+    --message-hover: hsla(0, 0%, 0%, 0.1); /* messages when hovered */
 
     /* accent colors */
     --accent-1: var(--blue-1); /* links and other accent text */
@@ -109,46 +104,46 @@ body {
     --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
 
     /* status indicator colors */
-    --online: var(--green-2); /* change to #40a258 for default */
-    --dnd: var(--red-2); /* change to #d83a41 for default */
-    --idle: var(--yellow-2); /* change to #cc954c for default */
-    --streaming: var(--purple-2); /* change to #9147ff for default */
-    --offline: var(--text-4); /* change to #82838b for default offline color */
+    --online: var(--green-2); /* change to #43a25a for default */
+    --dnd: var(--red-2); /* change to #d83a42 for default */
+    --idle: var(--yellow-2); /* change to #ca9654 for default */
+    --streaming: var(--purple-2); /* change to #593695  for default */
+    --offline: var(--text-4); /* change to #83838b for default offline color */
 
     /* border colors */
-    --border-light: var(--hover); /* general light border color */
-    --border: var(--active); /* general normal border color */
-    --border-hover: hsla(44, 50%, 72%, 0.24); /* border color of panels when hovered */
-    --button-border: hsla(42, 30%, 88%, 0.12); /* neutral border color of buttons */
+    --border-light: hsla(220, 20%, 50%, 0.05); /* general light border color */
+    --border: hsla(220, 20%, 50%, 0.1); /* general normal border color */
+    --border-hover: hsla(220, 20%, 50%, 0.1); /* border color of panels when hovered */
+    --button-border: hsl(0, 0%, 100%, 0.1); /* neutral border color of buttons */
 
     /* base colors */
-    --red-1: oklch(75% 0.14 28);
-    --red-2: oklch(69% 0.14 28);
-    --red-3: oklch(63% 0.14 28);
-    --red-4: oklch(57% 0.14 28);
-    --red-5: oklch(51% 0.14 28);
+    --red-1: hsl(354, 42%, 61%);
+    --red-2: #bf616a;
+    --red-3: #bf616a;
+    --red-4: hsl(354, 42%, 51%);
+    --red-5: hsl(354, 42%, 46%);
 
-    --green-1: oklch(78% 0.11 160);
-    --green-2: oklch(72% 0.11 160);
-    --green-3: oklch(66% 0.11 160);
-    --green-4: oklch(60% 0.11 160);
-    --green-5: oklch(54% 0.11 160);
+    --green-1: hsl(92, 28%, 70%);
+    --green-2: #a3be8c;
+    --green-3: #a3be8c;
+    --green-4: hsl(92, 28%, 60%);
+    --green-5: hsl(92, 28%, 55%);
 
-    --blue-1: oklch(84% 0.10 86);
-    --blue-2: oklch(78% 0.11 84);
-    --blue-3: oklch(72% 0.12 82);
-    --blue-4: oklch(66% 0.11 80);
-    --blue-5: oklch(60% 0.10 78);
+    --blue-1: hsl(193, 43%, 72%);
+    --blue-2: #88c0d0;
+    --blue-3: #88c0d0;
+    --blue-4: hsl(193, 43%, 62%);
+    --blue-5: hsl(193, 43%, 57%);
 
-    --yellow-1: oklch(86% 0.11 94);
-    --yellow-2: oklch(80% 0.11 92);
-    --yellow-3: oklch(74% 0.11 90);
-    --yellow-4: oklch(68% 0.11 88);
-    --yellow-5: oklch(62% 0.11 86);
+    --yellow-1: hsl(40, 71%, 78%);
+    --yellow-2: #ebcb8b;
+    --yellow-3: #ebcb8b;
+    --yellow-4: hsl(40, 71%, 68%);
+    --yellow-5: hsl(40, 71%, 63%);
 
-    --purple-1: oklch(74% 0.09 315);
-    --purple-2: oklch(68% 0.09 315);
-    --purple-3: oklch(62% 0.09 315);
-    --purple-4: oklch(56% 0.09 315);
-    --purple-5: oklch(50% 0.09 315);
+    --purple-1: hsl(311, 20%, 68%);
+    --purple-2: #b48ead;
+    --purple-3: #b48ead;
+    --purple-4: hsl(311, 20%, 58%);
+    --purple-5: hsl(311, 20%, 53%);
 }
