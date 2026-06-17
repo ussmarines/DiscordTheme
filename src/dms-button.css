@@ -1,11 +1,11 @@
 body {
-    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg'); /* logo asset url */
-    --dms-icon-svg-size: 104%; /* size of the logo image (background-size property) */
-    --dms-icon-color-before: var(--icon-subtle); /* legacy variable kept for compatibility */
-    --dms-icon-color-after: var(--white); /* legacy variable kept for compatibility */
-    --dms-background-image-url: url(''); /* url of the background image */
-    --dms-background-image-size: cover; /* size of the background image (css background-size property) */
-    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background property) */
+    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg');
+    --dms-icon-svg-size: 104%;
+    --dms-icon-color-before: var(--icon-subtle);
+    --dms-icon-color-after: var(--white);
+    --dms-background-image-url: url('');
+    --dms-background-image-size: cover;
+    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2));
 }
 
 @property --custom-dms-icon {
@@ -14,10 +14,32 @@ body {
     initial-value: custom;
 }
 
+/* keep the whole home button fully clickable above any titlebar drag layer */
+.tutorialContainer__1f388,
+.wrapper__6e9f8[data-list-item-id='guildsnav___home'] {
+    position: relative;
+    z-index: 6;
+    -webkit-app-region: no-drag;
+}
+
+.wrapper__6e9f8[data-list-item-id='guildsnav___home'] {
+    overflow: visible !important;
+}
+
+.wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8,
+.wrapper__6e9f8[data-list-item-id='guildsnav___home'] .childWrapper__6e9f8 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
 @container body style(--custom-dms-icon: off) {
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8 {
         color: var(--dms-icon-color-before);
     }
+
     .wrapper__6e9f8[data-list-item-id='guildsnav___home']:hover > .childWrapper__6e9f8,
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'].selected__6e9f8 > .childWrapper__6e9f8 {
         color: var(--dms-icon-color-after);
@@ -25,10 +47,6 @@ body {
 }
 
 @container body style(--custom-dms-icon: custom) {
-    .wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8 {
-        position: relative;
-    }
-
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8 > svg {
         display: none;
     }
