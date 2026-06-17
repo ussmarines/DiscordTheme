@@ -1,0 +1,9 @@
+/**
+ * @name Sibylla Midnight
+ * @description Thème Discord custom Sibylla basé sur l'esprit Midnight, compatible Vencord et BetterDiscord.
+ * @author Sibylla Corporation
+ * @version 1.0.0
+ * @website https://github.com/ussmarines/DiscordTheme
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibylla.theme.css
+ * @updateUrl https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/sibylla.theme.css
+ */

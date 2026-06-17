@@ -1,0 +1,34 @@
+/* Compatibility and safety fixes for Vencord / BetterDiscord. */
+
+/* Keep the app clickable above the decorative background layers. */
+.layer__960e4,
+.layers__960e4,
+.app__160d8,
+.appMount__51fd7 > * {
+    position: relative;
+}
+
+/* Make sure modals stay readable. */
+.backdrop__78332,
+.backdrop__1a911,
+.backdrop__8a7fc {
+    background: rgba(0, 0, 0, 0.64) !important;
+    backdrop-filter: blur(4px);
+}
+
+/* Prevent transparent panels from becoming unreadable over video / streams. */
+.pictureInPictureWindow__6341f,
+.streamPreview__6da2d,
+.tile__2f4f7 {
+    background: #000 !important;
+}
+
+/* Safer fallback for clients that do not support color-mix. */
+@supports not (color: color-mix(in hsl, white, black)) {
+    :root {
+        --mention: linear-gradient(to right, rgba(55, 180, 255, 0.14) 38%, transparent);
+        --mention-hover: linear-gradient(to right, rgba(55, 180, 255, 0.22) 38%, transparent);
+        --reply: linear-gradient(to right, rgba(219, 232, 255, 0.08) 38%, transparent);
+        --reply-hover: linear-gradient(to right, rgba(219, 232, 255, 0.14) 38%, transparent);
+    }
+}
