@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="Sibylla Midnight preview">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#0a0f18"/>
+      <stop offset="1" stop-color="#04040b"/>
+    </linearGradient>
+    <linearGradient id="cy" x1="0" x2="1">
+      <stop offset="0" stop-color="#40e0ff"/>
+      <stop offset="1" stop-color="#37b4ff"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="250" cy="90" r="230" fill="#37b4ff" opacity="0.12"/>
+  <circle cx="960" cy="65" r="210" fill="#fbc900" opacity="0.07"/>
+  <g fill="none" stroke="#40e0ff" stroke-opacity="0.09">
+    <path d="M0 120H1200M0 240H1200M0 360H1200M0 480H1200M0 600H1200"/>
+    <path d="M120 0V675M240 0V675M360 0V675M480 0V675M600 0V675M720 0V675M840 0V675M960 0V675M1080 0V675"/>
+  </g>
+  <rect x="72" y="72" width="92" height="531" rx="24" fill="#0a0f18" stroke="#37b4ff" stroke-opacity="0.24"/>
+  <rect x="188" y="72" width="270" height="531" rx="24" fill="#0a0f18" stroke="#37b4ff" stroke-opacity="0.24"/>
+  <rect x="482" y="72" width="450" height="531" rx="24" fill="#0a0f18" stroke="#37b4ff" stroke-opacity="0.24"/>
+  <rect x="956" y="72" width="172" height="531" rx="24" fill="#0a0f18" stroke="#37b4ff" stroke-opacity="0.24"/>
+  <path d="M118 110 137 170H126l-4-15-4-15-4 15-4 15H99l19-60Z" fill="url(#cy)" filter="url(#glow)"/>
+  <rect x="220" y="118" width="176" height="18" rx="9" fill="#dbe8ff" opacity="0.8"/>
+  <rect x="220" y="170" width="190" height="10" rx="5" fill="#40e0ff" opacity="0.65"/>
+  <rect x="220" y="204" width="120" height="10" rx="5" fill="#dbe8ff" opacity="0.35"/>
+  <rect x="220" y="238" width="165" height="10" rx="5" fill="#dbe8ff" opacity="0.35"/>
+  <rect x="520" y="120" width="210" height="18" rx="9" fill="#dbe8ff" opacity="0.82"/>
+  <rect x="520" y="178" width="350" height="70" rx="14" fill="#111f33" stroke="#40e0ff" stroke-opacity="0.18"/>
+  <rect x="520" y="278" width="300" height="70" rx="14" fill="#111f33" stroke="#40e0ff" stroke-opacity="0.18"/>
+  <rect x="520" y="378" width="360" height="70" rx="14" fill="#111f33" stroke="#40e0ff" stroke-opacity="0.18"/>
+  <rect x="520" y="520" width="370" height="44" rx="18" fill="#04040b" stroke="#40e0ff" stroke-opacity="0.26"/>
+  <text x="600" y="632" fill="#dbe8ff" font-family="Rajdhani, Segoe UI, sans-serif" font-size="30" font-weight="700" text-anchor="middle">SIBYLLA MIDNIGHT</text>
+</svg>

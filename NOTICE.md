@@ -1,16 +1,18 @@
 # Notice
 
-Sibylla Midnight est un thème Discord custom pour le projet Sibylla.
+This project is based on and adapted from:
 
-La première base de travail a été inspirée par le projet Midnight Discord de refact0r, sous licence MIT.
+- `refact0r/midnight-discord`
+- Original author: refact0r
+- Original repository: https://github.com/refact0r/midnight-discord
+- Original license: MIT License
 
-Cette V3 ne charge aucun fichier runtime depuis le GitHub original `refact0r/midnight-discord`.
+The structure, development workflow, CSS module organization, and theme-file model are derived from Midnight and adapted for Sibylla Corporation.
 
-Projet de référence :
-- https://github.com/refact0r/midnight-discord
+All runtime theme imports in this fork are intended to point to:
 
-Direction artistique Sibylla :
-- noir bleuté
-- cyan / bleu clair
-- doré corporate
-- panneaux sombres sci-fi
+```text
+https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/
+```
+
+No runtime CSS import should point to `refact0r.github.io` or `raw.githubusercontent.com/refact0r`.

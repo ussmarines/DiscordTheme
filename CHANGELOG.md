@@ -1,18 +1,17 @@
 # Changelog
 
-## 1.1.0 — 2026-06-17
+## 1.1.0 — V4 Full Midnight-Style Sibylla Base
 
-### Fixed
-- Correction du risque d'écran vide dans Vencord.
-- Suppression du `@import` runtime dans le thème principal.
-- Suppression des overlays fixes décoratifs de la V2.
-- Réduction des overrides destructifs de layout.
+- Reprise d'une structure complète inspirée de `refact0r/midnight-discord`.
+- Ajout de `src/`, `build/`, `scripts/`, `test/`, `themes/`, `assets/`.
+- Suppression totale des flavors.
+- Remplacement du thème principal par `themes/sibylla.theme.css`.
+- Build public hébergé sur `ussmarines/DiscordTheme`.
+- Ajout des scripts `dev`, `serve`, `build`, `check`, `verify`.
+- Ajout d'un loader navigateur `scripts/inject.js`.
+- Ajout d'une DA Sibylla : noir bleuté, cyan, bleu, doré corporate, accents Restricted-ready.
+- Conservation des crédits et de la licence MIT du projet Midnight original.
 
-### Removed
-- Suppression du flavor Sibylla dupliqué.
-- Suppression du dossier `themes/flavors/`.
+## 1.0.0
 
-### Changed
-- `themes/sibylla.theme.css` devient le fichier principal autoportant.
-- `build/sibylla.css` reste généré pour référence/dev.
-- Scripts de build/check mis à jour.
+- Base initiale Sibylla.

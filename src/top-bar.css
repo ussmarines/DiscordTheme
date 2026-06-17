@@ -1,0 +1,22 @@
+.trailing_c38106,
+.winButtons_c38106,
+.titleBar__421ed,
+.bar_c38106 {
+    background: transparent !important;
+}
+
+.winButton_c38106:hover {
+    background: rgba(64, 224, 255, 0.12) !important;
+}
+
+.winButtonClose_c38106:hover {
+    background: rgba(255, 77, 109, 0.74) !important;
+}
+
+body:has(*) .title_c38106 {
+    color: var(--text-4);
+}
+
+body:has(*) .bar_c38106 {
+    min-height: var(--top-bar-height);
+}
