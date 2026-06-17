@@ -2,7 +2,7 @@
  * @name sibnight-discord
  * @description A Sibylla-inspired dark, rounded Discord theme.
  * @author ussmarines
- * @version 1.6.4
+ * @version 1.6.5
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/archive/sibnight.theme.css
  * @authorLink https://github.com/ussmarines
@@ -83,7 +83,7 @@
     /* change to block to show, none to hide */
     --discord-icon: none; /* discord icon */
     --moon-icon: block; /* Sibylla icon */
-    --moon-icon-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.png'); /* custom icon asset url */
+    --moon-icon-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg'); /* custom icon asset url */
     --moon-icon-size: 104%;
 
     /* filter uncolorable elements to fit theme */

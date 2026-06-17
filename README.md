@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="220" src="https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.png" alt="Sibylla logo">
+  <img width="220" src="https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg" alt="Sibylla logo">
 </p>
 
 <h1 align="center">sibnight-discord</h1>
@@ -32,7 +32,7 @@ Le projet reprend une base existante, la réoriente vers l'univers graphique de 
 
 ```text
 assets/
-  sibylla-logo.png
+  sibylla-logo.svg
 build/
   sibnight.css
 src/
