@@ -1,0 +1,11 @@
+/**
+ * @name midnight (nord) - base V1
+ * @description Base de travail DiscordTheme basée sur midnight-discord Nord. Design, variables et options conservés pour Vencord et BetterDiscord.
+ * @author refact0r / Sibylla Corporation
+ * @version 1.0.0
+ * @license MIT
+ * @website https://github.com/refact0r/midnight-discord
+ * @source https://github.com/ussmarines/DiscordTheme
+ * @updateUrl https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/flavors/midnight-nord.theme.css
+*/
+

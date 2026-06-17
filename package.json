@@ -1,0 +1,20 @@
+{
+  "name": "discordtheme-midnight-nord-base",
+  "version": "1.0.0",
+  "description": "Base V1 d'un thème Discord compatible Vencord et BetterDiscord, basée sur midnight-discord Nord.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "check": "node scripts/check.js",
+    "dev": "node scripts/build.js --watch"
+  },
+  "keywords": [
+    "discord",
+    "theme",
+    "betterdiscord",
+    "vencord",
+    "midnight",
+    "nord"
+  ]
+}
