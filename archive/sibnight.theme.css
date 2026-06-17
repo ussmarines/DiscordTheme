@@ -96,13 +96,3 @@
     --windows-nav: none;
     --custom-nav: block;
 }
-
-/* zelk-inspired interface prototype defaults */
-body {
-    --gap: 8px;
-    --divider-thickness: 3px;
-    --top-bar-height: 28px;
-    --window-control-size: 12px;
-    --list-item-transition: 0.14s ease;
-    --border-hover-transition: 0.14s ease;
-}

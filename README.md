@@ -1,5 +1,3 @@
-
-> Prototype interface refresh: the base layout has been reworked with a more compact, modern slab UI inspired by zelk while staying compatible with current Discord.
 <p align="center">
   <img width="220" src="https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.png" alt="Sibylla logo">
 </p>
