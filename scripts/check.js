@@ -2,58 +2,55 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const RUNTIME_FILES = [
+const files = [
   'themes/sibylla.theme.css',
-  'themes/flavors/sibylla.theme.css',
   'build/sibylla.css',
+  'src/sibylla.css',
 ];
 
 function read(file) {
   return fs.readFileSync(path.join(ROOT, file), 'utf8');
 }
 
+function fail(message) {
+  console.error(`CHECK FAILED: ${message}`);
+  process.exitCode = 1;
+}
+
 function assert(condition, message) {
-  if (!condition) {
-    console.error(`CHECK FAILED: ${message}`);
-    process.exitCode = 1;
-  }
+  if (!condition) fail(message);
+}
+
+function stripCommentsAndStrings(content) {
+  return content
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/'(?:\\.|[^'\\])*'/g, "''")
+    .replace(/"(?:\\.|[^"\\])*"/g, '""');
 }
 
 function checkBalance(file, content) {
-  const pairs = [
-    ['{', '}'],
-    ['(', ')'],
-    ['[', ']'],
-  ];
+  const cleaned = stripCommentsAndStrings(content);
+  const pairs = [['{', '}'], ['(', ')'], ['[', ']']];
   for (const [open, close] of pairs) {
-    const a = [...content].filter((ch) => ch === open).length;
-    const b = [...content].filter((ch) => ch === close).length;
+    const a = [...cleaned].filter((ch) => ch === open).length;
+    const b = [...cleaned].filter((ch) => ch === close).length;
     assert(a === b, `${file}: unbalanced ${open}${close} (${a}/${b})`);
   }
 }
 
-for (const file of RUNTIME_FILES) {
+for (const file of files) {
   const content = read(file);
   assert(content.trim().length > 0, `${file}: empty file`);
   checkBalance(file, content);
   assert(!/refact0r\.github\.io/i.test(content), `${file}: upstream refact0r runtime import found`);
   assert(!/raw\.githubusercontent\.com\/refact0r/i.test(content), `${file}: upstream refact0r raw runtime import found`);
-  assert(!/midnight[-_]?[n]ord/i.test(content), `${file}: legacy flavor reference found`);
+  assert(!/midnight[-_]?nord/i.test(content), `${file}: legacy Nord flavor reference found`);
+  assert(!/position:\s*fixed[\s\S]{0,160}z-index:\s*0/i.test(content), `${file}: risky fixed overlay with z-index 0 found`);
+  assert(!/@import\s+url\(/i.test(content), `${file}: runtime @import found; V3 theme must be self-contained`);
 }
 
-const allFiles = [];
-function walk(dir) {
-  for (const name of fs.readdirSync(dir)) {
-    const full = path.join(dir, name);
-    const rel = path.relative(ROOT, full).replace(/\\/g, '/');
-    if (fs.statSync(full).isDirectory()) walk(full);
-    else allFiles.push(rel);
-  }
-}
-walk(ROOT);
-assert(!allFiles.some((file) => /[n]ord/i.test(file)), 'Legacy flavor file still exists');
-assert(fs.existsSync(path.join(ROOT, 'assets/icons/sibylla-moon.svg')), 'Missing self-hosted DM icon asset');
-assert(read('themes/sibylla.theme.css').includes('raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibylla.css'), 'Theme does not import from ussmarines GitHub raw URL');
+assert(!fs.existsSync(path.join(ROOT, 'themes', 'flavors')), 'themes/flavors must not exist in V3');
+assert(fs.existsSync(path.join(ROOT, 'assets', 'icons', 'sibylla-moon.svg')), 'Missing self-hosted icon asset');
 
 if (process.exitCode) process.exit(process.exitCode);
 console.log('All checks passed.');
