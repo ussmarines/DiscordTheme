@@ -1,4 +1,4 @@
-/* stable layout layer: preserve Discord structure, only restyle shell */
+/* layout safety layer: keep Discord's native sidebar structure intact */
 :root {
     --proto-topbar-height: 52px;
 }
@@ -22,7 +22,7 @@ body {
     background: var(--proto-app-surface) !important;
 }
 
-/* keep the server rail fused with the application background */
+/* server rail fused with the app background */
 .guilds_c48ade,
 .guilds__5e434,
 .wrapper_ef3116,
@@ -40,14 +40,11 @@ nav[class*='guilds'] {
 
 .guilds__5e434,
 .guilds_c48ade {
-    margin-right: var(--gap) !important;
     border-radius: 0 !important;
     overflow: visible !important;
 }
 
 .scroller_ef3116 {
-    padding-top: var(--custom-guild-list-padding) !important;
-    padding-bottom: var(--custom-guild-list-padding) !important;
     background: transparent !important;
 }
 
@@ -80,51 +77,6 @@ nav[class*='guilds'] {
 .folderPreviewWrapper__48112,
 .expandedFolderBackground__48112 {
     background: color-mix(in srgb, var(--bg-2) 66%, transparent) !important;
-}
-
-/* keep native Discord sidebars fully visible in servers and DMs */
-.sidebar__5e434,
-.sidebar_c48ade,
-.sidebarList__5e434,
-.panels__5e434,
-.container__2637a,
-.privateChannels_e6b769,
-.privateChannels__35e86,
-.scroller__629e4,
-.scroller__99e7c,
-.scroller__35e86,
-.container__37e49,
-.container__37e49 > *,
-.wrapper_e131a9,
-.actionButtons_e131a9,
-.avatarWrapper__37e49 {
-    visibility: visible !important;
-    opacity: 1 !important;
-    min-width: 0 !important;
-}
-
-.sidebar__5e434,
-.sidebar_c48ade {
-    display: flex !important;
-    flex-direction: column !important;
-    min-width: 0 !important;
-}
-
-.sidebarList__5e434,
-.container__2637a,
-.privateChannels_e6b769,
-.privateChannels__35e86 {
-    display: flex !important;
-    flex-direction: column !important;
-    min-height: 0 !important;
-}
-
-.scroller__629e4,
-.scroller__99e7c,
-.scroller__35e86 {
-    display: block !important;
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
 }
 
 /* top strip: same surface as the application shell, no extra card */
@@ -221,7 +173,7 @@ nav[class*='guilds'] {
     background: transparent !important;
 }
 
-/* static hover behavior for channels, DMs and settings */
+/* list items: color change only, no movement */
 .wrapper__2ea32 .link__2ea32,
 .channel__972a0,
 .container__91a9d,
@@ -237,23 +189,13 @@ nav[class*='guilds'] {
         color 0.14s ease;
 }
 
-.wrapper__2ea32 .link__2ea32,
-.channel__972a0,
-.container__91a9d,
-.link__972a0,
-.interactive__972a0 {
-    min-height: 36px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 .wrapper__2ea32:hover .link__2ea32,
 .channel__972a0:hover,
 .container__91a9d:hover,
 .side_aa8da2 .item_aa8da2:hover,
 .member_c8ffbb:hover {
-    margin-left: 0 !important;
     transform: none !important;
+    translate: none !important;
     background: var(--proto-hover-surface);
     border-color: transparent;
 }
@@ -265,13 +207,13 @@ nav[class*='guilds'] {
 .container__91a9d[aria-selected='true'],
 .side_aa8da2 .selected_a523ff.item_aa8da2,
 .side_aa8da2 .item_aa8da2[aria-selected='true'] {
-    margin-left: 0 !important;
     transform: none !important;
+    translate: none !important;
     background: var(--proto-active-surface);
     border-color: transparent;
 }
 
-/* keep the message column perfectly still on hover */
+/* messages: keep text and accessories fixed on hover */
 .messageListItem__5126c,
 .message__5126c,
 .cozy_c19a55.wrapper_c19a55,
@@ -286,9 +228,8 @@ nav[class*='guilds'] {
 
 .message__5126c,
 .cozy_c19a55.wrapper_c19a55,
-.compact_c19a55.wrapper_c19a55 {
-    margin-left: 4px !important;
-    margin-right: 8px !important;
+.compact_c19a55.wrapper_c19a55,
+.messageListItem__5126c {
     border-radius: 12px;
     transition:
         background-color 0.14s ease,
@@ -304,7 +245,6 @@ nav[class*='guilds'] {
 .mouse-mode.full-motion .messageListItem__5126c:hover,
 .cozy_c19a55.wrapper_c19a55:hover,
 .compact_c19a55.wrapper_c19a55:hover {
-    margin-left: 4px !important;
     transform: none !important;
     translate: none !important;
     background: var(--message-hover);
