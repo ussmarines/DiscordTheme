@@ -42,4 +42,5 @@ npm run verify
 - Aucun flavor n'est conservé.
 - Aucun import runtime ne pointe vers `refact0r.github.io` ou `raw.githubusercontent.com/refact0r`.
 - Les crédits MIT de Midnight sont conservés dans `NOTICE.md` et `LICENSE`.
-- Le check bloque désormais les règles qui masquent les conteneurs critiques de Discord, notamment `.wrapper_ef3116`.
+- Le check bloque les règles qui masquent les conteneurs critiques de Discord, notamment `.wrapper_ef3116`.
+- Le check bloque aussi les backgrounds opaques sur `.bg__960e4`, qui peuvent couvrir toute l’interface Discord.
