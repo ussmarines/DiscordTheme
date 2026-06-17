@@ -1,17 +1,15 @@
 /**
- * @name midnight
+ * @name sibnight
  * @description a dark, customizable discord theme.
- * @author refact0r
+ * @author ussmarines
  * @version 2.0.1
- * @invite nz87hXyvcy
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/test/system24-test.css
- * @authorId 508863359777505290
- * @authorLink https://www.refact0r.dev
+ * @authorLink https://github.com/ussmarines
 */
 
 /* import theme modules */
-@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/midnight.css');
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css');
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 body {
@@ -25,7 +23,7 @@ body {
     --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
 
     /* animation/transition options */
-    --animations: on; /* turn off to disable all midnight animations/transitions */
+    --animations: on; /* turn off to disable all sibnight animations/transitions */
     --list-item-transition: 0.2s ease; /* transition for list items */
     --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
 

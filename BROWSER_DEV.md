@@ -1,11 +1,11 @@
 # Browser dev — agent flow
 
-How to drive midnight-discord changes against Discord in Chrome via the chrome-devtools MCP.
+How to drive sibnight-discord changes against Discord in Chrome via the chrome-devtools MCP.
 
 ## Setup
 
-1. **Dev server** (background): `npm run serve`. Listens on `http://127.0.0.1:8765`. Watches `src/` and `themes/midnight.theme.css`, rebuilds in <1s.
-   - `GET /midnight.css` — current build
+1. **Dev server** (background): `npm run serve`. Listens on `http://127.0.0.1:8765`. Watches `src/` and `themes/sibnight.theme.css`, rebuilds in <1s.
+   - `GET /sibnight.css` — current build
    - `GET /version` — `{ version }` stamp, bumps every rebuild
    - `GET /inject.js` — loader
 
@@ -17,11 +17,11 @@ How to drive midnight-discord changes against Discord in Chrome via the chrome-d
    ```js
    await (await fetch('http://127.0.0.1:8765/inject.js')).text().then(eval)
    ```
-   Applies the theme, starts ~1s polling against `/version`, exposes `window.__midnight`.
+   Applies the theme, starts ~1s polling against `/version`, exposes `window.__sibnight`.
 
-4. **Re-inject after navigation.** Any `navigate_page` or reload wipes the loader. If `window.__midnight` is missing, run step 3 again.
+4. **Re-inject after navigation.** Any `navigate_page` or reload wipes the loader. If `window.__sibnight` is missing, run step 3 again.
 
-## Helpers (`window.__midnight`)
+## Helpers (`window.__sibnight`)
 
 - `reload()` — force re-fetch + re-apply.
 - `off()` — remove injected style + stop polling.

@@ -1,18 +1,18 @@
 /*
- * Loader for midnight-discord browser dev. Served by scripts/serve.js at /inject.js.
+ * Loader for sibnight-discord browser dev. Served by scripts/serve.js at /inject.js.
  * Eval in the Discord DevTools console once per session — it injects the current
- * theme CSS, starts auto-reload polling, and exposes debug helpers on window.__midnight.
+ * theme CSS, starts auto-reload polling, and exposes debug helpers on window.__sibnight.
  */
 
 (() => {
     const BASE = (document.currentScript && document.currentScript.src)
         ? new URL('.', document.currentScript.src).origin
         : 'http://127.0.0.1:8765';
-    const STYLE_ID = 'midnight-theme-injected';
+    const STYLE_ID = 'sibnight-theme-injected';
     const POLL_MS = 800;
 
     async function fetchCSS() {
-        const r = await fetch(`${BASE}/midnight.css?t=${Date.now()}`);
+        const r = await fetch(`${BASE}/sibnight.css?t=${Date.now()}`);
         return r.text();
     }
 
@@ -39,7 +39,7 @@
                 if (v !== lastVer) {
                     lastVer = v;
                     const n = await apply();
-                    console.log(`[midnight] reloaded ${n}b @ ${new Date().toLocaleTimeString()}`);
+                    console.log(`[sibnight] reloaded ${n}b @ ${new Date().toLocaleTimeString()}`);
                 }
             } catch (_) { /* server probably down; keep polling */ }
         }, POLL_MS);
@@ -90,7 +90,7 @@
         return out;
     }
 
-    // Return the resolved value of a midnight CSS variable from :root or body.
+    // Return the resolved value of a sibnight CSS variable from :root or body.
     function cssVar(name) {
         const n = name.startsWith('--') ? name : `--${name}`;
         return getComputedStyle(document.body).getPropertyValue(n).trim()
@@ -185,11 +185,11 @@
         return chain;
     }
 
-    window.__midnight = { reload: apply, off, start, stop, computed, find, cssVar, trace, BASE };
+    window.__sibnight = { reload: apply, off, start, stop, computed, find, cssVar, trace, BASE };
 
     apply().then((n) => {
         lastVer = Date.now();
         start();
-        console.log(`[midnight] injected ${n}b — auto-reload on. helpers: window.__midnight`);
-    }).catch((e) => console.error('[midnight] inject failed:', e));
+        console.log(`[sibnight] injected ${n}b — auto-reload on. helpers: window.__sibnight`);
+    }).catch((e) => console.error('[sibnight] inject failed:', e));
 })();
