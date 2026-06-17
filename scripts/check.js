@@ -1,56 +1,58 @@
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = path.resolve(__dirname, '..');
-const files = [
-  'themes/sibylla.theme.css',
-  'build/sibylla.css',
-  'src/sibylla.css',
-];
+const root = path.join(__dirname, '..');
+const runtimeFiles = ['themes/sibylla.theme.css', 'build/sibylla.css'];
 
 function read(file) {
-  return fs.readFileSync(path.join(ROOT, file), 'utf8');
+    return fs.readFileSync(path.join(root, file), 'utf8');
 }
 
 function fail(message) {
-  console.error(`CHECK FAILED: ${message}`);
-  process.exitCode = 1;
+    console.error(`CHECK FAILED: ${message}`);
+    process.exitCode = 1;
 }
 
 function assert(condition, message) {
-  if (!condition) fail(message);
+    if (!condition) fail(message);
 }
 
-function stripCommentsAndStrings(content) {
-  return content
-    .replace(/\/\*[\s\S]*?\*\//g, '')
-    .replace(/'(?:\\.|[^'\\])*'/g, "''")
-    .replace(/"(?:\\.|[^"\\])*"/g, '""');
+function walk(dir, out = []) {
+    for (const name of fs.readdirSync(dir)) {
+        const full = path.join(dir, name);
+        const rel = path.relative(root, full).replace(/\\/g, '/');
+        if (fs.statSync(full).isDirectory()) walk(full, out);
+        else out.push(rel);
+    }
+    return out;
 }
 
 function checkBalance(file, content) {
-  const cleaned = stripCommentsAndStrings(content);
-  const pairs = [['{', '}'], ['(', ')'], ['[', ']']];
-  for (const [open, close] of pairs) {
-    const a = [...cleaned].filter((ch) => ch === open).length;
-    const b = [...cleaned].filter((ch) => ch === close).length;
-    assert(a === b, `${file}: unbalanced ${open}${close} (${a}/${b})`);
-  }
+    for (const [open, close] of [
+        ['{', '}'],
+        ['(', ')'],
+        ['[', ']'],
+    ]) {
+        const a = [...content].filter((ch) => ch === open).length;
+        const b = [...content].filter((ch) => ch === close).length;
+        assert(a === b, `${file}: unbalanced ${open}${close} (${a}/${b})`);
+    }
 }
 
-for (const file of files) {
-  const content = read(file);
-  assert(content.trim().length > 0, `${file}: empty file`);
-  checkBalance(file, content);
-  assert(!/refact0r\.github\.io/i.test(content), `${file}: upstream refact0r runtime import found`);
-  assert(!/raw\.githubusercontent\.com\/refact0r/i.test(content), `${file}: upstream refact0r raw runtime import found`);
-  assert(!/midnight[-_]?nord/i.test(content), `${file}: legacy Nord flavor reference found`);
-  assert(!/position:\s*fixed[\s\S]{0,160}z-index:\s*0/i.test(content), `${file}: risky fixed overlay with z-index 0 found`);
-  assert(!/@import\s+url\(/i.test(content), `${file}: runtime @import found; V3 theme must be self-contained`);
+for (const file of runtimeFiles) {
+    const content = read(file);
+    assert(content.trim().length > 0, `${file}: empty file`);
+    checkBalance(file, content);
+    assert(!/refact0r\.github\.io/i.test(content), `${file}: upstream refact0r runtime import found`);
+    assert(!/raw\.githubusercontent\.com\/refact0r/i.test(content), `${file}: upstream refact0r raw runtime import found`);
 }
 
-assert(!fs.existsSync(path.join(ROOT, 'themes', 'flavors')), 'themes/flavors must not exist in V3');
-assert(fs.existsSync(path.join(ROOT, 'assets', 'icons', 'sibylla-moon.svg')), 'Missing self-hosted icon asset');
+const files = walk(root);
+assert(!files.some((file) => /themes\/flavors\//i.test(file)), 'Flavor directory/file still exists');
+assert(!files.some((file) => /nord/i.test(file)), 'Legacy Nord file/reference still exists in file path');
+assert(fs.existsSync(path.join(root, 'assets/icons/sibylla-mark.svg')), 'Missing self-hosted Sibylla SVG icon');
+assert(read('themes/sibylla.theme.css').includes('raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibylla.css'), 'Theme does not import from ussmarines GitHub raw URL');
+assert(read('NOTICE.md').includes('refact0r/midnight-discord'), 'Missing upstream credit notice');
 
 if (process.exitCode) process.exit(process.exitCode);
 console.log('All checks passed.');

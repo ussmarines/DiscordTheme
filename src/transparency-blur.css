@@ -1,0 +1,28 @@
+body {
+    --panel-backdrop-filter: none;
+}
+
+/* Midnight-compatible variables. When panel blur is enabled manually, panels use this filter. */
+body:has(*) {
+    --panel-backdrop-filter: none;
+}
+
+.layer__960e4,
+.layers__960e4,
+.app__160d8,
+.appMount__51fd7 > * {
+    position: relative;
+}
+
+.backdrop__78332,
+.backdrop__1a911,
+.backdrop__8a7fc {
+    background: rgba(0, 0, 0, 0.64) !important;
+    backdrop-filter: blur(4px);
+}
+
+.pictureInPictureWindow__6341f,
+.streamPreview__6da2d,
+.tile__2f4f7 {
+    background: #000 !important;
+}

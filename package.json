@@ -1,20 +1,32 @@
 {
-  "name": "discordtheme-sibylla",
-  "version": "1.1.0",
-  "description": "Sibylla Discord theme compatible with Vencord and BetterDiscord.",
-  "private": true,
-  "scripts": {
-    "cleanup:legacy": "node scripts/cleanup-legacy.js",
-    "build": "node scripts/build.js",
-    "check": "node scripts/check.js",
-    "verify": "npm run cleanup:legacy && npm run build && npm run check"
-  },
-  "keywords": [
-    "discord",
-    "theme",
-    "vencord",
-    "betterdiscord",
-    "sibylla"
-  ],
-  "license": "MIT"
+    "name": "sibylla-midnight-discord-theme",
+    "version": "1.1.0",
+    "description": "Sibylla Discord theme based on the Midnight architecture, compatible with Vencord and BetterDiscord.",
+    "author": "Sibylla Corporation",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "dev": "node scripts/dev.js",
+        "serve": "node scripts/serve.js",
+        "build": "node scripts/build.js",
+        "check": "node scripts/check.js",
+        "verify": "npm run build && npm run check",
+        "clean:flavors": "node scripts/clean-flavors.js"
+    },
+    "devDependencies": {
+        "chokidar": "^3.6.0",
+        "dotenv": "^16.4.5"
+    },
+    "keywords": [
+        "css",
+        "theme",
+        "dark-theme",
+        "discord",
+        "discord-theme",
+        "betterdiscord",
+        "betterdiscord-theme",
+        "vencord",
+        "vencord-theme",
+        "sibylla"
+    ]
 }

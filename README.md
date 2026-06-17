@@ -1,70 +1,165 @@
+<img width="800" alt="Sibylla Midnight" src="https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/preview.svg">
+
 # Sibylla Midnight
 
-Thème Discord custom pour **Vencord** et **BetterDiscord**.
+Thème Discord custom pour **Vencord** et **BetterDiscord**, basé sur l'architecture du projet `refact0r/midnight-discord`, puis adapté à la direction artistique de **Sibylla Corporation**.
 
-Cette V3 corrige le problème de l'écran vide rencontré avec la V2 :
+Cette V4 reprend le fonctionnement complet de Midnight :
 
-- le thème principal est maintenant **autoportant** ;
-- il n'y a plus de `@import` runtime ;
-- le dossier `themes/flavors/` est supprimé ;
-- le flavor Sibylla dupliqué est supprimé ;
-- les couches décoratives fixes de la V2 sont supprimées pour éviter de couvrir l'interface ;
-- les styles destructifs de layout ont été remplacés par une couche visuelle plus sûre.
+- fichier installable dans `themes/` ;
+- build compilé dans `build/` ;
+- modules CSS séparés dans `src/` ;
+- scripts de développement `dev`, `serve`, `build` ;
+- loader navigateur `scripts/inject.js` ;
+- variables de personnalisation dans le fichier `.theme.css` ;
+- compatibilité Vencord et BetterDiscord ;
+- aucun flavor conservé.
 
-## Installation Vencord
+## Installation
 
-Utilise directement ce lien dans **Online Themes** après avoir push le repo :
+### Vencord / BetterDiscord — fichier local
+
+1. Télécharge ou clone ce repo.
+2. Copie ce fichier dans ton dossier de thèmes :
+
+```text
+themes/sibylla.theme.css
+```
+
+3. Active le thème dans Vencord ou BetterDiscord.
+
+### Vencord — Online Theme
+
+Après avoir push le repo sur GitHub, ajoute ce lien dans Vencord :
 
 ```text
 https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/sibylla.theme.css
 ```
 
-## Installation BetterDiscord
-
-Copie ce fichier dans le dossier des thèmes BetterDiscord :
+Le fichier installable importe uniquement le build hébergé sur ce repo :
 
 ```text
-themes/sibylla.theme.css
+https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibylla.css
 ```
 
 ## Structure
 
 ```text
 DiscordTheme/
-├─ themes/
-│  └─ sibylla.theme.css
+├─ assets/
+│  └─ icons/
+│     └─ sibylla-mark.svg
 ├─ build/
-│  └─ sibylla.css
-├─ src/
-│  ├─ header-sibylla.txt
 │  └─ sibylla.css
 ├─ scripts/
 │  ├─ build.js
 │  ├─ check.js
-│  └─ cleanup-legacy.js
-├─ assets/
-│  └─ icons/
-│     └─ sibylla-moon.svg
-├─ docs/
-│  └─ AUDIT_V3.md
+│  ├─ clean-flavors.js
+│  ├─ dev.js
+│  ├─ inject.js
+│  └─ serve.js
+├─ src/
+│  ├─ main.css
+│  ├─ colors.css
+│  ├─ animations.css
+│  ├─ background-image.css
+│  ├─ chatbar.css
+│  ├─ dms-button.css
+│  ├─ top-bar.css
+│  ├─ transparency-blur.css
+│  ├─ user-panel.css
+│  ├─ window-controls.css
+│  └─ sibylla.css
+├─ test/
+│  └─ smoke-check.md
+├─ themes/
+│  └─ sibylla.theme.css
+├─ BROWSER_DEV.md
 ├─ CHANGELOG.md
-├─ NOTICE.md
+├─ CONTRIBUTING.md
 ├─ LICENSE
+├─ NOTICE.md
 ├─ package.json
 └─ README.md
 ```
 
-## Commandes
+## Développement
+
+Installer les dépendances :
 
 ```bash
-npm run cleanup:legacy
+npm install
+```
+
+Compiler le build :
+
+```bash
 npm run build
+```
+
+Vérifier la structure et les imports :
+
+```bash
 npm run check
+```
+
+Build + check :
+
+```bash
 npm run verify
 ```
 
-## Notes
+Mode dev local, comme Midnight :
 
-Le thème garde une direction artistique Sibylla : noir bleuté, cyan, bleu clair, doré, panneaux sombres et ambiance corporate sci-fi.
+1. Crée un fichier `.env` à la racine.
+2. Ajoute le chemin vers ton thème local Discord :
 
-La V3 privilégie la stabilité. Les effets plus agressifs pourront être réintroduits plus tard, un par un, après test dans Vencord.
+```text
+DEV_OUTPUT_PATH=C:\Users\USERNAME\AppData\Roaming\Vencord\themes\sibylla-dev.theme.css
+```
+
+3. Lance :
+
+```bash
+npm run dev
+```
+
+## Serveur de test navigateur
+
+```bash
+npm run serve
+```
+
+Puis dans Discord ouvert dans un navigateur / DevTools :
+
+```js
+fetch('http://127.0.0.1:8765/inject.js').then(r => r.text()).then(eval)
+```
+
+## Personnalisation
+
+Les options principales sont dans :
+
+```text
+themes/sibylla.theme.css
+```
+
+La DA Sibylla est dans :
+
+```text
+src/sibylla.css
+```
+
+Les couleurs principales sont dans le bloc `:root` de :
+
+```text
+themes/sibylla.theme.css
+```
+
+## Crédits
+
+Ce projet est basé sur l'architecture et le fonctionnement de :
+
+- `refact0r/midnight-discord`
+
+Le projet original est sous licence MIT. Les crédits sont conservés dans `NOTICE.md` et la licence dans `LICENSE`.
