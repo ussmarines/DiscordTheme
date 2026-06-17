@@ -1726,13 +1726,13 @@ body {
 
 /* dms-button.css */
 body {
-    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg'); /* logo asset url */
-    --dms-icon-svg-size: 104%; /* size of the logo image (background-size property) */
-    --dms-icon-color-before: var(--icon-subtle); /* legacy variable kept for compatibility */
-    --dms-icon-color-after: var(--white); /* legacy variable kept for compatibility */
-    --dms-background-image-url: url(''); /* url of the background image */
-    --dms-background-image-size: cover; /* size of the background image (css background-size property) */
-    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background property) */
+    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg');
+    --dms-icon-svg-size: 104%;
+    --dms-icon-color-before: var(--icon-subtle);
+    --dms-icon-color-after: var(--white);
+    --dms-background-image-url: url('');
+    --dms-background-image-size: cover;
+    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2));
 }
 
 @property --custom-dms-icon {
@@ -1741,10 +1741,32 @@ body {
     initial-value: custom;
 }
 
+/* keep the whole home button fully clickable above any titlebar drag layer */
+.tutorialContainer__1f388,
+.wrapper__6e9f8[data-list-item-id='guildsnav___home'] {
+    position: relative;
+    z-index: 6;
+    -webkit-app-region: no-drag;
+}
+
+.wrapper__6e9f8[data-list-item-id='guildsnav___home'] {
+    overflow: visible !important;
+}
+
+.wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8,
+.wrapper__6e9f8[data-list-item-id='guildsnav___home'] .childWrapper__6e9f8 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
 @container body style(--custom-dms-icon: off) {
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8 {
         color: var(--dms-icon-color-before);
     }
+
     .wrapper__6e9f8[data-list-item-id='guildsnav___home']:hover > .childWrapper__6e9f8,
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'].selected__6e9f8 > .childWrapper__6e9f8 {
         color: var(--dms-icon-color-after);
@@ -1752,10 +1774,6 @@ body {
 }
 
 @container body style(--custom-dms-icon: custom) {
-    .wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8 {
-        position: relative;
-    }
-
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8 > svg {
         display: none;
     }
@@ -2293,7 +2311,7 @@ body {
 }
 
 /* zz-prototype-layout.css */
-/* layout safety layer: keep Discord's native sidebar structure intact */
+/* stable layout layer: keep Discord's native structure, only refine surfaces and hover behavior */
 :root {
     --proto-topbar-height: 52px;
 }
@@ -2317,12 +2335,11 @@ body {
     background: var(--proto-app-surface) !important;
 }
 
-/* server rail fused with the app background */
+/* keep the server rail fused into the application background */
 .guilds_c48ade,
 .guilds__5e434,
 .wrapper_ef3116,
 .scroller_ef3116,
-.stack_dbd263,
 .itemsContainer_ef3116,
 .unreadMentionsIndicatorTop_ef3116,
 .unreadMentionsIndicatorBottom_ef3116,
@@ -2336,45 +2353,60 @@ nav[class*='guilds'] {
 .guilds__5e434,
 .guilds_c48ade {
     border-radius: 0 !important;
-    overflow: visible !important;
+    overflow: hidden !important;
+    min-height: 0 !important;
 }
 
 .scroller_ef3116 {
     background: transparent !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+}
+
+.scroller_ef3116::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .tutorialContainer__1f388,
 .listItem__650eb,
-.stack_dbd263 {
+.folderGroup__48112,
+.stack_dbd263,
+.itemsContainer_ef3116 {
     overflow: visible !important;
 }
 
-.wrapper__6e9f8 .childWrapper__6e9f8,
-.circleIconButton__5bc7e,
-.folderPreviewWrapper__48112,
-.expandedFolderBackground__48112 {
-    border-radius: 16px;
-    box-shadow: none;
+/* never collapse native left-side content */
+.sidebarList__5e434,
+.privateChannels_e6b769,
+.container__2637a,
+.scroller__629e4,
+.scroller__99e7c,
+.panels__5e434 {
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-width: 0 !important;
 }
 
-.wrapper__6e9f8 .childWrapper__6e9f8,
-.circleIconButton__5bc7e {
-    background: color-mix(in srgb, var(--bg-2) 72%, transparent);
+.sidebarList__5e434,
+.privateChannels_e6b769,
+.container__2637a {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
 }
 
-.wrapper__6e9f8:hover .childWrapper__6e9f8,
-.wrapper__6e9f8.selected__6e9f8 .childWrapper__6e9f8,
-.circleIconButton__5bc7e:hover,
-.circleIconButton__5bc7e.selected__5bc7e {
-    background: color-mix(in srgb, var(--bg-1) 84%, transparent);
+.scroller__629e4,
+.scroller__99e7c {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
 }
 
-.folderPreviewWrapper__48112,
-.expandedFolderBackground__48112 {
-    background: color-mix(in srgb, var(--bg-2) 66%, transparent) !important;
-}
-
-/* top strip: same surface as the application shell, no extra card */
+/* top strip: flat, same surface as the app shell */
 .bar_c38106,
 .base_c48ade > .bar_c38106,
 .container__89463,
@@ -2508,7 +2540,7 @@ nav[class*='guilds'] {
     border-color: transparent;
 }
 
-/* messages: keep text and accessories fixed on hover */
+/* messages: fixed text, no bump */
 .messageListItem__5126c,
 .message__5126c,
 .cozy_c19a55.wrapper_c19a55,

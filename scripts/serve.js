@@ -1,89 +1,62 @@
-/*
- * Browser dev server for sibnight-discord.
- *
- * Combines themes/sibnight.theme.css with build/sibnight.css (built from src/*.css)
- * and serves the result over HTTP with CORS so Discord can fetch + inject it from DevTools.
- *
- * Endpoints:
- *   GET /sibnight.css  — combined theme CSS
- *   GET /version       — { version } stamp, bumps on every rebuild
- *   GET /inject.js     — bootstrap script to eval in Discord DevTools
- */
-
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const chokidar = require('chokidar');
 
+const { rootDir, srcDir, themeFile, buildAll } = require('./lib/build-theme');
+
 const PORT = Number(process.env.PORT) || 8765;
 const HOST = process.env.HOST || '127.0.0.1';
-
-const root = path.join(__dirname, '..');
-const baseFile = path.join(root, 'themes', 'sibnight.theme.css');
-const buildFile = path.join(root, 'build', 'sibnight.css');
-const srcDir = path.join(root, 'src');
 const injectFile = path.join(__dirname, 'inject.js');
 
-function buildSrc() {
-    const files = fs
-        .readdirSync(srcDir)
-        .filter((f) => f.endsWith('.css'))
-        .sort((a, b) => a.localeCompare(b))
-        .map((f) => path.join(srcDir, f));
-    const main = files.find((f) => path.basename(f) === 'main.css');
-    const rest = files.filter((f) => f !== main);
-    const ordered = main ? [main, ...rest] : rest;
-    const combined = ordered
-        .map((f) => `/* ${path.basename(f)} */\n${fs.readFileSync(f, 'utf8')}\n`)
-        .join('');
-    fs.mkdirSync(path.dirname(buildFile), { recursive: true });
-    fs.writeFileSync(buildFile, combined);
-    return combined;
-}
-
-function buildCombined() {
-    const compiled = buildSrc();
-    const base = fs.readFileSync(baseFile, 'utf8');
-    return base.replace(/@import\s+url\(['"]?[^'"]+['"]?\);/g, compiled);
-}
-
-let cached = buildCombined();
+let cachedCss = '';
 let version = Date.now();
 
-function rebuild(reason) {
+function rebuild(reason = 'initial build') {
     try {
-        cached = buildCombined();
+        const { bundledCss } = buildAll();
+        cachedCss = bundledCss;
         version = Date.now();
-        console.log(`[${new Date().toLocaleTimeString()}] rebuilt (${cached.length} bytes) — ${reason}`);
-    } catch (e) {
-        console.error('build failed:', e.message);
+        console.log(`[sibnight] rebuilt ${reason}`);
+    } catch (error) {
+        console.error('Build failed:', error);
     }
 }
+
+rebuild();
 
 const server = http.createServer((req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Cache-Control', 'no-store');
-    const url = req.url.split('?')[0];
+
+    const url = (req.url || '/').split('?')[0];
+
     if (url === '/version') {
-        res.setHeader('Content-Type', 'application/json');
+        res.setHeader('Content-Type', 'application/json; charset=utf-8');
         res.end(JSON.stringify({ version }));
         return;
     }
+
     if (url === '/inject.js') {
         res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
         res.end(fs.readFileSync(injectFile, 'utf8'));
         return;
     }
+
     res.setHeader('Content-Type', 'text/css; charset=utf-8');
-    res.end(cached);
+    res.end(cachedCss);
 });
 
 server.listen(PORT, HOST, () => {
     console.log(`sibnight-discord dev server @ http://${HOST}:${PORT}`);
     console.log(`  CSS:    /sibnight.css`);
-    console.log(`  loader: /inject.js  (eval in Discord DevTools to install)`);
-    console.log(`one-liner: fetch('http://${HOST}:${PORT}/inject.js').then(r=>r.text()).then(eval)`);
+    console.log(`  loader: /inject.js`);
 });
 
-const watcher = chokidar.watch([baseFile, `${srcDir}/**/*.css`], { ignoreInitial: true });
-watcher.on('all', (event, file) => rebuild(`${event} ${path.relative(root, file)}`));
+const watcher = chokidar.watch([themeFile, `${srcDir}/**/*.css`], {
+    ignoreInitial: true,
+});
+
+watcher.on('all', (event, filePath) => {
+    rebuild(`${event} ${path.relative(rootDir, filePath)}`);
+});
