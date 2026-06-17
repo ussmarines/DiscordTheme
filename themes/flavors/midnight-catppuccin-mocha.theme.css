@@ -4,14 +4,14 @@
  * @author refact0r
  * @version 2.1.1
  * @invite nz87hXyvcy
- * @website https://github.com/refact0r/midnight-discord
- * @source https://github.com/refact0r/midnight-discord/blob/master/themes/flavors/midnight-catppuccin-mocha.theme.css
+ * @website https://github.com/ussmarines/DiscordTheme
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/midnight-catppuccin-mocha.theme.css
  * @authorId 508863359777505290
  * @authorLink https://www.refact0r.dev
 */
 
 /* import theme modules */
-@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/midnight.css');
 
 body {
     /* font, change to '' for default discord font */
@@ -42,7 +42,7 @@ body {
 
     /* dms button options */
     --custom-dms-icon: hide; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
-    --dms-icon-svg-url: url('https://refact0r.github.io/midnight-discord/assets/Font_Awesome_5_solid_moon.svg'); /* icon svg url. MUST BE A SVG. */
+    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/Font_Awesome_5_solid_moon.svg'); /* icon svg url. MUST BE A SVG. */
     --dms-icon-svg-size: 90%; /* size of the svg (css mask-size property) */
     --dms-icon-color-before: var(--icon-subtle); /* normal icon color */
     --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */

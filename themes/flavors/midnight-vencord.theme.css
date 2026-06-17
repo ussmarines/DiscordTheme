@@ -4,14 +4,14 @@
  * @author refact0r
  * @version 2.1.1
  * @invite nz87hXyvcy
- * @website https://github.com/refact0r/midnight-discord
- * @source https://github.com/refact0r/midnight-discord/blob/master/themes/midnight-vencord.theme.css
+ * @website https://github.com/ussmarines/DiscordTheme
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/midnight-vencord.theme.css
  * @authorId 508863359777505290
  * @authorLink https://www.refact0r.dev
 */
 
 /* import theme modules */
-@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/midnight.css');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 body {

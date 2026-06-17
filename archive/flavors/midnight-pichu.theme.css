@@ -4,15 +4,15 @@
  * @author refact0r, anubis
  * @version 1.6.2
  * @invite nz87hXyvcy
- * @website https://github.com/refact0r/midnight-discord
- * @source https://github.com/refact0r/midnight-discord/blob/master/flavors/midnight-pichu.theme.css
+ * @website https://github.com/ussmarines/DiscordTheme
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/archive/flavors/midnight-pichu.theme.css
  * @authorId 508863359777505290
  * @authorLink https://www.refact0r.dev
 */
 
 /* IMPORTANT: make sure to enable dark mode in discord settings for the theme to apply properly!!! */
 
-@import url('https://refact0r.github.io/midnight-discord/midnight.css');
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/midnight.css');
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
 

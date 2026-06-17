@@ -4,16 +4,16 @@
  * @author refact0r
  * @version 1.6.2
  * @invite nz87hXyvcy
- * @website https://github.com/refact0r/midnight-discord
- * @source https://github.com/refact0r/midnight-discord/blob/master/flavors/midnight-catppuccin-mocha.theme.css
+ * @website https://github.com/ussmarines/DiscordTheme
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/archive/flavors/midnight-catppuccin-mocha-refresh.theme.css
  * @authorId 508863359777505290
  * @authorLink https://www.refact0r.dev
 */
 
 /* import theme modules */
-@import url('https://refact0r.github.io/midnight-discord/src/main.css'); /* main theme css. */
-@import url('https://refact0r.github.io/midnight-discord/src/colors.css'); /* adds custom colors. remove this line to get default colors. */
-@import url('https://refact0r.github.io/midnight-discord/src/animations.css'); /* adds animations. remove to disable animations. */
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/src/main.css'); /* main theme css. */
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/src/colors.css'); /* adds custom colors. remove this line to get default colors. */
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/src/animations.css'); /* adds animations. remove to disable animations. */
 
 /* customize things here */
 :root {

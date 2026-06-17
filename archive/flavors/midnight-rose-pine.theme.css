@@ -4,15 +4,15 @@
  * @author refact0r, anubis, PsychotherapistSam
  * @version 1.6.2
  * @invite nz87hXyvcy
- * @website https://github.com/refact0r/midnight-discord
- * @source https://github.com/refact0r/midnight-discord/blob/master/flavors/midnight-rose-pine.theme.css
+ * @website https://github.com/ussmarines/DiscordTheme
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/archive/flavors/midnight-rose-pine.theme.css
  * @authorId 508863359777505290
  * @authorLink https://www.refact0r.dev
 */
 
 /* IMPORTANT: make sure to enable dark mode in discord settings for the theme to apply properly!!! */
 
-@import url('https://refact0r.github.io/midnight-discord/midnight.css');
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/midnight.css');
 
 /* customize things here */
 :root {
