@@ -55,6 +55,15 @@ Les fichiers principaux à modifier sont :
 - `src/dms-button.css` pour le bouton des messages privés
 - `build/sibnight.css` pour la version compilée utilisée par le thème
 
+
+
+## Flavors
+
+- `themes/flavors/sibnight-blue.css` : variante plus bleue, toujours dans l'univers sibnight
+- `themes/flavors/sibnight-space.css` : variante plus spatiale, avec une nébuleuse bleue en fond
+
+Ces fichiers peuvent être utilisés comme variantes prêtes à l'emploi.
+
 ## Crédits
 
 - original design inspired by https://github.com/schnensch0/zelk
