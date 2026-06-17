@@ -10,5 +10,5 @@ Maintained by **ussmarines**.
 
 ## Attribution
 
-This repository is a custom fork adapted into **sibnight** for the Sibylla-inspired visual identity.
-The upstream Midnight project is distributed under the MIT License. See `LICENSE`.
+This repository is the **sibnight-discord** project built for the Sibylla visual identity.
+The original upstream attribution remains preserved in `LICENSE`.

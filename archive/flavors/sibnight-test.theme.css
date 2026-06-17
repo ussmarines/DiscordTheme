@@ -46,7 +46,7 @@
 	/* ALL ANIMATIONS CAN BE DISABLED WITH REDUCED MOTION IN DISCORD SETTINGS */
 	--list-item-transition: 0.2s ease; /* channels/members/settings hover transition */
 	--unread-bar-transition: 0.2s ease; /* unread bar moving into view transition */
-	--moon-spin-transition: 0.4s ease; /* moon icon spin */
+	--moon-spin-transition: 0.4s ease; /* Sibylla icon spin */
 	--icon-spin-transition: 1s ease; /* round icon button spin (settings, emoji, etc.) */
 
 	/* corner roundness (border-radius) */
@@ -57,12 +57,12 @@
 	--roundness-xs: 10px; /* channels, buttons */
 	--roundness-xxs: 8px; /* searchbar, small elements */
 
-	/* direct messages moon icon */
+	/* direct messages Sibylla icon */
 	/* change to block to show, none to hide */
 	--discord-icon: none; /* discord icon */
-	--moon-icon: none; /* moon icon */
-	--moon-icon-url: none; /* custom icon url */
-	--moon-icon-size: auto;
+	--moon-icon: none; /* Sibylla icon */
+	--moon-icon-url: none; /* custom icon asset url */
+	--moon-icon-size: contain;
 
 	/* filter uncolorable elements to fit theme */
 	/* (just set to none, they're too much work to configure) */

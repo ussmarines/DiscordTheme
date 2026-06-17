@@ -1,6 +1,6 @@
 body {
-    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/Font_Awesome_5_solid_moon.svg'); /* icon svg url. MUST BE A SVG. */
-    --dms-icon-svg-size: 90%; /* size of the svg (css mask-size property) */
+    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.png'); /* icon asset url. Transparent PNG or SVG recommended. */
+    --dms-icon-svg-size: 82%; /* size of the icon asset (css mask-size property) */
     --dms-icon-color-before: var(--icon-subtle); /* normal icon color */
     --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
     --dms-background-image-url: url(''); /* url of the background image */
