@@ -24,6 +24,7 @@ function combineSourceFiles() {
     const allFiles = fs
         .readdirSync(srcDir)
         .filter((file) => file.endsWith('.css'))
+        .sort((a, b) => a.localeCompare(b))
         .map((file) => path.join(srcDir, file));
 
     // Split into main.css and other files
