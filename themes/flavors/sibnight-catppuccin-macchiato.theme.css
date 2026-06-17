@@ -1,26 +1,21 @@
 /**
- * @name sibnight-discord
- * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
- * @author ussmarines
+ * @name sibnight (catppuccin macchiato)
+ * @description a dark, customizable discord theme. based on catppuccin mocha theme (https://catppuccin.com).
+ * @author ussmarines, 311time
  * @version 2.1.1
  * @website https://github.com/ussmarines/DiscordTheme
- * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-catppuccin-macchiato.theme.css
  * @authorLink https://github.com/ussmarines
 */
-/* credits
- * original design inspired by https://github.com/schnensch0/zelk
- * theme design inspired by https://github.com/refact0r/midnight-discord
- * window controls inspired by https://github.com/Dyzean/Tokyo-Night
- */
 
 /* import theme modules */
 @import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css');
 
 body {
-    /* font options */
+    /* font, change to '' for default discord font */
     --font: 'figtree'; /* change to '' for default discord font */
     --code-font: ''; /* change to '' for default discord font */
-    font-weight: 400; /* normal text font weight. DOES NOT AFFECT BOLD TEXT */
+    font-weight: 400 /* normal text font weight. DOES NOT AFFECT BOLD TEXT */;
 
     /* sizes */
     --gap: 12px; /* spacing between panels */
@@ -44,13 +39,13 @@ body {
     --window-control-size: 14px; /* size of custom window controls */
 
     /* dms button options */
-    --custom-dms-icon: custom; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
+    --custom-dms-icon: hide; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
     --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo-button.png'); /* icon asset url. home button icon asset url. */
     --dms-icon-svg-size: 82%; /* size of the icon asset (css background-size property) */
     --dms-icon-color-before: var(--icon-subtle); /* normal icon color */
     --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
-    --custom-dms-background: off; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
-    --dms-background-image-url: url(''); /* url of the background image */
+    --custom-dms-background: image; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
+    --dms-background-image-url: url('https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png'); /* url of the background image */
     --dms-background-image-size: cover; /* size of the background image (css background-size property) */
     --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background property) */
 
@@ -80,28 +75,28 @@ body {
 
     /* text colors */
     --text-0: var(--bg-4); /* text on colored elements */
-    --text-1: hsl(42, 35%, 94%); /* other normally white text */
-    --text-2: hsl(42, 24%, 78%); /* headings and important text */
-    --text-3: hsl(40, 16%, 64%); /* normal text */
-    --text-4: hsl(38, 12%, 48%); /* icon buttons and channels */
-    --text-5: hsl(35, 10%, 32%); /* muted channels/chats and timestamps */
+    --text-1: hsl(227, 68%, 95%); /* bright text on colored elements */
+    --text-2: #cad3f5; /* headings and important text */
+    --text-3: #b8c0e0; /* normal text */
+    --text-4: #8087a2; /* icon buttons and channels */
+    --text-5: #5b6078; /* muted channels/chats and timestamps */
 
     /* background and dark colors */
-    --bg-1: hsla(224, 20%, 18%, 1); /* dark buttons when clicked */
-    --bg-2: hsla(225, 22%, 14%, 1); /* dark buttons */
-    --bg-3: hsla(226, 24%, 11%, 1); /* spacing, secondary elements */
-    --bg-4: hsla(228, 26%, 8%, 1); /* main background color */
-    --hover: hsla(44, 65%, 70%, 0.08); /* channels and buttons when hovered */
-    --active: hsla(44, 70%, 68%, 0.16); /* channels and buttons when clicked or selected */
-    --active-2: hsla(44, 70%, 68%, 0.24); /* extra state for transparent buttons */
-    --message-hover: hsla(225, 20%, 4%, 0.35); /* messages when hovered */
+    --bg-1: #494d64; /* dark buttons when clicked */
+    --bg-2: #363a4f; /* dark buttons */
+    --bg-3: #1e2030; /* spacing, secondary elements */
+    --bg-4: #24273a; /* main background color */
+    --hover: hsla(230, 15%, 53%, 0.1); /* channels and buttons when hovered */
+    --active: hsla(230, 15%, 53%, 0.2); /* channels and buttons when clicked or selected */
+    --active-2: hsla(230, 15%, 53%, 0.3); /* extra state for transparent buttons */
+    --message-hover: hsla(230, 0%, 0%, 0.1); /* messages when hovered */
 
     /* accent colors */
-    --accent-1: var(--blue-1); /* links and other accent text */
-    --accent-2: var(--blue-2); /* small accent elements */
-    --accent-3: var(--blue-3); /* accent buttons */
-    --accent-4: var(--blue-4); /* accent buttons when hovered */
-    --accent-5: var(--blue-5); /* accent buttons when clicked */
+    --accent-1: var(--purple-1); /* links and other accent text */
+    --accent-2: var(--purple-2); /* small accent elements */
+    --accent-3: var(--purple-3); /* accent buttons */
+    --accent-4: var(--purple-4); /* accent buttons when hovered */
+    --accent-5: var(--purple-5); /* accent buttons when clicked */
     --accent-new: var(--accent-2); /* stuff that's normally red like mute/deafen buttons */
     --mention: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent); /* background of messages that mention you */
     --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent); /* background of messages that mention you when hovered */
@@ -109,46 +104,46 @@ body {
     --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
 
     /* status indicator colors */
-    --online: var(--green-2); /* change to #40a258 for default */
-    --dnd: var(--red-2); /* change to #d83a41 for default */
-    --idle: var(--yellow-2); /* change to #cc954c for default */
-    --streaming: var(--purple-2); /* change to #9147ff for default */
-    --offline: var(--text-4); /* change to #82838b for default offline color */
+    --online: var(--green-2); /* change to #43a25a for default */
+    --dnd: var(--red-2); /* change to #d83a42 for default */
+    --idle: var(--yellow-2); /* change to #ca9654 for default */
+    --streaming: var(--purple-2); /* change to #593695 for default */
+    --offline: var(--text-4); /* change to #83838b for default offline color */
 
     /* border colors */
     --border-light: var(--hover); /* general light border color */
     --border: var(--active); /* general normal border color */
-    --border-hover: hsla(44, 50%, 72%, 0.24); /* border color of panels when hovered */
-    --button-border: hsla(42, 30%, 88%, 0.12); /* neutral border color of buttons */
+    --border-hover: var(--active); /* border color of panels when hovered */
+    --button-border: hsl(230, 0%, 100%, 0.1); /* neutral border color of buttons */
 
     /* base colors */
-    --red-1: oklch(75% 0.14 28);
-    --red-2: oklch(69% 0.14 28);
-    --red-3: oklch(63% 0.14 28);
-    --red-4: oklch(57% 0.14 28);
-    --red-5: oklch(51% 0.14 28);
+    --red-1: hsl(351deg, 74%, 78%);
+    --red-2: hsl(351deg, 74%, 73%);
+    --red-3: hsl(351deg, 74%, 73%);
+    --red-4: hsl(351deg, 74%, 68%);
+    --red-5: hsl(351deg, 74%, 63%);
 
-    --green-1: oklch(78% 0.11 160);
-    --green-2: oklch(72% 0.11 160);
-    --green-3: oklch(66% 0.11 160);
-    --green-4: oklch(60% 0.11 160);
-    --green-5: oklch(54% 0.11 160);
+    --green-1: hsl(105deg, 48%, 77%);
+    --green-2: hsl(105deg, 48%, 72%);
+    --green-3: hsl(105deg, 48%, 72%);
+    --green-4: hsl(105deg, 48%, 67%);
+    --green-5: hsl(105deg, 48%, 62%);
 
-    --blue-1: oklch(84% 0.10 86);
-    --blue-2: oklch(78% 0.11 84);
-    --blue-3: oklch(72% 0.12 82);
-    --blue-4: oklch(66% 0.11 80);
-    --blue-5: oklch(60% 0.10 78);
+    --blue-1: hsl(199deg, 66%, 74%);
+    --blue-2: hsl(199deg, 66%, 69%);
+    --blue-3: hsl(199deg, 66%, 69%);
+    --blue-4: hsl(199deg, 66%, 64%);
+    --blue-5: hsl(199deg, 66%, 59%);
 
-    --yellow-1: oklch(86% 0.11 94);
-    --yellow-2: oklch(80% 0.11 92);
-    --yellow-3: oklch(74% 0.11 90);
-    --yellow-4: oklch(68% 0.11 88);
-    --yellow-5: oklch(62% 0.11 86);
+    --yellow-1: hsl(40deg, 70%, 83%);
+    --yellow-2: hsl(40deg, 70%, 78%);
+    --yellow-3: hsl(40deg, 70%, 78%);
+    --yellow-4: hsl(40deg, 70%, 73%);
+    --yellow-5: hsl(40deg, 70%, 68%);
 
-    --purple-1: oklch(74% 0.09 315);
-    --purple-2: oklch(68% 0.09 315);
-    --purple-3: oklch(62% 0.09 315);
-    --purple-4: oklch(56% 0.09 315);
-    --purple-5: oklch(50% 0.09 315);
+    --purple-1: hsl(267deg, 83%, 85%);
+    --purple-2: hsl(267deg, 83%, 80%);
+    --purple-3: hsl(267deg, 83%, 80%);
+    --purple-4: hsl(267deg, 83%, 75%);
+    --purple-5: hsl(267deg, 83%, 70%);
 }

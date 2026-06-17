@@ -1,8 +1,8 @@
 body {
-    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.png'); /* icon asset url. Transparent PNG or SVG recommended. */
-    --dms-icon-svg-size: 82%; /* size of the icon asset (css mask-size property) */
-    --dms-icon-color-before: var(--icon-subtle); /* normal icon color */
-    --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
+    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo-button.png'); /* home button icon asset url */
+    --dms-icon-svg-size: 78%; /* size of the icon asset (css background-size property) */
+    --dms-icon-color-before: var(--icon-subtle); /* retained for compatibility */
+    --dms-icon-color-after: var(--white); /* retained for compatibility */
     --dms-background-image-url: url(''); /* url of the background image */
     --dms-background-image-size: cover; /* size of the background image (css background-size property) */
     --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background property) */
@@ -25,36 +25,41 @@ body {
 }
 
 @container body style(--custom-dms-icon: custom) {
+    .wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8 {
+        position: relative;
+        overflow: hidden;
+    }
+
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8 > svg {
         display: none;
     }
+
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'] > .childWrapper__6e9f8::before {
         content: '';
-        display: block;
         position: absolute;
-        width: 65%;
-        height: 65%;
-        background: var(--dms-icon-color-before);
-        mask-image: var(--dms-icon-svg-url);
-        mask-size: var(--dms-icon-svg-size);
-        mask-position: center;
-        mask-repeat: no-repeat;
-        transition: background-color 0.15s ease-out;
+        inset: 0;
+        background-image: var(--dms-icon-svg-url);
+        background-size: var(--dms-icon-svg-size);
+        background-position: center;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        transform: scale(1);
+        transition:
+            transform 0.15s ease-out,
+            filter 0.15s ease-out;
     }
-    .wrapper__6e9f8[data-list-item-id='guildsnav___home']:hover > .childWrapper__6e9f8::before {
-        transform: rotate(0deg) scale(1);
-    }
+
     .wrapper__6e9f8[data-list-item-id='guildsnav___home']:hover > .childWrapper__6e9f8::before,
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'].selected__6e9f8 > .childWrapper__6e9f8::before {
-        background: var(--dms-icon-color-after);
-        transform: rotate(-360deg) scale(0.8);
+        filter: brightness(1.08);
+        transform: scale(0.94);
     }
 
     @container body style(--animations: on) {
         .wrapper__6e9f8[data-list-item-id='guildsnav___home'] .childWrapper__6e9f8::before {
             transition:
-                background-color 0.15s ease-out,
-                transform var(--dms-icon-svg-transition);
+                transform var(--dms-icon-svg-transition),
+                filter 0.15s ease-out;
         }
     }
 }
