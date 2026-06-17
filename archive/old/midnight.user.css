@@ -1,10 +1,10 @@
 /* ==UserStyle==
 @name           midnight
-@namespace      https://github.com/refact0r
+@namespace      https://github.com/ussmarines/DiscordTheme
 @version        1.6.2
 @description    A dark, rounded discord theme.
 @author         refact0r
-@homepageURL    https://github.com/refact0r/midnight-discord
+@homepageURL    https://github.com/ussmarines/DiscordTheme
 @supportURL     https://discord.gg/nz87hXyvcy
 @license		MIT
 @var select flavor "flavor" ["midnight", "biscuit", "nord", "catppuccin", "lilypichu"]
@@ -14,7 +14,7 @@
 
 /* IMPORTANT: make sure to enable dark mode in discord settings for the theme to apply properly!!! */
 
-@import url('https://refact0r.github.io/midnight-discord/midnight.css');
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/midnight.css');
 
 /* customize things here */
 :root {

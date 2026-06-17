@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         midnight-discord dev loader
-// @namespace    https://github.com/refact0r/midnight-discord
+// @namespace    https://github.com/ussmarines/DiscordTheme
 // @version      1.0.0
 // @description  Auto-injects the local midnight-discord dev build into Discord. Requires `npm run serve` running locally.
 // @match        https://discord.com/*
