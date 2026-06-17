@@ -3,8 +3,6 @@ body {
     --sibylla-transition: 0.22s ease;
 }
 
-body:not(:has(*)) {}
-
 .button__201d5,
 .lookFilled__201d5,
 .lookOutlined__201d5,
@@ -20,14 +18,9 @@ body:not(:has(*)) {}
     transition: background-color var(--list-item-transition), color var(--list-item-transition), box-shadow var(--list-item-transition), border-color var(--list-item-transition), transform var(--sibylla-transition-fast);
 }
 
-body:has(:root) .button__201d5:hover,
-body:has(:root) .actionButton_f8fa06:hover {
+.button__201d5:hover,
+.actionButton_f8fa06:hover {
     transform: translateY(-1px);
-}
-
-body[style*='--animations: off'] *,
-body:has(#app-mount) * {
-    /* left intentionally safe; users can disable animation by overriding transition variables to 0s */
 }
 
 @media (prefers-reduced-motion: reduce) {

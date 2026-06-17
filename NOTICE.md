@@ -1,18 +1,12 @@
 # Notice
 
-This project is based on and adapted from:
+This project is based on the architecture and design ideas of:
 
 - `refact0r/midnight-discord`
 - Original author: refact0r
-- Original repository: https://github.com/refact0r/midnight-discord
-- Original license: MIT License
+- License: MIT
+- Source: https://github.com/refact0r/midnight-discord
 
-The structure, development workflow, CSS module organization, and theme-file model are derived from Midnight and adapted for Sibylla Corporation.
+The Sibylla theme replaces the default Midnight visual identity with a Sibylla Corporation visual direction and removes all upstream flavors.
 
-All runtime theme imports in this fork are intended to point to:
-
-```text
-https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/
-```
-
-No runtime CSS import should point to `refact0r.github.io` or `raw.githubusercontent.com/refact0r`.
+The MIT copyright and permission notice from the upstream project is preserved in `LICENSE`.

@@ -61,7 +61,7 @@ body {
         linear-gradient(180deg, var(--bg-3), var(--bg-4)) !important;
 }
 
-/* panel separation: copied from Midnight's functional model and recolored for Sibylla */
+/* panel separation: Midnight's functional model, recolored for Sibylla */
 .container__89463 > .toolbar__89463,
 .container__89463 > .contentContainer__89463,
 .guilds__5e434,
@@ -196,10 +196,14 @@ body {
 
 .bannerVisible_f37cb1 .headerEllipseBackdrop_f37cb1,
 .sidebar__5e434::after,
-.wrapper_ef3116,
 .chat_ee72fa::before,
 .chat_fb64c9::before {
     display: none !important;
+}
+
+/* Critical: Midnight keeps the server-list wrapper visible and only removes its mask. */
+.wrapper_ef3116 {
+    mask: none;
 }
 
 .headerGlass_f37cb1 {

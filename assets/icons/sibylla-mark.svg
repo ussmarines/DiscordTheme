@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Sibylla mark">
-  <path fill="currentColor" d="M64 6 88 70 73 70 68 52 64 40 60 52 55 70 40 70 64 6Z"/>
-  <path fill="currentColor" d="M34 76h60l-9 12H43l-9-12Zm12 17h36l-7 10H53l-7-10Zm10 15h16l-8 14-8-14Z"/>
-  <path fill="currentColor" d="M64 58 71 66 64 74 57 66 64 58Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Sibylla mark">
+  <path fill="black" d="M50 6 66 42 57 42 64 76 50 91 36 76 43 42 34 42z"/>
+  <path fill="black" d="M29 68 50 79 71 68 67 78 50 92 33 78z"/>
+  <path fill="black" d="M44 49h12l-6 8z"/>
 </svg>

@@ -7,11 +7,5 @@ body::before {
     background-image: var(--background-image-url);
     background-size: cover;
     background-position: center;
-    opacity: 0;
+    opacity: var(--background-image-opacity, 0);
 }
-
-body:has(*)::before {
-    opacity: 0;
-}
-
-/* Users can enable background images with --background-image: on and override opacity in QuickCSS. */

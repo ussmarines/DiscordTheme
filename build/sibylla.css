@@ -62,7 +62,7 @@ body {
         linear-gradient(180deg, var(--bg-3), var(--bg-4)) !important;
 }
 
-/* panel separation: copied from Midnight's functional model and recolored for Sibylla */
+/* panel separation: Midnight's functional model, recolored for Sibylla */
 .container__89463 > .toolbar__89463,
 .container__89463 > .contentContainer__89463,
 .guilds__5e434,
@@ -197,10 +197,14 @@ body {
 
 .bannerVisible_f37cb1 .headerEllipseBackdrop_f37cb1,
 .sidebar__5e434::after,
-.wrapper_ef3116,
 .chat_ee72fa::before,
 .chat_fb64c9::before {
     display: none !important;
+}
+
+/* Critical: Midnight keeps the server-list wrapper visible and only removes its mask. */
+.wrapper_ef3116 {
+    mask: none;
 }
 
 .headerGlass_f37cb1 {
@@ -493,8 +497,6 @@ body {
     --sibylla-transition: 0.22s ease;
 }
 
-body:not(:has(*)) {}
-
 .button__201d5,
 .lookFilled__201d5,
 .lookOutlined__201d5,
@@ -510,14 +512,9 @@ body:not(:has(*)) {}
     transition: background-color var(--list-item-transition), color var(--list-item-transition), box-shadow var(--list-item-transition), border-color var(--list-item-transition), transform var(--sibylla-transition-fast);
 }
 
-body:has(:root) .button__201d5:hover,
-body:has(:root) .actionButton_f8fa06:hover {
+.button__201d5:hover,
+.actionButton_f8fa06:hover {
     transform: translateY(-1px);
-}
-
-body[style*='--animations: off'] *,
-body:has(#app-mount) * {
-    /* left intentionally safe; users can disable animation by overriding transition variables to 0s */
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -541,14 +538,8 @@ body::before {
     background-image: var(--background-image-url);
     background-size: cover;
     background-position: center;
-    opacity: 0;
+    opacity: var(--background-image-opacity, 0);
 }
-
-body:has(*)::before {
-    opacity: 0;
-}
-
-/* Users can enable background images with --background-image: on and override opacity in QuickCSS. */
 
 /* chatbar.css */
 .channelTextArea_f75fb0,
@@ -579,11 +570,11 @@ body:has(*)::before {
     color: var(--text-3) !important;
 }
 
-body:has(*) .form_f75fb0 {
+.form_f75fb0 {
     margin-top: 0;
 }
 
-body:has(*) .channelTextArea_f75fb0 {
+.channelTextArea_f75fb0 {
     min-height: var(--chatbar-height);
 }
 
@@ -603,8 +594,8 @@ body:has(*) .channelTextArea_f75fb0 {
     box-shadow: inset 0 0 0 1px var(--border), 0 0 22px rgba(55, 180, 255, 0.18);
 }
 
-body:has(*) .tutorialContainer__1f388 .childWrapper__6e9f8 svg,
-body:has(*) .tutorialContainer__650eb .childWrapper__6e9f8 svg {
+.tutorialContainer__1f388 .childWrapper__6e9f8 svg,
+.tutorialContainer__650eb .childWrapper__6e9f8 svg {
     display: none !important;
 }
 
@@ -627,8 +618,8 @@ body:has(*) .tutorialContainer__650eb .childWrapper__6e9f8 svg {
     transform: scale(1.05);
 }
 
-body:has(*) .tutorialContainer__1f388 .childWrapper__6e9f8:hover,
-body:has(*) .tutorialContainer__650eb .childWrapper__6e9f8:hover {
+.tutorialContainer__1f388 .childWrapper__6e9f8:hover,
+.tutorialContainer__650eb .childWrapper__6e9f8:hover {
     box-shadow: inset 0 0 0 1px var(--border-hover), 0 0 28px rgba(64, 224, 255, 0.26);
 }
 
@@ -648,21 +639,16 @@ body:has(*) .tutorialContainer__650eb .childWrapper__6e9f8:hover {
     background: rgba(255, 77, 109, 0.74) !important;
 }
 
-body:has(*) .title_c38106 {
+.title_c38106 {
     color: var(--text-4);
 }
 
-body:has(*) .bar_c38106 {
+.bar_c38106 {
     min-height: var(--top-bar-height);
 }
 
 /* transparency-blur.css */
 body {
-    --panel-backdrop-filter: none;
-}
-
-/* Midnight-compatible variables. When panel blur is enabled manually, panels use this filter. */
-body:has(*) {
     --panel-backdrop-filter: none;
 }
 
@@ -712,6 +698,146 @@ body:has(*) {
 .winButton_c38106 svg {
     width: var(--window-control-size);
     height: var(--window-control-size);
+}
+
+/* settings-pages.css */
+/* Discord + Vencord settings readability layer */
+.standardSidebarView__23e6b,
+.sidebarRegion__23e6b,
+.sidebarRegionScroller__23e6b,
+.contentRegion__23e6b,
+.contentRegionScroller__23e6b,
+.contentColumn__23e6b,
+.customColumn__23e6b,
+.contentColumnDefault__23e6b,
+.toolsContainer__23e6b,
+.layer__960e4 .standardSidebarView__23e6b {
+    background: var(--bg-4) !important;
+    color: var(--text-2) !important;
+}
+
+.side_b3f026,
+.sidebar__23e6b,
+.sidebarRegionScroller__23e6b {
+    background: linear-gradient(180deg, var(--bg-3), var(--bg-4)) !important;
+}
+
+.item_b3f026,
+.tabBarItem__133bf,
+.vc-settings-tab-bar-item,
+.vc-settings-card,
+.vc-addon-card,
+.vc-plugins-card,
+.card__73069,
+.cardPrimary__73069,
+.cardPrimaryOutline__73069,
+.box_f8c98c,
+.container__5a3ec,
+.accountProfileCard__1fed1,
+.background__1fed1,
+.fieldList__1fed1,
+.children__7bffb,
+.wrapper__4e6ce,
+.descriptionBox__981f7,
+.settingCard__1a4ef,
+.vc-settings-quickActions-card,
+.vc-settings-theme-card {
+    background: rgba(10, 15, 24, 0.92) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--text-2) !important;
+}
+
+.item_b3f026:hover,
+.item_b3f026.selected_b3f026,
+.item_b3f026[aria-selected='true'],
+.vc-settings-tab-bar-item:hover,
+.vc-settings-tab-bar-item[aria-selected='true'] {
+    background: linear-gradient(90deg, rgba(55, 180, 255, 0.22), rgba(64, 224, 255, 0.06)) !important;
+    color: var(--text-1) !important;
+    box-shadow: inset 3px 0 0 var(--accent-2);
+}
+
+.title__3e443,
+.title_b3f026,
+.h1_b717a1,
+.h2_b717a1,
+.h3_b717a1,
+.defaultColor__4bd52,
+.header__7bffb,
+.title__7bffb,
+.vc-settings-title,
+.vc-plugins-info-card h2,
+.vc-addon-card h2,
+.vc-addon-card h3 {
+    color: var(--text-1) !important;
+}
+
+.description_b717a1,
+.description__7bffb,
+.subText__1fed1,
+.modeDefault__1296c,
+.vc-settings-card-description,
+.vc-addon-note,
+.vc-plugins-note,
+.vc-plugins-info-card,
+.vc-addon-card .vc-addon-note {
+    color: var(--text-4) !important;
+}
+
+.input__0f084,
+.inputDefault__0f084,
+.input__48d49,
+.searchBar__97492,
+.searchBarComponent__35e86,
+.container__33507,
+.inner__999f6,
+.select__3f413,
+.lookFilled__3f413.select__3f413,
+.popout__3f413,
+.option__3f413,
+.textArea__74017,
+.bioTextArea__6a919,
+.vc-settings-search,
+.vc-text-input,
+.vc-settings-input {
+    background: rgba(4, 4, 11, 0.76) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--text-2) !important;
+}
+
+.input__0f084:focus,
+.inputDefault__0f084:focus,
+.input__48d49:focus,
+.searchBar__97492:focus-within,
+.container__33507:focus-within,
+.inner__999f6:focus-within,
+.select__3f413:focus,
+.vc-settings-search:focus,
+.vc-text-input:focus,
+.vc-settings-input:focus {
+    border-color: var(--border-hover) !important;
+    box-shadow: 0 0 0 1px rgba(64, 224, 255, 0.12), 0 0 20px rgba(55, 180, 255, 0.12);
+}
+
+.checkbox_f525d3.checked_f525d3,
+.container__87bf1.checked__87bf1,
+.bd-switch-checked,
+.vc-switch-checked,
+.vc-switch-slider.checked {
+    background: linear-gradient(135deg, var(--accent-3), var(--accent-2)) !important;
+}
+
+.closeButton_c2b141,
+.keybind_c2b141 {
+    border-color: var(--border-light) !important;
+    color: var(--text-3) !important;
+}
+
+.closeButton_c2b141:hover {
+    background: rgba(255, 77, 109, 0.18) !important;
+    color: var(--text-1) !important;
 }
 
 /* sibylla.css */
@@ -883,27 +1009,7 @@ body:has(*) {
     border-color: rgba(64, 224, 255, 0.36) !important;
 }
 
-.input__0f084,
-.inputDefault__0f084,
-.searchBar__97492,
-.searchBarComponent__35e86,
-.container__33507,
-.inner__999f6 {
-    background: rgba(4, 4, 11, 0.66) !important;
-    border: 1px solid var(--border-light) !important;
-    border-radius: var(--radius-md) !important;
-    color: var(--text-2) !important;
-}
-
-.input__0f084:focus,
-.inputDefault__0f084:focus,
-.searchBar__97492:focus-within,
-.container__33507:focus-within,
-.inner__999f6:focus-within {
-    border-color: var(--border-hover) !important;
-    box-shadow: 0 0 0 1px rgba(64, 224, 255, 0.12), 0 0 20px rgba(55, 180, 255, 0.12);
-}
-
+/* compatibility.css */
 *:focus-visible {
     outline: 2px solid rgba(64, 224, 255, 0.7) !important;
     outline-offset: 2px !important;

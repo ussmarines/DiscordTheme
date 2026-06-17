@@ -26,10 +26,10 @@
     color: var(--text-3) !important;
 }
 
-body:has(*) .form_f75fb0 {
+.form_f75fb0 {
     margin-top: 0;
 }
 
-body:has(*) .channelTextArea_f75fb0 {
+.channelTextArea_f75fb0 {
     min-height: var(--chatbar-height);
 }
