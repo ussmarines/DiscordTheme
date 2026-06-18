@@ -2,7 +2,7 @@
  * @name sibnight-discord
  * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
  * @author ussmarines
- * @version 2.5.5
+ * @version 2.6.0
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
  * @authorLink https://github.com/ussmarines
@@ -2503,7 +2503,7 @@ nav[class*='guilds'] {
     background: transparent !important;
 }
 
-./* top strip: flat, closer to the mockup */
+./* top strip: rebuilt cleanly to avoid overlap and drifting */
 .bar_c38106,
 .base_c48ade > .bar_c38106,
 .container__89463,
@@ -2515,9 +2515,6 @@ nav[class*='guilds'] {
 .headerBar__1a9ce,
 .title_f75fb0,
 .titleWrapper_fc4f04,
-.trailing_c38106,
-.children__9293f,
-.toolbar__9293f,
 .upperContainer__9293f,
 .tabBody__133bf::before {
     background: var(--proto-shell-surface) !important;
@@ -2548,9 +2545,16 @@ nav[class*='guilds'] {
 
 .title_f75fb0,
 .container__9293f,
-.container__89463 {
-    padding-left: 12px;
-    padding-right: 12px;
+.headerBar__1a9ce {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center !important;
+    column-gap: 12px !important;
+    row-gap: 0 !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
 }
 
 .upperContainer__9293f,
@@ -2559,13 +2563,15 @@ nav[class*='guilds'] {
     min-width: 0 !important;
 }
 
-
 .children__9293f {
-    display: flex !important;
-    align-items: center;
-    gap: 10px;
+    grid-column: 1 !important;
     min-width: 0 !important;
-    flex: 1 1 auto !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    flex-wrap: nowrap !important;
 }
 
 .children__9293f::after,
@@ -2573,49 +2579,62 @@ nav[class*='guilds'] {
     display: none !important;
 }
 
-.title_f75fb0,
-.container__9293f,
-.headerBar__1a9ce {
-    display: flex !important;
-    align-items: center !important;
-    min-width: 0 !important;
-}
-
-.title_f75fb0 > .children__9293f,
-.container__9293f > .children__9293f,
-.headerBar__1a9ce > .children__9293f {
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-}
-
 .toolbar__9293f {
-    display: inline-flex !important;
+    grid-column: 2 !important;
+    justify-self: end !important;
+    display: flex !important;
     align-items: center !important;
     justify-content: flex-end !important;
     gap: 8px !important;
-    flex: 0 0 auto !important;
-    width: max-content !important;
-    min-width: max-content !important;
-    margin-left: auto !important;
-    padding-right: 0 !important;
+    flex-wrap: nowrap !important;
+    flex: 0 1 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: min(560px, 50vw) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
 }
 
 .trailing_c38106 {
+    grid-column: 3 !important;
+    justify-self: end !important;
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    z-index: auto !important;
+    height: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: flex-end !important;
     gap: 8px !important;
+    flex-wrap: nowrap !important;
     flex: 0 0 auto !important;
-    width: max-content !important;
-    min-width: max-content !important;
-    padding-right: 0 !important;
-    margin-left: 12px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.trailing_c38106:hover {
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+.toolbar__9293f .separator__9293f {
+    display: none !important;
 }
 
 .toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676),
 .toolbar__9293f .iconWrapper__9293f,
 .toolbar__9293f .clickable__9293f,
-.trailing_c38106 > div:not(.winButtons_c38106) {
+.trailing_c38106 > div:not(.winButtons_c38106),
+.trailing_c38106 > div:not(.winButtons_c38106),
+.trailing_c38106 a,
+.trailing_c38106 .clickable__81391 {
     min-width: 30px;
     min-height: 30px;
     border-radius: 9px;
@@ -2626,19 +2645,17 @@ nav[class*='guilds'] {
     transition:
         background-color 0.14s ease,
         border-color 0.14s ease,
-        color 0.14s ease;
+        color 0.14s ease !important;
 }
 
 .toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676):hover,
 .toolbar__9293f .iconWrapper__9293f:hover,
 .toolbar__9293f .clickable__9293f:hover,
-.trailing_c38106 > div:not(.winButtons_c38106):hover {
+.trailing_c38106 > div:not(.winButtons_c38106):hover,
+.trailing_c38106 a:hover,
+.trailing_c38106 .clickable__81391:hover {
     background: color-mix(in srgb, var(--text-1) 6%, transparent) !important;
     border-color: color-mix(in srgb, var(--border) 80%, transparent) !important;
-}
-
-.toolbar__9293f .separator__9293f {
-    display: none !important;
 }
 
 .toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676),
@@ -2648,21 +2665,22 @@ nav[class*='guilds'] {
 }
 
 .toolbar__9293f .search__49676 {
-    order: 20;
+    order: 20 !important;
+    flex: 0 1 230px !important;
+    width: clamp(190px, 20vw, 230px) !important;
+    min-width: 190px !important;
+    max-width: 230px !important;
     margin-left: 12px !important;
-    flex: 0 0 220px !important;
-    min-width: 220px !important;
-    max-width: 220px !important;
+    overflow: hidden !important;
 }
 
 .toolbar__9293f .search__49676,
 .searchBar__35e86 {
-    min-width: 212px;
     height: 34px;
     padding-left: 12px;
     padding-right: 12px;
     border-radius: 10px !important;
-    background: transparent !important;
+    background: color-mix(in srgb, var(--text-1) 4%, transparent) !important;
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
@@ -2672,8 +2690,9 @@ nav[class*='guilds'] {
 .toolbar__9293f .search__49676:focus-within,
 .searchBar__35e86:hover,
 .searchBar__35e86:focus-within {
-    background: color-mix(in srgb, var(--text-1) 4%, transparent) !important;
+    background: color-mix(in srgb, var(--text-1) 6%, transparent) !important;
     border: none !important;
+    box-shadow: none !important;
 }
 
 .searchBar__97492,
@@ -2682,15 +2701,55 @@ nav[class*='guilds'] {
 .searchBar__35e86 *,
 .searchBar__97492 *,
 .searchBarComponent__35e86 * {
-    background: transparent !important;
     border: none !important;
     box-shadow: none !important;
+}
+
+.searchBar__35e86,
+.searchBar__35e86 *,
+.searchBar__97492,
+.searchBar__97492 *,
+.searchBarComponent__35e86,
+.searchBarComponent__35e86 * {
+    background: transparent !important;
 }
 
 .iconBadge__9293f {
     box-shadow: none !important;
 }
 
+/* neutralize old titlebar offsets so the rebuilt layout stays stable */
+@container body style(--top-bar-button-position: titlebar) {
+    .trailing_c38106 {
+        position: static !important;
+        top: auto !important;
+        right: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+        z-index: auto !important;
+        height: auto !important;
+        padding-right: 0 !important;
+        transition: none !important;
+    }
+
+    .toolbar__9293f,
+    .navBarContent__131a1,
+    .headerBarContent__1a9ce,
+    .headerBar__8a7fc {
+        padding-right: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .searchFloating__1ac1c,
+    .balanceWidgetMenu__80679 {
+        right: auto !important;
+        margin-right: 0 !important;
+    }
+
+    .bar_c38106 .backForwardButtons__63abb {
+        display: none !important;
+    }
+}
 
 /* list items: color change only, no movement */
 
