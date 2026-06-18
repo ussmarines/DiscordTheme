@@ -157,6 +157,45 @@ body {
     mask: none;
 }
 
+
+/* Server banner sizing and fade */
+.animatedContainer_f37cb1,
+.header_f37cb1 [class*='animatedContainer'] {
+    min-height: 136px;
+}
+
+.header_f37cb1 {
+    overflow: visible;
+}
+
+.headerGlass_f37cb1 {
+    overflow: hidden;
+}
+
+.bannerImage_f37cb1,
+.bannerImg_f37cb1 {
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.headerGlass_f37cb1::after,
+.animatedContainer_f37cb1::after,
+.header_f37cb1 [class*='animatedContainer']::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 56px;
+    pointer-events: none;
+    background: linear-gradient(
+        180deg,
+        rgba(4, 9, 18, 0) 0%,
+        color-mix(in srgb, var(--proto-column-surface) 70%, transparent) 55%,
+        var(--proto-column-surface) 100%
+    );
+}
+
 /* Main content containers */
 .chat_f75fb0 /* chat group outer */ {
     border: none !important;
@@ -909,8 +948,8 @@ nav[class*='guilds'] {
 .footer__4d95d {
     border-color: transparent !important;
     box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.016),
-        0 10px 24px rgba(1, 8, 18, 0.11) !important;
+        inset 0 1px 0 rgba(255, 255, 255, 0.014),
+        0 10px 24px rgba(1, 8, 18, 0.10) !important;
 }
 
 .embedFull__623de,
@@ -922,7 +961,18 @@ nav[class*='guilds'] {
 .codeView__5126c,
 .textContainer__4d95d,
 .footer__4d95d {
-    background: var(--sibylla-embed-fill-soft) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+
+
+/* Keep rich embeds visually unified */
+.embedFull__623de .codeView__5126c,
+.embedFull__623de .textContainer__4d95d,
+.embedFull__623de .footer__4d95d {
+    background: transparent !important;
+    box-shadow: none !important;
 }
 
 .reaction__23977,
@@ -1075,17 +1125,16 @@ nav[class*='guilds'] {
             color-mix(in srgb, var(--bg-3) 42%, var(--bg-4) 58%) 100%
         );
     --sibylla-embed-fill:
-        radial-gradient(circle at 100% 0%, rgba(99, 170, 255, 0.06) 0%, transparent 34%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-3) 22%, var(--bg-4) 78%) 0%,
-            color-mix(in srgb, var(--bg-3) 30%, var(--bg-4) 70%) 100%
+            color-mix(in srgb, var(--bg-4) 84%, var(--blue-3) 16%) 0%,
+            color-mix(in srgb, var(--bg-4) 90%, var(--blue-3) 10%) 100%
         );
     --sibylla-embed-fill-soft:
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-4) 88%, var(--bg-3) 12%) 0%,
-            color-mix(in srgb, var(--bg-4) 84%, var(--bg-3) 16%) 100%
+            color-mix(in srgb, var(--bg-4) 93%, var(--blue-3) 7%) 0%,
+            color-mix(in srgb, var(--bg-4) 95%, var(--blue-3) 5%) 100%
         );
     --sibylla-embed-accent: color-mix(in srgb, var(--blue-2) 82%, var(--yellow-2) 18%);
     --sibylla-soft-edge: rgba(184, 221, 255, 0.04);
@@ -3224,6 +3273,54 @@ body {
 .connection_e131a9:has(> .inner_e131a9 .labelWrapper__06d62 > a .lineClamp1__4bd52 p) {
     padding: calc(var(--custom-guild-list-padding) - var(--custom-panels-spacing) + 4px) 0;
 }
+
+
+/* Keep Spotify, voice, and account panels stacked without overlap */
+.panels__5e434 {
+    gap: 8px;
+}
+
+.panels__5e434 > #vc-spotify-player,
+.panels__5e434 > .activityPanel_c48ade,
+.panels__5e434 > .wrapper_e131a9,
+.panels__5e434 > .container_e131a9,
+.panels__5e434 > .panel__5dec7 {
+    position: relative !important;
+    inset: auto !important;
+    z-index: auto !important;
+    margin: 0 !important;
+    flex: 0 0 auto;
+}
+
+.panels__5e434 > #vc-spotify-player {
+    order: 1;
+    display: block !important;
+    border-radius: var(--radius-md);
+    background: var(--sibylla-panel-fill) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.02),
+        0 10px 24px rgba(1, 8, 18, 0.14) !important;
+}
+
+.panels__5e434 > .activityPanel_c48ade {
+    order: 2;
+}
+
+.panels__5e434 > .wrapper_e131a9,
+.panels__5e434 > .container_e131a9 {
+    order: 3;
+}
+
+.panels__5e434 > .panel__5dec7 {
+    order: 4;
+}
+
+#vc-spotify-player + .activityPanel_c48ade,
+#vc-spotify-player + .wrapper_e131a9,
+#vc-spotify-player + .container_e131a9 {
+    margin-top: 0 !important;
+}
+
 
 /* window-controls.css */
 /* =================

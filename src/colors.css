@@ -118,17 +118,16 @@
             color-mix(in srgb, var(--bg-3) 42%, var(--bg-4) 58%) 100%
         );
     --sibylla-embed-fill:
-        radial-gradient(circle at 100% 0%, rgba(99, 170, 255, 0.06) 0%, transparent 34%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-3) 22%, var(--bg-4) 78%) 0%,
-            color-mix(in srgb, var(--bg-3) 30%, var(--bg-4) 70%) 100%
+            color-mix(in srgb, var(--bg-4) 84%, var(--blue-3) 16%) 0%,
+            color-mix(in srgb, var(--bg-4) 90%, var(--blue-3) 10%) 100%
         );
     --sibylla-embed-fill-soft:
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-4) 88%, var(--bg-3) 12%) 0%,
-            color-mix(in srgb, var(--bg-4) 84%, var(--bg-3) 16%) 100%
+            color-mix(in srgb, var(--bg-4) 93%, var(--blue-3) 7%) 0%,
+            color-mix(in srgb, var(--bg-4) 95%, var(--blue-3) 5%) 100%
         );
     --sibylla-embed-accent: color-mix(in srgb, var(--blue-2) 82%, var(--yellow-2) 18%);
     --sibylla-soft-edge: rgba(184, 221, 255, 0.04);
