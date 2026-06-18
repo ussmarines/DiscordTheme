@@ -1,8 +1,8 @@
 /**
  * @name sibnight-north-snow
- * @description A Nord Snow Storm flavor for sibnight-discord.
+ * @description A Nord Snow Storm flavor for sibnight-discord with restrained Frost accents.
  * @author ussmarines
- * @version 1.1.0
+ * @version 1.2.0
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-Snow.css
  * @authorLink https://github.com/ussmarines
@@ -13,9 +13,8 @@
  * window controls inspired by https://github.com/Dyzean/Tokyo-Night
  */
 
-
-/* import theme modules */
 @import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css');
+
 
 body {
     --dms-icon-svg-size: 104%;
@@ -23,37 +22,38 @@ body {
     --accent-1: #5e81ac;
     --accent-2: #81a1c1;
     --accent-3: #88c0d0;
-    --accent-4: #81a1c1;
+    --accent-4: #8fbcbb;
     --accent-5: #5e81ac;
-    --accent-new: #d08770;
-    --mention: linear-gradient(to right, rgba(129, 161, 193, 0.18) 40%, transparent);
-    --mention-hover: linear-gradient(to right, rgba(129, 161, 193, 0.10) 40%, transparent);
+    --accent-new: #81a1c1;
+    --mention: linear-gradient(to right, rgba(94, 129, 172, 0.14) 40%, transparent);
+    --mention-hover: linear-gradient(to right, rgba(94, 129, 172, 0.09) 40%, transparent);
 
     --text-0: #2e3440;
     --text-1: #2e3440;
     --text-2: #3b4252;
-    --text-3: #434c5e;
-    --text-4: #4c566a;
-    --text-5: rgba(76, 86, 106, 0.78);
+    --text-3: #4c566a;
+    --text-4: #5e81ac;
+    --text-5: rgba(76, 86, 106, 0.72);
 
-    --bg-1: #cfd6e3;
-    --bg-2: #d8dee9;
+    --bg-1: #d8dee9;
+    --bg-2: #e0e6ef;
     --bg-3: #e5e9f0;
     --bg-4: #eceff4;
-    --hover: rgba(94, 129, 172, 0.08);
-    --active: rgba(94, 129, 172, 0.16);
-    --active-2: rgba(94, 129, 172, 0.22);
+    --bg-floating: rgba(229, 233, 240, 0.96);
+    --hover: rgba(129, 161, 193, 0.10);
+    --active: rgba(129, 161, 193, 0.18);
+    --active-2: rgba(129, 161, 193, 0.26);
     --message-hover: rgba(59, 66, 82, 0.06);
 
     --border-light: rgba(59, 66, 82, 0.06);
-    --border: rgba(59, 66, 82, 0.14);
-    --border-hover: rgba(94, 129, 172, 0.24);
-    --button-border: rgba(46, 52, 64, 0.16);
+    --border: rgba(59, 66, 82, 0.12);
+    --border-hover: rgba(94, 129, 172, 0.22);
+    --button-border: rgba(46, 52, 64, 0.14);
 
     --online: #a3be8c;
     --dnd: #bf616a;
     --idle: #ebcb8b;
     --streaming: #b48ead;
 
-    --dms-background-color: linear-gradient(135deg, #eceff4, #e5e9f0, #d8dee9);
+    --dms-background-color: linear-gradient(135deg, #eceff4, #d8dee9, #81a1c1);
 }

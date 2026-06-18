@@ -1,8 +1,8 @@
 /**
  * @name sibnight-north-polar
- * @description A Nord Polar Night flavor for sibnight-discord.
+ * @description A Nord Polar Night flavor for sibnight-discord with restrained Frost accents.
  * @author ussmarines
- * @version 1.1.0
+ * @version 1.2.0
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-Polar.css
  * @authorLink https://github.com/ussmarines
@@ -13,9 +13,8 @@
  * window controls inspired by https://github.com/Dyzean/Tokyo-Night
  */
 
-
-/* import theme modules */
 @import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css');
+
 
 body {
     --dms-icon-svg-size: 104%;
@@ -24,9 +23,9 @@ body {
     --accent-2: #88c0d0;
     --accent-3: #81a1c1;
     --accent-4: #5e81ac;
-    --accent-5: #4c6a92;
-    --accent-new: var(--accent-2);
-    --mention: linear-gradient(to right, rgba(136, 192, 208, 0.18) 40%, transparent);
+    --accent-5: #48698f;
+    --accent-new: #88c0d0;
+    --mention: linear-gradient(to right, rgba(136, 192, 208, 0.16) 40%, transparent);
     --mention-hover: linear-gradient(to right, rgba(136, 192, 208, 0.10) 40%, transparent);
 
     --text-0: #eceff4;
@@ -34,20 +33,21 @@ body {
     --text-2: #e5e9f0;
     --text-3: #d8dee9;
     --text-4: #81a1c1;
-    --text-5: rgba(216, 222, 233, 0.62);
+    --text-5: rgba(216, 222, 233, 0.60);
 
-    --bg-1: #3b4252;
-    --bg-2: #343b48;
-    --bg-3: #2e3440;
-    --bg-4: #232831;
+    --bg-1: #4c566a;
+    --bg-2: #434c5e;
+    --bg-3: #3b4252;
+    --bg-4: #2e3440;
+    --bg-floating: rgba(59, 66, 82, 0.94);
     --hover: rgba(136, 192, 208, 0.07);
     --active: rgba(136, 192, 208, 0.14);
     --active-2: rgba(136, 192, 208, 0.22);
     --message-hover: rgba(46, 52, 64, 0.42);
 
-    --border-light: rgba(236, 239, 244, 0.05);
-    --border: rgba(236, 239, 244, 0.10);
-    --border-hover: rgba(136, 192, 208, 0.22);
+    --border-light: rgba(216, 222, 233, 0.05);
+    --border: rgba(216, 222, 233, 0.10);
+    --border-hover: rgba(136, 192, 208, 0.18);
     --button-border: rgba(236, 239, 244, 0.10);
 
     --online: #a3be8c;
@@ -55,5 +55,5 @@ body {
     --idle: #ebcb8b;
     --streaming: #b48ead;
 
-    --dms-background-color: linear-gradient(135deg, #88c0d0, #81a1c1, #5e81ac);
+    --dms-background-color: linear-gradient(135deg, #5e81ac, #4c566a, #3b4252);
 }
