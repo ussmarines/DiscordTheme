@@ -6,49 +6,94 @@ const srcDir = path.join(rootDir, 'src');
 const themeFile = path.join(rootDir, 'themes', 'sibnight.theme.css');
 const buildFile = path.join(rootDir, 'build', 'sibnight.css');
 
-function getSourceFiles() {
-    const files = fs
+const SOURCE_FILE_ORDER = [
+    'main.css',
+    'colors.css',
+    'animations.css',
+    'background-image.css',
+    'chatbar.css',
+    'dms-button.css',
+    'top-bar.css',
+    'transparency-blur.css',
+    'user-panel.css',
+    'window-controls.css',
+];
+
+const BUNDLE_OUTPUTS = [
+    path.join(rootDir, 'sibnight.css'),
+    path.join(rootDir, 'archive', 'sibnight.css'),
+];
+
+const BUILD_IMPORT_PATTERN =
+    /@import\s+url\(['"]https:\/\/raw\.githubusercontent\.com\/ussmarines\/DiscordTheme\/main\/build\/sibnight\.css['"]\);/;
+
+function listSourceCssFiles() {
+    return fs
         .readdirSync(srcDir)
         .filter((file) => file.endsWith('.css'))
-        .sort((a, b) => a.localeCompare(b));
+        .sort((left, right) => left.localeCompare(right));
+}
 
-    const mainIndex = files.indexOf('main.css');
-    if (mainIndex > -1) {
-        files.splice(mainIndex, 1);
-        files.unshift('main.css');
+function getSourceFiles() {
+    const discovered = listSourceCssFiles();
+    const ordered = [];
+    const remaining = new Set(discovered);
+
+    for (const file of SOURCE_FILE_ORDER) {
+        if (remaining.has(file)) {
+            ordered.push(file);
+            remaining.delete(file);
+        }
     }
 
-    return files.map((file) => path.join(srcDir, file));
+    ordered.push(...Array.from(remaining).sort((left, right) => left.localeCompare(right)));
+    return ordered.map((file) => path.join(srcDir, file));
+}
+
+function readTextFile(filePath) {
+    return fs.readFileSync(filePath, 'utf8');
+}
+
+function writeTextFile(filePath, contents) {
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
+    fs.writeFileSync(filePath, contents);
+}
+
+function ensureThemeTemplate(themeCss) {
+    if (!BUILD_IMPORT_PATTERN.test(themeCss)) {
+        throw new Error(
+            'themes/sibnight.theme.css no longer contains the expected build import. ' +
+            'Keep the raw GitHub import so the build step can inline compiled CSS safely.'
+        );
+    }
 }
 
 function buildSourceCss() {
     const css = getSourceFiles()
-        .map((file) => `/* ${path.basename(file)} */\n${fs.readFileSync(file, 'utf8')}\n`)
+        .map((file) => `/* ${path.basename(file)} */\n${readTextFile(file)}\n`)
         .join('');
 
-    fs.mkdirSync(path.dirname(buildFile), { recursive: true });
-    fs.writeFileSync(buildFile, css);
+    writeTextFile(buildFile, css);
     return css;
 }
 
 function buildBundleFromTheme(compiledCss) {
-    const theme = fs.readFileSync(themeFile, 'utf8');
-    return theme.replace(/@import\s+url\(['"]?[^'"]+['"]?\);/g, compiledCss);
+    const themeCss = readTextFile(themeFile);
+    ensureThemeTemplate(themeCss);
+    return themeCss.replace(BUILD_IMPORT_PATTERN, compiledCss);
+}
+
+function getBundleOutputs(extraOutputs = []) {
+    return [...BUNDLE_OUTPUTS, ...extraOutputs.filter(Boolean)];
 }
 
 function buildAll(extraOutputs = []) {
     const compiledCss = buildSourceCss();
     const bundledCss = buildBundleFromTheme(compiledCss);
-
-    const outputs = [
-        path.join(rootDir, 'sibnight.css'),
-        path.join(rootDir, 'archive', 'sibnight.css'),
-        ...extraOutputs.filter(Boolean),
-    ];
+    const outputs = getBundleOutputs(extraOutputs);
 
     for (const output of outputs) {
-        fs.mkdirSync(path.dirname(output), { recursive: true });
-        fs.writeFileSync(output, bundledCss);
+        writeTextFile(output, bundledCss);
     }
 
     return { compiledCss, bundledCss, outputs };
@@ -59,6 +104,9 @@ module.exports = {
     srcDir,
     themeFile,
     buildFile,
+    SOURCE_FILE_ORDER,
+    getSourceFiles,
+    getBundleOutputs,
     buildAll,
     buildSourceCss,
     buildBundleFromTheme,
