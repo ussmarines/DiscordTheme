@@ -2,7 +2,7 @@
  * @name sibnight-discord
  * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
  * @author ussmarines
- * @version 2.9.0
+ * @version 2.9.1
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
  * @authorLink https://github.com/ussmarines
@@ -16,6 +16,10 @@
 /* import theme modules */
 /* main.css */
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* =========================
+   Global theme foundations
+   ========================= */
 
 :root {
     container-name: root;
@@ -40,7 +44,7 @@ body {
     --border-hover-transition: 0.2s ease;
 }
 
-/* panel separation */
+/* Shared panel surfaces */
 .container__89463 > .toolbar__89463 /* server boosts titlebar */,
 .container__89463 > .contentContainer__89463 /* server boosts tab */,
 .guilds__5e434 /* server list */,
@@ -87,6 +91,7 @@ body {
     }
 }
 
+/* Sidebar and guild rail layout */
 .panels__5e434 /* user panel */ {
     bottom: 0;
     left: 0;
@@ -131,7 +136,7 @@ body {
     margin-bottom: 0;
 }
 
-/* fix discord's idiotic server banners */
+/* Server banner cleanup */
 .bannerImage_f37cb1,
 .bannerImg_f37cb1 {
     width: 100%;
@@ -155,6 +160,7 @@ body {
     mask: none;
 }
 
+/* Main content containers */
 .chat_f75fb0 /* chat group outer */ {
     border: none !important;
     background: none;
@@ -194,6 +200,7 @@ body {
     border: none !important;
 }
 
+/* User panel layout details */
 .listeningAlong_e0cf27 /* user panel listening along */ {
     border-top: none !important;
 }
@@ -1752,6 +1759,10 @@ nav[class*='guilds'] {
 }
 
 /* animations.css */
+/* ========================================
+   Animation toggles and interactive states
+   ======================================== */
+
 body {
     --list-item-transition: 0.14s ease;
     --dms-icon-svg-transition: 0.2s ease;
@@ -1828,6 +1839,10 @@ body {
 }
 
 /* background-image.css */
+/* =================
+   Optional wallpaper
+   ================= */
+
 body {
     --background-image-url: url('');
 }
@@ -1847,6 +1862,10 @@ body {
 }
 
 /* chatbar.css */
+/* ============================
+   Chatbar sizing and alignment
+   ============================ */
+
 body {
     --chatbar-height: 47px; /* height of the chatbar (52px by default, 47px to align it with the user panel) */
 
@@ -2056,6 +2075,10 @@ body {
 }
 
 /* dms-button.css */
+/* ==============================
+   Home / direct messages button
+   ============================== */
+
 body {
     --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg');
     --dms-icon-svg-size: 104%;
@@ -2161,6 +2184,10 @@ body {
 }
 
 /* top-bar.css */
+/* ==========================
+   Top bar sizing and modes
+   ========================== */
+
 body {
     --top-bar-height: 32px;
     --custom-app-top-bar-height: var(--top-bar-height);
@@ -2179,6 +2206,7 @@ body {
     margin-top: max(0px, calc(36px - var(--top-bar-height)));
 }
 
+/* Hide inbox/help/window controls completely when requested. */
 @container body style(--top-bar-button-position: hide) {
     .trailing_c38106 > a[href='https://support.discord.com'],
     .recentsIcon_c99c29,
@@ -2187,6 +2215,7 @@ body {
     }
 }
 
+/* Move the inbox button into the server rail. */
 @container body style(--top-bar-button-position: serverlist) {
     /* remove help button */
     .trailing_c38106 > a[href='https://support.discord.com'],
@@ -2257,6 +2286,7 @@ body {
     }
 }
 
+/* Default desktop layout: keep actions in the title bar. */
 @container body style(--top-bar-button-position: titlebar) {
     #app-mount {
         --custom-channel-header-height: calc(var(--guildbar-avatar-size) + var(--space-xs) + var(--border-thickness) * 2);
@@ -2635,6 +2665,10 @@ body {
 }
 
 /* transparency-blur.css */
+/* =====================================
+   Transparency, blur, and background UX
+   ===================================== */
+
 @property --panel-blur {
     syntax: 'off | on';
     inherits: false;
@@ -2704,6 +2738,10 @@ body {
 }
 
 /* user-panel.css */
+/* ===================
+   User panel variations
+   =================== */
+
 @property --small-user-panel {
     syntax: 'off | on';
     inherits: false;
@@ -2727,6 +2765,10 @@ body {
 }
 
 /* window-controls.css */
+/* =================
+   Window controls UI
+   ================= */
+
 body {
     --window-control-size: 14px;
     --window-controls-padding: calc(var(--gap) - (var(--window-control-size) / 2) + 1px);

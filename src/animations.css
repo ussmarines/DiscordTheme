@@ -1,3 +1,7 @@
+/* ========================================
+   Animation toggles and interactive states
+   ======================================== */
+
 body {
     --list-item-transition: 0.14s ease;
     --dms-icon-svg-transition: 0.2s ease;

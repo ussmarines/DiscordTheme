@@ -1,3 +1,7 @@
+/* ============================
+   Chatbar sizing and alignment
+   ============================ */
+
 body {
     --chatbar-height: 47px; /* height of the chatbar (52px by default, 47px to align it with the user panel) */
 

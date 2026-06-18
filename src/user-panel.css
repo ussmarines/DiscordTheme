@@ -1,3 +1,7 @@
+/* ===================
+   User panel variations
+   =================== */
+
 @property --small-user-panel {
     syntax: 'off | on';
     inherits: false;

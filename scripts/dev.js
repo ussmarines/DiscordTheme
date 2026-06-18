@@ -4,31 +4,49 @@ const dotenv = require('dotenv');
 
 const { rootDir, srcDir, themeFile, buildAll } = require('./lib/build-theme');
 
-dotenv.config({ path: path.join(rootDir, '.env') });
-
+const envFile = path.join(rootDir, '.env');
 const watchTargets = [themeFile, `${srcDir}/**/*.css`];
-const outputPaths = (process.env.DEV_OUTPUT_PATH || '')
-    .split(',')
-    .map((value) => value.trim())
-    .filter(Boolean);
 
-if (outputPaths.length === 0) {
-    console.error('[sibnight] DEV_OUTPUT_PATH is not set in .env');
-    process.exit(1);
+dotenv.config({ path: envFile });
+
+function getDevOutputPaths() {
+    return (process.env.DEV_OUTPUT_PATH || '')
+        .split(',')
+        .map((value) => value.trim())
+        .filter(Boolean);
 }
 
-function build(reason = 'initial build') {
+function logWrittenOutputs(outputs) {
+    for (const outputPath of outputs) {
+        console.log(`  wrote ${outputPath}`);
+    }
+}
+
+function runBuild(outputPaths, reason = 'initial build') {
     try {
         const { outputs } = buildAll(outputPaths);
         console.log(`[sibnight] ${reason}`);
-        outputs.forEach((output) => console.log(`  wrote ${output}`));
+        logWrittenOutputs(outputs);
     } catch (error) {
         console.error('[sibnight] build failed:', error);
     }
 }
 
-build();
+function main() {
+    const outputPaths = getDevOutputPaths();
 
-chokidar
-    .watch(watchTargets, { ignoreInitial: true })
-    .on('all', (event, filePath) => build(`${event} ${path.relative(rootDir, filePath)}`));
+    if (outputPaths.length === 0) {
+        console.error('[sibnight] DEV_OUTPUT_PATH is not set in .env');
+        process.exit(1);
+    }
+
+    runBuild(outputPaths);
+
+    chokidar
+        .watch(watchTargets, { ignoreInitial: true })
+        .on('all', (eventName, filePath) => {
+            runBuild(outputPaths, `${eventName} ${path.relative(rootDir, filePath)}`);
+        });
+}
+
+main();

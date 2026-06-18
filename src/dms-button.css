@@ -1,3 +1,7 @@
+/* ==============================
+   Home / direct messages button
+   ============================== */
+
 body {
     --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg');
     --dms-icon-svg-size: 104%;
