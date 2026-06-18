@@ -2,7 +2,7 @@
  * @name sibnight-discord
  * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
  * @author ussmarines
- * @version 2.6.1
+ * @version 2.6.2
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
  * @authorLink https://github.com/ussmarines
@@ -2503,7 +2503,7 @@ nav[class*='guilds'] {
     background: transparent !important;
 }
 
-/* top strip: rebuilt cleanly to avoid overlap and drifting */
+/* top strip: visual polish only, preserve the backup/native layout */
 .bar_c38106,
 .base_c48ade > .bar_c38106,
 .container__89463,
@@ -2518,7 +2518,6 @@ nav[class*='guilds'] {
 .upperContainer__9293f,
 .tabBody__133bf::before {
     background: var(--proto-shell-surface) !important;
-    border: none !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
 }
@@ -2531,51 +2530,19 @@ nav[class*='guilds'] {
 .subtitleContainer_f75fb0,
 .container__89463 > .toolbar__89463,
 .container__89463 > .contentContainer__89463 {
-    position: relative !important;
-    min-height: var(--proto-topbar-height);
-    margin-bottom: 0 !important;
+    border: none !important;
     border-radius: 0 !important;
     border-bottom: 1px solid color-mix(in srgb, var(--border) 72%, transparent) !important;
     min-width: 0 !important;
     overflow: visible !important;
 }
 
-.bar_c38106 {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    gap: 8px !important;
-    width: 100% !important;
-    padding: 0 12px !important;
-    box-sizing: border-box !important;
-}
-
 .title_f75fb0,
 .container__9293f,
-.headerBar__1a9ce {
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
-    width: 100% !important;
-    padding: 0 12px !important;
-    box-sizing: border-box !important;
-}
-
+.headerBar__1a9ce,
 .upperContainer__9293f,
-.container__9293f,
-.title_f75fb0 {
-    min-width: 0 !important;
-}
-
 .children__9293f {
-    flex: 1 1 auto !important;
     min-width: 0 !important;
-    overflow: hidden !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 10px !important;
-    flex-wrap: nowrap !important;
 }
 
 .children__9293f::after,
@@ -2583,91 +2550,56 @@ nav[class*='guilds'] {
     display: none !important;
 }
 
-.toolbar__9293f {
-    margin-left: auto !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    gap: 8px !important;
-    flex-wrap: nowrap !important;
-    flex: 0 1 auto !important;
-    width: auto !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    padding: 0 !important;
-    overflow: visible !important;
-}
-
-.trailing_c38106 {
-    position: static !important;
-    top: auto !important;
-    right: auto !important;
-    z-index: 2 !important;
-    height: auto !important;
-    transform: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    gap: 8px !important;
-    flex-wrap: nowrap !important;
-    flex: 0 0 auto !important;
-    width: auto !important;
-    min-width: 0 !important;
-    margin-left: 12px !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
-    overflow: visible !important;
-}
-
-.trailing_c38106:hover {
-    transform: none !important;
-    opacity: 1 !important;
-}
-
-.winButtons_c38106 {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    gap: 0 !important;
-    flex: 0 0 auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-.winButton_c38106 {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    flex: 0 0 auto !important;
-    width: calc(var(--window-control-size) * 2) !important;
-    min-width: calc(var(--window-control-size) * 2) !important;
-    height: var(--custom-app-top-bar-height) !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-}
-
+/* do not change header flex/grid structure here; backup top-bar.css handles placement */
 .toolbar__9293f .separator__9293f {
     display: none !important;
 }
 
+/* flat search field, but without moving it */
+.search__49676,
+.searchBar__35e86,
+.searchBar__97492,
+.searchBarComponent__35e86 {
+    background: color-mix(in srgb, var(--bg-3) 64%, transparent) !important;
+    border: 1px solid color-mix(in srgb, var(--border) 68%, transparent) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    border-radius: 10px !important;
+}
+
+.searchBar__35e86 *,
+.searchBar__97492 *,
+.searchBarComponent__35e86 * {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.search__49676:hover,
+.searchBar__35e86:hover,
+.searchBar__97492:hover,
+.searchBarComponent__35e86:hover,
+.search__49676:focus-within,
+.searchBar__35e86:focus-within,
+.searchBar__97492:focus-within,
+.searchBarComponent__35e86:focus-within {
+    border-color: color-mix(in srgb, var(--border-hover) 76%, transparent) !important;
+    background: color-mix(in srgb, var(--bg-2) 72%, transparent) !important;
+}
+
+.search__49676 {
+    padding-inline: 8px !important;
+}
+
+/* icon surfaces only, no layout overrides */
 .toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676),
 .toolbar__9293f .iconWrapper__9293f,
 .toolbar__9293f .clickable__9293f,
-.trailing_c38106 > div:not(.winButtons_c38106),
-.trailing_c38106 a,
+.trailing_c38106 > :is(div, a, [role='button']):not(.winButtons_c38106),
 .trailing_c38106 .clickable__81391 {
-    min-width: 30px;
-    min-height: 30px;
     border-radius: 9px;
     background: transparent !important;
     border: 1px solid transparent !important;
     box-shadow: none !important;
-    flex: 0 0 auto;
     transition:
         background-color 0.14s ease,
         border-color 0.14s ease,
@@ -2677,106 +2609,23 @@ nav[class*='guilds'] {
 .toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676):hover,
 .toolbar__9293f .iconWrapper__9293f:hover,
 .toolbar__9293f .clickable__9293f:hover,
-.trailing_c38106 > div:not(.winButtons_c38106):hover,
-.trailing_c38106 a:hover,
+.trailing_c38106 > :is(div, a, [role='button']):not(.winButtons_c38106):hover,
 .trailing_c38106 .clickable__81391:hover {
     background: color-mix(in srgb, var(--text-1) 6%, transparent) !important;
     border-color: color-mix(in srgb, var(--border) 80%, transparent) !important;
-}
-
-.toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676),
-.toolbar__9293f .iconWrapper__9293f,
-.toolbar__9293f .clickable__9293f {
-    order: 10;
-}
-
-.toolbar__9293f .search__49676 {
-    order: 20 !important;
-    flex: 0 1 230px !important;
-    width: clamp(190px, 20vw, 230px) !important;
-    min-width: 190px !important;
-    max-width: 230px !important;
-    margin-left: 12px !important;
-    overflow: hidden !important;
-}
-
-.toolbar__9293f .search__49676,
-.searchBar__35e86 {
-    height: 34px;
-    padding-left: 12px;
-    padding-right: 12px;
-    border-radius: 10px !important;
-    background: color-mix(in srgb, var(--text-1) 4%, transparent) !important;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-.toolbar__9293f .search__49676:hover,
-.toolbar__9293f .search__49676:focus-within,
-.searchBar__35e86:hover,
-.searchBar__35e86:focus-within {
-    background: color-mix(in srgb, var(--text-1) 6%, transparent) !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-.searchBar__97492,
-.searchBarComponent__35e86,
-.searchBar__35e86,
-.searchBar__35e86 *,
-.searchBar__97492 *,
-.searchBarComponent__35e86 * {
-    border: none !important;
-    box-shadow: none !important;
-}
-
-.searchBar__35e86,
-.searchBar__35e86 *,
-.searchBar__97492,
-.searchBar__97492 *,
-.searchBarComponent__35e86,
-.searchBarComponent__35e86 * {
-    background: transparent !important;
 }
 
 .iconBadge__9293f {
     box-shadow: none !important;
 }
 
-/* neutralize old titlebar offsets so the rebuilt layout stays stable */
+/* neutralize only the broken prototype offsets; keep backup titlebar placement */
 @container body style(--top-bar-button-position: titlebar) {
-    .bar_c38106,
-    .trailing_c38106 {
-        position: static !important;
-        top: auto !important;
-        right: auto !important;
-        transform: none !important;
-        opacity: 1 !important;
-        z-index: auto !important;
-        height: auto !important;
-        padding-right: 0 !important;
-        transition: none !important;
-    }
-
-    .toolbar__9293f,
-    .navBarContent__131a1,
-    .headerBarContent__1a9ce,
-    .headerBar__8a7fc {
-        padding-right: 0 !important;
-        margin-right: 0 !important;
-    }
-
-    .searchFloating__1ac1c,
-    .balanceWidgetMenu__80679 {
-        right: auto !important;
-        margin-right: 0 !important;
-    }
-
     .bar_c38106 .backForwardButtons__63abb {
         display: none !important;
     }
 }
+
 
 /* list items: color change only, no movement */
 
