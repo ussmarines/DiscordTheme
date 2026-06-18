@@ -323,3 +323,128 @@ body {
         color: var(--text-muted);
     }
 }
+
+/* sibnight top bar */
+.bar_c38106,
+.base_c48ade > .bar_c38106,
+.container__89463,
+.container__89463 > .toolbar__89463,
+.container__89463 > .contentContainer__89463,
+.subtitleContainer_f75fb0,
+.chat_f75fb0 > .subtitleContainer_f75fb0,
+.container__9293f,
+.headerBar__1a9ce,
+.title_f75fb0,
+.titleWrapper_fc4f04,
+.upperContainer__9293f,
+.tabBody__133bf::before {
+    background: var(--proto-shell-surface) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+.bar_c38106,
+.container__9293f,
+.title_f75fb0,
+.container__89463,
+.headerBar__1a9ce,
+.subtitleContainer_f75fb0,
+.container__89463 > .toolbar__89463,
+.container__89463 > .contentContainer__89463 {
+    border: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 72%, transparent) !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+}
+
+.title_f75fb0,
+.container__9293f,
+.headerBar__1a9ce,
+.upperContainer__9293f,
+.children__9293f {
+    min-width: 0 !important;
+}
+
+.children__9293f::after,
+.tabBody__133bf::before,
+.toolbar__9293f .separator__9293f {
+    display: none !important;
+}
+
+/* top bar search */
+.toolbar__9293f .search__49676 {
+    display: inline-flex !important;
+    align-items: center !important;
+    width: clamp(176px, 18vw, 260px) !important;
+    min-width: 176px !important;
+    max-width: 260px !important;
+    height: 34px !important;
+    padding-inline: 10px !important;
+    background: color-mix(in srgb, var(--bg-3) 64%, transparent) !important;
+    border: 1px solid color-mix(in srgb, var(--border) 68%, transparent) !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+.toolbar__9293f .search__49676:hover,
+.toolbar__9293f .search__49676:focus-within {
+    border-color: color-mix(in srgb, var(--border-hover) 76%, transparent) !important;
+    background: color-mix(in srgb, var(--bg-2) 72%, transparent) !important;
+}
+
+.toolbar__9293f .search__49676 > * {
+    min-width: 0 !important;
+}
+
+.toolbar__9293f .search__49676 :is(.searchBar__35e86, .searchBar__97492, .searchBarComponent__35e86) {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.toolbar__9293f .search__49676 :is(.searchBar__35e86, .searchBar__97492, .searchBarComponent__35e86) * {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676),
+.toolbar__9293f .iconWrapper__9293f,
+.toolbar__9293f .clickable__9293f,
+.trailing_c38106 > :is(div, a, [role='button']):not(.winButtons_c38106),
+.trailing_c38106 .clickable__81391 {
+    border-radius: 9px;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    box-shadow: none !important;
+    transition:
+        background-color 0.14s ease,
+        border-color 0.14s ease,
+        color 0.14s ease !important;
+}
+
+.toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676):hover,
+.toolbar__9293f .iconWrapper__9293f:hover,
+.toolbar__9293f .clickable__9293f:hover,
+.trailing_c38106 > :is(div, a, [role='button']):not(.winButtons_c38106):hover,
+.trailing_c38106 .clickable__81391:hover {
+    background: color-mix(in srgb, var(--text-1) 6%, transparent) !important;
+    border-color: color-mix(in srgb, var(--border) 80%, transparent) !important;
+}
+
+.iconBadge__9293f {
+    box-shadow: none !important;
+}
+
+@container body style(--top-bar-button-position: titlebar) {
+    .bar_c38106 .backForwardButtons__63abb {
+        display: none !important;
+    }
+}

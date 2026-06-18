@@ -1,10 +1,16 @@
-# sibnight cleanup notes
+# Cleanup notes
 
-This snapshot rebuilds the polish layer from the last stable base instead of stacking more patch CSS.
-
-What changed:
-- rewrote `src/zz-prototype-layout.css` from scratch as a visual-only layer
-- removed broad structural overrides that previously caused regressions
-- fixed the topbar search double-layer/superposition by styling only the outer search wrapper
-- locked message hover to the full list row without transforms
-- made build ordering explicit in `scripts/lib/build-theme.js`
+- Removed `src/zz-prototype-layout.css`.
+- Merged its stable layout rules into existing source files:
+  - `src/main.css`
+  - `src/top-bar.css`
+  - `src/animations.css`
+  - `src/chatbar.css`
+- Simplified the top search styling:
+  - only the outer top-bar search wrapper is styled as the visible block
+  - inner search elements are transparent and fill the wrapper
+  - removed the double-block effect that was shrinking the real search field
+- Kept Discord structural layout untouched:
+  - no new grid/flex overrides for the native top bar
+  - no new sidebar structure overrides
+  - no broad right-panel overrides
