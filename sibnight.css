@@ -2,7 +2,7 @@
  * @name sibnight-discord
  * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
  * @author ussmarines
- * @version 2.10.0
+ * @version 2.11.0
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
  * @authorLink https://github.com/ussmarines
@@ -42,8 +42,12 @@ body {
     --custom-guild-list-width: calc(var(--guildbar-avatar-size) + var(--custom-guild-list-padding) * 2 + var(--border-thickness) * 2);
 
     --border-hover-transition: 0.2s ease;
-    --panel-shadow: 0 12px 32px rgba(2, 8, 18, 0.28);
-    --panel-shadow-hover: 0 18px 42px rgba(2, 8, 18, 0.34);
+    --panel-shadow:
+        0 18px 42px rgba(2, 8, 18, 0.34),
+        0 0 0 1px rgba(112, 174, 255, 0.03);
+    --panel-shadow-hover:
+        0 24px 56px rgba(2, 8, 18, 0.42),
+        0 0 0 1px rgba(112, 174, 255, 0.05);
 }
 
 /* Shared panel surfaces */
@@ -81,18 +85,22 @@ body {
 .chat_f75fb0 > .header__0b563  /* server channels and roles header */,
 .chat_f75fb0 > .container__0b563 /* server channels and roles page */,
 .container__8a031 /* popout modals */ {
-    background-color: var(--background-base-lower);
+    background: var(--sibylla-panel-fill);
     border-radius: var(--radius-lg);
     border: none;
     backdrop-filter: var(--panel-backdrop-filter);
     box-sizing: border-box;
-    box-shadow: var(--panel-shadow);
+    box-shadow:
+        var(--panel-shadow),
+        inset 0 1px 0 var(--sibylla-soft-edge);
     transition:
-        background-color var(--border-hover-transition),
+        background var(--border-hover-transition),
         box-shadow var(--border-hover-transition);
 
     &:hover {
-        box-shadow: var(--panel-shadow-hover);
+        box-shadow:
+            var(--panel-shadow-hover),
+            inset 0 1px 0 var(--sibylla-soft-edge-strong);
     }
 }
 
@@ -567,14 +575,16 @@ body {
 /* sibnight layout foundation */
 :root {
     --proto-topbar-height: 50px;
-    --proto-shell-surface: var(--bg-4);
-    --proto-column-surface: color-mix(in srgb, var(--bg-4) 92%, var(--bg-2) 8%);
-    --proto-column-surface-strong: color-mix(in srgb, var(--bg-4) 86%, var(--bg-2) 14%);
-    --proto-column-border: color-mix(in srgb, var(--border) 82%, transparent);
-    --proto-column-border-hover: color-mix(in srgb, var(--border-hover) 86%, transparent);
-    --proto-column-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-    --proto-hover-surface: color-mix(in srgb, var(--text-1) 4%, transparent);
-    --proto-active-surface: color-mix(in srgb, var(--accent-2) 12%, transparent);
+    --proto-shell-surface: var(--sibylla-shell-gradient);
+    --proto-column-surface: var(--sibylla-panel-fill);
+    --proto-column-surface-strong: var(--sibylla-panel-fill-strong);
+    --proto-column-border: transparent;
+    --proto-column-border-hover: transparent;
+    --proto-column-shadow:
+        0 18px 42px rgba(2, 8, 18, 0.30),
+        0 0 0 1px rgba(112, 174, 255, 0.03);
+    --proto-hover-surface: color-mix(in srgb, var(--blue-2) 10%, transparent);
+    --proto-active-surface: color-mix(in srgb, var(--blue-2) 16%, transparent);
 }
 
 body {
@@ -663,8 +673,10 @@ nav[class*='guilds'] {
 .scroller__23746,
 .container_f369db {
     background: var(--proto-column-surface) !important;
-    border-color: var(--proto-column-border) !important;
-    box-shadow: var(--proto-column-shadow);
+    border-color: transparent !important;
+    box-shadow:
+        var(--proto-column-shadow),
+        inset 0 1px 0 var(--sibylla-soft-edge) !important;
 }
 
 .sidebarList__5e434:hover,
@@ -681,7 +693,11 @@ nav[class*='guilds'] {
 .shop__6db1d:hover,
 .scroller__23746:hover,
 .container_f369db:hover {
-    border-color: var(--proto-column-border-hover) !important;
+    border-color: transparent !important;
+    box-shadow:
+        0 22px 52px rgba(2, 8, 18, 0.36),
+        0 0 0 1px rgba(112, 174, 255, 0.05),
+        inset 0 1px 0 var(--sibylla-soft-edge-strong) !important;
 }
 
 .sidebarList__5e434,
@@ -716,6 +732,74 @@ nav[class*='guilds'] {
 .panel__5dec7 .container__37e49,
 .wrapper_ef3116 .wrapper__8436d {
     background: transparent !important;
+}
+
+/* Sibylla identity polish */
+.chat_f75fb0 > .subtitleContainer_f75fb0,
+.container__133bf > .container__9293f,
+.container_f391e3 > .container__9293f,
+.homeWrapper__0920e > .container__9293f,
+.container__01ae2 > .container__9293f,
+.container_fb64c9 > .container__9293f,
+.headerBar__1a9ce {
+    background: var(--sibylla-header-fill) !important;
+    box-shadow:
+        var(--panel-shadow),
+        inset 0 1px 0 var(--sibylla-soft-edge) !important;
+}
+
+.panels__5e434 {
+    background: var(--sibylla-panel-fill-strong) !important;
+}
+
+.outer_c0bea0,
+.content_f75fb0 > aside > .outer_c0bea0,
+.searchResultsWrap_a98f3b {
+    background-image:
+        radial-gradient(circle at top right, var(--sibylla-blue-glow), transparent 34%),
+        var(--sibylla-panel-fill) !important;
+}
+
+.sidebarList__5e434,
+.chatContent_f75fb0,
+.container_c8ffbb,
+.peopleColumn__133bf,
+.nowPlayingColumn__133bf,
+.content_f75fb0 > .membersWrap_c8ffbb {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.015) 0%, transparent 26%),
+        var(--sibylla-panel-fill) !important;
+}
+
+.header_f37cb1,
+.privateChannelsHeaderContainer__99e7c,
+.container__2637a .header__99e7c,
+.panels__5e434 .container_e131a9 {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.modeSelected__2ea32 .link__2ea32,
+.interactive_bf202d.selected_bf202d,
+.channel__972a0.container__972a0:hover,
+.interactive__972a0:hover {
+    background: color-mix(in srgb, var(--blue-2) 14%, transparent) !important;
+}
+
+.link__2ea32:hover,
+.interactive_bf202d:hover {
+    background: color-mix(in srgb, var(--blue-2) 10%, transparent) !important;
+}
+
+.pill_e5445c .item__58105 {
+    background: linear-gradient(180deg, var(--blue-2), color-mix(in srgb, var(--yellow-2) 22%, var(--blue-3) 78%)) !important;
+    box-shadow: 0 0 14px rgba(99, 170, 255, 0.22);
+}
+
+.role_dfa8b6,
+.role__48c1c,
+.container__4bbc6 {
+    border: none !important;
+    box-shadow: inset 0 0 0 1px rgba(180, 218, 255, 0.04);
 }
 
 /* right column */
@@ -764,21 +848,21 @@ nav[class*='guilds'] {
 :root {
     /* text colors */
     --text-0: var(--bg-4); /* text on colored elements */
-    --text-1: hsl(214, 42%, 95%); /* other normally white text */
-    --text-2: hsl(213, 24%, 84%); /* headings and important text */
-    --text-3: hsl(213, 16%, 70%); /* normal text */
-    --text-4: hsl(213, 12%, 56%); /* icon buttons and channels */
-    --text-5: hsl(213, 10%, 43%); /* muted channels/chats and timestamps */
+    --text-1: hsl(214, 46%, 96%); /* other normally white text */
+    --text-2: hsl(213, 26%, 86%); /* headings and important text */
+    --text-3: hsl(214, 15%, 71%); /* normal text */
+    --text-4: hsl(214, 14%, 57%); /* icon buttons and channels */
+    --text-5: hsl(214, 11%, 43%); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
-    --bg-1: hsl(219, 44%, 18%); /* dark buttons when clicked */
-    --bg-2: hsl(220, 48%, 14%); /* dark buttons */
-    --bg-3: hsl(222, 54%, 10%); /* spacing, secondary elements */
-    --bg-4: hsl(224, 58%, 7%); /* main background color */
-    --hover: hsla(210, 88%, 70%, 0.08); /* channels and buttons when hovered */
-    --active: hsla(210, 90%, 68%, 0.14); /* channels and buttons when clicked or selected */
-    --active-2: hsla(210, 90%, 68%, 0.20); /* extra state for transparent buttons */
-    --message-hover: hsla(219, 54%, 12%, 0.72); /* messages when hovered */
+    --bg-1: hsl(218, 40%, 19%); /* dark buttons when clicked */
+    --bg-2: hsl(221, 46%, 14%); /* dark buttons */
+    --bg-3: hsl(225, 53%, 10%); /* spacing, secondary elements */
+    --bg-4: hsl(228, 56%, 7%); /* main background color */
+    --hover: hsla(206, 100%, 74%, 0.08); /* channels and buttons when hovered */
+    --active: hsla(206, 100%, 70%, 0.14); /* channels and buttons when clicked or selected */
+    --active-2: hsla(206, 100%, 70%, 0.22); /* extra state for transparent buttons */
+    --message-hover: rgba(10, 19, 35, 0.78); /* messages when hovered */
 
     /* accent colors */
     --accent-1: var(--blue-1); /* links and other accent text */
@@ -786,9 +870,9 @@ nav[class*='guilds'] {
     --accent-3: var(--blue-3); /* accent buttons */
     --accent-4: var(--blue-4); /* accent buttons when hovered */
     --accent-5: var(--blue-5); /* accent buttons when clicked */
-    --accent-new: color-mix(in oklab, var(--blue-2) 84%, var(--yellow-2) 16%); /* Sibylla blue with a soft gold hint */
-    --mention: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 86%) 40%, transparent); /* background of messages that mention you */
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 92%) 40%, transparent); /* background of messages that mention you when hovered */
+    --accent-new: color-mix(in oklab, var(--yellow-2) 72%, var(--blue-2) 28%); /* Sibylla gold for key highlights */
+    --mention: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 84%) 40%, transparent); /* background of messages that mention you */
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 90%) 40%, transparent); /* background of messages that mention you when hovered */
     --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
     --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
 
@@ -818,23 +902,62 @@ nav[class*='guilds'] {
     --green-4: oklch(60% 0.11 160);
     --green-5: oklch(54% 0.11 160);
 
-    --blue-1: oklch(84% 0.11 240);
-    --blue-2: oklch(78% 0.11 237);
-    --blue-3: oklch(71% 0.12 233);
-    --blue-4: oklch(64% 0.12 229);
-    --blue-5: oklch(57% 0.11 225);
+    --blue-1: oklch(84% 0.11 242);
+    --blue-2: oklch(78% 0.12 239);
+    --blue-3: oklch(71% 0.13 235);
+    --blue-4: oklch(64% 0.12 231);
+    --blue-5: oklch(57% 0.11 227);
 
-    --yellow-1: oklch(87% 0.07 90);
-    --yellow-2: oklch(81% 0.08 88);
-    --yellow-3: oklch(74% 0.08 86);
-    --yellow-4: oklch(67% 0.08 84);
-    --yellow-5: oklch(60% 0.08 82);
+    --yellow-1: oklch(88% 0.06 92);
+    --yellow-2: oklch(82% 0.07 89);
+    --yellow-3: oklch(76% 0.08 86);
+    --yellow-4: oklch(69% 0.08 83);
+    --yellow-5: oklch(62% 0.08 80);
 
     --purple-1: oklch(76% 0.09 300);
     --purple-2: oklch(70% 0.09 300);
     --purple-3: oklch(64% 0.09 300);
     --purple-4: oklch(58% 0.09 300);
     --purple-5: oklch(52% 0.09 300);
+
+    /* Sibylla surface tokens */
+    --sibylla-shell-gradient:
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--yellow-2) 12%, transparent) 0%, transparent 22%),
+        radial-gradient(circle at 88% 4%, color-mix(in srgb, var(--blue-2) 18%, transparent) 0%, transparent 30%),
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-4) 92%, black 8%) 0%,
+            var(--bg-4) 54%,
+            color-mix(in srgb, var(--bg-4) 82%, var(--bg-3) 18%) 100%
+        );
+    --sibylla-panel-fill:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 34%, var(--bg-4) 66%) 0%,
+            color-mix(in srgb, var(--bg-3) 22%, var(--bg-4) 78%) 100%
+        );
+    --sibylla-panel-fill-strong:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 42%, var(--bg-4) 58%) 0%,
+            color-mix(in srgb, var(--bg-3) 24%, var(--bg-4) 76%) 100%
+        );
+    --sibylla-header-fill:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 40%, var(--bg-4) 60%) 0%,
+            color-mix(in srgb, var(--bg-3) 14%, var(--bg-4) 86%) 100%
+        );
+    --sibylla-control-fill:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 52%, var(--bg-4) 48%) 0%,
+            color-mix(in srgb, var(--bg-3) 40%, var(--bg-4) 60%) 100%
+        );
+    --sibylla-soft-edge: rgba(180, 218, 255, 0.045);
+    --sibylla-soft-edge-strong: rgba(180, 218, 255, 0.07);
+    --sibylla-blue-glow: rgba(99, 170, 255, 0.16);
+    --sibylla-gold-glow: rgba(252, 218, 125, 0.12);
 }
 
 
@@ -2004,6 +2127,43 @@ body {
     }
 }
 
+/* Sibylla input surfaces */
+.channelTextArea_f75fb0,
+.channelBottomBarArea_f75fb0 .channelTextArea_f75fb0,
+.wrapper__44df5 {
+    background: var(--sibylla-control-fill) !important;
+    border: none !important;
+    box-shadow:
+        0 14px 26px rgba(2, 8, 18, 0.24),
+        inset 0 1px 0 var(--sibylla-soft-edge),
+        inset 0 0 0 1px rgba(180, 218, 255, 0.04) !important;
+}
+
+.channelTextArea_f75fb0:hover,
+.channelTextArea_f75fb0:focus-within,
+.wrapper__44df5:hover,
+.wrapper__44df5:focus-within {
+    box-shadow:
+        0 18px 32px rgba(2, 8, 18, 0.28),
+        inset 0 1px 0 var(--sibylla-soft-edge-strong),
+        inset 0 0 0 1px rgba(180, 218, 255, 0.06) !important;
+}
+
+.form_f75fb0 .themedBackground__74017,
+.scrollableContainer__74017,
+.stackedBars__74017 {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.buttons__74017 > *:hover,
+.attachButton__74017:hover,
+.expression-picker-chat-input-button:hover {
+    background: color-mix(in srgb, var(--blue-2) 10%, transparent) !important;
+    border-radius: 10px;
+}
+
 /* sibnight message hover */
 .messageListItem__5126c,
 .message__5126c,
@@ -2101,7 +2261,13 @@ body {
     --dms-icon-color-after: var(--white);
     --dms-background-image-url: url('');
     --dms-background-image-size: cover;
-    --dms-background-color: linear-gradient(135deg, color-mix(in oklab, var(--blue-3) 86%, var(--yellow-2) 14%), var(--blue-4));
+    --dms-background-color:
+        radial-gradient(circle at 28% 18%, rgba(252, 218, 125, 0.18), transparent 34%),
+        linear-gradient(
+            145deg,
+            color-mix(in oklab, var(--blue-3) 82%, var(--bg-3) 18%),
+            color-mix(in oklab, var(--blue-5) 74%, var(--yellow-2) 26%)
+        );
 }
 
 @property --custom-dms-icon {
@@ -2156,7 +2322,9 @@ body {
         background-repeat: no-repeat;
         background-size: var(--dms-icon-svg-size);
         pointer-events: none;
-        filter: drop-shadow(0 0 8px rgba(108, 170, 255, 0.22));
+        filter:
+            drop-shadow(0 0 10px rgba(108, 170, 255, 0.20))
+            drop-shadow(0 0 6px rgba(252, 218, 125, 0.10));
         transition:
             transform var(--dms-icon-svg-transition),
             filter 0.15s ease-out,
@@ -2302,6 +2470,28 @@ body {
 }
 
 /* Default desktop layout: keep actions in the title bar. */
+/* Sibylla top bar polish */
+.chat_f75fb0 > .subtitleContainer_f75fb0,
+.container__133bf > .container__9293f,
+.container_f391e3 > .container__9293f,
+.homeWrapper__0920e > .container__9293f,
+.container__01ae2 > .container__9293f,
+.container_fb64c9 > .container__9293f,
+.headerBar__1a9ce {
+    background: var(--sibylla-header-fill) !important;
+}
+
+.toolbar__9293f .search__49676 svg,
+.toolbar__9293f .search__49676 [class*='icon'] {
+    color: color-mix(in srgb, var(--text-2) 78%, var(--yellow-2) 22%) !important;
+}
+
+.title_f75fb0 .icon__9293f,
+.container__9293f .icon__9293f,
+.children__9293f > .iconWrapper__9293f:first-child {
+    color: color-mix(in srgb, var(--yellow-2) 54%, var(--text-2) 46%) !important;
+}
+
 @container body style(--top-bar-button-position: titlebar) {
     #app-mount {
         --custom-channel-header-height: calc(var(--guildbar-avatar-size) + var(--space-xs) + var(--border-thickness) * 2);
@@ -2591,18 +2781,29 @@ body {
     height: 34px !important;
     margin: 0 !important;
     padding: 0 !important;
-    background: color-mix(in srgb, var(--bg-3) 64%, transparent) !important;
-    border: 1px solid color-mix(in srgb, var(--border) 68%, transparent) !important;
-    border-radius: 10px !important;
-    box-shadow: none !important;
+    background: var(--sibylla-control-fill) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow:
+        inset 0 1px 0 var(--sibylla-soft-edge),
+        inset 0 0 0 1px rgba(180, 218, 255, 0.04) !important;
     backdrop-filter: none !important;
     overflow: hidden !important;
 }
 
 .toolbar__9293f .search__49676:hover,
 .toolbar__9293f .search__49676:focus-within {
-    border-color: color-mix(in srgb, var(--border-hover) 76%, transparent) !important;
-    background: color-mix(in srgb, var(--bg-2) 72%, transparent) !important;
+    background:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-1) 68%, var(--bg-3) 32%) 0%,
+            color-mix(in srgb, var(--bg-2) 58%, var(--bg-4) 42%) 100%
+        ) !important;
+    box-shadow:
+        inset 0 1px 0 var(--sibylla-soft-edge-strong),
+        inset 0 0 0 1px rgba(180, 218, 255, 0.06),
+        0 0 0 1px rgba(99, 170, 255, 0.10),
+        0 8px 18px rgba(7, 13, 24, 0.22) !important;
 }
 
 .toolbar__9293f .search__49676 > * {
@@ -2650,9 +2851,9 @@ body {
 .toolbar__9293f .clickable__9293f,
 .trailing_c38106 > :is(div, a, [role='button']):not(.winButtons_c38106),
 .trailing_c38106 .clickable__81391 {
-    border-radius: 9px;
+    border-radius: 10px;
     background: transparent !important;
-    border: 1px solid transparent !important;
+    border: none !important;
     box-shadow: none !important;
     transition:
         background-color 0.14s ease,
@@ -2665,12 +2866,36 @@ body {
 .toolbar__9293f .clickable__9293f:hover,
 .trailing_c38106 > :is(div, a, [role='button']):not(.winButtons_c38106):hover,
 .trailing_c38106 .clickable__81391:hover {
-    background: color-mix(in srgb, var(--text-1) 6%, transparent) !important;
-    border-color: color-mix(in srgb, var(--border) 80%, transparent) !important;
+    background: color-mix(in srgb, var(--blue-2) 10%, transparent) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.025),
+        inset 0 0 0 1px rgba(180, 218, 255, 0.04) !important;
 }
 
 .iconBadge__9293f {
     box-shadow: none !important;
+}
+
+/* Sibylla top bar polish */
+.chat_f75fb0 > .subtitleContainer_f75fb0,
+.container__133bf > .container__9293f,
+.container_f391e3 > .container__9293f,
+.homeWrapper__0920e > .container__9293f,
+.container__01ae2 > .container__9293f,
+.container_fb64c9 > .container__9293f,
+.headerBar__1a9ce {
+    background: var(--sibylla-header-fill) !important;
+}
+
+.toolbar__9293f .search__49676 svg,
+.toolbar__9293f .search__49676 [class*='icon'] {
+    color: color-mix(in srgb, var(--text-2) 78%, var(--yellow-2) 22%) !important;
+}
+
+.title_f75fb0 .icon__9293f,
+.container__9293f .icon__9293f,
+.children__9293f > .iconWrapper__9293f:first-child {
+    color: color-mix(in srgb, var(--yellow-2) 54%, var(--text-2) 46%) !important;
 }
 
 @container body style(--top-bar-button-position: titlebar) {
@@ -2911,21 +3136,21 @@ body {
 
     /* text colors */
     --text-0: var(--bg-4); /* text on colored elements */
-    --text-1: hsl(220, 30%, 94%); /* other normally white text */
-    --text-2: hsl(218, 18%, 80%); /* headings and important text */
-    --text-3: hsl(216, 12%, 66%); /* normal text */
-    --text-4: hsl(214, 10%, 50%); /* icon buttons and channels */
-    --text-5: hsl(212, 9%, 36%); /* muted channels/chats and timestamps */
+    --text-1: hsl(214, 46%, 96%); /* other normally white text */
+    --text-2: hsl(213, 26%, 86%); /* headings and important text */
+    --text-3: hsl(214, 15%, 71%); /* normal text */
+    --text-4: hsl(214, 14%, 57%); /* icon buttons and channels */
+    --text-5: hsl(214, 11%, 43%); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
-    --bg-1: hsla(224, 20%, 18%, 1); /* dark buttons when clicked */
-    --bg-2: hsla(225, 22%, 14%, 1); /* dark buttons */
-    --bg-3: hsla(226, 24%, 11%, 1); /* spacing, secondary elements */
-    --bg-4: hsla(228, 26%, 8%, 1); /* main background color */
-    --hover: hsla(212, 72%, 68%, 0.08); /* channels and buttons when hovered */
-    --active: hsla(212, 74%, 64%, 0.14); /* channels and buttons when clicked or selected */
-    --active-2: hsla(212, 74%, 64%, 0.22); /* extra state for transparent buttons */
-    --message-hover: hsla(225, 20%, 4%, 0.35); /* messages when hovered */
+    --bg-1: hsl(218, 40%, 19%); /* dark buttons when clicked */
+    --bg-2: hsl(221, 46%, 14%); /* dark buttons */
+    --bg-3: hsl(225, 53%, 10%); /* spacing, secondary elements */
+    --bg-4: hsl(228, 56%, 7%); /* main background color */
+    --hover: hsla(206, 100%, 74%, 0.08); /* channels and buttons when hovered */
+    --active: hsla(206, 100%, 70%, 0.14); /* channels and buttons when clicked or selected */
+    --active-2: hsla(206, 100%, 70%, 0.22); /* extra state for transparent buttons */
+    --message-hover: rgba(10, 19, 35, 0.78); /* messages when hovered */
 
     /* accent colors */
     --accent-1: var(--blue-1); /* links and other accent text */
@@ -2933,9 +3158,9 @@ body {
     --accent-3: var(--blue-3); /* accent buttons */
     --accent-4: var(--blue-4); /* accent buttons when hovered */
     --accent-5: var(--blue-5); /* accent buttons when clicked */
-    --accent-new: var(--accent-2); /* stuff that's normally red like mute/deafen buttons */
-    --mention: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent); /* background of messages that mention you */
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent); /* background of messages that mention you when hovered */
+    --accent-new: color-mix(in oklab, var(--yellow-2) 72%, var(--blue-2) 28%); /* Sibylla gold for key highlights */
+    --mention: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 84%) 40%, transparent); /* background of messages that mention you */
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 90%) 40%, transparent); /* background of messages that mention you when hovered */
     --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
     --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
 
@@ -2947,10 +3172,10 @@ body {
     --offline: var(--text-4); /* change to #82838b for default offline color */
 
     /* border colors */
-    --border-light: var(--hover); /* general light border color */
-    --border: var(--active); /* general normal border color */
-    --border-hover: hsla(212, 50%, 74%, 0.22); /* border color of panels when hovered */
-    --button-border: hsla(216, 24%, 88%, 0.12); /* neutral border color of buttons */
+    --border-light: transparent; /* general light border color */
+    --border: transparent; /* general normal border color */
+    --border-hover: transparent; /* border color of panels when hovered */
+    --button-border: hsla(214, 90%, 80%, 0.06); /* neutral border color of buttons */
 
     /* base colors */
     --red-1: oklch(75% 0.14 28);
@@ -2965,21 +3190,60 @@ body {
     --green-4: oklch(60% 0.11 160);
     --green-5: oklch(54% 0.11 160);
 
-    --blue-1: oklch(82% 0.11 240);
-    --blue-2: oklch(76% 0.11 238);
-    --blue-3: oklch(70% 0.12 235);
-    --blue-4: oklch(64% 0.11 232);
-    --blue-5: oklch(58% 0.10 229);
+    --blue-1: oklch(84% 0.11 242);
+    --blue-2: oklch(78% 0.12 239);
+    --blue-3: oklch(71% 0.13 235);
+    --blue-4: oklch(64% 0.12 231);
+    --blue-5: oklch(57% 0.11 227);
 
-    --yellow-1: oklch(84% 0.08 92);
-    --yellow-2: oklch(78% 0.08 90);
-    --yellow-3: oklch(72% 0.08 88);
-    --yellow-4: oklch(66% 0.08 86);
-    --yellow-5: oklch(60% 0.08 84);
+    --yellow-1: oklch(88% 0.06 92);
+    --yellow-2: oklch(82% 0.07 89);
+    --yellow-3: oklch(76% 0.08 86);
+    --yellow-4: oklch(69% 0.08 83);
+    --yellow-5: oklch(62% 0.08 80);
 
-    --purple-1: oklch(74% 0.09 315);
-    --purple-2: oklch(68% 0.09 315);
-    --purple-3: oklch(62% 0.09 315);
-    --purple-4: oklch(56% 0.09 315);
-    --purple-5: oklch(50% 0.09 315);
+    --purple-1: oklch(76% 0.09 300);
+    --purple-2: oklch(70% 0.09 300);
+    --purple-3: oklch(64% 0.09 300);
+    --purple-4: oklch(58% 0.09 300);
+    --purple-5: oklch(52% 0.09 300);
+
+    /* Sibylla surface tokens */
+    --sibylla-shell-gradient:
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--yellow-2) 12%, transparent) 0%, transparent 22%),
+        radial-gradient(circle at 88% 4%, color-mix(in srgb, var(--blue-2) 18%, transparent) 0%, transparent 30%),
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-4) 92%, black 8%) 0%,
+            var(--bg-4) 54%,
+            color-mix(in srgb, var(--bg-4) 82%, var(--bg-3) 18%) 100%
+        );
+    --sibylla-panel-fill:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 34%, var(--bg-4) 66%) 0%,
+            color-mix(in srgb, var(--bg-3) 22%, var(--bg-4) 78%) 100%
+        );
+    --sibylla-panel-fill-strong:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 42%, var(--bg-4) 58%) 0%,
+            color-mix(in srgb, var(--bg-3) 24%, var(--bg-4) 76%) 100%
+        );
+    --sibylla-header-fill:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 40%, var(--bg-4) 60%) 0%,
+            color-mix(in srgb, var(--bg-3) 14%, var(--bg-4) 86%) 100%
+        );
+    --sibylla-control-fill:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 52%, var(--bg-4) 48%) 0%,
+            color-mix(in srgb, var(--bg-3) 40%, var(--bg-4) 60%) 100%
+        );
+    --sibylla-soft-edge: rgba(180, 218, 255, 0.045);
+    --sibylla-soft-edge-strong: rgba(180, 218, 255, 0.07);
+    --sibylla-blue-glow: rgba(99, 170, 255, 0.16);
+    --sibylla-gold-glow: rgba(252, 218, 125, 0.12);
 }

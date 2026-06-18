@@ -7,21 +7,21 @@
 :root {
     /* text colors */
     --text-0: var(--bg-4); /* text on colored elements */
-    --text-1: hsl(214, 42%, 95%); /* other normally white text */
-    --text-2: hsl(213, 24%, 84%); /* headings and important text */
-    --text-3: hsl(213, 16%, 70%); /* normal text */
-    --text-4: hsl(213, 12%, 56%); /* icon buttons and channels */
-    --text-5: hsl(213, 10%, 43%); /* muted channels/chats and timestamps */
+    --text-1: hsl(214, 46%, 96%); /* other normally white text */
+    --text-2: hsl(213, 26%, 86%); /* headings and important text */
+    --text-3: hsl(214, 15%, 71%); /* normal text */
+    --text-4: hsl(214, 14%, 57%); /* icon buttons and channels */
+    --text-5: hsl(214, 11%, 43%); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
-    --bg-1: hsl(219, 44%, 18%); /* dark buttons when clicked */
-    --bg-2: hsl(220, 48%, 14%); /* dark buttons */
-    --bg-3: hsl(222, 54%, 10%); /* spacing, secondary elements */
-    --bg-4: hsl(224, 58%, 7%); /* main background color */
-    --hover: hsla(210, 88%, 70%, 0.08); /* channels and buttons when hovered */
-    --active: hsla(210, 90%, 68%, 0.14); /* channels and buttons when clicked or selected */
-    --active-2: hsla(210, 90%, 68%, 0.20); /* extra state for transparent buttons */
-    --message-hover: hsla(219, 54%, 12%, 0.72); /* messages when hovered */
+    --bg-1: hsl(218, 40%, 19%); /* dark buttons when clicked */
+    --bg-2: hsl(221, 46%, 14%); /* dark buttons */
+    --bg-3: hsl(225, 53%, 10%); /* spacing, secondary elements */
+    --bg-4: hsl(228, 56%, 7%); /* main background color */
+    --hover: hsla(206, 100%, 74%, 0.08); /* channels and buttons when hovered */
+    --active: hsla(206, 100%, 70%, 0.14); /* channels and buttons when clicked or selected */
+    --active-2: hsla(206, 100%, 70%, 0.22); /* extra state for transparent buttons */
+    --message-hover: rgba(10, 19, 35, 0.78); /* messages when hovered */
 
     /* accent colors */
     --accent-1: var(--blue-1); /* links and other accent text */
@@ -29,9 +29,9 @@
     --accent-3: var(--blue-3); /* accent buttons */
     --accent-4: var(--blue-4); /* accent buttons when hovered */
     --accent-5: var(--blue-5); /* accent buttons when clicked */
-    --accent-new: color-mix(in oklab, var(--blue-2) 84%, var(--yellow-2) 16%); /* Sibylla blue with a soft gold hint */
-    --mention: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 86%) 40%, transparent); /* background of messages that mention you */
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 92%) 40%, transparent); /* background of messages that mention you when hovered */
+    --accent-new: color-mix(in oklab, var(--yellow-2) 72%, var(--blue-2) 28%); /* Sibylla gold for key highlights */
+    --mention: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 84%) 40%, transparent); /* background of messages that mention you */
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 90%) 40%, transparent); /* background of messages that mention you when hovered */
     --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
     --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
 
@@ -61,23 +61,62 @@
     --green-4: oklch(60% 0.11 160);
     --green-5: oklch(54% 0.11 160);
 
-    --blue-1: oklch(84% 0.11 240);
-    --blue-2: oklch(78% 0.11 237);
-    --blue-3: oklch(71% 0.12 233);
-    --blue-4: oklch(64% 0.12 229);
-    --blue-5: oklch(57% 0.11 225);
+    --blue-1: oklch(84% 0.11 242);
+    --blue-2: oklch(78% 0.12 239);
+    --blue-3: oklch(71% 0.13 235);
+    --blue-4: oklch(64% 0.12 231);
+    --blue-5: oklch(57% 0.11 227);
 
-    --yellow-1: oklch(87% 0.07 90);
-    --yellow-2: oklch(81% 0.08 88);
-    --yellow-3: oklch(74% 0.08 86);
-    --yellow-4: oklch(67% 0.08 84);
-    --yellow-5: oklch(60% 0.08 82);
+    --yellow-1: oklch(88% 0.06 92);
+    --yellow-2: oklch(82% 0.07 89);
+    --yellow-3: oklch(76% 0.08 86);
+    --yellow-4: oklch(69% 0.08 83);
+    --yellow-5: oklch(62% 0.08 80);
 
     --purple-1: oklch(76% 0.09 300);
     --purple-2: oklch(70% 0.09 300);
     --purple-3: oklch(64% 0.09 300);
     --purple-4: oklch(58% 0.09 300);
     --purple-5: oklch(52% 0.09 300);
+
+    /* Sibylla surface tokens */
+    --sibylla-shell-gradient:
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--yellow-2) 12%, transparent) 0%, transparent 22%),
+        radial-gradient(circle at 88% 4%, color-mix(in srgb, var(--blue-2) 18%, transparent) 0%, transparent 30%),
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-4) 92%, black 8%) 0%,
+            var(--bg-4) 54%,
+            color-mix(in srgb, var(--bg-4) 82%, var(--bg-3) 18%) 100%
+        );
+    --sibylla-panel-fill:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 34%, var(--bg-4) 66%) 0%,
+            color-mix(in srgb, var(--bg-3) 22%, var(--bg-4) 78%) 100%
+        );
+    --sibylla-panel-fill-strong:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 42%, var(--bg-4) 58%) 0%,
+            color-mix(in srgb, var(--bg-3) 24%, var(--bg-4) 76%) 100%
+        );
+    --sibylla-header-fill:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 40%, var(--bg-4) 60%) 0%,
+            color-mix(in srgb, var(--bg-3) 14%, var(--bg-4) 86%) 100%
+        );
+    --sibylla-control-fill:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 52%, var(--bg-4) 48%) 0%,
+            color-mix(in srgb, var(--bg-3) 40%, var(--bg-4) 60%) 100%
+        );
+    --sibylla-soft-edge: rgba(180, 218, 255, 0.045);
+    --sibylla-soft-edge-strong: rgba(180, 218, 255, 0.07);
+    --sibylla-blue-glow: rgba(99, 170, 255, 0.16);
+    --sibylla-gold-glow: rgba(252, 218, 125, 0.12);
 }
 
 
