@@ -7,21 +7,21 @@
 :root {
     /* text colors */
     --text-0: var(--bg-4); /* text on colored elements */
-    --text-1: hsl(214, 46%, 96%); /* other normally white text */
-    --text-2: hsl(213, 26%, 86%); /* headings and important text */
-    --text-3: hsl(214, 15%, 71%); /* normal text */
-    --text-4: hsl(214, 14%, 57%); /* icon buttons and channels */
-    --text-5: hsl(214, 11%, 43%); /* muted channels/chats and timestamps */
+    --text-1: hsl(214, 50%, 97%); /* other normally white text */
+    --text-2: hsl(213, 30%, 88%); /* headings and important text */
+    --text-3: hsl(214, 17%, 74%); /* normal text */
+    --text-4: hsl(214, 16%, 60%); /* icon buttons and channels */
+    --text-5: hsl(214, 12%, 46%); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
-    --bg-1: hsl(218, 40%, 19%); /* dark buttons when clicked */
-    --bg-2: hsl(221, 46%, 14%); /* dark buttons */
-    --bg-3: hsl(225, 53%, 10%); /* spacing, secondary elements */
-    --bg-4: hsl(228, 56%, 7%); /* main background color */
-    --hover: hsla(206, 100%, 74%, 0.08); /* channels and buttons when hovered */
-    --active: hsla(206, 100%, 70%, 0.14); /* channels and buttons when clicked or selected */
-    --active-2: hsla(206, 100%, 70%, 0.22); /* extra state for transparent buttons */
-    --message-hover: rgba(10, 19, 35, 0.78); /* messages when hovered */
+    --bg-1: hsl(218, 44%, 20%); /* dark buttons when clicked */
+    --bg-2: hsl(221, 50%, 13%); /* dark buttons */
+    --bg-3: hsl(225, 58%, 9%); /* spacing, secondary elements */
+    --bg-4: hsl(228, 60%, 6%); /* main background color */
+    --hover: hsla(206, 100%, 76%, 0.09); /* channels and buttons when hovered */
+    --active: hsla(206, 100%, 72%, 0.16); /* channels and buttons when clicked or selected */
+    --active-2: hsla(206, 100%, 72%, 0.24); /* extra state for transparent buttons */
+    --message-hover: rgba(7, 16, 31, 0.86); /* messages when hovered */
 
     /* accent colors */
     --accent-1: var(--blue-1); /* links and other accent text */
@@ -29,11 +29,11 @@
     --accent-3: var(--blue-3); /* accent buttons */
     --accent-4: var(--blue-4); /* accent buttons when hovered */
     --accent-5: var(--blue-5); /* accent buttons when clicked */
-    --accent-new: color-mix(in oklab, var(--yellow-2) 72%, var(--blue-2) 28%); /* Sibylla gold for key highlights */
-    --mention: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 84%) 40%, transparent); /* background of messages that mention you */
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 90%) 40%, transparent); /* background of messages that mention you when hovered */
-    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
-    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
+    --accent-new: color-mix(in oklab, var(--yellow-2) 64%, var(--blue-2) 36%); /* Sibylla gold for key highlights */
+    --mention: linear-gradient(to right, color-mix(in srgb, var(--blue-2) 22%, transparent) 0%, transparent 70%); /* background of messages that mention you */
+    --mention-hover: linear-gradient(to right, color-mix(in srgb, var(--blue-2) 28%, transparent) 0%, transparent 74%); /* background of messages that mention you when hovered */
+    --reply: linear-gradient(to right, color-mix(in srgb, var(--yellow-2) 12%, transparent) 0%, transparent 68%); /* background of messages that reply to you */
+    --reply-hover: linear-gradient(to right, color-mix(in srgb, var(--yellow-2) 16%, transparent) 0%, transparent 72%); /* background of messages that reply to you when hovered */
 
     /* status indicator colors */
     --online: var(--green-2); /* change to #43a25a for default */
@@ -46,7 +46,7 @@
     --border-light: transparent; /* remove light panel borders */
     --border: transparent; /* remove panel borders */
     --border-hover: transparent; /* keep hover states clean */
-    --button-border: hsla(214, 90%, 80%, 0.06); /* minimal neutral outline when Discord requires one */
+    --button-border: hsla(214, 90%, 80%, 0.05); /* minimal neutral outline when Discord requires one */
 
     /* base colors */
     --red-1: oklch(75% 0.14 28);
@@ -81,42 +81,46 @@
 
     /* Sibylla surface tokens */
     --sibylla-shell-gradient:
-        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--yellow-2) 12%, transparent) 0%, transparent 22%),
-        radial-gradient(circle at 88% 4%, color-mix(in srgb, var(--blue-2) 18%, transparent) 0%, transparent 30%),
+        radial-gradient(circle at 10% 2%, color-mix(in srgb, var(--yellow-2) 16%, transparent) 0%, transparent 20%),
+        radial-gradient(circle at 82% 0%, color-mix(in srgb, var(--blue-2) 22%, transparent) 0%, transparent 28%),
+        radial-gradient(circle at 92% 88%, color-mix(in srgb, var(--blue-3) 12%, transparent) 0%, transparent 24%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-4) 92%, black 8%) 0%,
-            var(--bg-4) 54%,
-            color-mix(in srgb, var(--bg-4) 82%, var(--bg-3) 18%) 100%
+            color-mix(in srgb, var(--bg-4) 90%, black 10%) 0%,
+            color-mix(in srgb, var(--bg-4) 94%, var(--bg-3) 6%) 44%,
+            color-mix(in srgb, var(--bg-4) 80%, var(--bg-3) 20%) 100%
         );
     --sibylla-panel-fill:
+        radial-gradient(circle at 100% 0%, rgba(97, 168, 255, 0.08) 0%, transparent 34%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 34%, var(--bg-4) 66%) 0%,
-            color-mix(in srgb, var(--bg-3) 22%, var(--bg-4) 78%) 100%
+            color-mix(in srgb, var(--bg-2) 46%, var(--bg-4) 54%) 0%,
+            color-mix(in srgb, var(--bg-3) 26%, var(--bg-4) 74%) 100%
         );
     --sibylla-panel-fill-strong:
+        radial-gradient(circle at 100% 0%, rgba(97, 168, 255, 0.1) 0%, transparent 32%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 42%, var(--bg-4) 58%) 0%,
-            color-mix(in srgb, var(--bg-3) 24%, var(--bg-4) 76%) 100%
+            color-mix(in srgb, var(--bg-2) 54%, var(--bg-4) 46%) 0%,
+            color-mix(in srgb, var(--bg-3) 30%, var(--bg-4) 70%) 100%
         );
     --sibylla-header-fill:
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 40%, var(--bg-4) 60%) 0%,
-            color-mix(in srgb, var(--bg-3) 14%, var(--bg-4) 86%) 100%
+            color-mix(in srgb, var(--bg-2) 48%, var(--bg-4) 52%) 0%,
+            color-mix(in srgb, var(--bg-3) 18%, var(--bg-4) 82%) 100%
         );
     --sibylla-control-fill:
+        radial-gradient(circle at 100% 0%, rgba(96, 167, 255, 0.08) 0%, transparent 42%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 52%, var(--bg-4) 48%) 0%,
-            color-mix(in srgb, var(--bg-3) 40%, var(--bg-4) 60%) 100%
+            color-mix(in srgb, var(--bg-2) 56%, var(--bg-4) 44%) 0%,
+            color-mix(in srgb, var(--bg-3) 42%, var(--bg-4) 58%) 100%
         );
-    --sibylla-soft-edge: rgba(180, 218, 255, 0.045);
-    --sibylla-soft-edge-strong: rgba(180, 218, 255, 0.07);
-    --sibylla-blue-glow: rgba(99, 170, 255, 0.16);
-    --sibylla-gold-glow: rgba(252, 218, 125, 0.12);
+    --sibylla-soft-edge: rgba(184, 221, 255, 0.04);
+    --sibylla-soft-edge-strong: rgba(184, 221, 255, 0.065);
+    --sibylla-blue-glow: rgba(104, 176, 255, 0.18);
+    --sibylla-gold-glow: rgba(252, 218, 125, 0.10);
 }
 
 

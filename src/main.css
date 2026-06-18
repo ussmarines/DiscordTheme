@@ -820,3 +820,117 @@ nav[class*='guilds'] {
 .channelBottomBarArea_f75fb0 {
     background: transparent !important;
 }
+
+
+/* ==========================
+   Sibylla final visual pass
+   ========================== */
+
+:root {
+    --sibylla-card-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 34%);
+    --sibylla-active-fill: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--blue-2) 18%, transparent) 0%,
+        color-mix(in srgb, var(--blue-2) 10%, transparent) 100%
+    );
+    --sibylla-hover-fill: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--blue-2) 12%, transparent) 0%,
+        color-mix(in srgb, var(--blue-2) 6%, transparent) 100%
+    );
+}
+
+.sidebarList__5e434,
+.chatContent_f75fb0,
+.container_c8ffbb,
+.peopleColumn__133bf,
+.nowPlayingColumn__133bf,
+.content_f75fb0 > .membersWrap_c8ffbb,
+.content_f75fb0 > aside > .outer_c0bea0 {
+    background-image:
+        var(--sibylla-card-sheen),
+        var(--sibylla-panel-fill) !important;
+}
+
+.panels__5e434 {
+    background-image:
+        radial-gradient(circle at 100% 0%, rgba(252, 218, 125, 0.08) 0%, transparent 26%),
+        var(--sibylla-panel-fill-strong) !important;
+}
+
+.modeSelected__2ea32 .link__2ea32,
+.interactive_bf202d.selected_bf202d,
+.channel__972a0.container__972a0:hover,
+.interactive__972a0:hover {
+    background: var(--sibylla-active-fill) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.03),
+        0 10px 24px rgba(1, 8, 18, 0.18) !important;
+}
+
+.link__2ea32:hover,
+.interactive_bf202d:hover,
+.member_c8ffbb:hover,
+.container__91a9d:hover,
+.itemCard__7e549:hover {
+    background: var(--sibylla-hover-fill) !important;
+}
+
+.member_c8ffbb,
+.container__91a9d,
+.itemCard__7e549 {
+    border: none !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.02),
+        inset 0 0 0 1px rgba(120, 176, 255, 0.03) !important;
+}
+
+[class*='membersGroup'] {
+    color: color-mix(in srgb, var(--text-2) 76%, var(--yellow-2) 24%) !important;
+    text-shadow: 0 0 10px rgba(97, 168, 255, 0.08);
+}
+
+[class*='membersGroup'] span,
+[class*='membersGroup'] div {
+    color: inherit !important;
+}
+
+.markup_f8f345 a,
+.anchor_edefb8,
+.fakeLink__2c949 {
+    color: color-mix(in srgb, var(--blue-1) 78%, var(--yellow-2) 22%) !important;
+}
+
+.embedFull__623de,
+.container__9271d,
+.reaction__23977,
+.reactionBtn__23977.forceShow__23977,
+.codeView__5126c,
+.textContainer__4d95d,
+.footer__4d95d {
+    background: color-mix(in srgb, var(--bg-3) 52%, var(--bg-4) 48%) !important;
+    border-color: rgba(122, 181, 255, 0.05) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.018),
+        0 8px 20px rgba(1, 8, 18, 0.14) !important;
+}
+
+.message__5126c:hover,
+.message__5126c.selected__5126c,
+.mouse-mode.full-motion .message__5126c:hover {
+    background: rgba(7, 16, 31, 0.82) !important;
+}
+
+.outer_c0bea0,
+.content_f75fb0 > aside > .outer_c0bea0 {
+    background-image:
+        radial-gradient(circle at top right, rgba(102, 173, 255, 0.10) 0%, transparent 28%),
+        radial-gradient(circle at top left, rgba(252, 218, 125, 0.07) 0%, transparent 22%),
+        var(--sibylla-panel-fill) !important;
+}
+
+.banner__68edb,
+.banner__68edb img,
+.mask__68edb {
+    filter: saturate(1.05) contrast(1.02);
+}
