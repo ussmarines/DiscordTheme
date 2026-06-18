@@ -28,7 +28,7 @@ body {
     background: var(--proto-shell-surface) !important;
 }
 
-/* server rail */
+/* keep the server rail fused into the application background */
 .guilds_c48ade,
 .guilds__5e434,
 .wrapper_ef3116,
@@ -81,7 +81,7 @@ nav[class*='guilds'] {
     overflow: visible !important;
 }
 
-/* main 3-column surfaces */
+/* 3-column surfaces */
 .sidebarList__5e434,
 .panels__5e434,
 .chatContent_f75fb0,
@@ -126,21 +126,17 @@ nav[class*='guilds'] {
 .header_f37cb1,
 .searchBar__35e86,
 .searchBar__35e86 *,
-.privateChannelsHeaderContainer__99e7c,
-.container__551b0,
-.container__7d20c,
-.memberInner__5d473,
-.content_a5d4a0 {
+.privateChannelsHeaderContainer__99e7c {
     background: transparent !important;
 }
 
-.sidebarList__5e434,
-.panels__5e434 {
+.sidebarList__5e434 {
     overflow: hidden !important;
 }
 
 .panels__5e434 {
     background: var(--proto-column-surface-strong) !important;
+    overflow: hidden !important;
 }
 
 .activityPanel_c48ade,
@@ -152,23 +148,13 @@ nav[class*='guilds'] {
     background: transparent !important;
 }
 
-/* right column */
+/* right column stays visually consistent */
 .members_c8ffbb,
 .member_c8ffbb,
 .container__91a9d,
 .scroller__7d20c,
-.container__551b0,
-.headerContainer__095fe,
-.mainTableContainer__09a38,
-.nowPlayingColumn__133bf > div,
-.peopleColumn__133bf > div {
+.scroller_c8ffbb {
     background: transparent !important;
-    box-shadow: none !important;
-}
-
-.member_c8ffbb,
-.container__91a9d {
-    border-radius: 11px;
 }
 
 /* center column */
@@ -188,7 +174,7 @@ nav[class*='guilds'] {
     background: transparent !important;
 }
 
-/* top strip: visual only, no structural placement overrides */
+/* top strip: visual polish only, preserve the backup/native layout */
 .bar_c38106,
 .base_c48ade > .bar_c38106,
 .container__89463,
@@ -231,12 +217,16 @@ nav[class*='guilds'] {
 }
 
 .children__9293f::after,
-.tabBody__133bf::before,
+.tabBody__133bf::before {
+    display: none !important;
+}
+
+/* do not change header flex/grid structure here; backup top-bar.css handles placement */
 .toolbar__9293f .separator__9293f {
     display: none !important;
 }
 
-/* search and icon polish */
+/* flat search field, but without moving it */
 .search__49676,
 .searchBar__35e86,
 .searchBar__97492,
@@ -271,6 +261,7 @@ nav[class*='guilds'] {
     padding-inline: 8px !important;
 }
 
+/* icon surfaces only, no layout overrides */
 .toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676),
 .toolbar__9293f .iconWrapper__9293f,
 .toolbar__9293f .clickable__9293f,
@@ -299,13 +290,16 @@ nav[class*='guilds'] {
     box-shadow: none !important;
 }
 
+/* neutralize only the broken prototype offsets; keep backup titlebar placement */
 @container body style(--top-bar-button-position: titlebar) {
     .bar_c38106 .backForwardButtons__63abb {
         display: none !important;
     }
 }
 
+
 /* list items: color change only, no movement */
+
 .wrapper__2ea32 .link__2ea32,
 .channel__972a0,
 .container__91a9d,
