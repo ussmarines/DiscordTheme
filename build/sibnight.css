@@ -2373,7 +2373,6 @@ nav[class*='guilds'] {
 .tutorialContainer__1f388,
 .listItem__650eb,
 .folderGroup__48112,
-.stack_dbd263,
 .itemsContainer_ef3116 {
     overflow: visible !important;
 }
@@ -2596,4 +2595,48 @@ nav[class*='guilds'] {
 .ephemeral__5126c:hover {
     background-image: none;
 }
+
+
+/* hotfix: keep the guild rail natively scrollable with the mouse wheel */
+.guilds__5e434,
+.guilds_c48ade,
+.wrapper_ef3116,
+.scroller_ef3116 {
+    min-height: 0 !important;
+}
+
+.wrapper_ef3116,
+.scroller_ef3116 {
+    height: 100% !important;
+}
+
+.itemsContainer_ef3116 {
+    min-height: 100% !important;
+}
+
+.scroller_ef3116,
+.stack_dbd263:not([id='guild-list-unread-dms']) {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior-y: contain !important;
+    scrollbar-width: none !important;
+    touch-action: pan-y !important;
+    pointer-events: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroller_ef3116::-webkit-scrollbar,
+.stack_dbd263:not([id='guild-list-unread-dms'])::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.tutorialContainer__1f388,
+.listItem__650eb,
+.folderGroup__48112,
+.itemsContainer_ef3116,
+.stack_dbd263[id='guild-list-unread-dms'] {
+    overflow: visible !important;
+}
+
 
