@@ -2,7 +2,7 @@
  * @name sibnight-discord
  * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
  * @author ussmarines
- * @version 2.5.1
+ * @version 2.5.2
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
  * @authorLink https://github.com/ussmarines
@@ -2526,6 +2526,14 @@ nav[class*='guilds'] {
     backdrop-filter: none !important;
 }
 
+.bar_c38106,
+.container__9293f,
+.title_f75fb0,
+.container__89463,
+.headerBar__1a9ce {
+    position: relative !important;
+}
+
 .container__9293f,
 .subtitleContainer_f75fb0,
 .headerBar__1a9ce,
@@ -2554,16 +2562,24 @@ nav[class*='guilds'] {
     display: none !important;
 }
 
-.toolbar__9293f,
-.trailing_c38106 {
+.toolbar__9293f {
     gap: 8px;
-    padding-right: var(--top-bar-right-margin, 0);
     align-items: center;
+    justify-content: flex-end !important;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-right: var(--top-bar-right-margin, 0) !important;
 }
 
-.toolbar__9293f > div,
-.toolbar__9293f > a,
-.toolbar__9293f [role='button'],
+.trailing_c38106 {
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end !important;
+    padding-right: 0 !important;
+    margin-left: auto !important;
+}
+
+.toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676),
 .toolbar__9293f .iconWrapper__9293f,
 .toolbar__9293f .clickable__9293f,
 .trailing_c38106 > div:not(.winButtons_c38106) {
@@ -2579,9 +2595,7 @@ nav[class*='guilds'] {
         color 0.14s ease;
 }
 
-.toolbar__9293f > div:not(.separator__9293f):hover,
-.toolbar__9293f > a:hover,
-.toolbar__9293f [role='button']:hover,
+.toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676):hover,
 .toolbar__9293f .iconWrapper__9293f:hover,
 .toolbar__9293f .clickable__9293f:hover,
 .trailing_c38106 > div:not(.winButtons_c38106):hover {
@@ -2593,6 +2607,11 @@ nav[class*='guilds'] {
     display: none !important;
 }
 
+.toolbar__9293f .search__49676 {
+    margin-left: auto !important;
+    flex: 0 0 auto;
+}
+
 .toolbar__9293f .search__49676,
 .searchBar__35e86 {
     min-width: 212px;
@@ -2600,8 +2619,9 @@ nav[class*='guilds'] {
     padding-left: 12px;
     padding-right: 12px;
     border-radius: 10px !important;
-    background: color-mix(in srgb, var(--bg-3) 78%, transparent) !important;
-    border: 1px solid color-mix(in srgb, var(--border) 74%, transparent) !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
     box-shadow: none !important;
 }
 
@@ -2609,8 +2629,8 @@ nav[class*='guilds'] {
 .toolbar__9293f .search__49676:focus-within,
 .searchBar__35e86:hover,
 .searchBar__35e86:focus-within {
-    background: color-mix(in srgb, var(--bg-3) 84%, var(--bg-2) 16%) !important;
-    border-color: color-mix(in srgb, var(--border-hover) 84%, transparent) !important;
+    background: color-mix(in srgb, var(--text-1) 4%, transparent) !important;
+    border: none !important;
 }
 
 .searchBar__97492,
@@ -2620,6 +2640,7 @@ nav[class*='guilds'] {
 .searchBar__97492 *,
 .searchBarComponent__35e86 * {
     background: transparent !important;
+    border: none !important;
     box-shadow: none !important;
 }
 
