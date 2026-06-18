@@ -224,8 +224,18 @@ nav[class*='guilds'] {
     padding-right: 12px;
 }
 
+.upperContainer__9293f,
+.container__9293f,
+.title_f75fb0 {
+    min-width: 0 !important;
+}
+
 .children__9293f {
+    display: flex !important;
+    align-items: center;
     gap: 10px;
+    min-width: 0;
+    flex: 1 1 auto !important;
 }
 
 .children__9293f::after,
@@ -235,21 +245,24 @@ nav[class*='guilds'] {
 
 .toolbar__9293f {
     display: flex !important;
-    gap: 8px;
     align-items: center;
-    justify-content: flex-start !important;
-    flex: 0 0 auto;
-    width: auto;
-    min-width: 0;
-    margin-left: auto !important;
+    justify-content: flex-end !important;
+    gap: 8px;
+    flex: 1 1 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    margin-left: 20px !important;
     padding-right: 0 !important;
 }
 
 .trailing_c38106 {
-    gap: 8px;
+    display: flex !important;
     align-items: center;
     justify-content: flex-end !important;
-    flex: 0 0 auto;
+    gap: 8px;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: max-content !important;
     padding-right: 0 !important;
     margin-left: 12px !important;
 }
@@ -264,6 +277,7 @@ nav[class*='guilds'] {
     background: transparent !important;
     border: 1px solid transparent !important;
     box-shadow: none !important;
+    flex: 0 0 auto;
     transition:
         background-color 0.14s ease,
         border-color 0.14s ease,
@@ -283,9 +297,16 @@ nav[class*='guilds'] {
 }
 
 .toolbar__9293f .search__49676 {
+    order: 20;
     margin-left: 12px !important;
-    flex: 0 0 auto;
-    order: 999;
+    flex: 0 0 220px !important;
+    min-width: 220px !important;
+}
+
+.toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676),
+.toolbar__9293f .iconWrapper__9293f,
+.toolbar__9293f .clickable__9293f {
+    order: 10;
 }
 
 .toolbar__9293f .search__49676,
