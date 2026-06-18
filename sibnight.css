@@ -2,7 +2,7 @@
  * @name sibnight-discord
  * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
  * @author ussmarines
- * @version 2.6.3
+ * @version 2.7.0
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
  * @authorLink https://github.com/ussmarines
@@ -2757,6 +2757,133 @@ nav[class*='guilds'] {
 .ephemeral__5126c {
     background-color: transparent !important;
     background-image: none !important;
+}
+
+
+/* final polish pass: tighter surfaces, calmer spacing, cleaner right column */
+:root {
+    --proto-panel-radius: 16px;
+    --proto-card-radius: 13px;
+    --proto-soft-card-surface: color-mix(in srgb, var(--bg-3) 28%, transparent);
+    --proto-soft-card-border: color-mix(in srgb, var(--border) 74%, transparent);
+    --proto-soft-card-border-hover: color-mix(in srgb, var(--border-hover) 78%, transparent);
+    --proto-soft-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+/* panel shells */
+.sidebarList__5e434,
+.panels__5e434,
+.chatContent_f75fb0,
+.container_c8ffbb,
+.content_f75fb0 > .membersWrap_c8ffbb,
+.peopleColumn__133bf,
+.nowPlayingColumn__133bf,
+.content_f75fb0 > aside > .outer_c0bea0,
+.searchResultsWrap_a98f3b,
+.container_f391e3 > .content_f75fb0,
+.mainPageScroller__80907,
+.shop__6db1d,
+.scroller__23746,
+.container_f369db {
+    border-radius: var(--proto-panel-radius) !important;
+    box-shadow: var(--proto-soft-shadow) !important;
+}
+
+/* right column section rhythm */
+.container_c8ffbb [class*='membersGroup'],
+.content_f75fb0 > .membersWrap_c8ffbb [class*='membersGroup'],
+.peopleColumn__133bf [class*='header'],
+.nowPlayingColumn__133bf [class*='header'],
+.content_f75fb0 > aside > .outer_c0bea0 [class*='header'] {
+    padding: 15px 16px 8px !important;
+    margin: 0 !important;
+    background: transparent !important;
+    color: var(--text-2) !important;
+    letter-spacing: 0.02em;
+    text-transform: none !important;
+}
+
+/* right column rows and cards */
+.container_c8ffbb .member_c8ffbb,
+.peopleColumn__133bf .container__91a9d,
+.nowPlayingColumn__133bf .container__91a9d,
+.content_f75fb0 > aside > .outer_c0bea0 [class*='section'],
+.content_f75fb0 > aside > .outer_c0bea0 [class*='card'],
+.content_f75fb0 > aside > .outer_c0bea0 [class*='container'] {
+    border-radius: var(--proto-card-radius) !important;
+    border: 1px solid var(--proto-soft-card-border) !important;
+    box-shadow: none !important;
+}
+
+.container_c8ffbb .member_c8ffbb,
+.peopleColumn__133bf .container__91a9d,
+.nowPlayingColumn__133bf .container__91a9d {
+    margin: 0 10px 6px !important;
+    background: var(--proto-soft-card-surface) !important;
+}
+
+.container_c8ffbb .member_c8ffbb:hover,
+.peopleColumn__133bf .container__91a9d:hover,
+.nowPlayingColumn__133bf .container__91a9d:hover,
+.content_f75fb0 > aside > .outer_c0bea0 [class*='section']:hover,
+.content_f75fb0 > aside > .outer_c0bea0 [class*='card']:hover,
+.content_f75fb0 > aside > .outer_c0bea0 [class*='container']:hover {
+    border-color: var(--proto-soft-card-border-hover) !important;
+}
+
+.content_f75fb0 > aside > .outer_c0bea0 {
+    background: var(--proto-column-surface-strong) !important;
+}
+
+.content_f75fb0 > aside > .outer_c0bea0 [class*='section'],
+.content_f75fb0 > aside > .outer_c0bea0 [class*='card'],
+.content_f75fb0 > aside > .outer_c0bea0 [class*='container'] {
+    background: color-mix(in srgb, var(--bg-3) 24%, transparent) !important;
+}
+
+/* user panel + channel list alignment */
+.panels__5e434 {
+    border-top-left-radius: var(--proto-panel-radius) !important;
+    border-top-right-radius: var(--proto-panel-radius) !important;
+}
+
+.panels__5e434 > *,
+.sidebarList__5e434 [class*='scroller'],
+.sidebarList__5e434 .privateChannels_e6b769 {
+    box-shadow: none !important;
+}
+
+/* chat area spacing polish */
+.wrapper__44df5,
+.channelTextArea_f75fb0,
+.messagesWrapper__36d07 {
+    border-radius: 14px !important;
+}
+
+.messageListItem__5126c {
+    border-radius: 14px !important;
+}
+
+.messageListItem__5126c:hover,
+.messageListItem__5126c:focus-within,
+.mouse-mode.full-motion .messageListItem__5126c:hover,
+.messageListItem__5126c:has(.message__5126c.selected__5126c),
+.messageListItem__5126c:has(.message__5126c.replying__5126c:hover),
+.messageListItem__5126c:has(.message__5126c.mentioned__5126c:hover),
+.messageListItem__5126c:has(.message__5126c.ephemeral__5126c:hover) {
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--border) 55%, transparent);
+}
+
+/* subtly calmer panel borders */
+.sidebarList__5e434,
+.panels__5e434,
+.chatContent_f75fb0,
+.container_c8ffbb,
+.content_f75fb0 > .membersWrap_c8ffbb,
+.peopleColumn__133bf,
+.nowPlayingColumn__133bf,
+.content_f75fb0 > aside > .outer_c0bea0 {
+    border-color: color-mix(in srgb, var(--proto-column-border) 92%, transparent) !important;
 }
 
 
