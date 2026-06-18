@@ -83,11 +83,13 @@ themes/
 
 ## Flavors
 
+Les flavors importent `themes/sibnight.theme.css` puis remplacent uniquement la palette et les surfaces de design, pour garder la même base fonctionnelle et éviter que le thème principal reprenne le dessus.
+
 - `themes/flavors/sibnight-space.css` — version spatiale avec nébuleuses bleues Sibylla
 - `themes/flavors/sibnight-sun.css` — variante chaude or/cuivre, plus solaire
 - `themes/flavors/sibnight-north-Polar.css` — Polar Night avec accents Frost modérés
 - `themes/flavors/sibnight-north-Snow.css` — Snow Storm avec accents Frost modérés
-- `themes/flavors/sibnight-north-Aurora.css` — Aurora avec neutres Nord sombres
+- `themes/flavors/sibnight-north-Aurora.css` — Aurora avec accents Nord plus atmosphériques
 
 ## Crédits
 
