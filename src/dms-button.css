@@ -4,17 +4,18 @@
 
 body {
     --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg');
-    --dms-icon-svg-size: 104%;
+    --dms-icon-svg-size: 106%;
     --dms-icon-color-before: var(--icon-subtle);
     --dms-icon-color-after: var(--white);
     --dms-background-image-url: url('');
     --dms-background-image-size: cover;
     --dms-background-color:
-        radial-gradient(circle at 28% 18%, rgba(252, 218, 125, 0.18), transparent 34%),
+        radial-gradient(circle at 28% 18%, rgba(252, 218, 125, 0.16), transparent 32%),
+        radial-gradient(circle at 100% 0%, rgba(99, 170, 255, 0.14), transparent 40%),
         linear-gradient(
             145deg,
-            color-mix(in oklab, var(--blue-3) 82%, var(--bg-3) 18%),
-            color-mix(in oklab, var(--blue-5) 74%, var(--yellow-2) 26%)
+            color-mix(in oklab, var(--blue-3) 80%, var(--bg-3) 20%),
+            color-mix(in oklab, var(--blue-5) 82%, var(--yellow-2) 18%)
         );
 }
 

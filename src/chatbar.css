@@ -255,3 +255,30 @@ body {
     background-color: transparent !important;
     background-image: none !important;
 }
+
+
+/* ===============================
+   Sibylla final chat input polish
+   =============================== */
+
+.channelTextArea_f75fb0,
+.channelBottomBarArea_f75fb0 .channelTextArea_f75fb0,
+.wrapper__44df5 {
+    background-image:
+        radial-gradient(circle at 100% 0%, rgba(97, 168, 255, 0.08) 0%, transparent 40%),
+        var(--sibylla-control-fill) !important;
+}
+
+.channelTextArea_f75fb0:focus-within,
+.channelBottomBarArea_f75fb0 .channelTextArea_f75fb0:focus-within,
+.wrapper__44df5:focus-within {
+    box-shadow:
+        0 16px 34px rgba(1, 8, 18, 0.26),
+        0 0 0 1px rgba(112, 174, 255, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+}
+
+.placeholder__1b31f,
+.placeholder__3b55d {
+    color: color-mix(in srgb, var(--text-4) 82%, var(--yellow-2) 18%) !important;
+}

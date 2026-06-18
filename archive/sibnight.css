@@ -2,7 +2,7 @@
  * @name sibnight-discord
  * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
  * @author ussmarines
- * @version 2.11.0
+ * @version 2.12.0
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
  * @authorLink https://github.com/ussmarines
@@ -838,6 +838,120 @@ nav[class*='guilds'] {
     background: transparent !important;
 }
 
+
+/* ==========================
+   Sibylla final visual pass
+   ========================== */
+
+:root {
+    --sibylla-card-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 34%);
+    --sibylla-active-fill: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--blue-2) 18%, transparent) 0%,
+        color-mix(in srgb, var(--blue-2) 10%, transparent) 100%
+    );
+    --sibylla-hover-fill: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--blue-2) 12%, transparent) 0%,
+        color-mix(in srgb, var(--blue-2) 6%, transparent) 100%
+    );
+}
+
+.sidebarList__5e434,
+.chatContent_f75fb0,
+.container_c8ffbb,
+.peopleColumn__133bf,
+.nowPlayingColumn__133bf,
+.content_f75fb0 > .membersWrap_c8ffbb,
+.content_f75fb0 > aside > .outer_c0bea0 {
+    background-image:
+        var(--sibylla-card-sheen),
+        var(--sibylla-panel-fill) !important;
+}
+
+.panels__5e434 {
+    background-image:
+        radial-gradient(circle at 100% 0%, rgba(252, 218, 125, 0.08) 0%, transparent 26%),
+        var(--sibylla-panel-fill-strong) !important;
+}
+
+.modeSelected__2ea32 .link__2ea32,
+.interactive_bf202d.selected_bf202d,
+.channel__972a0.container__972a0:hover,
+.interactive__972a0:hover {
+    background: var(--sibylla-active-fill) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.03),
+        0 10px 24px rgba(1, 8, 18, 0.18) !important;
+}
+
+.link__2ea32:hover,
+.interactive_bf202d:hover,
+.member_c8ffbb:hover,
+.container__91a9d:hover,
+.itemCard__7e549:hover {
+    background: var(--sibylla-hover-fill) !important;
+}
+
+.member_c8ffbb,
+.container__91a9d,
+.itemCard__7e549 {
+    border: none !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.02),
+        inset 0 0 0 1px rgba(120, 176, 255, 0.03) !important;
+}
+
+[class*='membersGroup'] {
+    color: color-mix(in srgb, var(--text-2) 76%, var(--yellow-2) 24%) !important;
+    text-shadow: 0 0 10px rgba(97, 168, 255, 0.08);
+}
+
+[class*='membersGroup'] span,
+[class*='membersGroup'] div {
+    color: inherit !important;
+}
+
+.markup_f8f345 a,
+.anchor_edefb8,
+.fakeLink__2c949 {
+    color: color-mix(in srgb, var(--blue-1) 78%, var(--yellow-2) 22%) !important;
+}
+
+.embedFull__623de,
+.container__9271d,
+.reaction__23977,
+.reactionBtn__23977.forceShow__23977,
+.codeView__5126c,
+.textContainer__4d95d,
+.footer__4d95d {
+    background: color-mix(in srgb, var(--bg-3) 52%, var(--bg-4) 48%) !important;
+    border-color: rgba(122, 181, 255, 0.05) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.018),
+        0 8px 20px rgba(1, 8, 18, 0.14) !important;
+}
+
+.message__5126c:hover,
+.message__5126c.selected__5126c,
+.mouse-mode.full-motion .message__5126c:hover {
+    background: rgba(7, 16, 31, 0.82) !important;
+}
+
+.outer_c0bea0,
+.content_f75fb0 > aside > .outer_c0bea0 {
+    background-image:
+        radial-gradient(circle at top right, rgba(102, 173, 255, 0.10) 0%, transparent 28%),
+        radial-gradient(circle at top left, rgba(252, 218, 125, 0.07) 0%, transparent 22%),
+        var(--sibylla-panel-fill) !important;
+}
+
+.banner__68edb,
+.banner__68edb img,
+.mask__68edb {
+    filter: saturate(1.05) contrast(1.02);
+}
+
 /* colors.css */
 @property --colors {
     syntax: 'off | on';
@@ -848,21 +962,21 @@ nav[class*='guilds'] {
 :root {
     /* text colors */
     --text-0: var(--bg-4); /* text on colored elements */
-    --text-1: hsl(214, 46%, 96%); /* other normally white text */
-    --text-2: hsl(213, 26%, 86%); /* headings and important text */
-    --text-3: hsl(214, 15%, 71%); /* normal text */
-    --text-4: hsl(214, 14%, 57%); /* icon buttons and channels */
-    --text-5: hsl(214, 11%, 43%); /* muted channels/chats and timestamps */
+    --text-1: hsl(214, 50%, 97%); /* other normally white text */
+    --text-2: hsl(213, 30%, 88%); /* headings and important text */
+    --text-3: hsl(214, 17%, 74%); /* normal text */
+    --text-4: hsl(214, 16%, 60%); /* icon buttons and channels */
+    --text-5: hsl(214, 12%, 46%); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
-    --bg-1: hsl(218, 40%, 19%); /* dark buttons when clicked */
-    --bg-2: hsl(221, 46%, 14%); /* dark buttons */
-    --bg-3: hsl(225, 53%, 10%); /* spacing, secondary elements */
-    --bg-4: hsl(228, 56%, 7%); /* main background color */
-    --hover: hsla(206, 100%, 74%, 0.08); /* channels and buttons when hovered */
-    --active: hsla(206, 100%, 70%, 0.14); /* channels and buttons when clicked or selected */
-    --active-2: hsla(206, 100%, 70%, 0.22); /* extra state for transparent buttons */
-    --message-hover: rgba(10, 19, 35, 0.78); /* messages when hovered */
+    --bg-1: hsl(218, 44%, 20%); /* dark buttons when clicked */
+    --bg-2: hsl(221, 50%, 13%); /* dark buttons */
+    --bg-3: hsl(225, 58%, 9%); /* spacing, secondary elements */
+    --bg-4: hsl(228, 60%, 6%); /* main background color */
+    --hover: hsla(206, 100%, 76%, 0.09); /* channels and buttons when hovered */
+    --active: hsla(206, 100%, 72%, 0.16); /* channels and buttons when clicked or selected */
+    --active-2: hsla(206, 100%, 72%, 0.24); /* extra state for transparent buttons */
+    --message-hover: rgba(7, 16, 31, 0.86); /* messages when hovered */
 
     /* accent colors */
     --accent-1: var(--blue-1); /* links and other accent text */
@@ -870,11 +984,11 @@ nav[class*='guilds'] {
     --accent-3: var(--blue-3); /* accent buttons */
     --accent-4: var(--blue-4); /* accent buttons when hovered */
     --accent-5: var(--blue-5); /* accent buttons when clicked */
-    --accent-new: color-mix(in oklab, var(--yellow-2) 72%, var(--blue-2) 28%); /* Sibylla gold for key highlights */
-    --mention: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 84%) 40%, transparent); /* background of messages that mention you */
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 90%) 40%, transparent); /* background of messages that mention you when hovered */
-    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
-    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
+    --accent-new: color-mix(in oklab, var(--yellow-2) 64%, var(--blue-2) 36%); /* Sibylla gold for key highlights */
+    --mention: linear-gradient(to right, color-mix(in srgb, var(--blue-2) 22%, transparent) 0%, transparent 70%); /* background of messages that mention you */
+    --mention-hover: linear-gradient(to right, color-mix(in srgb, var(--blue-2) 28%, transparent) 0%, transparent 74%); /* background of messages that mention you when hovered */
+    --reply: linear-gradient(to right, color-mix(in srgb, var(--yellow-2) 12%, transparent) 0%, transparent 68%); /* background of messages that reply to you */
+    --reply-hover: linear-gradient(to right, color-mix(in srgb, var(--yellow-2) 16%, transparent) 0%, transparent 72%); /* background of messages that reply to you when hovered */
 
     /* status indicator colors */
     --online: var(--green-2); /* change to #43a25a for default */
@@ -887,7 +1001,7 @@ nav[class*='guilds'] {
     --border-light: transparent; /* remove light panel borders */
     --border: transparent; /* remove panel borders */
     --border-hover: transparent; /* keep hover states clean */
-    --button-border: hsla(214, 90%, 80%, 0.06); /* minimal neutral outline when Discord requires one */
+    --button-border: hsla(214, 90%, 80%, 0.05); /* minimal neutral outline when Discord requires one */
 
     /* base colors */
     --red-1: oklch(75% 0.14 28);
@@ -922,42 +1036,46 @@ nav[class*='guilds'] {
 
     /* Sibylla surface tokens */
     --sibylla-shell-gradient:
-        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--yellow-2) 12%, transparent) 0%, transparent 22%),
-        radial-gradient(circle at 88% 4%, color-mix(in srgb, var(--blue-2) 18%, transparent) 0%, transparent 30%),
+        radial-gradient(circle at 10% 2%, color-mix(in srgb, var(--yellow-2) 16%, transparent) 0%, transparent 20%),
+        radial-gradient(circle at 82% 0%, color-mix(in srgb, var(--blue-2) 22%, transparent) 0%, transparent 28%),
+        radial-gradient(circle at 92% 88%, color-mix(in srgb, var(--blue-3) 12%, transparent) 0%, transparent 24%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-4) 92%, black 8%) 0%,
-            var(--bg-4) 54%,
-            color-mix(in srgb, var(--bg-4) 82%, var(--bg-3) 18%) 100%
+            color-mix(in srgb, var(--bg-4) 90%, black 10%) 0%,
+            color-mix(in srgb, var(--bg-4) 94%, var(--bg-3) 6%) 44%,
+            color-mix(in srgb, var(--bg-4) 80%, var(--bg-3) 20%) 100%
         );
     --sibylla-panel-fill:
+        radial-gradient(circle at 100% 0%, rgba(97, 168, 255, 0.08) 0%, transparent 34%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 34%, var(--bg-4) 66%) 0%,
-            color-mix(in srgb, var(--bg-3) 22%, var(--bg-4) 78%) 100%
+            color-mix(in srgb, var(--bg-2) 46%, var(--bg-4) 54%) 0%,
+            color-mix(in srgb, var(--bg-3) 26%, var(--bg-4) 74%) 100%
         );
     --sibylla-panel-fill-strong:
+        radial-gradient(circle at 100% 0%, rgba(97, 168, 255, 0.1) 0%, transparent 32%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 42%, var(--bg-4) 58%) 0%,
-            color-mix(in srgb, var(--bg-3) 24%, var(--bg-4) 76%) 100%
+            color-mix(in srgb, var(--bg-2) 54%, var(--bg-4) 46%) 0%,
+            color-mix(in srgb, var(--bg-3) 30%, var(--bg-4) 70%) 100%
         );
     --sibylla-header-fill:
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 40%, var(--bg-4) 60%) 0%,
-            color-mix(in srgb, var(--bg-3) 14%, var(--bg-4) 86%) 100%
+            color-mix(in srgb, var(--bg-2) 48%, var(--bg-4) 52%) 0%,
+            color-mix(in srgb, var(--bg-3) 18%, var(--bg-4) 82%) 100%
         );
     --sibylla-control-fill:
+        radial-gradient(circle at 100% 0%, rgba(96, 167, 255, 0.08) 0%, transparent 42%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 52%, var(--bg-4) 48%) 0%,
-            color-mix(in srgb, var(--bg-3) 40%, var(--bg-4) 60%) 100%
+            color-mix(in srgb, var(--bg-2) 56%, var(--bg-4) 44%) 0%,
+            color-mix(in srgb, var(--bg-3) 42%, var(--bg-4) 58%) 100%
         );
-    --sibylla-soft-edge: rgba(180, 218, 255, 0.045);
-    --sibylla-soft-edge-strong: rgba(180, 218, 255, 0.07);
-    --sibylla-blue-glow: rgba(99, 170, 255, 0.16);
-    --sibylla-gold-glow: rgba(252, 218, 125, 0.12);
+    --sibylla-soft-edge: rgba(184, 221, 255, 0.04);
+    --sibylla-soft-edge-strong: rgba(184, 221, 255, 0.065);
+    --sibylla-blue-glow: rgba(104, 176, 255, 0.18);
+    --sibylla-gold-glow: rgba(252, 218, 125, 0.10);
 }
 
 
@@ -2249,6 +2367,33 @@ body {
     background-image: none !important;
 }
 
+
+/* ===============================
+   Sibylla final chat input polish
+   =============================== */
+
+.channelTextArea_f75fb0,
+.channelBottomBarArea_f75fb0 .channelTextArea_f75fb0,
+.wrapper__44df5 {
+    background-image:
+        radial-gradient(circle at 100% 0%, rgba(97, 168, 255, 0.08) 0%, transparent 40%),
+        var(--sibylla-control-fill) !important;
+}
+
+.channelTextArea_f75fb0:focus-within,
+.channelBottomBarArea_f75fb0 .channelTextArea_f75fb0:focus-within,
+.wrapper__44df5:focus-within {
+    box-shadow:
+        0 16px 34px rgba(1, 8, 18, 0.26),
+        0 0 0 1px rgba(112, 174, 255, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+}
+
+.placeholder__1b31f,
+.placeholder__3b55d {
+    color: color-mix(in srgb, var(--text-4) 82%, var(--yellow-2) 18%) !important;
+}
+
 /* dms-button.css */
 /* ==============================
    Home / direct messages button
@@ -2256,17 +2401,18 @@ body {
 
 body {
     --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg');
-    --dms-icon-svg-size: 104%;
+    --dms-icon-svg-size: 106%;
     --dms-icon-color-before: var(--icon-subtle);
     --dms-icon-color-after: var(--white);
     --dms-background-image-url: url('');
     --dms-background-image-size: cover;
     --dms-background-color:
-        radial-gradient(circle at 28% 18%, rgba(252, 218, 125, 0.18), transparent 34%),
+        radial-gradient(circle at 28% 18%, rgba(252, 218, 125, 0.16), transparent 32%),
+        radial-gradient(circle at 100% 0%, rgba(99, 170, 255, 0.14), transparent 40%),
         linear-gradient(
             145deg,
-            color-mix(in oklab, var(--blue-3) 82%, var(--bg-3) 18%),
-            color-mix(in oklab, var(--blue-5) 74%, var(--yellow-2) 26%)
+            color-mix(in oklab, var(--blue-3) 80%, var(--bg-3) 20%),
+            color-mix(in oklab, var(--blue-5) 82%, var(--yellow-2) 18%)
         );
 }
 
@@ -2902,6 +3048,65 @@ body {
     .bar_c38106 .backForwardButtons__63abb {
         display: none !important;
     }
+}
+
+
+/* ==============================
+   Sibylla final top bar visuals
+   ============================== */
+
+.chat_f75fb0 > .subtitleContainer_f75fb0,
+.container__133bf > .container__9293f,
+.container_f391e3 > .container__9293f,
+.homeWrapper__0920e > .container__9293f,
+.container__01ae2 > .container__9293f,
+.container_fb64c9 > .container__9293f,
+.headerBar__1a9ce {
+    box-shadow:
+        0 12px 28px rgba(1, 8, 18, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02) !important;
+}
+
+.toolbar__9293f > div:not(.search__49676):not(.recentsIcon_c99c29):not(.winButtons_c38106),
+.children__9293f > .iconWrapper__9293f,
+.iconWrapper__9293f {
+    border-radius: 10px;
+    transition:
+        background-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.toolbar__9293f > div:not(.search__49676):not(.winButtons_c38106):hover,
+.children__9293f > .iconWrapper__9293f:hover,
+.iconWrapper__9293f:hover {
+    background: color-mix(in srgb, var(--blue-2) 10%, transparent) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.toolbar__9293f .search__49676,
+.search__49676 {
+    background: var(--sibylla-control-fill) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.028),
+        0 8px 22px rgba(1, 8, 18, 0.18) !important;
+}
+
+.toolbar__9293f .searchBar__97492,
+.toolbar__9293f [class*='searchBar'] {
+    background: transparent !important;
+}
+
+.toolbar__9293f .search__49676:hover,
+.search__49676:hover {
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 10px 24px rgba(1, 8, 18, 0.22) !important;
+}
+
+.title__9293f,
+.title_f75fb0 {
+    text-shadow: 0 0 10px rgba(100, 170, 255, 0.08);
 }
 
 /* transparency-blur.css */
