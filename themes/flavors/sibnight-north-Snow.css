@@ -1,8 +1,8 @@
 /**
  * @name sibnight-north-snow
- * @description A Nord Snow Storm flavor for sibnight-discord rebuilt as a flat light variant with Frost accents and zero shadows.
+ * @description A refined Nord Snow Storm flavor for sibnight-discord with flat light surfaces, cleaner Frost accents and zero shadows.
  * @author ussmarines
- * @version 1.5.0
+ * @version 1.6.0
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-Snow.css
  * @authorLink https://github.com/ussmarines
@@ -30,32 +30,32 @@ body {
     --accent-5: #4c566a;
     --accent-new: #5e81ac;
 
-    --mention: rgba(94, 129, 172, 0.12);
-    --mention-hover: rgba(129, 161, 193, 0.18);
-    --reply: rgba(143, 188, 187, 0.14);
-    --reply-hover: rgba(143, 188, 187, 0.18);
+    --mention: rgba(94, 129, 172, 0.10);
+    --mention-hover: rgba(129, 161, 193, 0.16);
+    --reply: rgba(143, 188, 187, 0.12);
+    --reply-hover: rgba(143, 188, 187, 0.16);
 
     --text-0: #fcfdff;
     --text-1: #2e3440;
     --text-2: #3b4252;
     --text-3: #4c566a;
-    --text-4: #5f7088;
-    --text-5: rgba(76, 86, 106, 0.56);
+    --text-4: #63748b;
+    --text-5: rgba(76, 86, 106, 0.52);
 
     --bg-1: #d8dee9;
     --bg-2: #e5e9f0;
     --bg-3: #eceff4;
-    --bg-4: #f4f6fa;
+    --bg-4: #f7f9fc;
     --bg-floating: #eceff4;
     --hover: rgba(129, 161, 193, 0.08);
     --active: rgba(129, 161, 193, 0.14);
     --active-2: rgba(136, 192, 208, 0.18);
-    --message-hover: rgba(59, 66, 82, 0.04);
+    --message-hover: rgba(129, 161, 193, 0.06);
 
-    --border-light: rgba(76, 86, 106, 0.06);
+    --border-light: rgba(76, 86, 106, 0.05);
     --border: rgba(94, 129, 172, 0.10);
     --border-hover: rgba(129, 161, 193, 0.18);
-    --button-border: rgba(76, 86, 106, 0.08);
+    --button-border: rgba(76, 86, 106, 0.07);
 
     --online: #a3be8c;
     --dnd: #bf616a;
@@ -66,13 +66,13 @@ body {
     --panel-shadow-hover: none;
     --panel-backdrop-filter: none;
 
-    --sibylla-shell-gradient: #eceff4;
+    --sibylla-shell-gradient: #f7f9fc;
     --sibylla-panel-fill: #eceff4;
     --sibylla-panel-fill-strong: #e5e9f0;
     --sibylla-header-fill: #d8dee9;
-    --sibylla-control-fill: #e5e9f0;
+    --sibylla-control-fill: #dfe6ef;
     --sibylla-embed-fill: #eceff4;
-    --sibylla-embed-fill-soft: #e5e9f0;
+    --sibylla-embed-fill-soft: #dfe6ef;
     --sibylla-embed-accent: #5e81ac;
     --sibylla-soft-edge: transparent;
     --sibylla-soft-edge-strong: transparent;
@@ -85,7 +85,7 @@ body {
     --sibylla-hover-fill: rgba(143, 188, 187, 0.10);
 
     --icon-default: #4c566a;
-    --icon-muted: rgba(76, 86, 106, 0.44);
+    --icon-muted: rgba(76, 86, 106, 0.42);
     --icon-strong: #2e3440;
     --icon-subtle: #5e81ac;
     --icon-link: #5e81ac;

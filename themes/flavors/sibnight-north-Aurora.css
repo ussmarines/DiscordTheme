@@ -1,8 +1,8 @@
 /**
  * @name sibnight-north-aurora
- * @description A vivid Nord Aurora flavor for sibnight-discord with flat colorful surfaces, lively accents and zero shadows.
+ * @description A vivid Nord Aurora flavor for sibnight-discord rebuilt as a colorful flat variant that leans entirely on the Aurora palette.
  * @author ussmarines
- * @version 1.5.0
+ * @version 1.6.0
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-Aurora.css
  * @authorLink https://github.com/ussmarines
@@ -17,45 +17,45 @@
 
 body {
     --dms-icon-svg-size: 104%;
-    --dms-icon-color-before: #eceff4;
-    --dms-icon-color-after: #eceff4;
+    --dms-icon-color-before: #ebcb8b;
+    --dms-icon-color-after: #bf616a;
     --dms-background-color: #b48ead;
 }
 
 :root {
-    --accent-1: #eceff4;
+    --accent-1: #ebcb8b;
     --accent-2: #a3be8c;
-    --accent-3: #b48ead;
-    --accent-4: #d08770;
-    --accent-5: #bf616a;
+    --accent-3: #d08770;
+    --accent-4: #bf616a;
+    --accent-5: #b48ead;
     --accent-new: #ebcb8b;
 
-    --mention: rgba(180, 142, 173, 0.18);
-    --mention-hover: rgba(163, 190, 140, 0.18);
-    --reply: rgba(208, 135, 112, 0.16);
-    --reply-hover: rgba(191, 97, 106, 0.18);
+    --mention: rgba(235, 203, 139, 0.18);
+    --mention-hover: rgba(235, 203, 139, 0.24);
+    --reply: rgba(163, 190, 140, 0.18);
+    --reply-hover: rgba(163, 190, 140, 0.24);
 
-    --text-0: #fbfafc;
-    --text-1: #eceff4;
-    --text-2: #e5e9f0;
-    --text-3: #d8dee9;
-    --text-4: #c5bdd0;
-    --text-5: rgba(229, 233, 240, 0.42);
+    --text-0: #bf616a;
+    --text-1: #ebcb8b;
+    --text-2: #ebcb8b;
+    --text-3: rgba(235, 203, 139, 0.86);
+    --text-4: rgba(235, 203, 139, 0.66);
+    --text-5: rgba(235, 203, 139, 0.46);
 
-    --bg-1: #71627d;
-    --bg-2: #5f546f;
-    --bg-3: #4c566a;
-    --bg-4: #3b4252;
-    --bg-floating: #4c566a;
-    --hover: rgba(235, 203, 139, 0.12);
-    --active: rgba(163, 190, 140, 0.16);
-    --active-2: rgba(180, 142, 173, 0.20);
-    --message-hover: rgba(76, 86, 106, 0.62);
+    --bg-1: #ebcb8b;
+    --bg-2: #a3be8c;
+    --bg-3: #d08770;
+    --bg-4: #b48ead;
+    --bg-floating: #bf616a;
+    --hover: rgba(235, 203, 139, 0.14);
+    --active: rgba(163, 190, 140, 0.18);
+    --active-2: rgba(180, 142, 173, 0.22);
+    --message-hover: rgba(180, 142, 173, 0.24);
 
-    --border-light: rgba(236, 239, 244, 0.07);
-    --border: rgba(235, 203, 139, 0.18);
-    --border-hover: rgba(208, 135, 112, 0.24);
-    --button-border: rgba(236, 239, 244, 0.10);
+    --border-light: rgba(235, 203, 139, 0.08);
+    --border: rgba(235, 203, 139, 0.12);
+    --border-hover: rgba(235, 203, 139, 0.18);
+    --button-border: rgba(235, 203, 139, 0.12);
 
     --online: #a3be8c;
     --dnd: #bf616a;
@@ -66,38 +66,38 @@ body {
     --panel-shadow-hover: none;
     --panel-backdrop-filter: none;
 
-    --sibylla-shell-gradient: #3b4252;
-    --sibylla-panel-fill: #4c566a;
-    --sibylla-panel-fill-strong: #5f546f;
-    --sibylla-header-fill: #71627d;
-    --sibylla-control-fill: #5f546f;
-    --sibylla-embed-fill: #4c566a;
-    --sibylla-embed-fill-soft: #5f546f;
+    --sibylla-shell-gradient: #b48ead;
+    --sibylla-panel-fill: #bf616a;
+    --sibylla-panel-fill-strong: #b48ead;
+    --sibylla-header-fill: #b48ead;
+    --sibylla-control-fill: #d08770;
+    --sibylla-embed-fill: #a3be8c;
+    --sibylla-embed-fill-soft: #d08770;
     --sibylla-embed-accent: #ebcb8b;
     --sibylla-soft-edge: transparent;
     --sibylla-soft-edge-strong: transparent;
     --sibylla-blue-glow: transparent;
     --sibylla-gold-glow: transparent;
-    --sibylla-profile-fill: #5f546f;
+    --sibylla-profile-fill: #d08770;
     --sibylla-profile-overlay: none;
     --sibylla-card-sheen: none;
-    --sibylla-active-fill: rgba(163, 190, 140, 0.18);
-    --sibylla-hover-fill: rgba(235, 203, 139, 0.12);
+    --sibylla-active-fill: rgba(235, 203, 139, 0.22);
+    --sibylla-hover-fill: rgba(163, 190, 140, 0.18);
 
     --icon-default: #ebcb8b;
-    --icon-muted: rgba(229, 233, 240, 0.34);
-    --icon-strong: #eceff4;
+    --icon-muted: rgba(235, 203, 139, 0.50);
+    --icon-strong: #ebcb8b;
     --icon-subtle: #a3be8c;
-    --icon-link: #d08770;
-    --channel-icon: #a3be8c;
-    --channels-default: #eceff4;
+    --icon-link: #ebcb8b;
+    --channel-icon: #ebcb8b;
+    --channels-default: #ebcb8b;
     --interactive-icon-default: #ebcb8b;
-    --interactive-icon-hover: #eceff4;
-    --interactive-icon-active: #d08770;
-    --interactive-text-default: #eceff4;
-    --interactive-text-hover: #eceff4;
-    --interactive-text-active: #eceff4;
-    --text-link: #d08770;
+    --interactive-icon-hover: #ebcb8b;
+    --interactive-icon-active: #a3be8c;
+    --interactive-text-default: #ebcb8b;
+    --interactive-text-hover: #ebcb8b;
+    --interactive-text-active: #ebcb8b;
+    --text-link: #ebcb8b;
 }
 
 :is(

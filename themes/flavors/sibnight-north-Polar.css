@@ -1,8 +1,8 @@
 /**
  * @name sibnight-north-polar
- * @description A Nord Polar Night flavor for sibnight-discord rebuilt in flat design with solid Polar Night surfaces and clean Frost icons.
+ * @description A refined Nord Polar Night flavor for sibnight-discord with flat solid surfaces, clearer palette layering and clean Frost accents.
  * @author ussmarines
- * @version 1.5.0
+ * @version 1.6.0
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-Polar.css
  * @authorLink https://github.com/ussmarines
@@ -23,24 +23,24 @@ body {
 }
 
 :root {
-    --accent-1: #eceff4;
-    --accent-2: #88c0d0;
-    --accent-3: #81a1c1;
-    --accent-4: #5e81ac;
+    --accent-1: #88c0d0;
+    --accent-2: #81a1c1;
+    --accent-3: #5e81ac;
+    --accent-4: #8fbcbb;
     --accent-5: #4c566a;
-    --accent-new: #8fbcbb;
+    --accent-new: #88c0d0;
 
-    --mention: rgba(129, 161, 193, 0.16);
-    --mention-hover: rgba(136, 192, 208, 0.22);
-    --reply: rgba(143, 188, 187, 0.14);
-    --reply-hover: rgba(143, 188, 187, 0.18);
+    --mention: rgba(129, 161, 193, 0.15);
+    --mention-hover: rgba(136, 192, 208, 0.20);
+    --reply: rgba(143, 188, 187, 0.12);
+    --reply-hover: rgba(143, 188, 187, 0.16);
 
-    --text-0: #f3f5f8;
+    --text-0: #f4f6f8;
     --text-1: #eceff4;
     --text-2: #d8dee9;
-    --text-3: #c6ceda;
-    --text-4: #98a5b8;
-    --text-5: rgba(216, 222, 233, 0.42);
+    --text-3: #c5cedb;
+    --text-4: #97a4b8;
+    --text-5: rgba(216, 222, 233, 0.40);
 
     --bg-1: #4c566a;
     --bg-2: #434c5e;
@@ -48,13 +48,13 @@ body {
     --bg-4: #2e3440;
     --bg-floating: #2e3440;
     --hover: rgba(143, 188, 187, 0.08);
-    --active: rgba(129, 161, 193, 0.14);
-    --active-2: rgba(136, 192, 208, 0.18);
-    --message-hover: rgba(59, 66, 82, 0.58);
+    --active: rgba(129, 161, 193, 0.16);
+    --active-2: rgba(136, 192, 208, 0.20);
+    --message-hover: rgba(67, 76, 94, 0.56);
 
-    --border-light: rgba(216, 222, 233, 0.06);
+    --border-light: rgba(216, 222, 233, 0.05);
     --border: rgba(136, 192, 208, 0.12);
-    --border-hover: rgba(136, 192, 208, 0.20);
+    --border-hover: rgba(136, 192, 208, 0.18);
     --button-border: rgba(216, 222, 233, 0.08);
 
     --online: #a3be8c;
@@ -70,7 +70,7 @@ body {
     --sibylla-panel-fill: #3b4252;
     --sibylla-panel-fill-strong: #434c5e;
     --sibylla-header-fill: #3b4252;
-    --sibylla-control-fill: #434c5e;
+    --sibylla-control-fill: #4c566a;
     --sibylla-embed-fill: #3b4252;
     --sibylla-embed-fill-soft: #434c5e;
     --sibylla-embed-accent: #88c0d0;
@@ -81,11 +81,11 @@ body {
     --sibylla-profile-fill: #434c5e;
     --sibylla-profile-overlay: none;
     --sibylla-card-sheen: none;
-    --sibylla-active-fill: rgba(129, 161, 193, 0.16);
+    --sibylla-active-fill: rgba(94, 129, 172, 0.24);
     --sibylla-hover-fill: rgba(143, 188, 187, 0.10);
 
     --icon-default: #d8dee9;
-    --icon-muted: rgba(216, 222, 233, 0.38);
+    --icon-muted: rgba(216, 222, 233, 0.36);
     --icon-strong: #eceff4;
     --icon-subtle: #88c0d0;
     --icon-link: #88c0d0;
