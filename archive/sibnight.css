@@ -2,7 +2,7 @@
  * @name sibnight-discord
  * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
  * @author ussmarines
- * @version 2.7.0
+ * @version 2.7.1
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
  * @authorLink https://github.com/ussmarines
@@ -2787,58 +2787,6 @@ nav[class*='guilds'] {
 .container_f369db {
     border-radius: var(--proto-panel-radius) !important;
     box-shadow: var(--proto-soft-shadow) !important;
-}
-
-/* right column section rhythm */
-.container_c8ffbb [class*='membersGroup'],
-.content_f75fb0 > .membersWrap_c8ffbb [class*='membersGroup'],
-.peopleColumn__133bf [class*='header'],
-.nowPlayingColumn__133bf [class*='header'],
-.content_f75fb0 > aside > .outer_c0bea0 [class*='header'] {
-    padding: 15px 16px 8px !important;
-    margin: 0 !important;
-    background: transparent !important;
-    color: var(--text-2) !important;
-    letter-spacing: 0.02em;
-    text-transform: none !important;
-}
-
-/* right column rows and cards */
-.container_c8ffbb .member_c8ffbb,
-.peopleColumn__133bf .container__91a9d,
-.nowPlayingColumn__133bf .container__91a9d,
-.content_f75fb0 > aside > .outer_c0bea0 [class*='section'],
-.content_f75fb0 > aside > .outer_c0bea0 [class*='card'],
-.content_f75fb0 > aside > .outer_c0bea0 [class*='container'] {
-    border-radius: var(--proto-card-radius) !important;
-    border: 1px solid var(--proto-soft-card-border) !important;
-    box-shadow: none !important;
-}
-
-.container_c8ffbb .member_c8ffbb,
-.peopleColumn__133bf .container__91a9d,
-.nowPlayingColumn__133bf .container__91a9d {
-    margin: 0 10px 6px !important;
-    background: var(--proto-soft-card-surface) !important;
-}
-
-.container_c8ffbb .member_c8ffbb:hover,
-.peopleColumn__133bf .container__91a9d:hover,
-.nowPlayingColumn__133bf .container__91a9d:hover,
-.content_f75fb0 > aside > .outer_c0bea0 [class*='section']:hover,
-.content_f75fb0 > aside > .outer_c0bea0 [class*='card']:hover,
-.content_f75fb0 > aside > .outer_c0bea0 [class*='container']:hover {
-    border-color: var(--proto-soft-card-border-hover) !important;
-}
-
-.content_f75fb0 > aside > .outer_c0bea0 {
-    background: var(--proto-column-surface-strong) !important;
-}
-
-.content_f75fb0 > aside > .outer_c0bea0 [class*='section'],
-.content_f75fb0 > aside > .outer_c0bea0 [class*='card'],
-.content_f75fb0 > aside > .outer_c0bea0 [class*='container'] {
-    background: color-mix(in srgb, var(--bg-3) 24%, transparent) !important;
 }
 
 /* user panel + channel list alignment */
