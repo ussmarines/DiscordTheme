@@ -2,7 +2,7 @@
  * @name sibnight-discord
  * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
  * @author ussmarines
- * @version 2.5.0
+ * @version 2.5.1
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
  * @authorLink https://github.com/ussmarines
@@ -2329,7 +2329,7 @@ body {
 /* zz-prototype-layout.css */
 /* visual polish layer: refine the 3-column look without changing Discord's native structure */
 :root {
-    --proto-topbar-height: 52px;
+    --proto-topbar-height: 50px;
     --proto-shell-surface: var(--bg-4);
     --proto-column-surface: color-mix(in srgb, var(--bg-4) 92%, var(--bg-2) 8%);
     --proto-column-surface-strong: color-mix(in srgb, var(--bg-4) 86%, var(--bg-2) 14%);
@@ -2503,11 +2503,7 @@ nav[class*='guilds'] {
     background: transparent !important;
 }
 
-.messageListItem__5126c {
-    padding-right: 8px;
-}
-
-/* top strip: flat, same surface as the app shell */
+./* top strip: flat, closer to the mockup */
 .bar_c38106,
 .base_c48ade > .bar_c38106,
 .container__89463,
@@ -2533,7 +2529,9 @@ nav[class*='guilds'] {
 .container__9293f,
 .subtitleContainer_f75fb0,
 .headerBar__1a9ce,
-.bar_c38106 {
+.bar_c38106,
+.container__89463 > .toolbar__89463,
+.container__89463 > .contentContainer__89463 {
     min-height: var(--proto-topbar-height);
     margin-bottom: 0 !important;
     border-radius: 0 !important;
@@ -2541,69 +2539,96 @@ nav[class*='guilds'] {
 }
 
 .title_f75fb0,
-.container__9293f {
-    padding-left: 10px;
-    padding-right: 10px;
+.container__9293f,
+.container__89463 {
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
-.children__9293f::after {
-    display: none;
+.children__9293f {
+    gap: 10px;
 }
 
-.toolbar__9293f {
-    gap: 6px;
+.children__9293f::after,
+.tabBody__133bf::before {
+    display: none !important;
+}
+
+.toolbar__9293f,
+.trailing_c38106 {
+    gap: 8px;
     padding-right: var(--top-bar-right-margin, 0);
+    align-items: center;
 }
 
 .toolbar__9293f > div,
 .toolbar__9293f > a,
-.toolbar__9293f .search__49676,
 .toolbar__9293f [role='button'],
+.toolbar__9293f .iconWrapper__9293f,
+.toolbar__9293f .clickable__9293f,
 .trailing_c38106 > div:not(.winButtons_c38106) {
-    min-height: 32px;
-}
-
-.toolbar__9293f > div:not(.separator__9293f),
-.toolbar__9293f > a,
-.toolbar__9293f [role='button'],
-.trailing_c38106 > div:not(.winButtons_c38106) {
-    min-width: 32px;
-}
-
-.toolbar__9293f > div:not(.separator__9293f),
-.toolbar__9293f > a,
-.toolbar__9293f [role='button'],
-.trailing_c38106 > div:not(.winButtons_c38106),
-.toolbar__9293f .search__49676 {
-    background: none !important;
-    border: none !important;
+    min-width: 30px;
+    min-height: 30px;
+    border-radius: 9px;
+    background: transparent !important;
+    border: 1px solid transparent !important;
     box-shadow: none !important;
-    border-radius: 10px;
+    transition:
+        background-color 0.14s ease,
+        border-color 0.14s ease,
+        color 0.14s ease;
 }
 
+.toolbar__9293f > div:not(.separator__9293f):hover,
+.toolbar__9293f > a:hover,
+.toolbar__9293f [role='button']:hover,
 .toolbar__9293f .iconWrapper__9293f:hover,
 .toolbar__9293f .clickable__9293f:hover,
-.toolbar__9293f [role='button']:hover,
 .trailing_c38106 > div:not(.winButtons_c38106):hover {
-    background: color-mix(in srgb, var(--text-1) 5%, transparent) !important;
+    background: color-mix(in srgb, var(--text-1) 6%, transparent) !important;
+    border-color: color-mix(in srgb, var(--border) 80%, transparent) !important;
 }
 
-.toolbar__9293f .search__49676 {
-    min-width: 220px;
+.toolbar__9293f .separator__9293f {
+    display: none !important;
+}
+
+.toolbar__9293f .search__49676,
+.searchBar__35e86 {
+    min-width: 212px;
+    height: 34px;
     padding-left: 12px;
     padding-right: 12px;
-    background: color-mix(in srgb, var(--proto-shell-surface) 84%, var(--bg-2)) !important;
+    border-radius: 10px !important;
+    background: color-mix(in srgb, var(--bg-3) 78%, transparent) !important;
+    border: 1px solid color-mix(in srgb, var(--border) 74%, transparent) !important;
+    box-shadow: none !important;
+}
+
+.toolbar__9293f .search__49676:hover,
+.toolbar__9293f .search__49676:focus-within,
+.searchBar__35e86:hover,
+.searchBar__35e86:focus-within {
+    background: color-mix(in srgb, var(--bg-3) 84%, var(--bg-2) 16%) !important;
+    border-color: color-mix(in srgb, var(--border-hover) 84%, transparent) !important;
 }
 
 .searchBar__97492,
 .searchBarComponent__35e86,
-.searchBar__35e86 {
-    border: none !important;
-    box-shadow: none !important;
+.searchBar__35e86,
+.searchBar__35e86 *,
+.searchBar__97492 *,
+.searchBarComponent__35e86 * {
     background: transparent !important;
+    box-shadow: none !important;
+}
+
+.iconBadge__9293f {
+    box-shadow: none !important;
 }
 
 /* list items: color change only, no movement */
+
 .wrapper__2ea32 .link__2ea32,
 .channel__972a0,
 .container__91a9d,
@@ -2643,7 +2668,7 @@ nav[class*='guilds'] {
     border-color: transparent;
 }
 
-/* messages: fixed text, no bump */
+/* messages: fixed text, no bump, full-width hover surface */
 .messageListItem__5126c,
 .message__5126c,
 .cozy_c19a55.wrapper_c19a55,
@@ -2656,29 +2681,62 @@ nav[class*='guilds'] {
     will-change: auto !important;
 }
 
+.messageListItem__5126c {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 12px;
+    overflow: visible !important;
+    transition: background-color 0.14s ease !important;
+}
+
 .message__5126c,
 .cozy_c19a55.wrapper_c19a55,
-.compact_c19a55.wrapper_c19a55,
-.messageListItem__5126c {
+.compact_c19a55.wrapper_c19a55 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     border-radius: 12px;
+    background: transparent !important;
     transition:
         background-color 0.14s ease,
         border-color 0.14s ease,
         color 0.14s ease !important;
 }
 
-.message__5126c:hover,
-.message__5126c:focus-within,
+.message__5126c::before,
+.message__5126c::after,
+.messageListItem__5126c::before,
+.messageListItem__5126c::after {
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
 .messageListItem__5126c:hover,
 .messageListItem__5126c:focus-within,
-.mouse-mode.full-motion .message__5126c:hover,
 .mouse-mode.full-motion .messageListItem__5126c:hover,
+.messageListItem__5126c:has(.message__5126c.selected__5126c),
+.messageListItem__5126c:has(.message__5126c.replying__5126c:hover),
+.messageListItem__5126c:has(.message__5126c.mentioned__5126c:hover),
+.messageListItem__5126c:has(.message__5126c.ephemeral__5126c:hover) {
+    background: var(--message-hover) !important;
+}
+
+.message__5126c:hover,
+.message__5126c:focus-within,
+.mouse-mode.full-motion .message__5126c:hover,
 .cozy_c19a55.wrapper_c19a55:hover,
-.compact_c19a55.wrapper_c19a55:hover {
+.compact_c19a55.wrapper_c19a55:hover,
+.message__5126c.mentioned__5126c:hover,
+.replying__5126c:hover,
+.ephemeral__5126c:hover,
+#app-mount .message__5126c.replying__5126c:hover {
     transform: none !important;
     translate: none !important;
-    background: var(--message-hover);
-    border-color: transparent;
+    background: transparent !important;
+    background-image: none !important;
+    border-color: transparent !important;
 }
 
 .message__5126c:hover :is([class*='contents'], [class*='messageContent'], [class*='markup'], [class*='header'], [class*='repliedMessage'], [class*='repliedTextPreview'], [class*='username'], [class*='timestamp'], [class*='messageAccessories'], [class*='buttonContainer'], [class*='buttons']),
@@ -2691,13 +2749,8 @@ nav[class*='guilds'] {
 .message__5126c.mentioned__5126c,
 .replying__5126c,
 .ephemeral__5126c {
-    background-color: transparent;
-}
-
-.message__5126c.mentioned__5126c:hover,
-.replying__5126c:hover,
-.ephemeral__5126c:hover {
-    background-image: none;
+    background-color: transparent !important;
+    background-image: none !important;
 }
 
 
