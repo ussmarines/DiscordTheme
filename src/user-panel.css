@@ -23,3 +23,51 @@
 .connection_e131a9:has(> .inner_e131a9 .labelWrapper__06d62 > a .lineClamp1__4bd52 p) {
     padding: calc(var(--custom-guild-list-padding) - var(--custom-panels-spacing) + 4px) 0;
 }
+
+
+/* Keep Spotify, voice, and account panels stacked without overlap */
+.panels__5e434 {
+    gap: 8px;
+}
+
+.panels__5e434 > #vc-spotify-player,
+.panels__5e434 > .activityPanel_c48ade,
+.panels__5e434 > .wrapper_e131a9,
+.panels__5e434 > .container_e131a9,
+.panels__5e434 > .panel__5dec7 {
+    position: relative !important;
+    inset: auto !important;
+    z-index: auto !important;
+    margin: 0 !important;
+    flex: 0 0 auto;
+}
+
+.panels__5e434 > #vc-spotify-player {
+    order: 1;
+    display: block !important;
+    border-radius: var(--radius-md);
+    background: var(--sibylla-panel-fill) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.02),
+        0 10px 24px rgba(1, 8, 18, 0.14) !important;
+}
+
+.panels__5e434 > .activityPanel_c48ade {
+    order: 2;
+}
+
+.panels__5e434 > .wrapper_e131a9,
+.panels__5e434 > .container_e131a9 {
+    order: 3;
+}
+
+.panels__5e434 > .panel__5dec7 {
+    order: 4;
+}
+
+#vc-spotify-player + .activityPanel_c48ade,
+#vc-spotify-player + .wrapper_e131a9,
+#vc-spotify-player + .container_e131a9 {
+    margin-top: 0 !important;
+}
+
