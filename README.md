@@ -83,12 +83,11 @@ themes/
 
 ## Flavors
 
-- `themes/flavors/sibnight-blue.css`
-- `themes/flavors/sibnight-space.css`
-- `themes/flavors/sibnight-sun.css`
-- `themes/flavors/sibnight-north-Polar.css`
-- `themes/flavors/sibnight-north-Snow.css`
-- `themes/flavors/sibnight-north-Aurora.css`
+- `themes/flavors/sibnight-space.css` — version spatiale avec nébuleuses bleues Sibylla
+- `themes/flavors/sibnight-sun.css` — variante chaude or/cuivre, plus solaire
+- `themes/flavors/sibnight-north-Polar.css` — Polar Night avec accents Frost modérés
+- `themes/flavors/sibnight-north-Snow.css` — Snow Storm avec accents Frost modérés
+- `themes/flavors/sibnight-north-Aurora.css` — Aurora avec neutres Nord sombres
 
 ## Crédits
 
