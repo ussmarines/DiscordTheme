@@ -26,19 +26,21 @@ function ensureFilesExist(filePaths) {
 }
 
 function ensureDeclaredOrderIsValid() {
-    const known = new Set(fs.readdirSync(srcDir).filter((file) => file.endsWith('.css')));
-    for (const file of SOURCE_FILE_ORDER) {
-        if (!known.has(file)) {
-            fail(`SOURCE_FILE_ORDER references a missing file: src/${file}`);
+    const knownFiles = new Set(fs.readdirSync(srcDir).filter((fileName) => fileName.endsWith('.css')));
+
+    for (const fileName of SOURCE_FILE_ORDER) {
+        if (!knownFiles.has(fileName)) {
+            fail(`SOURCE_FILE_ORDER references a missing file: src/${fileName}`);
         }
     }
 }
 
 function ensureSingleBuildImport() {
     const themeCss = fs.readFileSync(themeFile, 'utf8');
-    const matches = themeCss.match(/@import\s+url\(/g) || [];
-    if (matches.length !== 1) {
-        fail(`themes/sibnight.theme.css should contain exactly one @import, found ${matches.length}`);
+    const importMatches = themeCss.match(/@import\s+url\(/g) || [];
+
+    if (importMatches.length !== 1) {
+        fail(`themes/sibnight.theme.css should contain exactly one @import, found ${importMatches.length}`);
     }
 }
 
@@ -63,12 +65,19 @@ function ensureBuildOutputLooksHealthy() {
     }
 }
 
-ensureFilesExist([srcDir, themeFile]);
-ensureDeclaredOrderIsValid();
-ensureSingleBuildImport();
-ensureBuildOutputLooksHealthy();
-
-console.log('[sibnight] project check passed');
-for (const filePath of getSourceFiles()) {
-    console.log(`  src/${path.basename(filePath)}`);
+function logDiscoveredSources() {
+    console.log('[sibnight] project check passed');
+    for (const filePath of getSourceFiles()) {
+        console.log(`  src/${path.basename(filePath)}`);
+    }
 }
+
+function main() {
+    ensureFilesExist([srcDir, themeFile]);
+    ensureDeclaredOrderIsValid();
+    ensureSingleBuildImport();
+    ensureBuildOutputLooksHealthy();
+    logDiscoveredSources();
+}
+
+main();

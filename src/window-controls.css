@@ -1,3 +1,7 @@
+/* =================
+   Window controls UI
+   ================= */
+
 body {
     --window-control-size: 14px;
     --window-controls-padding: calc(var(--gap) - (var(--window-control-size) / 2) + 1px);

@@ -24,30 +24,38 @@ const BUNDLE_OUTPUTS = [
     path.join(rootDir, 'archive', 'sibnight.css'),
 ];
 
-const BUILD_IMPORT_PATTERN =
-    /@import\s+url\(['"]https:\/\/raw\.githubusercontent\.com\/ussmarines\/DiscordTheme\/main\/build\/sibnight\.css['"]\);/;
+const REMOTE_BUILD_IMPORT =
+    "https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css";
+
+const BUILD_IMPORT_PATTERN = new RegExp(
+    String.raw`@import\s+url\(['"]${REMOTE_BUILD_IMPORT.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]\);`
+);
 
 function listSourceCssFiles() {
     return fs
         .readdirSync(srcDir)
-        .filter((file) => file.endsWith('.css'))
+        .filter((fileName) => fileName.endsWith('.css'))
         .sort((left, right) => left.localeCompare(right));
 }
 
-function getSourceFiles() {
-    const discovered = listSourceCssFiles();
-    const ordered = [];
-    const remaining = new Set(discovered);
+function resolveSourceFileOrder() {
+    const discoveredFiles = listSourceCssFiles();
+    const orderedFiles = [];
+    const remainingFiles = new Set(discoveredFiles);
 
-    for (const file of SOURCE_FILE_ORDER) {
-        if (remaining.has(file)) {
-            ordered.push(file);
-            remaining.delete(file);
+    for (const fileName of SOURCE_FILE_ORDER) {
+        if (remainingFiles.has(fileName)) {
+            orderedFiles.push(fileName);
+            remainingFiles.delete(fileName);
         }
     }
 
-    ordered.push(...Array.from(remaining).sort((left, right) => left.localeCompare(right)));
-    return ordered.map((file) => path.join(srcDir, file));
+    orderedFiles.push(...Array.from(remainingFiles).sort((left, right) => left.localeCompare(right)));
+    return orderedFiles;
+}
+
+function getSourceFiles() {
+    return resolveSourceFileOrder().map((fileName) => path.join(srcDir, fileName));
 }
 
 function readTextFile(filePath) {
@@ -69,12 +77,12 @@ function ensureThemeTemplate(themeCss) {
 }
 
 function buildSourceCss() {
-    const css = getSourceFiles()
-        .map((file) => `/* ${path.basename(file)} */\n${readTextFile(file)}\n`)
+    const compiledCss = getSourceFiles()
+        .map((filePath) => `/* ${path.basename(filePath)} */\n${readTextFile(filePath)}\n`)
         .join('');
 
-    writeTextFile(buildFile, css);
-    return css;
+    writeTextFile(buildFile, compiledCss);
+    return compiledCss;
 }
 
 function buildBundleFromTheme(compiledCss) {
@@ -87,14 +95,20 @@ function getBundleOutputs(extraOutputs = []) {
     return [...BUNDLE_OUTPUTS, ...extraOutputs.filter(Boolean)];
 }
 
+function writeBundleOutputs(bundledCss, extraOutputs = []) {
+    const outputs = getBundleOutputs(extraOutputs);
+
+    for (const outputPath of outputs) {
+        writeTextFile(outputPath, bundledCss);
+    }
+
+    return outputs;
+}
+
 function buildAll(extraOutputs = []) {
     const compiledCss = buildSourceCss();
     const bundledCss = buildBundleFromTheme(compiledCss);
-    const outputs = getBundleOutputs(extraOutputs);
-
-    for (const output of outputs) {
-        writeTextFile(output, bundledCss);
-    }
+    const outputs = writeBundleOutputs(bundledCss, extraOutputs);
 
     return { compiledCss, bundledCss, outputs };
 }
@@ -105,9 +119,11 @@ module.exports = {
     themeFile,
     buildFile,
     SOURCE_FILE_ORDER,
+    REMOTE_BUILD_IMPORT,
     getSourceFiles,
     getBundleOutputs,
     buildAll,
     buildSourceCss,
     buildBundleFromTheme,
+    writeBundleOutputs,
 };

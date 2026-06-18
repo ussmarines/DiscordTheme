@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* =========================
+   Global theme foundations
+   ========================= */
+
 :root {
     container-name: root;
 
@@ -23,7 +27,7 @@ body {
     --border-hover-transition: 0.2s ease;
 }
 
-/* panel separation */
+/* Shared panel surfaces */
 .container__89463 > .toolbar__89463 /* server boosts titlebar */,
 .container__89463 > .contentContainer__89463 /* server boosts tab */,
 .guilds__5e434 /* server list */,
@@ -70,6 +74,7 @@ body {
     }
 }
 
+/* Sidebar and guild rail layout */
 .panels__5e434 /* user panel */ {
     bottom: 0;
     left: 0;
@@ -114,7 +119,7 @@ body {
     margin-bottom: 0;
 }
 
-/* fix discord's idiotic server banners */
+/* Server banner cleanup */
 .bannerImage_f37cb1,
 .bannerImg_f37cb1 {
     width: 100%;
@@ -138,6 +143,7 @@ body {
     mask: none;
 }
 
+/* Main content containers */
 .chat_f75fb0 /* chat group outer */ {
     border: none !important;
     background: none;
@@ -177,6 +183,7 @@ body {
     border: none !important;
 }
 
+/* User panel layout details */
 .listeningAlong_e0cf27 /* user panel listening along */ {
     border-top: none !important;
 }

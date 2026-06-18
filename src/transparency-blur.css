@@ -1,3 +1,7 @@
+/* =====================================
+   Transparency, blur, and background UX
+   ===================================== */
+
 @property --panel-blur {
     syntax: 'off | on';
     inherits: false;

@@ -13,6 +13,14 @@ const watchTargets = [themeFile, `${srcDir}/**/*.css`];
 let cachedCss = '';
 let version = Date.now();
 
+function getRequestPathname(url = '/') {
+    return url.split('?')[0];
+}
+
+function readInjectScript() {
+    return fs.readFileSync(INJECT_FILE, 'utf8');
+}
+
 function rebuild(reason = 'initial build') {
     try {
         const { bundledCss } = buildAll();
@@ -24,28 +32,40 @@ function rebuild(reason = 'initial build') {
     }
 }
 
+function writeJson(res, payload) {
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
+    res.end(JSON.stringify(payload));
+}
+
+function writeJavaScript(res, code) {
+    res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+    res.end(code);
+}
+
+function writeCss(res, css) {
+    res.setHeader('Content-Type', 'text/css; charset=utf-8');
+    res.end(css);
+}
+
 rebuild();
 
 const server = http.createServer((req, res) => {
-    const pathname = (req.url || '/').split('?')[0];
+    const pathname = getRequestPathname(req.url);
 
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Cache-Control', 'no-store');
 
     if (pathname === '/version') {
-        res.setHeader('Content-Type', 'application/json; charset=utf-8');
-        res.end(JSON.stringify({ version }));
+        writeJson(res, { version });
         return;
     }
 
     if (pathname === '/inject.js') {
-        res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
-        res.end(fs.readFileSync(INJECT_FILE, 'utf8'));
+        writeJavaScript(res, readInjectScript());
         return;
     }
 
-    res.setHeader('Content-Type', 'text/css; charset=utf-8');
-    res.end(cachedCss);
+    writeCss(res, cachedCss);
 });
 
 server.listen(PORT, HOST, () => {
@@ -56,4 +76,6 @@ server.listen(PORT, HOST, () => {
 
 chokidar
     .watch(watchTargets, { ignoreInitial: true })
-    .on('all', (event, filePath) => rebuild(`${event} ${path.relative(rootDir, filePath)}`));
+    .on('all', (eventName, filePath) => {
+        rebuild(`${eventName} ${path.relative(rootDir, filePath)}`);
+    });
