@@ -21,10 +21,12 @@ body {
     /* sizes */
     --gap: 12px; /* spacing between panels */
     --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
-    --border-thickness: 1px; /* thickness of borders around main panels. DOES NOT AFFECT OTHER BORDERS */
+    --border-thickness: 0px; /* keep panels clean without visible outlines */
     --custom-guild-list-width: calc(var(--guildbar-avatar-size) + var(--custom-guild-list-padding) * 2 + var(--border-thickness) * 2);
 
     --border-hover-transition: 0.2s ease;
+    --panel-shadow: 0 12px 32px rgba(2, 8, 18, 0.28);
+    --panel-shadow-hover: 0 18px 42px rgba(2, 8, 18, 0.34);
 }
 
 /* Shared panel surfaces */
@@ -64,13 +66,16 @@ body {
 .container__8a031 /* popout modals */ {
     background-color: var(--background-base-lower);
     border-radius: var(--radius-lg);
-    border: var(--border-thickness) solid var(--border-subtle);
+    border: none;
     backdrop-filter: var(--panel-backdrop-filter);
     box-sizing: border-box;
-    transition: border-color var(--border-hover-transition);
+    box-shadow: var(--panel-shadow);
+    transition:
+        background-color var(--border-hover-transition),
+        box-shadow var(--border-hover-transition);
 
     &:hover {
-        border-color: var(--border-hover);
+        box-shadow: var(--panel-shadow-hover);
     }
 }
 

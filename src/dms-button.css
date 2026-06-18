@@ -9,7 +9,7 @@ body {
     --dms-icon-color-after: var(--white);
     --dms-background-image-url: url('');
     --dms-background-image-size: cover;
-    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2));
+    --dms-background-color: linear-gradient(135deg, color-mix(in oklab, var(--blue-3) 86%, var(--yellow-2) 14%), var(--blue-4));
 }
 
 @property --custom-dms-icon {
@@ -64,7 +64,7 @@ body {
         background-repeat: no-repeat;
         background-size: var(--dms-icon-svg-size);
         pointer-events: none;
-        filter: drop-shadow(0 0 6px rgba(250, 218, 125, 0.18));
+        filter: drop-shadow(0 0 8px rgba(108, 170, 255, 0.22));
         transition:
             transform var(--dms-icon-svg-transition),
             filter 0.15s ease-out,
@@ -74,7 +74,7 @@ body {
     .wrapper__6e9f8[data-list-item-id='guildsnav___home']:hover > .childWrapper__6e9f8::before,
     .wrapper__6e9f8[data-list-item-id='guildsnav___home'].selected__6e9f8 > .childWrapper__6e9f8::before {
         transform: scale(0.98);
-        filter: brightness(1.06) drop-shadow(0 0 8px rgba(250, 218, 125, 0.28));
+        filter: brightness(1.04) drop-shadow(0 0 10px rgba(108, 170, 255, 0.32));
     }
 }
 
