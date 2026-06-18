@@ -174,7 +174,7 @@ nav[class*='guilds'] {
     background: transparent !important;
 }
 
-./* top strip: rebuilt cleanly to avoid overlap and drifting */
+/* top strip: rebuilt cleanly to avoid overlap and drifting */
 .bar_c38106,
 .base_c48ade > .bar_c38106,
 .container__89463,
@@ -198,31 +198,35 @@ nav[class*='guilds'] {
 .container__9293f,
 .title_f75fb0,
 .container__89463,
-.headerBar__1a9ce {
-    position: relative !important;
-}
-
-.container__9293f,
-.subtitleContainer_f75fb0,
 .headerBar__1a9ce,
-.bar_c38106,
+.subtitleContainer_f75fb0,
 .container__89463 > .toolbar__89463,
 .container__89463 > .contentContainer__89463 {
+    position: relative !important;
     min-height: var(--proto-topbar-height);
     margin-bottom: 0 !important;
     border-radius: 0 !important;
     border-bottom: 1px solid color-mix(in srgb, var(--border) 72%, transparent) !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+}
+
+.bar_c38106 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
 }
 
 .title_f75fb0,
 .container__9293f,
 .headerBar__1a9ce {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) auto auto;
+    display: flex !important;
     align-items: center !important;
-    column-gap: 12px !important;
-    row-gap: 0 !important;
-    min-width: 0 !important;
+    gap: 12px !important;
     width: 100% !important;
     padding: 0 12px !important;
     box-sizing: border-box !important;
@@ -235,7 +239,7 @@ nav[class*='guilds'] {
 }
 
 .children__9293f {
-    grid-column: 1 !important;
+    flex: 1 1 auto !important;
     min-width: 0 !important;
     overflow: hidden !important;
     display: flex !important;
@@ -251,8 +255,7 @@ nav[class*='guilds'] {
 }
 
 .toolbar__9293f {
-    grid-column: 2 !important;
-    justify-self: end !important;
+    margin-left: auto !important;
     display: flex !important;
     align-items: center !important;
     justify-content: flex-end !important;
@@ -261,22 +264,20 @@ nav[class*='guilds'] {
     flex: 0 1 auto !important;
     width: auto !important;
     min-width: 0 !important;
-    max-width: min(560px, 50vw) !important;
-    margin: 0 !important;
+    max-width: none !important;
     padding: 0 !important;
     overflow: visible !important;
 }
 
 .trailing_c38106 {
-    grid-column: 3 !important;
-    justify-self: end !important;
     position: static !important;
     top: auto !important;
     right: auto !important;
-    z-index: auto !important;
+    z-index: 2 !important;
     height: auto !important;
     transform: none !important;
     opacity: 1 !important;
+    visibility: visible !important;
     display: flex !important;
     align-items: center !important;
     justify-content: flex-end !important;
@@ -285,14 +286,40 @@ nav[class*='guilds'] {
     flex: 0 0 auto !important;
     width: auto !important;
     min-width: 0 !important;
-    margin: 0 !important;
+    margin-left: 12px !important;
     padding: 0 !important;
     box-sizing: border-box !important;
+    overflow: visible !important;
 }
 
 .trailing_c38106:hover {
     transform: none !important;
     opacity: 1 !important;
+}
+
+.winButtons_c38106 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 0 !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.winButton_c38106 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+    width: calc(var(--window-control-size) * 2) !important;
+    min-width: calc(var(--window-control-size) * 2) !important;
+    height: var(--custom-app-top-bar-height) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
 }
 
 .toolbar__9293f .separator__9293f {
@@ -302,7 +329,6 @@ nav[class*='guilds'] {
 .toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676),
 .toolbar__9293f .iconWrapper__9293f,
 .toolbar__9293f .clickable__9293f,
-.trailing_c38106 > div:not(.winButtons_c38106),
 .trailing_c38106 > div:not(.winButtons_c38106),
 .trailing_c38106 a,
 .trailing_c38106 .clickable__81391 {
@@ -391,6 +417,7 @@ nav[class*='guilds'] {
 
 /* neutralize old titlebar offsets so the rebuilt layout stays stable */
 @container body style(--top-bar-button-position: titlebar) {
+    .bar_c38106,
     .trailing_c38106 {
         position: static !important;
         top: auto !important;
