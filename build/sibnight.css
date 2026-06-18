@@ -2521,18 +2521,21 @@ body {
 
 /* top bar search */
 .toolbar__9293f .search__49676 {
-    display: inline-flex !important;
+    display: flex !important;
     align-items: center !important;
+    flex: 0 0 clamp(176px, 18vw, 260px) !important;
     width: clamp(176px, 18vw, 260px) !important;
     min-width: 176px !important;
     max-width: 260px !important;
     height: 34px !important;
-    padding-inline: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
     background: color-mix(in srgb, var(--bg-3) 64%, transparent) !important;
     border: 1px solid color-mix(in srgb, var(--border) 68%, transparent) !important;
     border-radius: 10px !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
+    overflow: hidden !important;
 }
 
 .toolbar__9293f .search__49676:hover,
@@ -2542,24 +2545,43 @@ body {
 }
 
 .toolbar__9293f .search__49676 > * {
-    min-width: 0 !important;
-}
-
-.toolbar__9293f .search__49676 :is(.searchBar__35e86, .searchBar__97492, .searchBarComponent__35e86) {
     flex: 1 1 auto !important;
     width: 100% !important;
     min-width: 0 !important;
-    height: auto !important;
-    padding: 0 !important;
+    height: 100% !important;
+}
+
+.toolbar__9293f .search__49676 :is(.searchBar__35e86, .searchBar__97492, .searchBarComponent__35e86) {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 10px !important;
     background: transparent !important;
     border: none !important;
+    border-radius: 0 !important;
     box-shadow: none !important;
+}
+
+.toolbar__9293f .search__49676 :is(.searchBar__35e86, .searchBar__97492, .searchBarComponent__35e86) > * {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
 }
 
 .toolbar__9293f .search__49676 :is(.searchBar__35e86, .searchBar__97492, .searchBarComponent__35e86) * {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
+}
+
+.toolbar__9293f .search__49676 [class*='DraftEditor'],
+.toolbar__9293f .search__49676 input,
+.toolbar__9293f .search__49676 [contenteditable='true'] {
+    width: 100% !important;
+    min-width: 0 !important;
 }
 
 .toolbar__9293f > :is(div, a, [role='button']):not(.separator__9293f):not(.search__49676),
