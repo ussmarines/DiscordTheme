@@ -120,3 +120,88 @@ body {
         background-color: var(--bg-4);
     }
 }
+
+/* sibnight message hover */
+.messageListItem__5126c,
+.message__5126c,
+.cozy_c19a55.wrapper_c19a55,
+.compact_c19a55.wrapper_c19a55,
+.message__5126c *,
+.messageListItem__5126c * {
+    transform: none !important;
+    translate: none !important;
+    animation: none !important;
+    will-change: auto !important;
+}
+
+.messageListItem__5126c {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 12px;
+    overflow: visible !important;
+    transition: background-color 0.14s ease !important;
+}
+
+.message__5126c,
+.cozy_c19a55.wrapper_c19a55,
+.compact_c19a55.wrapper_c19a55 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 12px;
+    background: transparent !important;
+    transition:
+        background-color 0.14s ease,
+        border-color 0.14s ease,
+        color 0.14s ease !important;
+}
+
+.message__5126c::before,
+.message__5126c::after,
+.messageListItem__5126c::before,
+.messageListItem__5126c::after {
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+.messageListItem__5126c:hover,
+.messageListItem__5126c:focus-within,
+.mouse-mode.full-motion .messageListItem__5126c:hover,
+.messageListItem__5126c:has(.message__5126c.selected__5126c),
+.messageListItem__5126c:has(.message__5126c.replying__5126c:hover),
+.messageListItem__5126c:has(.message__5126c.mentioned__5126c:hover),
+.messageListItem__5126c:has(.message__5126c.ephemeral__5126c:hover) {
+    background: var(--message-hover) !important;
+}
+
+.message__5126c:hover,
+.message__5126c:focus-within,
+.mouse-mode.full-motion .message__5126c:hover,
+.cozy_c19a55.wrapper_c19a55:hover,
+.compact_c19a55.wrapper_c19a55:hover,
+.message__5126c.mentioned__5126c:hover,
+.replying__5126c:hover,
+.ephemeral__5126c:hover,
+#app-mount .message__5126c.replying__5126c:hover {
+    transform: none !important;
+    translate: none !important;
+    background: transparent !important;
+    background-image: none !important;
+    border-color: transparent !important;
+}
+
+.message__5126c:hover :is([class*='contents'], [class*='messageContent'], [class*='markup'], [class*='header'], [class*='repliedMessage'], [class*='repliedTextPreview'], [class*='username'], [class*='timestamp'], [class*='messageAccessories'], [class*='buttonContainer'], [class*='buttons']),
+.messageListItem__5126c:hover :is([class*='contents'], [class*='messageContent'], [class*='markup'], [class*='header'], [class*='repliedMessage'], [class*='repliedTextPreview'], [class*='username'], [class*='timestamp'], [class*='messageAccessories'], [class*='buttonContainer'], [class*='buttons']) {
+    transform: none !important;
+    translate: none !important;
+    animation: none !important;
+}
+
+.message__5126c.mentioned__5126c,
+.replying__5126c,
+.ephemeral__5126c {
+    background-color: transparent !important;
+    background-image: none !important;
+}

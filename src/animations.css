@@ -32,3 +32,43 @@ body {
         will-change: auto;
     }
 }
+
+/* sibnight interactive surfaces */
+.wrapper__2ea32 .link__2ea32,
+.channel__972a0,
+.container__91a9d,
+.side_aa8da2 .item_aa8da2,
+.link__972a0,
+.interactive__972a0,
+.member_c8ffbb {
+    border-radius: 11px;
+    border: 1px solid transparent;
+    transition:
+        background-color 0.14s ease,
+        border-color 0.14s ease,
+        color 0.14s ease;
+}
+
+.wrapper__2ea32:hover .link__2ea32,
+.channel__972a0:hover,
+.container__91a9d:hover,
+.side_aa8da2 .item_aa8da2:hover,
+.member_c8ffbb:hover {
+    transform: none !important;
+    translate: none !important;
+    background: var(--proto-hover-surface);
+    border-color: transparent;
+}
+
+.modeSelected__2ea32 .link__2ea32,
+.modeSelected__2ea32:hover .link__2ea32,
+.modeConnected__2ea32 .link__2ea32,
+.channel__972a0.selected__972a0,
+.container__91a9d[aria-selected='true'],
+.side_aa8da2 .selected_a523ff.item_aa8da2,
+.side_aa8da2 .item_aa8da2[aria-selected='true'] {
+    transform: none !important;
+    translate: none !important;
+    background: var(--proto-active-surface);
+    border-color: transparent;
+}
