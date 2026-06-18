@@ -134,6 +134,26 @@
     --sibylla-soft-edge-strong: rgba(184, 221, 255, 0.065);
     --sibylla-blue-glow: rgba(104, 176, 255, 0.18);
     --sibylla-gold-glow: rgba(252, 218, 125, 0.10);
+--sibylla-profile-fill:
+    radial-gradient(circle at 84% 18%, rgba(96, 173, 255, 0.18) 0%, transparent 18%),
+    radial-gradient(circle at 16% 22%, rgba(252, 218, 125, 0.10) 0%, transparent 12%),
+    linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--bg-2) 44%, var(--blue-3) 56%) 0%,
+        color-mix(in srgb, var(--bg-3) 26%, var(--bg-4) 74%) 52%,
+        color-mix(in srgb, var(--bg-4) 88%, black 12%) 100%
+    );
+--sibylla-profile-overlay:
+    radial-gradient(circle at 80% 16%, rgba(131, 198, 255, 0.18) 0%, transparent 16%),
+    radial-gradient(circle at 14% 26%, rgba(252, 218, 125, 0.10) 0%, transparent 10%),
+    linear-gradient(
+        115deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.03) 28%,
+        transparent 48%,
+        rgba(255, 255, 255, 0.015) 62%,
+        transparent 82%
+    );
 }
 
 

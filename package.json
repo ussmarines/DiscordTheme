@@ -1,6 +1,6 @@
 {
   "name": "sibnight-discord",
-  "version": "2.13.1",
+  "version": "2.13.2",
   "scripts": {
     "build": "node scripts/build.js",
     "check": "node scripts/check.js",
