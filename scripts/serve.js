@@ -7,7 +7,8 @@ const { rootDir, srcDir, themeFile, buildAll } = require('./lib/build-theme');
 
 const PORT = Number(process.env.PORT) || 8765;
 const HOST = process.env.HOST || '127.0.0.1';
-const injectFile = path.join(__dirname, 'inject.js');
+const INJECT_FILE = path.join(__dirname, 'inject.js');
+const watchTargets = [themeFile, `${srcDir}/**/*.css`];
 
 let cachedCss = '';
 let version = Date.now();
@@ -19,27 +20,27 @@ function rebuild(reason = 'initial build') {
         version = Date.now();
         console.log(`[sibnight] rebuilt ${reason}`);
     } catch (error) {
-        console.error('Build failed:', error);
+        console.error('[sibnight] build failed:', error);
     }
 }
 
 rebuild();
 
 const server = http.createServer((req, res) => {
+    const pathname = (req.url || '/').split('?')[0];
+
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Cache-Control', 'no-store');
 
-    const url = (req.url || '/').split('?')[0];
-
-    if (url === '/version') {
+    if (pathname === '/version') {
         res.setHeader('Content-Type', 'application/json; charset=utf-8');
         res.end(JSON.stringify({ version }));
         return;
     }
 
-    if (url === '/inject.js') {
+    if (pathname === '/inject.js') {
         res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
-        res.end(fs.readFileSync(injectFile, 'utf8'));
+        res.end(fs.readFileSync(INJECT_FILE, 'utf8'));
         return;
     }
 
@@ -49,14 +50,10 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, HOST, () => {
     console.log(`sibnight-discord dev server @ http://${HOST}:${PORT}`);
-    console.log(`  CSS:    /sibnight.css`);
-    console.log(`  loader: /inject.js`);
+    console.log('  CSS:    /sibnight.css');
+    console.log('  loader: /inject.js');
 });
 
-const watcher = chokidar.watch([themeFile, `${srcDir}/**/*.css`], {
-    ignoreInitial: true,
-});
-
-watcher.on('all', (event, filePath) => {
-    rebuild(`${event} ${path.relative(rootDir, filePath)}`);
-});
+chokidar
+    .watch(watchTargets, { ignoreInitial: true })
+    .on('all', (event, filePath) => rebuild(`${event} ${path.relative(rootDir, filePath)}`));

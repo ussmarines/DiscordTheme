@@ -11,7 +11,7 @@
 ## À propos
 
 **sibnight-discord** est un thème Discord personnalisé maintenu par **ussmarines**.
-Le projet reprend une base existante, la réoriente vers l'univers graphique de **Sibylla**, et propose plusieurs variantes prêtes à l'emploi.
+Le projet part d'une base stable, garde la structure native de Discord intacte, puis applique un habillage Sibylla propre et maintenable.
 
 ## Installation
 
@@ -28,6 +28,21 @@ Le projet reprend une base existante, la réoriente vers l'univers graphique de 
 @import url("https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css");
 ```
 
+## Développement
+
+```bash
+npm install
+npm run check
+npm run build
+npm run dev
+npm run serve
+```
+
+- `npm run check` valide la structure du projet et le pipeline de build
+- `npm run build` génère les fichiers distribuables
+- `npm run dev` rebuild automatiquement vers des sorties locales définies dans `.env`
+- `npm run serve` lance un serveur local pour l'injection navigateur
+
 ## Structure du projet
 
 ```text
@@ -35,11 +50,22 @@ assets/
   sibylla-logo.svg
 build/
   sibnight.css
+scripts/
+  build.js
+  check.js
+  dev.js
+  serve.js
+  lib/
 src/
+  animations.css
+  background-image.css
+  chatbar.css
   colors.css
   dms-button.css
   main.css
   top-bar.css
+  transparency-blur.css
+  user-panel.css
   window-controls.css
 themes/
   sibnight.theme.css
@@ -50,28 +76,19 @@ themes/
 
 - `themes/sibnight.theme.css` : variables exposées aux utilisateurs
 - `src/colors.css` : palette principale
+- `src/top-bar.css` : topbar, recherche et trailing buttons
 - `src/dms-button.css` : bouton des messages privés
-- `build/sibnight.css` : build utilisé par le thème
-- `themes/flavors/` : variantes prêtes à l'emploi
+- `src/main.css` : layout visuel principal
+- `build/sibnight.css` : build importé par le thème
 
 ## Flavors
 
-- `themes/flavors/sibnight-blue.css` : variante plus bleue, toujours dans l'univers Sibylla
-- `themes/flavors/sibnight-space.css` : variante plus spatiale avec une nébuleuse bleue
-- `themes/flavors/sibnight-sun.css` : copie de la version chaude du thème principal
-- `themes/flavors/sibnight-north-Polar.css` : variante Nord basée sur Polar Night
-- `themes/flavors/sibnight-north-Snow.css` : variante Nord basée sur Snow Storm
-- `themes/flavors/sibnight-north-Aurora.css` : variante Nord basée sur Aurora
-
-## Personnalisation
-
-Tu peux modifier directement les variables CSS pour changer :
-
-- les couleurs
-- les accents
-- l'image de fond
-- l'apparence du bouton MP
-- les espacements et bordures
+- `themes/flavors/sibnight-blue.css`
+- `themes/flavors/sibnight-space.css`
+- `themes/flavors/sibnight-sun.css`
+- `themes/flavors/sibnight-north-Polar.css`
+- `themes/flavors/sibnight-north-Snow.css`
+- `themes/flavors/sibnight-north-Aurora.css`
 
 ## Crédits
 

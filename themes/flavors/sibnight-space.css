@@ -1,21 +1,21 @@
-   /**
-    * @name sibnight-space
-    * @description A space-focused Sibylla variant for sibnight-discord with a blue nebula background.
-    * @author ussmarines
-    * @version 1.0.0
-    * @website https://github.com/ussmarines/DiscordTheme
-    * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-space.css
-    * @authorLink https://github.com/ussmarines
-   */
-   /* credits
+/**
+* @name sibnight-space
+* @description A space-focused Sibylla variant for sibnight-discord with a blue nebula background.
+* @author ussmarines
+* @version 1.1.0
+* @website https://github.com/ussmarines/DiscordTheme
+* @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-space.css
+* @authorLink https://github.com/ussmarines
+*/
+/* credits
 * original design inspired by https://github.com/schnensch0/zelk
 * theme design inspired by https://github.com/refact0r/midnight-discord
 * window controls inspired by https://github.com/Dyzean/Tokyo-Night
 */
 
-   @import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css');
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css');
 
-   body {
+body {
        --dms-icon-svg-size: 104%;
        --accent-1: hsl(193, 100%, 82%);
        --accent-2: hsl(194, 98%, 72%);

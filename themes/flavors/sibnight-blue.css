@@ -1,21 +1,21 @@
-   /**
-    * @name sibnight-blue
-    * @description A blue-forward Sibylla variant for sibnight-discord.
-    * @author ussmarines
-    * @version 1.0.0
-    * @website https://github.com/ussmarines/DiscordTheme
-    * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-blue.css
-    * @authorLink https://github.com/ussmarines
-   */
-   /* credits
+/**
+* @name sibnight-blue
+* @description A blue-forward Sibylla variant for sibnight-discord.
+* @author ussmarines
+* @version 1.1.0
+* @website https://github.com/ussmarines/DiscordTheme
+* @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-blue.css
+* @authorLink https://github.com/ussmarines
+*/
+/* credits
 * original design inspired by https://github.com/schnensch0/zelk
 * theme design inspired by https://github.com/refact0r/midnight-discord
 * window controls inspired by https://github.com/Dyzean/Tokyo-Night
 */
 
-   @import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css');
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css');
 
-   body {
+body {
        --dms-icon-svg-size: 104%;
        --accent-1: hsl(198, 96%, 78%);
        --accent-2: hsl(199, 90%, 68%);
