@@ -9,7 +9,13 @@ body {
     --dms-icon-color-after: var(--white);
     --dms-background-image-url: url('');
     --dms-background-image-size: cover;
-    --dms-background-color: linear-gradient(135deg, color-mix(in oklab, var(--blue-3) 86%, var(--yellow-2) 14%), var(--blue-4));
+    --dms-background-color:
+        radial-gradient(circle at 28% 18%, rgba(252, 218, 125, 0.18), transparent 34%),
+        linear-gradient(
+            145deg,
+            color-mix(in oklab, var(--blue-3) 82%, var(--bg-3) 18%),
+            color-mix(in oklab, var(--blue-5) 74%, var(--yellow-2) 26%)
+        );
 }
 
 @property --custom-dms-icon {
@@ -64,7 +70,9 @@ body {
         background-repeat: no-repeat;
         background-size: var(--dms-icon-svg-size);
         pointer-events: none;
-        filter: drop-shadow(0 0 8px rgba(108, 170, 255, 0.22));
+        filter:
+            drop-shadow(0 0 10px rgba(108, 170, 255, 0.20))
+            drop-shadow(0 0 6px rgba(252, 218, 125, 0.10));
         transition:
             transform var(--dms-icon-svg-transition),
             filter 0.15s ease-out,
