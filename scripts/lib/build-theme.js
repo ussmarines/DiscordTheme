@@ -6,19 +6,37 @@ const srcDir = path.join(rootDir, 'src');
 const themeFile = path.join(rootDir, 'themes', 'sibnight.theme.css');
 const buildFile = path.join(rootDir, 'build', 'sibnight.css');
 
-function getSourceFiles() {
-    const files = fs
-        .readdirSync(srcDir)
-        .filter((file) => file.endsWith('.css'))
-        .sort((a, b) => a.localeCompare(b));
+const SOURCE_ORDER = [
+    'main.css',
+    'colors.css',
+    'transparency-blur.css',
+    'background-image.css',
+    'user-panel.css',
+    'dms-button.css',
+    'top-bar.css',
+    'window-controls.css',
+    'chatbar.css',
+    'animations.css',
+    'zz-prototype-layout.css',
+];
 
-    const mainIndex = files.indexOf('main.css');
-    if (mainIndex > -1) {
-        files.splice(mainIndex, 1);
-        files.unshift('main.css');
+function getSourceFiles() {
+    const discovered = fs
+        .readdirSync(srcDir)
+        .filter((file) => file.endsWith('.css'));
+
+    const ordered = [];
+    const remaining = new Set(discovered);
+
+    for (const file of SOURCE_ORDER) {
+        if (remaining.has(file)) {
+            ordered.push(file);
+            remaining.delete(file);
+        }
     }
 
-    return files.map((file) => path.join(srcDir, file));
+    const extras = [...remaining].sort((a, b) => a.localeCompare(b));
+    return [...ordered, ...extras].map((file) => path.join(srcDir, file));
 }
 
 function buildSourceCss() {
@@ -62,4 +80,6 @@ module.exports = {
     buildAll,
     buildSourceCss,
     buildBundleFromTheme,
+    getSourceFiles,
+    SOURCE_ORDER,
 };
