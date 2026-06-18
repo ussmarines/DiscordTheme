@@ -1042,11 +1042,12 @@ nav[class*='guilds'] {
     filter: saturate(1.05) contrast(1.02);
 }
 
+/* Profile banner polish that preserves user custom banners */
 .banner__68edb {
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    background: var(--sibylla-profile-fill) !important;
+    background-color: color-mix(in srgb, var(--bg-2) 48%, var(--bg-4) 52%) !important;
 }
 
 .banner__68edb::before {
@@ -1055,10 +1056,10 @@ nav[class*='guilds'] {
     inset: 0;
     pointer-events: none;
     background:
-        var(--sibylla-profile-overlay),
-        radial-gradient(circle at 78% 22%, rgba(104, 176, 255, 0.18) 0%, transparent 15%),
-        radial-gradient(circle at 18% 28%, rgba(252, 218, 125, 0.12) 0%, transparent 11%);
-    opacity: 0.9;
+        linear-gradient(180deg, rgba(5, 11, 22, 0.02) 0%, rgba(5, 11, 22, 0.18) 100%),
+        radial-gradient(circle at 78% 22%, rgba(104, 176, 255, 0.10) 0%, transparent 15%),
+        radial-gradient(circle at 18% 28%, rgba(252, 218, 125, 0.07) 0%, transparent 11%);
+    opacity: 0.72;
     z-index: 1;
 }
 
@@ -1068,7 +1069,7 @@ nav[class*='guilds'] {
     inset: auto 0 0 0;
     height: 52%;
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(4, 9, 18, 0) 0%, rgba(4, 9, 18, 0.28) 62%, rgba(4, 9, 18, 0.54) 100%);
+    background: linear-gradient(180deg, rgba(4, 9, 18, 0) 0%, rgba(4, 9, 18, 0.22) 62%, rgba(4, 9, 18, 0.48) 100%);
     z-index: 1;
 }
 
