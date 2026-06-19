@@ -85,17 +85,17 @@ themes/
 
 Les flavors importent `themes/sibnight.theme.css` puis remplacent uniquement la palette et les surfaces de design, pour garder la même base fonctionnelle et éviter que le thème principal reprenne le dessus.
 
+- `themes/flavors/sibnight-flat.css` — variante du thème Sibnight de base en full flat design, sans ombres ni dégradés
 - `themes/flavors/sibnight-sun.css` — variante Sibylla solaire flat, recentrée sur le bleu nuit Sibylla et le vrai jaune du logo
-- `themes/flavors/sibnight-space.css` — variante spatiale holographique, plus poussée sur les bots, embeds, MP et cartes
+- `themes/flavors/sibnight-space.css` — variante spatiale holographique, peaufinée sur les bots, embeds, MP, profils et cartes
 - `themes/flavors/sibnight-north-Polar.css` — version North / Polar Night en full flat design, sans ombres, avec une hiérarchie plus propre
 - `themes/flavors/sibnight-north-Snow.css` — Snow Storm + Frost clair, plus net, plus lisible et sans ombres
-- `themes/flavors/sibnight-north-Aurora.css` — Aurora dark par défaut, bâtie sur Polar Night + Aurora
-- `themes/flavors/sibnight-north-Aurora-Dark.css` — version Aurora sombre
-- `themes/flavors/sibnight-north-Aurora-Light.css` — version Aurora claire
-- `themes/flavors/sibnight-flat.css` — variante du thème Sibnight de base en full flat design, sans ombres ni dégradés
+- `themes/flavors/sibnight-north-Aurora-Dark.css` — version Aurora sombre validée
+- `themes/flavors/sibnight-north-Aurora-Light.css` — version Aurora claire validée
+
+L’ancienne flavor `sibnight-north-Aurora.css` a été supprimée au profit des deux variantes validées `Dark` et `Light`.
 
 ## Crédits
-
 
 - original design inspired by https://github.com/schnensch0/zelk
 - theme design inspired by https://github.com/refact0r/midnight-discord
