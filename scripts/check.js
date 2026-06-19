@@ -62,6 +62,7 @@ function ensureBuildOutputLooksHealthy() {
 
     if (!fs.existsSync(buildFile)) {
         fail('build/sibnight.css was not written');
+<<<<<<< HEAD
     }
 }
 
@@ -76,6 +77,8 @@ function ensureNoPlaceholderPaletteValues() {
             placeholderValues.slice(0, 5).join(', ') +
             (placeholderValues.length > 5 ? ' …' : '')
         );
+=======
+>>>>>>> parent of 399008b (release build)
     }
 }
 
@@ -90,7 +93,10 @@ function main() {
     ensureFilesExist([srcDir, themeFile]);
     ensureDeclaredOrderIsValid();
     ensureSingleBuildImport();
+<<<<<<< HEAD
     ensureNoPlaceholderPaletteValues();
+=======
+>>>>>>> parent of 399008b (release build)
     ensureBuildOutputLooksHealthy();
     logDiscoveredSources();
 }
