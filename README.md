@@ -89,6 +89,7 @@ Les flavors importent `themes/sibnight.theme.css` puis remplacent uniquement la 
 - `themes/flavors/sibnight-north-Polar.css` — Polar Night flat, plus structuré et mieux étagé sur toute la palette
 - `themes/flavors/sibnight-north-Snow.css` — Snow Storm clair, mieux calibré et plus propre avec accents Frost mieux dosés
 - `themes/flavors/sibnight-north-Aurora.css` — Aurora plus vif, plus coloré et recentré uniquement sur la palette Aurora
+- `themes/flavors/sibnight-flat.css` — variante du thème Sibnight de base en full flat design, sans ombres ni dégradés
 
 ## Crédits
 

@@ -311,12 +311,18 @@ body {
 
 .form_f75fb0,
 .channelBottomBarArea_f75fb0,
-.base_b88801,
+.base_b88801 {
+    background-image: none !important;
+    background-color: var(--sibylla-panel-fill) !important;
+    box-shadow: none !important;
+}
+
 .channelTextArea_f75fb0,
 .form_f75fb0 .themedBackground__74017,
 .scrollableContainer__74017,
 .stackedBars__74017 {
     background-image: none !important;
+    background-color: var(--sibylla-control-fill) !important;
     box-shadow: none !important;
 }
 
@@ -331,6 +337,12 @@ body {
 
 .channelTextArea_f75fb0 {
     overflow: hidden !important;
+}
+
+.base_b88801 > div,
+.channelBottomBarArea_f75fb0 > div {
+    background-image: none !important;
+    background-color: inherit !important;
 }
 
 .attachWrapper__0923f,
