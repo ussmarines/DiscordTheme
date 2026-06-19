@@ -11,7 +11,7 @@
 ## À propos
 
 **sibnight-discord** est un thème Discord personnalisé maintenu par **ussmarines**.
-Le projet part d'une base stable, garde la structure native de Discord intacte, puis applique un habillage Sibylla propre et maintenable.
+Le projet garde la structure native de Discord intacte, puis applique un habillage Sibylla propre, stable et maintenable.
 
 ## Installation
 
@@ -38,8 +38,8 @@ npm run dev
 npm run serve
 ```
 
-- `npm run check` valide la structure du projet et le pipeline de build
-- `npm run build` génère les fichiers distribuables
+- `npm run check` valide la structure, la synchro des versions et l'état des builds
+- `npm run build` génère `build/sibnight.css` et `sibnight.css`
 - `npm run dev` rebuild automatiquement vers des sorties locales définies dans `.env`
 - `npm run serve` lance un serveur local pour l'injection navigateur
 
@@ -70,27 +70,31 @@ src/
 themes/
   sibnight.theme.css
   flavors/
+sibnight.css
 ```
 
 ## Fichiers principaux
 
 - `themes/sibnight.theme.css` : variables exposées aux utilisateurs
 - `src/colors.css` : palette principale
+- `src/main.css` : layout visuel principal
 - `src/top-bar.css` : topbar, recherche et trailing buttons
 - `src/dms-button.css` : bouton des messages privés
-- `src/main.css` : layout visuel principal
 - `build/sibnight.css` : build importé par le thème
+- `sibnight.css` : bundle complet prêt à distribuer
 
 ## Flavors
 
-Les flavors importent `themes/sibnight.theme.css` puis remplacent uniquement la palette et les surfaces de design, pour garder la même base fonctionnelle et éviter que le thème principal reprenne le dessus.
+Les flavors importent `themes/sibnight.theme.css` puis remplacent uniquement la palette et les surfaces de design.
 
-- `themes/flavors/sibnight-space.css` — version galaxie avec nébuleuses bleues, reflets holographiques et surfaces plus sci-fi
-- `themes/flavors/sibnight-sun.css` — variante chaude or/cuivre avec bordures solaires plus visibles
-- `themes/flavors/sibnight-north-Polar.css` — Polar Night plus plat, plus lisible et plus fidèle à Nord
-- `themes/flavors/sibnight-north-Snow.css` — Snow Storm clair, lisse et minimal avec accents Frost très modérés
-- `themes/flavors/sibnight-north-Aurora.css` — Aurora rééquilibré sur base sombre Nord avec accents boréaux mieux dosés
-- `themes/flavors/sibnight-tokyo-night.css` — variante flat inspirée de Tokyo Night, avec surfaces nuit, accents cyan/bleu/violet et contraste sobre
+- `themes/flavors/sibnight-flat.css`
+- `themes/flavors/sibnight-space.css`
+- `themes/flavors/sibnight-sun.css`
+- `themes/flavors/sibnight-north-Polar.css`
+- `themes/flavors/sibnight-north-Snow.css`
+- `themes/flavors/sibnight-north-Aurora-Dark.css`
+- `themes/flavors/sibnight-north-Aurora-Light.css`
+- `themes/flavors/sibnight-tokyo-night.css`
 
 ## Crédits
 
