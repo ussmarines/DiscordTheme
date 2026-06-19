@@ -1,101 +1,116 @@
 <p align="center">
-  <img width="220" src="https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg" alt="Sibylla logo">
+  <img width="220" src="./assets/sibylla-logo.svg" alt="Logo Sibylla">
 </p>
 
-<h1 align="center">sibnight-discord</h1>
+<h1 align="center">sibnight</h1>
 
 <p align="center">
-  Thème Discord sombre inspiré par l'identité visuelle de Sibylla.
+  Un thème Discord sombre inspiré par l'identité visuelle de Sibylla.
 </p>
 
-## À propos
+<p align="center">
+  <img src="./assets/readme/mockup-base-theme.png" alt="Aperçu du thème de base Sibnight">
+</p>
 
-**sibnight-discord** est un thème Discord personnalisé maintenu par **ussmarines**.
-Le projet part d'une base stable, garde la structure native de Discord intacte, puis applique un habillage Sibylla propre et maintenable.
+## install
 
-## Installation
+### vencord / betterdiscord (ou tout autre client qui prend en charge les fichiers de thème)
 
-### BetterDiscord / Vencord
+1. Télécharge le fichier de thème `sibnight.theme.css`.  
+   *(il devrait y avoir un bouton de téléchargement en haut à droite de la page)*
+2. Glisse le fichier dans ton dossier de thèmes.  
+   *(il devrait y avoir un bouton pour ouvrir le dossier des thèmes dans les paramètres des thèmes)*
 
-1. Télécharge `themes/sibnight.theme.css`
-2. Place le fichier dans ton dossier de thèmes Discord
-3. Active le thème
-4. Ajuste les variables dans `themes/sibnight.theme.css` si tu veux personnaliser le rendu
+## flavors
 
-### Import direct
+Les flavors sont des personnalisations prédéfinies pour **sibnight**.
 
-```css
-@import url("https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css");
-```
+Pour utiliser une flavor, suis les instructions d'installation ci-dessus, mais télécharge le fichier de thème flavor de ton choix à la place de `sibnight.theme.css`.
 
-## Développement
+<table>
+  <tr>
+    <td width="50%" align="center" valign="top">
+      <a href="./themes/flavors/sibnight-flat.css">
+        <img src="./assets/readme/mockup-flat.png" alt="Aperçu sibnight-flat">
+      </a>
+      <br>
+      <strong>sibnight-flat</strong>
+      <br>
+      <code>themes/flavors/sibnight-flat.css</code>
+    </td>
+    <td width="50%" align="center" valign="top">
+      <a href="./themes/flavors/sibnight-tokyo-night.css">
+        <img src="./assets/readme/mockup-tokyo-night.png" alt="Aperçu sibnight-tokyo-night">
+      </a>
+      <br>
+      <strong>sibnight-tokyo-night</strong>
+      <br>
+      <code>themes/flavors/sibnight-tokyo-night.css</code>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center" valign="top">
+      <a href="./themes/flavors/sibnight-sun.css">
+        <img src="./assets/readme/mockup-sun.png" alt="Aperçu sibnight-sun">
+      </a>
+      <br>
+      <strong>sibnight-sun</strong>
+      <br>
+      <code>themes/flavors/sibnight-sun.css</code>
+    </td>
+    <td width="50%" align="center" valign="top">
+      <a href="./themes/flavors/sibnight-space.css">
+        <img src="./assets/readme/mockup-space.png" alt="Aperçu sibnight-space">
+      </a>
+      <br>
+      <strong>sibnight-space</strong>
+      <br>
+      <code>themes/flavors/sibnight-space.css</code>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center" valign="top">
+      <a href="./themes/flavors/sibnight-north-Polar.css">
+        <img src="./assets/readme/mockup-north-polar.png" alt="Aperçu sibnight-north-Polar">
+      </a>
+      <br>
+      <strong>sibnight-north-Polar</strong>
+      <br>
+      <code>themes/flavors/sibnight-north-Polar.css</code>
+    </td>
+    <td width="50%" align="center" valign="top">
+      <a href="./themes/flavors/sibnight-north-Snow.css">
+        <img src="./assets/readme/mockup-north-snow.png" alt="Aperçu sibnight-north-Snow">
+      </a>
+      <br>
+      <strong>sibnight-north-Snow</strong>
+      <br>
+      <code>themes/flavors/sibnight-north-Snow.css</code>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center" valign="top">
+      <a href="./themes/flavors/sibnight-north-Aurora-Dark.css">
+        <img src="./assets/readme/mockup-north-aurora-dark.png" alt="Aperçu sibnight-north-Aurora-Dark">
+      </a>
+      <br>
+      <strong>sibnight-north-Aurora-Dark</strong>
+      <br>
+      <code>themes/flavors/sibnight-north-Aurora-Dark.css</code>
+    </td>
+    <td width="50%" align="center" valign="top">
+      <a href="./themes/flavors/sibnight-north-Aurora-Light.css">
+        <img src="./assets/readme/mockup-north-aurora-light.png" alt="Aperçu sibnight-north-Aurora-Light">
+      </a>
+      <br>
+      <strong>sibnight-north-Aurora-Light</strong>
+      <br>
+      <code>themes/flavors/sibnight-north-Aurora-Light.css</code>
+    </td>
+  </tr>
+</table>
 
-```bash
-npm install
-npm run check
-npm run build
-npm run dev
-npm run serve
-```
-
-- `npm run check` valide la structure du projet et le pipeline de build
-- `npm run build` génère les fichiers distribuables
-- `npm run dev` rebuild automatiquement vers des sorties locales définies dans `.env`
-- `npm run serve` lance un serveur local pour l'injection navigateur
-
-## Structure du projet
-
-```text
-assets/
-  sibylla-logo.svg
-build/
-  sibnight.css
-scripts/
-  build.js
-  check.js
-  dev.js
-  serve.js
-  lib/
-src/
-  animations.css
-  background-image.css
-  chatbar.css
-  colors.css
-  dms-button.css
-  main.css
-  top-bar.css
-  transparency-blur.css
-  user-panel.css
-  window-controls.css
-themes/
-  sibnight.theme.css
-  flavors/
-```
-
-## Fichiers principaux
-
-- `themes/sibnight.theme.css` : variables exposées aux utilisateurs
-- `src/colors.css` : palette principale
-- `src/top-bar.css` : topbar, recherche et trailing buttons
-- `src/dms-button.css` : bouton des messages privés
-- `src/main.css` : layout visuel principal
-- `build/sibnight.css` : build importé par le thème
-
-## Flavors
-
-Les flavors importent `themes/sibnight.theme.css` puis remplacent uniquement la palette et les surfaces de design, pour garder la même base fonctionnelle et éviter que le thème principal reprenne le dessus.
-
-- `themes/flavors/sibnight-flat.css` — variante du thème Sibnight de base en full flat design, sans ombres ni dégradés
-- `themes/flavors/sibnight-sun.css` — variante Sibylla solaire flat, recentrée sur le bleu nuit Sibylla et le vrai jaune du logo
-- `themes/flavors/sibnight-space.css` — variante spatiale holographique, peaufinée sur les bots, embeds, MP, profils et cartes
-- `themes/flavors/sibnight-north-Polar.css` — version North / Polar Night en full flat design, sans ombres, avec une hiérarchie plus propre
-- `themes/flavors/sibnight-north-Snow.css` — Snow Storm + Frost clair, plus net, plus lisible et sans ombres
-- `themes/flavors/sibnight-north-Aurora-Dark.css` — version Aurora sombre validée
-- `themes/flavors/sibnight-north-Aurora-Light.css` — version Aurora claire validée
-
-L’ancienne flavor `sibnight-north-Aurora.css` a été supprimée au profit des deux variantes validées `Dark` et `Light`.
-
-## Crédits
+## crédits
 
 - original design inspired by https://github.com/schnensch0/zelk
 - theme design inspired by https://github.com/refact0r/midnight-discord
