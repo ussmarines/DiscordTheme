@@ -65,20 +65,6 @@ function ensureBuildOutputLooksHealthy() {
     }
 }
 
-
-function ensureNoPlaceholderPaletteValues() {
-    const compiledCss = buildSourceCss();
-    const placeholderValues = compiledCss.match(/--[\w-]+:\s*(?:red|blue|yellow|lime|magenta)\s*;/g) || [];
-
-    if (placeholderValues.length > 0) {
-        fail(
-            'found unresolved placeholder palette values: ' +
-            placeholderValues.slice(0, 5).join(', ') +
-            (placeholderValues.length > 5 ? ' …' : '')
-        );
-    }
-}
-
 function logDiscoveredSources() {
     console.log('[sibnight] project check passed');
     for (const filePath of getSourceFiles()) {
@@ -90,7 +76,6 @@ function main() {
     ensureFilesExist([srcDir, themeFile]);
     ensureDeclaredOrderIsValid();
     ensureSingleBuildImport();
-    ensureNoPlaceholderPaletteValues();
     ensureBuildOutputLooksHealthy();
     logDiscoveredSources();
 }

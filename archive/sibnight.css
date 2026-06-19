@@ -42,8 +42,12 @@ body {
     --custom-guild-list-width: calc(var(--guildbar-avatar-size) + var(--custom-guild-list-padding) * 2 + var(--border-thickness) * 2);
 
     --border-hover-transition: 0.2s ease;
-    --panel-shadow: var(--sibylla-elevation-2);
-    --panel-shadow-hover: var(--sibylla-elevation-3);
+    --panel-shadow:
+        0 18px 42px rgba(2, 8, 18, 0.34),
+        0 0 0 1px rgba(112, 174, 255, 0.03);
+    --panel-shadow-hover:
+        0 24px 56px rgba(2, 8, 18, 0.42),
+        0 0 0 1px rgba(112, 174, 255, 0.05);
 }
 
 /* Shared panel surfaces */
@@ -630,7 +634,9 @@ body {
     --proto-column-surface-strong: var(--sibylla-panel-fill-strong);
     --proto-column-border: transparent;
     --proto-column-border-hover: transparent;
-    --proto-column-shadow: var(--sibylla-elevation-2);
+    --proto-column-shadow:
+        0 18px 42px rgba(2, 8, 18, 0.30),
+        0 0 0 1px rgba(112, 174, 255, 0.03);
     --proto-hover-surface: color-mix(in srgb, var(--blue-2) 10%, transparent);
     --proto-active-surface: color-mix(in srgb, var(--blue-2) 16%, transparent);
 }
@@ -724,7 +730,7 @@ nav[class*='guilds'] {
     border-color: transparent !important;
     box-shadow:
         var(--proto-column-shadow),
-        var(--sibylla-outline-soft) !important;
+        inset 0 1px 0 var(--sibylla-soft-edge) !important;
 }
 
 .sidebarList__5e434:hover,
@@ -743,8 +749,9 @@ nav[class*='guilds'] {
 .container_f369db:hover {
     border-color: transparent !important;
     box-shadow:
-        var(--sibylla-elevation-3),
-        var(--sibylla-outline-soft-strong) !important;
+        0 22px 52px rgba(2, 8, 18, 0.36),
+        0 0 0 1px rgba(112, 174, 255, 0.05),
+        inset 0 1px 0 var(--sibylla-soft-edge-strong) !important;
 }
 
 .sidebarList__5e434,
@@ -791,8 +798,8 @@ nav[class*='guilds'] {
 .headerBar__1a9ce {
     background: var(--sibylla-header-fill) !important;
     box-shadow:
-        var(--sibylla-elevation-1),
-        var(--sibylla-outline-soft) !important;
+        var(--panel-shadow),
+        inset 0 1px 0 var(--sibylla-soft-edge) !important;
 }
 
 .panels__5e434 {
@@ -815,8 +822,13 @@ nav[class*='guilds'] {
     background:
         radial-gradient(circle at 100% 0%, rgba(104, 176, 255, 0.08) 0%, transparent 28%),
         linear-gradient(180deg, rgba(255, 255, 255, 0.025) 0%, transparent 24%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.012) 0%, transparent 28%);
-    opacity: 0.62;
+        repeating-linear-gradient(
+            120deg,
+            transparent 0 22px,
+            rgba(255, 255, 255, 0.01) 22px 24px,
+            transparent 24px 48px
+        );
+    opacity: 0.7;
 }
 
 .searchResultsWrap_a98f3b {
@@ -856,8 +868,8 @@ nav[class*='guilds'] {
 }
 
 .pill_e5445c .item__58105 {
-    background: var(--accent-3) !important;
-    box-shadow: none !important;
+    background: linear-gradient(180deg, var(--blue-2), color-mix(in srgb, var(--yellow-2) 22%, var(--blue-3) 78%)) !important;
+    box-shadow: 0 0 14px rgba(99, 170, 255, 0.22);
 }
 
 .role_dfa8b6,
@@ -909,9 +921,17 @@ nav[class*='guilds'] {
    ========================== */
 
 :root {
-    --sibylla-card-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 34%);
-    --sibylla-active-fill: var(--sibylla-state-active);
-    --sibylla-hover-fill: var(--sibylla-state-hover);
+    --sibylla-card-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 34%);
+    --sibylla-active-fill: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--blue-2) 18%, transparent) 0%,
+        color-mix(in srgb, var(--blue-2) 10%, transparent) 100%
+    );
+    --sibylla-hover-fill: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--blue-2) 12%, transparent) 0%,
+        color-mix(in srgb, var(--blue-2) 6%, transparent) 100%
+    );
 }
 
 .sidebarList__5e434,
@@ -938,8 +958,8 @@ nav[class*='guilds'] {
 .interactive__972a0:hover {
     background: var(--sibylla-active-fill) !important;
     box-shadow:
-        var(--sibylla-outline-soft),
-        var(--sibylla-elevation-inline) !important;
+        inset 0 1px 0 rgba(255, 255, 255, 0.03),
+        0 10px 24px rgba(1, 8, 18, 0.18) !important;
 }
 
 .link__2ea32:hover,
@@ -961,6 +981,7 @@ nav[class*='guilds'] {
 
 [class*='membersGroup'] {
     color: color-mix(in srgb, var(--text-2) 76%, var(--yellow-2) 24%) !important;
+    text-shadow: 0 0 10px rgba(97, 168, 255, 0.08);
 }
 
 [class*='membersGroup'] span,
@@ -981,8 +1002,8 @@ nav[class*='guilds'] {
 .footer__4d95d {
     border-color: transparent !important;
     box-shadow:
-        var(--sibylla-outline-soft),
-        var(--sibylla-elevation-inline) !important;
+        inset 0 1px 0 rgba(255, 255, 255, 0.014),
+        0 10px 24px rgba(1, 8, 18, 0.10) !important;
 }
 
 .embedFull__623de,
@@ -1013,14 +1034,14 @@ nav[class*='guilds'] {
     background: color-mix(in srgb, var(--bg-3) 26%, var(--bg-4) 74%) !important;
     border-color: rgba(122, 181, 255, 0.04) !important;
     box-shadow:
-        var(--sibylla-outline-soft),
-        var(--sibylla-elevation-inline) !important;
+        inset 0 1px 0 rgba(255, 255, 255, 0.014),
+        0 6px 16px rgba(1, 8, 18, 0.10) !important;
 }
 
 .message__5126c:hover,
 .message__5126c.selected__5126c,
 .mouse-mode.full-motion .message__5126c:hover {
-    background: var(--message-hover) !important;
+    background: rgba(7, 16, 31, 0.82) !important;
 }
 
 .outer_c0bea0,
@@ -1235,28 +1256,6 @@ nav[class*='guilds'] {
         rgba(255, 255, 255, 0.015) 62%,
         transparent 82%
     );
-
-    /* Sibylla design system tokens */
-    --sibylla-baseline: 8px;
-    --sibylla-space-1: var(--sibylla-baseline);
-    --sibylla-space-2: calc(var(--sibylla-baseline) * 2);
-    --sibylla-space-3: calc(var(--sibylla-baseline) * 3);
-    --sibylla-space-4: calc(var(--sibylla-baseline) * 4);
-    --sibylla-outline-soft: inset 0 1px 0 var(--sibylla-soft-edge);
-    --sibylla-outline-soft-strong: inset 0 1px 0 var(--sibylla-soft-edge-strong);
-    --sibylla-elevation-1:
-        0 12px 28px rgba(2, 8, 18, 0.22),
-        0 0 0 1px rgba(112, 174, 255, 0.035);
-    --sibylla-elevation-2:
-        0 18px 42px rgba(2, 8, 18, 0.30),
-        0 0 0 1px rgba(112, 174, 255, 0.04);
-    --sibylla-elevation-3:
-        0 22px 52px rgba(2, 8, 18, 0.36),
-        0 0 0 1px rgba(112, 174, 255, 0.05);
-    --sibylla-elevation-inline: 0 6px 16px rgba(1, 8, 18, 0.10);
-    --sibylla-state-hover: color-mix(in srgb, var(--accent-2) 10%, transparent);
-    --sibylla-state-active: color-mix(in srgb, var(--accent-2) 16%, transparent);
-
 }
 
 
@@ -1290,8 +1289,8 @@ nav[class*='guilds'] {
         --background-surface-high: var(--bg-3);
         --background-surface-higher: var(--bg-3);
         --background-surface-highest: var(--bg-3);
-        /* --background-tile-gradient-pink-end: var(--purple-4);
-        --background-tile-gradient-pink-start: var(--purple-2); */
+        /* --background-tile-gradient-pink-end: yellow;
+        --background-tile-gradient-pink-start: lime; */
         --badge-background-default: var(--accent-2);
         --badge-expressive-background-default: var(--accent-2);
         --badge-expressive-text-default: var(--text-0);
@@ -1305,23 +1304,23 @@ nav[class*='guilds'] {
         --border-normal: var(--border);
         --border-strong: var(--border);
         --border-subtle: var(--border);
-        --button-danger-background-disabled: color-mix(in srgb, var(--red-2) 22%, var(--bg-2) 78%);
-        --button-outline-brand-background-hover: var(--accent-4);
-        --button-outline-brand-border-active: var(--accent-5);
+        --button-danger-background-disabled: lime;
+        --button-outline-brand-background-hover: blue;
+        --button-outline-brand-border-active: magenta;
         --button-outline-primary-text: var(--text-1);
         --card-background-default: var(--bg-3);
-        --card-primary-pressed-bg: var(--bg-1);
-        --card-secondary-bg: var(--bg-3);
-        --card-secondary-pressed-bg: var(--bg-2);
+        --card-primary-pressed-bg: lime;
+        --card-secondary-bg: blue;
+        --card-secondary-pressed-bg: magenta;
         --channel-icon: var(--text-4);
         --channel-text-area-placeholder: var(--text-5);
         --channels-default: var(--text-4);
         --channeltextarea-background: var(--border);
-        --chat-background: var(--bg-3);
+        --chat-background: yellow;
         --chat-background-default: var(--bg-3);
-        --chat-border: var(--border);
+        --chat-border: lime;
         --chat-text-muted: var(--text-5);
-        --checkbox-background-active: var(--accent-3);
+        --checkbox-background-active: blue;
         --checkbox-background-default: var(--bg-2);
         --checkbox-background-hover: var(--bg-1);
         --checkbox-background-selected-default: var(--accent-2);
@@ -1332,60 +1331,60 @@ nav[class*='guilds'] {
         --checkbox-border-selected-default: var(--button-border);
         --checkbox-border-selected-hover: var(--button-border);
         --checkbox-icon-active: var(--text-0);
-        --chip-blurple-dark-background: color-mix(in srgb, var(--accent-4) 72%, var(--bg-4) 28%);
-        --chip-blurple-dark-text: var(--text-0);
-        --chip-blurple-light-background: color-mix(in srgb, var(--purple-2) 18%, var(--bg-4) 82%);
-        --chip-blurple-light-text: var(--purple-2);
-        --chip-blurple-medium-background: color-mix(in srgb, var(--accent-2) 42%, var(--bg-4) 58%);
-        --chip-blurple-medium-text: var(--text-1);
-        --chip-gray-dark-background: color-mix(in srgb, var(--bg-1) 72%, var(--bg-4) 28%);
-        --chip-gray-dark-text: var(--text-0);
-        --chip-gray-light-background: color-mix(in srgb, var(--text-3) 18%, var(--bg-4) 82%);
-        --chip-gray-light-text: var(--text-3);
-        --chip-gray-medium-background: color-mix(in srgb, var(--bg-2) 42%, var(--bg-4) 58%);
-        --chip-gray-medium-text: var(--text-1);
-        --chip-green-dark-background: color-mix(in srgb, var(--green-4) 72%, var(--bg-4) 28%);
-        --chip-green-dark-text: var(--text-0);
-        --chip-green-light-background: color-mix(in srgb, var(--green-1) 18%, var(--bg-4) 82%);
-        --chip-green-light-text: var(--green-1);
-        --chip-green-medium-background: color-mix(in srgb, var(--green-2) 42%, var(--bg-4) 58%);
-        --chip-green-medium-text: var(--text-1);
-        --chip-orange-dark-background: color-mix(in srgb, color-mix(in srgb, var(--yellow-4) 72%, var(--red-3) 28%) 72%, var(--bg-4) 28%);
-        --chip-orange-dark-text: var(--text-0);
-        --chip-orange-light-background: color-mix(in srgb, color-mix(in srgb, var(--yellow-1) 84%, var(--red-1) 16%) 18%, var(--bg-4) 82%);
-        --chip-orange-light-text: color-mix(in srgb, var(--yellow-1) 84%, var(--red-1) 16%);
-        --chip-orange-medium-background: color-mix(in srgb, color-mix(in srgb, var(--yellow-2) 74%, var(--red-2) 26%) 42%, var(--bg-4) 58%);
-        --chip-orange-medium-text: var(--text-1);
-        --chip-pink-dark-background: color-mix(in srgb, color-mix(in srgb, var(--purple-4) 70%, var(--red-3) 30%) 72%, var(--bg-4) 28%);
-        --chip-pink-dark-text: var(--text-0);
-        --chip-pink-light-background: color-mix(in srgb, color-mix(in srgb, var(--purple-1) 82%, var(--red-1) 18%) 18%, var(--bg-4) 82%);
-        --chip-pink-light-text: color-mix(in srgb, var(--purple-1) 82%, var(--red-1) 18%);
-        --chip-pink-medium-background: color-mix(in srgb, color-mix(in srgb, var(--purple-2) 68%, var(--red-2) 32%) 42%, var(--bg-4) 58%);
-        --chip-pink-medium-text: var(--text-1);
-        --chip-purple-dark-background: color-mix(in srgb, var(--purple-4) 72%, var(--bg-4) 28%);
-        --chip-purple-dark-text: var(--text-0);
-        --chip-purple-light-background: color-mix(in srgb, var(--purple-1) 18%, var(--bg-4) 82%);
-        --chip-purple-light-text: var(--purple-1);
-        --chip-purple-medium-background: color-mix(in srgb, var(--purple-2) 42%, var(--bg-4) 58%);
-        --chip-purple-medium-text: var(--text-1);
-        --chip-red-dark-background: color-mix(in srgb, var(--red-4) 72%, var(--bg-4) 28%);
-        --chip-red-dark-text: var(--text-0);
-        --chip-red-light-background: color-mix(in srgb, var(--red-1) 18%, var(--bg-4) 82%);
-        --chip-red-light-text: var(--red-1);
-        --chip-red-medium-background: color-mix(in srgb, var(--red-2) 42%, var(--bg-4) 58%);
-        --chip-red-medium-text: var(--text-1);
-        --chip-yellow-dark-background: color-mix(in srgb, var(--yellow-4) 72%, var(--bg-4) 28%);
-        --chip-yellow-dark-text: var(--text-0);
-        --chip-yellow-light-background: color-mix(in srgb, var(--yellow-1) 18%, var(--bg-4) 82%);
-        --chip-yellow-light-text: var(--yellow-1);
-        --chip-yellow-medium-background: color-mix(in srgb, var(--yellow-2) 42%, var(--bg-4) 58%);
-        --chip-yellow-medium-text: var(--text-1);
+        --chip-blurple-dark-background: magenta;
+        --chip-blurple-dark-text: red;
+        --chip-blurple-light-background: yellow;
+        --chip-blurple-light-text: lime;
+        --chip-blurple-medium-background: blue;
+        --chip-blurple-medium-text: magenta;
+        --chip-gray-dark-background: red;
+        --chip-gray-dark-text: yellow;
+        --chip-gray-light-background: lime;
+        --chip-gray-light-text: blue;
+        --chip-gray-medium-background: magenta;
+        --chip-gray-medium-text: red;
+        --chip-green-dark-background: yellow;
+        --chip-green-dark-text: lime;
+        --chip-green-light-background: blue;
+        --chip-green-light-text: magenta;
+        --chip-green-medium-background: red;
+        --chip-green-medium-text: yellow;
+        --chip-orange-dark-background: lime;
+        --chip-orange-dark-text: blue;
+        --chip-orange-light-background: magenta;
+        --chip-orange-light-text: red;
+        --chip-orange-medium-background: yellow;
+        --chip-orange-medium-text: lime;
+        --chip-pink-dark-background: blue;
+        --chip-pink-dark-text: magenta;
+        --chip-pink-light-background: red;
+        --chip-pink-light-text: yellow;
+        --chip-pink-medium-background: lime;
+        --chip-pink-medium-text: blue;
+        --chip-purple-dark-background: magenta;
+        --chip-purple-dark-text: red;
+        --chip-purple-light-background: yellow;
+        --chip-purple-light-text: lime;
+        --chip-purple-medium-background: blue;
+        --chip-purple-medium-text: magenta;
+        --chip-red-dark-background: red;
+        --chip-red-dark-text: yellow;
+        --chip-red-light-background: lime;
+        --chip-red-light-text: blue;
+        --chip-red-medium-background: magenta;
+        --chip-red-medium-text: red;
+        --chip-yellow-dark-background: yellow;
+        --chip-yellow-dark-text: lime;
+        --chip-yellow-light-background: blue;
+        --chip-yellow-light-text: magenta;
+        --chip-yellow-medium-background: red;
+        --chip-yellow-medium-text: yellow;
         --content-inventory-media-seekbar-container: var(--bg-1);
         --content-inventory-overlay-text-primary: var(--text-2);
         --content-inventory-overlay-text-secondary: var(--text-3);
-        --context-menu-backdrop-background: var(--background-scrim);
+        --context-menu-backdrop-background: red;
         --control-brand-foreground: var(--accent-2);
-        --control-brand-foreground-new: var(--accent-2);
+        --control-brand-foreground-new: lime;
         --control-connect-background-active: var(--accent-5);
         --control-connect-background-default: var(--accent-4);
         --control-connect-background-hover: var(--accent-3);
@@ -1489,43 +1488,43 @@ nav[class*='guilds'] {
         --control-secondary-text-active: var(--text-3);
         --control-secondary-text-default: var(--text-3);
         --control-secondary-text-hover: var(--text-3);
-        --creator-revenue-icon-gradient-end: var(--purple-2);
-        --creator-revenue-icon-gradient-start: var(--accent-2);
-        --creator-revenue-info-box-background: var(--bg-3);
-        --creator-revenue-info-box-border: var(--border);
-        --creator-revenue-locked-channel-icon: var(--accent-new);
-        --creator-revenue-progress-bar: var(--accent-3);
-        --embed-background: var(--sibylla-embed-fill);
-        --embed-background-alternate: var(--sibylla-embed-fill-soft);
-        --experimental-avatar-embed-bg: var(--sibylla-panel-fill);
-        /* --expressive-gradient-blue-end: var(--accent-4);
-        --expressive-gradient-blue-start: var(--accent-2);
-        --expressive-gradient-green-end: var(--green-4);
-        --expressive-gradient-green-start: var(--green-2);
-        --expressive-gradient-nitro-green-end: var(--green-4);
-        --expressive-gradient-nitro-green-start: var(--green-2);
-        --expressive-gradient-nitro-pink-end: var(--purple-4);
-        --expressive-gradient-nitro-pink-start: var(--purple-2);
-        --expressive-gradient-pink-end: var(--purple-4);
-        --expressive-gradient-pink-start: var(--purple-2);
-        --expressive-gradient-purple-end: var(--purple-4);
-        --expressive-gradient-purple-start: var(--purple-2);
-        --expressive-gradient-tenure-badge-bronze-end: var(--yellow-4);
-        --expressive-gradient-tenure-badge-bronze-start: var(--yellow-2);
-        --expressive-gradient-tenure-badge-diamond-end: var(--accent-4);
-        --expressive-gradient-tenure-badge-diamond-start: var(--accent-2);
-        --expressive-gradient-tenure-badge-emerald-end: var(--green-4);
-        --expressive-gradient-tenure-badge-emerald-start: var(--green-2);
-        --expressive-gradient-tenure-badge-gold-end: var(--yellow-4);
-        --expressive-gradient-tenure-badge-gold-start: var(--yellow-2);
-        --expressive-gradient-tenure-badge-opal-end: var(--green-4);
-        --expressive-gradient-tenure-badge-opal-start: var(--green-2);
-        --expressive-gradient-tenure-badge-platinum-end: var(--accent-4);
-        --expressive-gradient-tenure-badge-platinum-start: var(--accent-2);
-        --expressive-gradient-tenure-badge-ruby-end: var(--purple-4);
-        --expressive-gradient-tenure-badge-ruby-start: var(--purple-2);
-        --expressive-gradient-tenure-badge-silver-end: var(--accent-4);
-        --expressive-gradient-tenure-badge-silver-start: var(--accent-2); */
+        --creator-revenue-icon-gradient-end: blue;
+        --creator-revenue-icon-gradient-start: magenta;
+        --creator-revenue-info-box-background: red;
+        --creator-revenue-info-box-border: yellow;
+        --creator-revenue-locked-channel-icon: lime;
+        --creator-revenue-progress-bar: blue;
+        --embed-background: magenta;
+        --embed-background-alternate: red;
+        --experimental-avatar-embed-bg: yellow;
+        /* --expressive-gradient-blue-end: lime;
+        --expressive-gradient-blue-start: blue;
+        --expressive-gradient-green-end: magenta;
+        --expressive-gradient-green-start: red;
+        --expressive-gradient-nitro-green-end: yellow;
+        --expressive-gradient-nitro-green-start: lime;
+        --expressive-gradient-nitro-pink-end: blue;
+        --expressive-gradient-nitro-pink-start: magenta;
+        --expressive-gradient-pink-end: red;
+        --expressive-gradient-pink-start: yellow;
+        --expressive-gradient-purple-end: lime;
+        --expressive-gradient-purple-start: blue;
+        --expressive-gradient-tenure-badge-bronze-end: magenta;
+        --expressive-gradient-tenure-badge-bronze-start: red;
+        --expressive-gradient-tenure-badge-diamond-end: yellow;
+        --expressive-gradient-tenure-badge-diamond-start: lime;
+        --expressive-gradient-tenure-badge-emerald-end: blue;
+        --expressive-gradient-tenure-badge-emerald-start: magenta;
+        --expressive-gradient-tenure-badge-gold-end: red;
+        --expressive-gradient-tenure-badge-gold-start: yellow;
+        --expressive-gradient-tenure-badge-opal-end: lime;
+        --expressive-gradient-tenure-badge-opal-start: blue;
+        --expressive-gradient-tenure-badge-platinum-end: magenta;
+        --expressive-gradient-tenure-badge-platinum-start: red;
+        --expressive-gradient-tenure-badge-ruby-end: yellow;
+        --expressive-gradient-tenure-badge-ruby-start: lime;
+        --expressive-gradient-tenure-badge-silver-end: blue;
+        --expressive-gradient-tenure-badge-silver-start: magenta; */
         --gradient-progress-pill-background: var(--text-5);
         --home-background: var(--bg-4);
         --icon-default: var(--text-4);
@@ -1533,7 +1532,7 @@ nav[class*='guilds'] {
         --icon-feedback-info: var(--blue-1);
         --icon-feedback-positive: var(--green-1);
         --icon-feedback-warning: var(--yellow-1);
-        --icon-invert: var(--text-0);
+        --icon-invert: magenta;
         --icon-link: var(--text-4);
         --icon-muted: var(--text-5);
         --icon-status-dnd: var(--dnd);
@@ -1542,18 +1541,18 @@ nav[class*='guilds'] {
         --icon-status-online: var(--online);
         --icon-strong: var(--text-3);
         --icon-subtle: var(--text-4);
-        --icon-transparent: transparent;
+        --icon-transparent: lime;
         --icon-voice-muted: var(--accent-new);
         --input-background-default: var(--bg-3);
         --input-background-error-default: color-mix(in hsl, var(--red-2), transparent 90%);
         --input-border-active: var(--accent-2);
         --input-border-default: var(--border-light);
         --input-border-error-default: var(--red-2);
-        --input-border-error-hover: var(--red-3);
+        --input-border-error-hover: blue;
         --input-border-hover: var(--border);
-        --input-border-readonly: var(--border);
-        --input-foreground-placeholder: var(--text-5);
-        --input-icon-default: var(--text-4);
+        --input-border-readonly: red;
+        --input-foreground-placeholder: yellow;
+        --input-icon-default: lime;
         --input-placeholder-text-default: var(--text-5);
         --input-text-default: var(--text-3);
         --input-text-error-default: var(--text-3);
@@ -1567,11 +1566,11 @@ nav[class*='guilds'] {
         --interactive-text-active: var(--text-3);
         --interactive-text-default: var(--text-4);
         --interactive-text-hover: var(--text-3);
-        --logo-primary: var(--accent-2);
+        --logo-primary: yellow;
         --mention-background: color-mix(in hsl, var(--accent-2), transparent 90%);
         --mention-foreground: var(--accent-1);
-        --message-automod-background-default: color-mix(in srgb, var(--red-2) 16%, transparent);
-        --message-automod-background-hover: color-mix(in srgb, var(--red-2) 22%, transparent);
+        --message-automod-background-default: lime;
+        --message-automod-background-hover: blue;
         --message-background-hover: var(--message-hover);
         --message-highlight-background-default: var(--reply);
         --message-highlight-background-hover: var(--reply-hover);
@@ -1579,12 +1578,12 @@ nav[class*='guilds'] {
         --message-mentioned-background-hover: var(--mention-hover);
         --message-reacted-background-default: color-mix(in hsl, var(--accent-2), transparent 80%);
         --message-reacted-text-default: var(--text-2);
-        --mobile-background-scrim-opaque: var(--background-scrim);
-        --mobile-expression-picker-background-default: var(--bg-4);
-        --mobile-text-heading-primary: var(--text-2);
+        --mobile-background-scrim-opaque: magenta;
+        --mobile-expression-picker-background-default: red;
+        --mobile-text-heading-primary: yellow;
         --modal-background: var(--bg-4);
         --modal-footer-background: var(--bg-4);
-        --navigator-header-tint: var(--text-4);
+        --navigator-header-tint: lime;
         --notice-background-critical: var(--bg-3);
         --notice-background-info: var(--blue-3);
         --notice-background-positive: var(--green-3);
@@ -1593,18 +1592,18 @@ nav[class*='guilds'] {
         --notice-text-info: var(--text-0);
         --notice-text-positive: var(--text-0);
         --notice-text-warning: var(--text-0);
-        --overlay-backdrop-lightbox: var(--background-scrim-lightbox);
-        --panel-bg: var(--bg-3);
-        --polls-normal-image-background: var(--bg-3);
+        --overlay-backdrop-lightbox: yellow;
+        --panel-bg: lime;
+        --polls-normal-image-background: blue;
         --polls-victor-fill: color-mix(in hsl, var(--green-2), transparent 90%);
         --polls-voted-fill: color-mix(in hsl, var(--accent-2), transparent 90%);
-        /* --premium-nitro-pink-text: var(--text-0); */
-        --profile-gradient-note-background: var(--bg-3);
-        --profile-gradient-overlay: var(--sibylla-profile-overlay);
-        --profile-gradient-overlay-synced-with-user-theme: var(--sibylla-profile-overlay);
-        --profile-gradient-role-pill-background: color-mix(in srgb, var(--bg-2) 72%, var(--bg-4) 28%);
-        --profile-gradient-role-pill-border: var(--border);
-        --profile-gradient-section-box: var(--bg-3);
+        /* --premium-nitro-pink-text: magenta; */
+        --profile-gradient-note-background: red;
+        --profile-gradient-overlay: yellow;
+        --profile-gradient-overlay-synced-with-user-theme: lime;
+        --profile-gradient-role-pill-background: blue;
+        --profile-gradient-role-pill-border: magenta;
+        --profile-gradient-section-box: red;
         --progressbar-indicator-background: var(--accent-2);
         --progressbar-track-background: var(--bg-2);
         --radio-background-active: var(--bg-1);
@@ -1617,67 +1616,67 @@ nav[class*='guilds'] {
         --radio-border-hover: var(--border);
         --radio-border-selected-default: var(--button-border);
         --radio-border-selected-hover: var(--button-border);
-        --radio-foreground-active: var(--text-0);
-        --radio-foreground-default: var(--text-0);
-        --radio-foreground-hover: var(--text-0);
+        --radio-foreground-active: yellow;
+        --radio-foreground-default: lime;
+        --radio-foreground-hover: blue;
         --radio-thumb-background-active: var(--text-0);
-        --redesign-button-active-background: var(--accent-4);
-        --redesign-button-active-pressed-background: var(--accent-4);
-        --redesign-button-active-text: var(--text-0);
-        --redesign-button-danger-background: var(--red-3);
-        --redesign-button-destructive-background: var(--red-3);
-        --redesign-button-destructive-pressed-background: var(--red-4);
-        --redesign-button-destructive-text: var(--text-0);
+        --redesign-button-active-background: red;
+        --redesign-button-active-pressed-background: yellow;
+        --redesign-button-active-text: lime;
+        --redesign-button-danger-background: blue;
+        --redesign-button-destructive-background: magenta;
+        --redesign-button-destructive-pressed-background: red;
+        --redesign-button-destructive-text: yellow;
         --redesign-button-overlay-alpha-background: hsl(0, 0%, 0%, 0.5);
         --redesign-button-overlay-alpha-pressed-background: hsl(0, 0%, 0%, 0.7);
         --redesign-button-overlay-alpha-text: var(--text-3);
-        --redesign-button-positive-background: var(--green-3);
-        --redesign-button-premium-primary-pink-for-gradient: var(--purple-3);
-        --redesign-button-premium-primary-pressed-background: var(--purple-4);
-        --redesign-button-premium-primary-purple-for-gradient: var(--purple-3);
-        --redesign-button-premium-primary-purple-for-gradient-2: var(--purple-3);
-        --redesign-button-primary-alt-border: var(--button-border);
-        --redesign-button-primary-background: var(--accent-3);
-        --redesign-button-primary-overlay-background: color-mix(in srgb, var(--accent-2) 18%, transparent);
-        --redesign-button-primary-overlay-pressed-background: color-mix(in srgb, var(--accent-2) 18%, transparent);
-        --redesign-button-primary-overlay-text: var(--text-0);
-        --redesign-button-primary-pressed-background: var(--accent-5);
-        --redesign-button-primary-text: var(--text-0);
+        --redesign-button-positive-background: red;
+        --redesign-button-premium-primary-pink-for-gradient: yellow;
+        --redesign-button-premium-primary-pressed-background: lime;
+        --redesign-button-premium-primary-purple-for-gradient: blue;
+        --redesign-button-premium-primary-purple-for-gradient-2: magenta;
+        --redesign-button-primary-alt-border: red;
+        --redesign-button-primary-background: yellow;
+        --redesign-button-primary-overlay-background: lime;
+        --redesign-button-primary-overlay-pressed-background: blue;
+        --redesign-button-primary-overlay-text: magenta;
+        --redesign-button-primary-pressed-background: red;
+        --redesign-button-primary-text: yellow;
         --redesign-button-secondary-background: var(--bg-2);
-        --redesign-button-secondary-border: var(--border);
-        --redesign-button-secondary-overlay-background: color-mix(in srgb, var(--bg-2) 76%, transparent 24%);
-        --redesign-button-secondary-overlay-pressed-background: color-mix(in srgb, var(--bg-2) 76%, transparent 24%);
-        --redesign-button-secondary-overlay-text: var(--text-3);
+        --redesign-button-secondary-border: blue;
+        --redesign-button-secondary-overlay-background: magenta;
+        --redesign-button-secondary-overlay-pressed-background: red;
+        --redesign-button-secondary-overlay-text: yellow;
         --redesign-button-secondary-pressed-background: var(--bg-1);
-        --redesign-button-secondary-pressed-border: var(--border);
+        --redesign-button-secondary-pressed-border: blue;
         --redesign-button-secondary-text: var(--text-3);
-        --redesign-button-selected-background: var(--accent-3);
-        --redesign-button-selected-pressed-background: var(--accent-4);
-        --redesign-button-selected-text: var(--text-0);
-        --redesign-button-tertiary-background: var(--bg-2);
-        --redesign-button-tertiary-pressed-background: var(--bg-1);
-        --redesign-button-tertiary-pressed-text: var(--text-3);
-        --redesign-button-tertiary-text: var(--text-3);
-        --scrollbar-auto-scrollbar-color-thumb: var(--bg-1);
-        --scrollbar-auto-scrollbar-color-track: transparent;
+        --redesign-button-selected-background: magenta;
+        --redesign-button-selected-pressed-background: red;
+        --redesign-button-selected-text: yellow;
+        --redesign-button-tertiary-background: lime;
+        --redesign-button-tertiary-pressed-background: blue;
+        --redesign-button-tertiary-pressed-text: magenta;
+        --redesign-button-tertiary-text: red;
+        --scrollbar-auto-scrollbar-color-thumb: yellow;
+        --scrollbar-auto-scrollbar-color-track: lime;
         --scrollbar-auto-thumb: var(--bg-1);
         --scrollbar-auto-track: transparent;
         --scrollbar-thin-thumb: var(--bg-1);
         --scrollbar-thin-track: transparent;
         --spine-default: var(--text-5);
-        --spoiler-hidden-background: var(--bg-1);
-        --spoiler-hidden-background-hover: color-mix(in srgb, var(--bg-1) 72%, var(--bg-2) 28%);
-        --spoiler-revealed-background: var(--bg-2);
+        --spoiler-hidden-background: yellow;
+        --spoiler-hidden-background-hover: lime;
+        --spoiler-revealed-background: blue;
         --status-danger: var(--red-2);
         --status-online: var(--green-2);
         --status-positive: var(--green-2);
         --status-positive-background: var(--green-2);
-        --status-positive-text: var(--text-0);
+        --status-positive-text: magenta;
         --status-speaking: var(--green-2);
         --status-warning: var(--yellow-2);
-        --status-warning-background: var(--yellow-2);
-        --status-warning-text: var(--text-0);
-        --switch-background-active: var(--accent-3);
+        --status-warning-background: red;
+        --status-warning-text: yellow;
+        --switch-background-active: lime;
         --switch-background-default: var(--bg-2);
         --switch-background-hover: var(--bg-2);
         --switch-background-selected-default: var(--accent-2);
@@ -1688,30 +1687,30 @@ nav[class*='guilds'] {
         --switch-border-selected-hover: var(--border-hover);
         --switch-thumb-background-default: rgb(255, 255, 255);
         --switch-thumb-background-selected-default: rgb(255, 255, 255);
-        --switch-thumb-icon-active: var(--text-0);
-        --switch-thumb-icon-default: var(--text-0);
+        --switch-thumb-icon-active: blue;
+        --switch-thumb-icon-default: magenta;
         --text-brand: var(--accent-1);
-        /* --text-code: var(--text-3);
-        --text-code-addition: var(--text-3);
-        --text-code-builtin: var(--text-3);
-        --text-code-bullet: var(--text-3);
-        --text-code-comment: var(--text-3);
-        --text-code-deletion: var(--text-3);
-        --text-code-keyword: var(--text-3);
-        --text-code-section: var(--text-3);
-        --text-code-string: var(--text-3);
-        --text-code-tag: var(--text-3);
-        --text-code-title: var(--text-3);
-        --text-code-variable: var(--text-3); */
+        /* --text-code: red;
+        --text-code-addition: yellow;
+        --text-code-builtin: lime;
+        --text-code-bullet: blue;
+        --text-code-comment: magenta;
+        --text-code-deletion: red;
+        --text-code-keyword: yellow;
+        --text-code-section: lime;
+        --text-code-string: blue;
+        --text-code-tag: magenta;
+        --text-code-title: red;
+        --text-code-variable: yellow; */
         --text-default: var(--text-3);
         --text-feedback-critical: var(--red-1);
         --text-feedback-info: var(--accent-1);
         --text-feedback-positive: var(--green-1);
         --text-feedback-warning: var(--yellow-1);
-        --text-invert: var(--text-0);
+        --text-invert: blue;
         --text-link: var(--accent-1);
         --text-muted: var(--text-5);
-        --text-overlay-dark: var(--text-1);
+        --text-overlay-dark: magenta;
         --text-overlay-light: var(--text-0);
         --text-status-dnd: var(--dnd);
         --text-status-idle: var(--idle);
@@ -1720,8 +1719,8 @@ nav[class*='guilds'] {
         --text-strong: var(--text-2);
         --text-subtle: var(--text-4);
         --textbox-markdown-syntax: var(--text-4);
-        --thread-channel-spine: var(--accent-2);
-        --user-profile-activity-toolbar-background: var(--bg-3);
+        --thread-channel-spine: blue;
+        --user-profile-activity-toolbar-background: magenta;
         --user-profile-background-hover: var(--hover);
         --user-profile-border: var(--border);
         --user-profile-note-background-focus: var(--bg-4);
@@ -2303,7 +2302,7 @@ body {
 @property --custom-chatbar {
     syntax: 'off | separated';
     inherits: false;
-    initial-value: off;
+    initial-value: aligned;
 }
 
 .attachWrapper__0923f {
@@ -3414,8 +3413,8 @@ body {
     border-radius: var(--radius-md);
     background: var(--sibylla-panel-fill) !important;
     box-shadow:
-        var(--sibylla-outline-soft),
-        var(--sibylla-elevation-inline) !important;
+        inset 0 1px 0 rgba(255, 255, 255, 0.02),
+        0 10px 24px rgba(1, 8, 18, 0.14) !important;
 }
 
 .panels__5e434 > .activityPanel_c48ade {

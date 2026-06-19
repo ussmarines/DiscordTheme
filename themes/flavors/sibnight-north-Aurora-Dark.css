@@ -1,10 +1,10 @@
     /**
-     * @name sibnight-north-polar
-     * @description A flat Polar Night north flavor with zero shadows, disciplined slate layering and cleaner monochrome Nord surfaces.
+     * @name sibnight-north-aurora-dark
+     * @description A flat dark Aurora flavor mixing Polar Night structure with Nord Aurora accents for a livelier but still stable Sibnight variant.
      * @author ussmarines
-     * @version 1.7.0
+     * @version 1.0.0
      * @website https://github.com/ussmarines/DiscordTheme
-     * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-Polar.css
+     * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-Aurora-Dark.css
      * @authorLink https://github.com/ussmarines
      */
     /* credits
@@ -17,41 +17,41 @@
 
     body {
     --dms-icon-svg-size: 104%;
-    --dms-icon-color-before: #eceff4;
-    --dms-icon-color-after: #2e3440;
-    --dms-background-color: #4c566a;
+    --dms-icon-color-before: #ebcb8b;
+    --dms-icon-color-after: #3b4252;
+    --dms-background-color: #b48ead;
 }
 
 :root {
-    --accent-1: #eceff4;
-    --accent-2: #4c566a;
-    --accent-3: #434c5e;
-    --accent-4: #3b4252;
-    --accent-5: #2e3440;
-    --accent-new: #4c566a;
-    --mention: rgba(76, 86, 106, 0.24);
-    --mention-hover: rgba(76, 86, 106, 0.34);
-    --reply: rgba(67, 76, 94, 0.24);
-    --reply-hover: rgba(76, 86, 106, 0.30);
-    --text-0: #f7f9fc;
+    --accent-1: #ebcb8b;
+    --accent-2: #a3be8c;
+    --accent-3: #d08770;
+    --accent-4: #bf616a;
+    --accent-5: #b48ead;
+    --accent-new: #ebcb8b;
+    --mention: rgba(180, 142, 173, 0.18);
+    --mention-hover: rgba(180, 142, 173, 0.26);
+    --reply: rgba(163, 190, 140, 0.16);
+    --reply-hover: rgba(163, 190, 140, 0.24);
+    --text-0: #fffaf3;
     --text-1: #eceff4;
     --text-2: #d8dee9;
     --text-3: #c5cedb;
-    --text-4: #97a4b8;
-    --text-5: rgba(216, 222, 233, 0.40);
+    --text-4: #9aa5bc;
+    --text-5: rgba(216, 222, 233, 0.42);
     --bg-1: #4c566a;
     --bg-2: #434c5e;
     --bg-3: #3b4252;
     --bg-4: #2e3440;
     --bg-floating: #2e3440;
-    --hover: rgba(76, 86, 106, 0.20);
-    --active: rgba(76, 86, 106, 0.32);
-    --active-2: rgba(76, 86, 106, 0.42);
-    --message-hover: rgba(46, 52, 64, 0.62);
-    --border-light: rgba(236, 239, 244, 0.04);
-    --border: rgba(216, 222, 233, 0.08);
-    --border-hover: rgba(216, 222, 233, 0.14);
-    --button-border: rgba(216, 222, 233, 0.08);
+    --hover: rgba(208, 135, 112, 0.10);
+    --active: rgba(180, 142, 173, 0.18);
+    --active-2: rgba(191, 97, 106, 0.22);
+    --message-hover: rgba(59, 66, 82, 0.62);
+    --border-light: rgba(235, 203, 139, 0.05);
+    --border: rgba(180, 142, 173, 0.14);
+    --border-hover: rgba(208, 135, 112, 0.22);
+    --button-border: rgba(235, 203, 139, 0.08);
     --online: #a3be8c;
     --dnd: #bf616a;
     --idle: #ebcb8b;
@@ -63,24 +63,24 @@
     --sibylla-control-fill: #4c566a;
     --sibylla-embed-fill: #3b4252;
     --sibylla-embed-fill-soft: #434c5e;
-    --sibylla-embed-accent: #d8dee9;
+    --sibylla-embed-accent: #b48ead;
     --sibylla-profile-fill: #3b4252;
-    --sibylla-active-fill: rgba(76, 86, 106, 0.42);
-    --sibylla-hover-fill: rgba(76, 86, 106, 0.24);
-    --icon-default: #d8dee9;
-    --icon-muted: rgba(216, 222, 233, 0.38);
+    --sibylla-active-fill: rgba(180, 142, 173, 0.22);
+    --sibylla-hover-fill: rgba(208, 135, 112, 0.14);
+    --icon-default: #ebcb8b;
+    --icon-muted: rgba(235, 203, 139, 0.40);
     --icon-strong: #eceff4;
-    --icon-subtle: #eceff4;
-    --icon-link: #eceff4;
-    --channel-icon: #d8dee9;
+    --icon-subtle: #d08770;
+    --icon-link: #d08770;
+    --channel-icon: #ebcb8b;
     --channels-default: #d8dee9;
     --interactive-icon-default: #d8dee9;
-    --interactive-icon-hover: #eceff4;
-    --interactive-icon-active: #eceff4;
+    --interactive-icon-hover: #ebcb8b;
+    --interactive-icon-active: #b48ead;
     --interactive-text-default: #d8dee9;
     --interactive-text-hover: #eceff4;
     --interactive-text-active: #eceff4;
-    --text-link: #eceff4;
+    --text-link: #d08770;
     --colors: on;
     color-scheme: dark;
     --proto-column-shadow: none;
