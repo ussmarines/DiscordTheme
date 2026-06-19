@@ -1,15 +1,20 @@
 const fs = require('fs');
 const path = require('path');
+const packageJson = require('../package.json');
 
 const {
     rootDir,
     srcDir,
     themeFile,
     buildFile,
+    bundleFile,
+    flavorsDir,
     SOURCE_FILE_ORDER,
     getSourceFiles,
+    getFlavorFiles,
     buildSourceCss,
     buildBundleFromTheme,
+    validateFlavorFiles,
 } = require('./lib/build-theme');
 
 function fail(message) {
@@ -44,7 +49,32 @@ function ensureSingleBuildImport() {
     }
 }
 
-function ensureBuildOutputLooksHealthy() {
+function extractFirstMetadataVersion(css) {
+    const match = css.match(/@version\s+([^\n\r]+)/);
+
+    if (!match) {
+        return null;
+    }
+
+    return match[1].trim();
+}
+
+function ensureVersionConsistency() {
+    const themeCss = fs.readFileSync(themeFile, 'utf8');
+    const themeVersion = extractFirstMetadataVersion(themeCss);
+
+    if (!themeVersion) {
+        fail('themes/sibnight.theme.css is missing @version metadata');
+    }
+
+    if (packageJson.version !== themeVersion) {
+        fail(
+            `package.json version (${packageJson.version}) does not match themes/sibnight.theme.css (${themeVersion})`
+        );
+    }
+}
+
+function ensureBuildOutputsAreCurrent() {
     const compiledCss = buildSourceCss();
     const bundledCss = buildBundleFromTheme(compiledCss);
 
@@ -60,8 +90,14 @@ function ensureBuildOutputLooksHealthy() {
         fail('bundled CSS still contains the remote build import');
     }
 
-    if (!fs.existsSync(buildFile)) {
-        fail('build/sibnight.css was not written');
+    ensureFilesExist([buildFile, bundleFile]);
+
+    if (fs.readFileSync(buildFile, 'utf8') !== compiledCss) {
+        fail('build/sibnight.css is out of date; run npm run build');
+    }
+
+    if (fs.readFileSync(bundleFile, 'utf8') !== bundledCss) {
+        fail('sibnight.css is out of date; run npm run build');
     }
 }
 
@@ -70,13 +106,19 @@ function logDiscoveredSources() {
     for (const filePath of getSourceFiles()) {
         console.log(`  src/${path.basename(filePath)}`);
     }
+
+    for (const filePath of getFlavorFiles()) {
+        console.log(`  themes/flavors/${path.basename(filePath)}`);
+    }
 }
 
 function main() {
-    ensureFilesExist([srcDir, themeFile]);
+    ensureFilesExist([srcDir, themeFile, flavorsDir]);
     ensureDeclaredOrderIsValid();
     ensureSingleBuildImport();
-    ensureBuildOutputLooksHealthy();
+    validateFlavorFiles();
+    ensureVersionConsistency();
+    ensureBuildOutputsAreCurrent();
     logDiscoveredSources();
 }
 
