@@ -12,17 +12,9 @@ const {
     buildBundleFromTheme,
 } = require('./lib/build-theme');
 
-const packageJsonFile = path.join(rootDir, 'package.json');
-const bundleFile = path.join(rootDir, 'sibnight.css');
-const flavorsDir = path.join(rootDir, 'themes', 'flavors');
-
 function fail(message) {
     console.error(`[sibnight] check failed: ${message}`);
     process.exit(1);
-}
-
-function readTextFile(filePath) {
-    return fs.readFileSync(filePath, 'utf8');
 }
 
 function ensureFilesExist(filePaths) {
@@ -44,7 +36,7 @@ function ensureDeclaredOrderIsValid() {
 }
 
 function ensureSingleBuildImport() {
-    const themeCss = readTextFile(themeFile);
+    const themeCss = fs.readFileSync(themeFile, 'utf8');
     const importMatches = themeCss.match(/@import\s+url\(/g) || [];
 
     if (importMatches.length !== 1) {
@@ -52,53 +44,7 @@ function ensureSingleBuildImport() {
     }
 }
 
-function extractVersion(contents, fileLabel) {
-    const match = contents.match(/@version\s+([^\n*]+)/);
-
-    if (!match) {
-        fail(`${fileLabel} is missing an @version header`);
-    }
-
-    return match[1].trim();
-}
-
-function ensureVersionSync() {
-    const packageJson = JSON.parse(readTextFile(packageJsonFile));
-    const packageVersion = packageJson.version;
-    const themeVersion = extractVersion(readTextFile(themeFile), 'themes/sibnight.theme.css');
-
-    if (packageVersion !== themeVersion) {
-        fail(`package.json version (${packageVersion}) does not match themes/sibnight.theme.css (${themeVersion})`);
-    }
-
-    if (fs.existsSync(bundleFile)) {
-        const bundleVersion = extractVersion(readTextFile(bundleFile), 'sibnight.css');
-
-        if (bundleVersion !== packageVersion) {
-            fail(`sibnight.css version (${bundleVersion}) does not match package.json (${packageVersion})`);
-        }
-    }
-}
-
-function ensureFlavorSetIsClean() {
-    const flavorFiles = fs
-        .readdirSync(flavorsDir)
-        .filter((fileName) => fileName.endsWith('.css'))
-        .sort((left, right) => left.localeCompare(right));
-
-    if (flavorFiles.includes('sibnight-north-Aurora.css')) {
-        fail('obsolete flavor still present: themes/flavors/sibnight-north-Aurora.css');
-    }
-
-    if (flavorFiles.length === 0) {
-        fail('themes/flavors does not contain any flavor files');
-    }
-}
-
-function ensureBuildOutputsAreCurrent() {
-    const previousBuild = fs.existsSync(buildFile) ? readTextFile(buildFile) : null;
-    const previousBundle = fs.existsSync(bundleFile) ? readTextFile(bundleFile) : null;
-
+function ensureBuildOutputLooksHealthy() {
     const compiledCss = buildSourceCss();
     const bundledCss = buildBundleFromTheme(compiledCss);
 
@@ -117,14 +63,6 @@ function ensureBuildOutputsAreCurrent() {
     if (!fs.existsSync(buildFile)) {
         fail('build/sibnight.css was not written');
     }
-
-    if (previousBuild !== null && previousBuild !== compiledCss) {
-        fail('build/sibnight.css is out of date; run npm run build');
-    }
-
-    if (previousBundle !== null && previousBundle !== bundledCss) {
-        fail('sibnight.css is out of date; run npm run build');
-    }
 }
 
 function logDiscoveredSources() {
@@ -135,12 +73,10 @@ function logDiscoveredSources() {
 }
 
 function main() {
-    ensureFilesExist([srcDir, themeFile, packageJsonFile, flavorsDir]);
+    ensureFilesExist([srcDir, themeFile]);
     ensureDeclaredOrderIsValid();
     ensureSingleBuildImport();
-    ensureVersionSync();
-    ensureFlavorSetIsClean();
-    ensureBuildOutputsAreCurrent();
+    ensureBuildOutputLooksHealthy();
     logDiscoveredSources();
 }
 

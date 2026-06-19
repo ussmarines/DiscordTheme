@@ -1,0 +1,193 @@
+/**
+ * @name sibnight-discord
+ * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
+ * @author ussmarines
+ * @version 2.11.6
+ * @website https://github.com/ussmarines/DiscordTheme
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
+ * @authorLink https://github.com/ussmarines
+*/
+/* credits
+ * original design inspired by https://github.com/schnensch0/zelk
+ * theme design inspired by https://github.com/refact0r/midnight-discord
+ * window controls inspired by https://github.com/Dyzean/Tokyo-Night
+ */
+
+/* import theme modules */
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css');
+
+body {
+    /* font options */
+    --font: 'figtree'; /* change to '' for default discord font */
+    --code-font: ''; /* change to '' for default discord font */
+    font-weight: 400; /* normal text font weight. DOES NOT AFFECT BOLD TEXT */
+
+    /* sizes */
+    --gap: 12px; /* spacing between panels */
+    --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
+    --border-thickness: 0px; /* remove visible panel outlines by default */
+
+    /* animation/transition options */
+    --animations: on; /* off: disable animations/transitions, on: enable animations/transitions */
+    --list-item-transition: 0.2s ease; /* transition for list items */
+    --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
+    --border-hover-transition: 0.2s ease; /* transition for borders when hovered */
+
+    /* top bar options */
+    --top-bar-height: var(--gap); /* height of the top bar (discord default is 36px, old discord style is 24px, var(--gap) recommended if button position is set to titlebar) */
+    --top-bar-button-position: titlebar; /* off: default position, hide: hide buttons completely, serverlist: move inbox button to server list, titlebar: move inbox button to channel titlebar (will hide title) */
+    --top-bar-title-position: off; /* off: default centered position, hide: hide title completely, left: left align title (like old discord) */
+    --subtle-top-bar-title: off; /* off: default, on: hide the icon and use subtle text color (like old discord) */
+
+    /* window controls */
+    --custom-window-controls: on; /* off: default window controls, on: custom window controls */
+    --window-control-size: 14px; /* size of custom window controls */
+
+    /* dms button options */
+    --custom-dms-icon: custom; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
+    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg'); /* logo asset url */
+    --dms-icon-svg-size: 104%; /* size of the logo image (css background-size property) */
+    --dms-icon-color-before: var(--icon-subtle); /* normal icon color */
+    --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
+    --custom-dms-background: off; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
+    --dms-background-image-url: url(''); /* url of the background image */
+    --dms-background-image-size: cover; /* size of the background image (css background-size property) */
+    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background property) */
+
+    /* background image options */
+    --background-image: off; /* off: no background image, on: enable background image (must set url variable below) */
+    --background-image-url: url(''); /* url of the background image */
+
+    /* transparency/blur options */
+    /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
+    --transparency-tweaks: off; /* off: no changes, on: remove some elements for better transparency */
+    --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+    --panel-blur: off; /* off: no changes, on: blur the background of panels */
+    --blur-amount: 12px; /* amount of blur */
+    --bg-floating: var(--bg-3); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
+
+    /* chatbar options */
+    --custom-chatbar: off; /* off: default chatbar, separated: chatbar separated from chat */
+    --chatbar-height: 47px; /* height of the chatbar (56px by default, 47px to align with user panel, 56px recommended for separated) */
+
+    /* other options */
+    --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
+}
+
+/* color options */
+:root {
+    --colors: on; /* off: discord default colors, on: sibnight custom colors */
+
+    /* text colors */
+    --text-0: var(--bg-4); /* text on colored elements */
+    --text-1: hsl(214, 46%, 96%); /* other normally white text */
+    --text-2: hsl(213, 26%, 86%); /* headings and important text */
+    --text-3: hsl(214, 15%, 71%); /* normal text */
+    --text-4: hsl(214, 14%, 57%); /* icon buttons and channels */
+    --text-5: hsl(214, 11%, 43%); /* muted channels/chats and timestamps */
+
+    /* background and dark colors */
+    --bg-1: hsl(218, 40%, 19%); /* dark buttons when clicked */
+    --bg-2: hsl(221, 46%, 14%); /* dark buttons */
+    --bg-3: hsl(225, 53%, 10%); /* spacing, secondary elements */
+    --bg-4: hsl(228, 56%, 7%); /* main background color */
+    --hover: hsla(206, 100%, 74%, 0.08); /* channels and buttons when hovered */
+    --active: hsla(206, 100%, 70%, 0.14); /* channels and buttons when clicked or selected */
+    --active-2: hsla(206, 100%, 70%, 0.22); /* extra state for transparent buttons */
+    --message-hover: rgba(10, 19, 35, 0.78); /* messages when hovered */
+
+    /* accent colors */
+    --accent-1: var(--blue-1); /* links and other accent text */
+    --accent-2: var(--blue-2); /* small accent elements */
+    --accent-3: var(--blue-3); /* accent buttons */
+    --accent-4: var(--blue-4); /* accent buttons when hovered */
+    --accent-5: var(--blue-5); /* accent buttons when clicked */
+    --accent-new: color-mix(in oklab, var(--yellow-2) 72%, var(--blue-2) 28%); /* Sibylla gold for key highlights */
+    --mention: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 84%) 40%, transparent); /* background of messages that mention you */
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 90%) 40%, transparent); /* background of messages that mention you when hovered */
+    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
+
+    /* status indicator colors */
+    --online: var(--green-2); /* change to #40a258 for default */
+    --dnd: var(--red-2); /* change to #d83a41 for default */
+    --idle: var(--yellow-2); /* change to #cc954c for default */
+    --streaming: var(--purple-2); /* change to #9147ff for default */
+    --offline: var(--text-4); /* change to #82838b for default offline color */
+
+    /* border colors */
+    --border-light: transparent; /* general light border color */
+    --border: transparent; /* general normal border color */
+    --border-hover: transparent; /* border color of panels when hovered */
+    --button-border: hsla(214, 90%, 80%, 0.06); /* neutral border color of buttons */
+
+    /* base colors */
+    --red-1: oklch(75% 0.14 28);
+    --red-2: oklch(69% 0.14 28);
+    --red-3: oklch(63% 0.14 28);
+    --red-4: oklch(57% 0.14 28);
+    --red-5: oklch(51% 0.14 28);
+
+    --green-1: oklch(78% 0.11 160);
+    --green-2: oklch(72% 0.11 160);
+    --green-3: oklch(66% 0.11 160);
+    --green-4: oklch(60% 0.11 160);
+    --green-5: oklch(54% 0.11 160);
+
+    --blue-1: oklch(84% 0.11 242);
+    --blue-2: oklch(78% 0.12 239);
+    --blue-3: oklch(71% 0.13 235);
+    --blue-4: oklch(64% 0.12 231);
+    --blue-5: oklch(57% 0.11 227);
+
+    --yellow-1: oklch(88% 0.06 92);
+    --yellow-2: oklch(82% 0.07 89);
+    --yellow-3: oklch(76% 0.08 86);
+    --yellow-4: oklch(69% 0.08 83);
+    --yellow-5: oklch(62% 0.08 80);
+
+    --purple-1: oklch(76% 0.09 300);
+    --purple-2: oklch(70% 0.09 300);
+    --purple-3: oklch(64% 0.09 300);
+    --purple-4: oklch(58% 0.09 300);
+    --purple-5: oklch(52% 0.09 300);
+
+    /* Sibylla surface tokens */
+    --sibylla-shell-gradient:
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--yellow-2) 12%, transparent) 0%, transparent 22%),
+        radial-gradient(circle at 88% 4%, color-mix(in srgb, var(--blue-2) 18%, transparent) 0%, transparent 30%),
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-4) 92%, black 8%) 0%,
+            var(--bg-4) 54%,
+            color-mix(in srgb, var(--bg-4) 82%, var(--bg-3) 18%) 100%
+        );
+    --sibylla-panel-fill:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 34%, var(--bg-4) 66%) 0%,
+            color-mix(in srgb, var(--bg-3) 22%, var(--bg-4) 78%) 100%
+        );
+    --sibylla-panel-fill-strong:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 42%, var(--bg-4) 58%) 0%,
+            color-mix(in srgb, var(--bg-3) 24%, var(--bg-4) 76%) 100%
+        );
+    --sibylla-header-fill:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 40%, var(--bg-4) 60%) 0%,
+            color-mix(in srgb, var(--bg-3) 14%, var(--bg-4) 86%) 100%
+        );
+    --sibylla-control-fill:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--bg-2) 52%, var(--bg-4) 48%) 0%,
+            color-mix(in srgb, var(--bg-3) 40%, var(--bg-4) 60%) 100%
+        );
+    --sibylla-soft-edge: rgba(180, 218, 255, 0.045);
+    --sibylla-soft-edge-strong: rgba(180, 218, 255, 0.07);
+    --sibylla-blue-glow: rgba(99, 170, 255, 0.16);
+    --sibylla-gold-glow: rgba(252, 218, 125, 0.12);
+}
