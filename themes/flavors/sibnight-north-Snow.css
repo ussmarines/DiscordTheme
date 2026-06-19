@@ -341,3 +341,189 @@ body {
 .container__4bbc6::before {
     display: none !important;
 }
+
+/* final flat cleanup */
+:root {
+    --icon-default: #5e81ac;
+    --channel-icon: #81a1c1;
+    --interactive-icon-active: #88c0d0;
+    --dms-icon-color-before: #5e81ac;
+    --dms-icon-color-after: #2e3440;
+    --dms-background-color: #e5e9f0;
+    --bg-4: #d8dee9;
+    --sibylla-panel-fill: #e5e9f0;
+    --sibylla-panel-fill-strong: #eceff4;
+    --sibylla-header-fill: #eceff4;
+    --sibylla-control-fill: #eceff4;
+}
+
+.base__5e434,
+.content__5e434,
+.bar_c38106,
+.bar_c38106::before,
+.bar_c38106::after,
+.trailing_c38106,
+.trailing_c38106::before,
+.trailing_c38106::after,
+.winButtons_c38106,
+.winButtons_c38106::before,
+.winButtons_c38106::after,
+.title_c38106,
+.leading_c38106,
+.recentsIcon_c99c29,
+.recentsIcon_c99c29 .button__85643,
+.subtitleContainer_f75fb0::before,
+.subtitleContainer_f75fb0::after,
+.container__9293f::before,
+.container__9293f::after,
+.form_f75fb0::before,
+.form_f75fb0::after,
+.channelBottomBarArea_f75fb0::before,
+.channelBottomBarArea_f75fb0::after,
+.channelTextArea_f75fb0::before,
+.channelTextArea_f75fb0::after,
+.base_b88801::before,
+.base_b88801::after,
+.panels__5e434::before,
+.panels__5e434::after,
+.container__2637a .header__99e7c,
+.panels__5e434 .container_e131a9 {
+    background-image: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    border: none !important;
+}
+
+.appMount__51fd7,
+.bg__960e4,
+.app_de4237,
+.layers__960e4,
+.layer__960e4,
+.container__133bf,
+.chat_f75fb0,
+.page__5e434,
+.container__01ae2,
+.container_f391e3,
+.homeWrapper__0920e,
+.wrapper_cb9592,
+.channelChatWrapper_cb9592 {
+    background: var(--bg-4) !important;
+}
+
+.chat_f75fb0 > .subtitleContainer_f75fb0,
+.container__133bf > .container__9293f,
+.container_f391e3 > .container__9293f,
+.homeWrapper__0920e > .container__9293f,
+.container__01ae2 > .container__9293f,
+.container_fb64c9 > .container__9293f,
+.headerBar__1a9ce,
+.container__9293f,
+.title_f75fb0,
+.subtitleContainer_f75fb0,
+.titleWrapper_fc4f04,
+.upperContainer__9293f,
+.children__9293f,
+.bar_c38106,
+.container__89463,
+.container__89463 > .toolbar__89463,
+.container__89463 > .contentContainer__89463,
+.tabBody__133bf::before {
+    background: var(--sibylla-header-fill) !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.base_b88801,
+.form_f75fb0,
+.channelBottomBarArea_f75fb0 {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.channelTextArea_f75fb0,
+.form_f75fb0 .themedBackground__74017,
+.scrollableContainer__74017,
+.stackedBars__74017,
+.wrapper__44df5,
+.inner__74017 {
+    background: var(--sibylla-control-fill) !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.attachWrapper__0923f,
+.attachButton__74017,
+.buttons__74017,
+.buttonContainer__74017,
+.expression-picker-chat-input-button,
+[class*='channelAppLauncher'],
+[class*='attachButton'] {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.toolbar__9293f .search__49676 svg,
+.toolbar__9293f .search__49676 [class*='icon'],
+.title_f75fb0 .icon__9293f,
+.container__9293f .icon__9293f,
+.children__9293f > .iconWrapper__9293f,
+.toolbar__9293f .iconWrapper__9293f .icon__9293f,
+.toolbar__9293f .clickable__9293f [class*='icon'],
+.toolbar__9293f .button__67645 [class*='icon'],
+.recentsIcon_c99c29 .icon__9293f,
+.recentsIcon_c99c29 .svg__2338f,
+.winButton_c38106 svg,
+.winButton_c38106 [class*='icon'] {
+    color: var(--icon-default) !important;
+    fill: currentColor !important;
+}
+
+.link__2ea32 [class*='icon'],
+.privateChannels__35e86 [class*='icon'],
+.containerDefault__29444 [class*='icon'],
+.linkButtonIcon__972a0,
+.actionIcon_f9255e,
+.actionIcon_c69b6d {
+    color: var(--channel-icon) !important;
+    fill: currentColor !important;
+}
+
+.modeSelected__2ea32 .link__2ea32 [class*='icon'],
+.interactive_bf202d.selected_bf202d [class*='icon'],
+.modeSelected__2ea32 .name__2ea32,
+.interactive_bf202d.selected_bf202d .name__20a53 {
+    color: var(--interactive-icon-active) !important;
+}
+
+[class*='membersGroup'],
+[class*='membersGroup'] span,
+[class*='membersGroup'] div,
+.role_dfa8b6,
+.role__48c1c {
+    color: #4c566a !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.role_dfa8b6,
+.role__48c1c,
+.container__4bbc6 {
+    background: #eceff4 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.newMessagesBar__0f481,
+.barBase__0f481,
+.unreadBottom__629e4,
+.bottom__7aaec,
+.unreadMentionsIndicatorTop_ef3116,
+.unreadMentionsIndicatorBottom_ef3116 {
+    background: #e5e9f0 !important;
+    box-shadow: none !important;
+    border: none !important;
+}
