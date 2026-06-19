@@ -11,13 +11,7 @@
 ## À propos
 
 **sibnight-discord** est un thème Discord personnalisé maintenu par **ussmarines**.
-Le projet garde la structure native de Discord intacte, puis applique un habillage Sibylla propre, stable et maintenable.
-
-Cette révision prépare une base de release plus propre :
-- pipeline de build simplifié
-- artefacts de sortie alignés
-- flavors conservées dans `themes/flavors`
-- fichiers legacy retirés
+Le projet part d'une base stable, garde la structure native de Discord intacte, puis applique un habillage Sibylla propre et maintenable.
 
 ## Installation
 
@@ -44,14 +38,10 @@ npm run dev
 npm run serve
 ```
 
-- `npm run check` valide la structure, les flavors, les versions et les artefacts générés
-- `npm run build` génère `build/sibnight.css` et `sibnight.css`
+- `npm run check` valide la structure du projet et le pipeline de build
+- `npm run build` génère les fichiers distribuables
 - `npm run dev` rebuild automatiquement vers des sorties locales définies dans `.env`
 - `npm run serve` lance un serveur local pour l'injection navigateur
-
-### Chargement navigateur local
-
-Le fichier `scripts/sibnight-dev.user.js` permet de charger automatiquement le thème local dans Discord via un userscript, avec `npm run serve` lancé en parallèle.
 
 ## Structure du projet
 
@@ -64,9 +54,7 @@ scripts/
   build.js
   check.js
   dev.js
-  inject.js
   serve.js
-  sibnight-dev.user.js
   lib/
 src/
   animations.css
@@ -84,25 +72,32 @@ themes/
   flavors/
 ```
 
+## Principes de design
+
+Le thème suit désormais une logique plus stricte de design system :
+- tokens de surface et d’élévation centralisés
+- états hover / active harmonisés
+- palette Discord complète mappée sur les couleurs du thème
+- corrections des valeurs placeholder qui pouvaient fuiter sur certains écrans rares
+
 ## Fichiers principaux
 
-- `themes/sibnight.theme.css` : point d'entrée utilisateur
-- `build/sibnight.css` : build compilé depuis `src/`
-- `sibnight.css` : bundle distribuable complet
+- `themes/sibnight.theme.css` : variables exposées aux utilisateurs
 - `src/colors.css` : palette principale
-- `src/main.css` : layout visuel principal
 - `src/top-bar.css` : topbar, recherche et trailing buttons
 - `src/dms-button.css` : bouton des messages privés
+- `src/main.css` : layout visuel principal
+- `build/sibnight.css` : build importé par le thème
 
 ## Flavors
 
 Les flavors importent `themes/sibnight.theme.css` puis remplacent uniquement la palette et les surfaces de design, pour garder la même base fonctionnelle et éviter que le thème principal reprenne le dessus.
 
-- `themes/flavors/sibnight-flat.css` — variante full flat du thème Sibnight de base
-- `themes/flavors/sibnight-sun.css` — variante Sibylla solaire plus flat
-- `themes/flavors/sibnight-north-Polar.css` — variante Nord Polar Night flat
-- `themes/flavors/sibnight-north-Snow.css` — variante Nord Snow Storm claire
-- `themes/flavors/sibnight-north-Aurora.css` — variante Nord Aurora vive et colorée
+- `themes/flavors/sibnight-space.css` — version galaxie avec nébuleuses bleues, reflets holographiques et surfaces plus sci-fi
+- `themes/flavors/sibnight-sun.css` — variante chaude or/cuivre avec bordures solaires plus visibles
+- `themes/flavors/sibnight-north-Polar.css` — Polar Night plus plat, plus lisible et plus fidèle à Nord
+- `themes/flavors/sibnight-north-Snow.css` — Snow Storm clair, lisse et minimal avec accents Frost très modérés
+- `themes/flavors/sibnight-north-Aurora.css` — Aurora rééquilibré sur base sombre Nord avec accents boréaux mieux dosés
 
 ## Crédits
 
