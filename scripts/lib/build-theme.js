@@ -19,7 +19,10 @@ const SOURCE_FILE_ORDER = [
     'window-controls.css',
 ];
 
-const BUNDLE_OUTPUTS = [path.join(rootDir, 'sibnight.css')];
+const BUNDLE_OUTPUTS = [
+    path.join(rootDir, 'sibnight.css'),
+    path.join(rootDir, 'archive', 'sibnight.css'),
+];
 
 const REMOTE_BUILD_IMPORT =
     "https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css";
