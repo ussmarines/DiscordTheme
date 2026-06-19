@@ -1,484 +1,103 @@
-    /**
-     * @name sibnight-sun
-     * @description A flatter Sibylla sun flavor rebuilt around the real Sibylla gold, deep navy surfaces and fully solid flat panels.
-     * @author ussmarines
-     * @version 1.6.0
-     * @website https://github.com/ussmarines/DiscordTheme
-     * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-sun.css
-     * @authorLink https://github.com/ussmarines
-     */
-    /* credits
-     * original design inspired by https://github.com/schnensch0/zelk
-     * theme design inspired by https://github.com/refact0r/midnight-discord
-     * window controls inspired by https://github.com/Dyzean/Tokyo-Night
-     */
+/**
+ * @name sibnight-sun
+ * @description A warm Sibylla flavor with clearer solar borders, richer gold accents and a dusk-metal finish.
+ * @author ussmarines
+ * @version 1.4.0
+ * @website https://github.com/ussmarines/DiscordTheme
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-sun.css
+ * @authorLink https://github.com/ussmarines
+ */
+/* credits
+ * original design inspired by https://github.com/schnensch0/zelk
+ * theme design inspired by https://github.com/refact0r/midnight-discord
+ * window controls inspired by https://github.com/Dyzean/Tokyo-Night
+ */
 
-    @import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/sibnight.theme.css');
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/sibnight.theme.css');
 
-    body {
+
+body {
     --dms-icon-svg-size: 104%;
-    --dms-icon-color-before: #23304a;
-    --dms-icon-color-after: #fcda7d;
-    --dms-background-color: #fcda7d;
+    --dms-background-color: linear-gradient(135deg, #f0d289 0%, #c48934 48%, #6f4318 100%);
 }
 
 :root {
-    --accent-1: #fff3c4;
-    --accent-2: #fcda7d;
-    --accent-3: #f0c553;
-    --accent-4: #d79a2b;
-    --accent-5: #9f6c20;
-    --accent-new: #fcda7d;
-    --mention: rgba(252, 218, 125, 0.16);
-    --mention-hover: rgba(252, 218, 125, 0.24);
-    --reply: rgba(240, 197, 83, 0.14);
-    --reply-hover: rgba(240, 197, 83, 0.22);
-    --text-0: #fffdf6;
-    --text-1: #f6ecd1;
-    --text-2: #ead8ab;
-    --text-3: #c6b18a;
-    --text-4: #9d8969;
-    --text-5: rgba(198, 177, 138, 0.42);
-    --bg-1: #3d485e;
-    --bg-2: #2d374b;
-    --bg-3: #1f2839;
-    --bg-4: #151c29;
-    --bg-floating: #1f2839;
-    --hover: rgba(252, 218, 125, 0.08);
-    --active: rgba(252, 218, 125, 0.14);
-    --active-2: rgba(252, 218, 125, 0.20);
-    --message-hover: rgba(31, 40, 57, 0.86);
-    --border-light: rgba(252, 218, 125, 0.04);
-    --border: rgba(252, 218, 125, 0.10);
-    --border-hover: rgba(252, 218, 125, 0.18);
-    --button-border: rgba(252, 218, 125, 0.08);
-    --online: #a3be8c;
-    --dnd: #bf616a;
-    --idle: #ebcb8b;
-    --streaming: #b48ead;
-    --sibylla-shell-gradient: #151c29;
-    --sibylla-panel-fill: #1f2839;
-    --sibylla-panel-fill-strong: #2d374b;
-    --sibylla-header-fill: #2d374b;
-    --sibylla-control-fill: #33415a;
-    --sibylla-embed-fill: #1f2839;
-    --sibylla-embed-fill-soft: #263247;
-    --sibylla-embed-accent: #fcda7d;
-    --sibylla-profile-fill: #273349;
-    --sibylla-active-fill: rgba(252, 218, 125, 0.18);
-    --sibylla-hover-fill: rgba(252, 218, 125, 0.10);
-    --icon-default: #f0c553;
-    --icon-muted: rgba(240, 197, 83, 0.42);
-    --icon-strong: #fff3c4;
-    --icon-subtle: #d79a2b;
-    --icon-link: #fcda7d;
-    --channel-icon: #f0c553;
-    --channels-default: #ead8ab;
-    --interactive-icon-default: #ead8ab;
-    --interactive-icon-hover: #fff3c4;
-    --interactive-icon-active: #fcda7d;
-    --interactive-text-default: #c6b18a;
-    --interactive-text-hover: #f6ecd1;
-    --interactive-text-active: #f6ecd1;
-    --text-link: #fcda7d;
-    --colors: on;
-    color-scheme: dark;
-    --proto-column-shadow: none;
-    --proto-column-border: transparent;
-    --proto-column-border-hover: transparent;
-    --proto-hover-surface: var(--sibylla-hover-fill);
-    --proto-active-surface: var(--sibylla-active-fill);
-    --panel-shadow: none;
-    --panel-shadow-hover: none;
-    --panel-backdrop-filter: none;
-    --sibylla-card-sheen: none;
-    --sibylla-soft-edge: transparent;
-    --sibylla-soft-edge-strong: transparent;
-    --sibylla-blue-glow: transparent;
-    --sibylla-gold-glow: transparent;
-    --sibylla-profile-overlay: none;
-}
+    --accent-1: #fff4db;
+    --accent-2: #f0d289;
+    --accent-3: #d8a84c;
+    --accent-4: #b97727;
+    --accent-5: #8f5418;
+    --accent-new: #f0d289;
 
-:is(
-    .guilds__5e434,
-    .sidebarList__5e434,
-    .panels__5e434,
-    .chat_f75fb0 > .subtitleContainer_f75fb0,
-    .chatContent_f75fb0,
-    .container_c8ffbb,
-    .content_f75fb0 > .membersWrap_c8ffbb,
-    .container__133bf > .container__9293f,
-    .container_f391e3 > .container__9293f,
-    .homeWrapper__0920e > .container__9293f,
-    .container__01ae2 > .container__9293f,
-    .container_fb64c9 > .container__9293f,
-    .peopleColumn__133bf,
-    .nowPlayingColumn__133bf,
-    .mainPageScroller__80907,
-    .headerBar__1a9ce,
-    .scroller__23746,
-    .container_f391e3 > .content_f75fb0,
-    .shop__6db1d,
-    .content_f75fb0 > aside > .outer_c0bea0,
-    .searchResultsWrap_a98f3b,
-    .container_f369db,
-    .chat_fb64c9,
-    .container_a592e1,
-    .callContainer_cb9592,
-    .wrapper_cb9592.sidebarOpen_cb9592 .callContainer_cb9592,
-    .callContainer__722ff,
-    .chat_f75fb0 > .header_c791b2,
-    .chat_f75fb0 > .scrollerBase_d125d2,
-    .chat_f75fb0 > .header__0b563,
-    .chat_f75fb0 > .container__0b563,
-    .container__8a031,
-    .messagesWrapper__36d07,
-    .channelTextArea_f75fb0,
-    .channelBottomBarArea_f75fb0 .channelTextArea_f75fb0,
-    .wrapper__44df5,
-    .embedFull__623de,
-    .container__9271d,
-    .reaction__23977,
-    .reactionBtn__23977.forceShow__23977,
-    .panels__5e434 > #vc-spotify-player,
-    .member_c8ffbb,
-    .container__91a9d,
-    .itemCard__7e549
-) {
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    filter: none !important;
-}
+    --mention: linear-gradient(to right, rgba(240, 210, 137, 0.16) 0%, rgba(216, 168, 76, 0.08) 56%, transparent 82%);
+    --mention-hover: linear-gradient(to right, rgba(240, 210, 137, 0.22) 0%, rgba(216, 168, 76, 0.11) 56%, transparent 84%);
+    --reply: linear-gradient(to right, rgba(216, 168, 76, 0.10) 0%, rgba(185, 119, 39, 0.04) 58%, transparent 82%);
 
-.sidebarList__5e434,
-.chatContent_f75fb0,
-.container_c8ffbb,
-.peopleColumn__133bf,
-.nowPlayingColumn__133bf,
-.content_f75fb0 > .membersWrap_c8ffbb,
-.content_f75fb0 > aside > .outer_c0bea0,
-.searchResultsWrap_a98f3b,
-.embedFull__623de,
-.container__9271d {
-    background-image: none !important;
-    background-color: var(--sibylla-panel-fill) !important;
-}
+    --text-0: #fffdf8;
+    --text-1: #f7ecd6;
+    --text-2: #e5d4b3;
+    --text-3: #c0aa89;
+    --text-4: #987c5e;
+    --text-5: rgba(224, 207, 177, 0.36);
 
-.panels__5e434,
-.container__133bf > .container__9293f,
-.container_f391e3 > .container__9293f,
-.homeWrapper__0920e > .container__9293f,
-.container__01ae2 > .container__9293f,
-.container_fb64c9 > .container__9293f,
-.headerBar__1a9ce,
-.chat_f75fb0 > .subtitleContainer_f75fb0,
-.guilds__5e434 {
-    background-image: none !important;
-    background-color: var(--sibylla-panel-fill-strong) !important;
-}
+    --bg-1: #34271d;
+    --bg-2: #241a13;
+    --bg-3: #17100c;
+    --bg-4: #0d0907;
+    --bg-floating: rgba(21, 15, 11, 0.96);
+    --hover: rgba(240, 210, 137, 0.08);
+    --active: rgba(240, 210, 137, 0.16);
+    --active-2: rgba(240, 210, 137, 0.24);
+    --message-hover: rgba(13, 9, 7, 0.84);
 
-.channelTextArea_f75fb0,
-.channelBottomBarArea_f75fb0 .channelTextArea_f75fb0,
-.wrapper__44df5,
-.toolbar__9293f .search__49676,
-.toolbar__9293f .search__49676:hover,
-.toolbar__9293f .search__49676:focus-within {
-    background-image: none !important;
-    background-color: var(--sibylla-control-fill) !important;
-    box-shadow: none !important;
-}
+    --border-light: rgba(255, 240, 214, 0.05);
+    --border: rgba(240, 210, 137, 0.11);
+    --border-hover: rgba(240, 210, 137, 0.20);
+    --button-border: rgba(255, 240, 214, 0.10);
 
-.content_f75fb0 > aside,
-.chatContent_f75fb0 > aside {
-    display: flex !important;
-}
+    --online: #9bcf85;
+    --dnd: #d27a64;
+    --idle: #f0d289;
+    --streaming: #8b6ad1;
 
-.content_f75fb0 > aside > .outer_c0bea0,
-.chatContent_f75fb0 > aside > .outer_c0bea0 {
-    display: flex !important;
-    flex-direction: column !important;
-    min-width: 340px !important;
-    background-image: none !important;
-    background-color: var(--sibylla-profile-fill) !important;
-    box-shadow: none !important;
-}
+    --panel-shadow:
+        0 18px 40px rgba(18, 10, 4, 0.34),
+        0 0 0 1px rgba(240, 210, 137, 0.10);
+    --panel-shadow-hover:
+        0 24px 54px rgba(18, 10, 4, 0.42),
+        0 0 0 1px rgba(240, 210, 137, 0.15);
 
-.outer_c0bea0::before,
-.content_f75fb0 > aside > .outer_c0bea0::before,
-.headerGlass_f37cb1::after,
-.animatedContainer_f37cb1::after,
-.header_f37cb1 [class*='animatedContainer']::after,
-.banner__68edb::before,
-.banner__68edb::after {
-    background-image: none !important;
-    background: none !important;
-    display: none !important;
-}
-
-.banner__68edb,
-.banner__68edb img,
-.mask__68edb {
-    filter: none !important;
-}
-
-.modeSelected__2ea32 .link__2ea32,
-.interactive_bf202d.selected_bf202d,
-.channel__972a0.container__972a0:hover,
-.interactive__972a0:hover {
-    background: var(--sibylla-active-fill) !important;
-    box-shadow: none !important;
-}
-
-.link__2ea32:hover,
-.interactive_bf202d:hover,
-.member_c8ffbb:hover,
-.container__91a9d:hover,
-.itemCard__7e549:hover {
-    background: var(--sibylla-hover-fill) !important;
-    box-shadow: none !important;
-}
-
-.pill_e5445c .item__58105,
-.header_f37cb1,
-.privateChannelsHeaderContainer__99e7c,
-.container__2637a .header__99e7c,
-.panels__5e434 .container_e131a9,
-[class*='membersGroup'] {
-    box-shadow: none !important;
-    text-shadow: none !important;
-}
-
-.pill_e5445c .item__58105 {
-    background: var(--accent-2) !important;
-}
-
-.message__5126c:hover,
-.message__5126c.selected__5126c,
-.mouse-mode.full-motion .message__5126c:hover {
-    background: var(--message-hover) !important;
-}
-
-.reaction__23977,
-.reactionBtn__23977.forceShow__23977 {
-    background: var(--sibylla-embed-fill-soft) !important;
-    border-color: var(--border) !important;
-}
-
-.toolbar__9293f .search__49676 svg,
-.toolbar__9293f .search__49676 [class*='icon'],
-.title_f75fb0 .icon__9293f,
-.container__9293f .icon__9293f,
-.children__9293f > .iconWrapper__9293f,
-.toolbar__9293f .iconWrapper__9293f .icon__9293f,
-.toolbar__9293f .clickable__9293f [class*='icon'],
-.toolbar__9293f .button__67645 [class*='icon'] {
-    color: var(--icon-default) !important;
-}
-
-.link__2ea32 [class*='icon'],
-.privateChannels__35e86 [class*='icon'],
-.containerDefault__29444 [class*='icon'],
-.linkButtonIcon__972a0,
-.actionIcon_f9255e {
-    color: var(--channel-icon) !important;
-    fill: currentColor !important;
-}
-
-.modeSelected__2ea32 .link__2ea32 [class*='icon'],
-.interactive_bf202d.selected_bf202d [class*='icon'] {
-    color: var(--interactive-icon-active) !important;
-}
-
-
-.content_f75fb0 > aside > .outer_c0bea0,
-.chatContent_f75fb0 > aside > .outer_c0bea0,
-.outer_c0bea0 {
-    box-shadow: none !important;
-    background-image: none !important;
-}
-
-.inner_c0bea0,
-.outer_c0bea0 [class*='overlayBackground'],
-.outer_c0bea0 [class*='section'],
-.outer_c0bea0 [class*='note'],
-.outer_c0bea0 [class*='card'],
-.outer_c0bea0 [class*='userInfoSection'] {
-    background-image: none !important;
-    box-shadow: none !important;
-    border: none !important;
-}
-
-.form_f75fb0,
-.channelBottomBarArea_f75fb0,
-.base_b88801 {
-    background-image: none !important;
-    background-color: var(--sibylla-panel-fill) !important;
-    box-shadow: none !important;
-}
-
-.channelTextArea_f75fb0,
-.form_f75fb0 .themedBackground__74017,
-.scrollableContainer__74017,
-.stackedBars__74017 {
-    background-image: none !important;
-    background-color: var(--sibylla-control-fill) !important;
-    box-shadow: none !important;
-}
-
-.form_f75fb0::before,
-.form_f75fb0::after,
-.channelBottomBarArea_f75fb0::before,
-.channelBottomBarArea_f75fb0::after,
-.channelTextArea_f75fb0::before,
-.channelTextArea_f75fb0::after {
-    display: none !important;
-}
-
-.channelTextArea_f75fb0 {
-    overflow: hidden !important;
-}
-
-.base_b88801 > div,
-.channelBottomBarArea_f75fb0 > div {
-    background-image: none !important;
-    background-color: inherit !important;
-}
-
-.attachWrapper__0923f,
-.attachButton__74017,
-.buttons__74017,
-.buttonContainer__74017,
-.expression-picker-chat-input-button {
-    background: transparent !important;
-    box-shadow: none !important;
-}
-
-.embedFull__623de {
-    background: var(--sibylla-embed-fill-soft) !important;
-    border-color: var(--border) !important;
-    border-left-width: 3px !important;
-    border-left-color: var(--sibylla-embed-accent) !important;
-}
-
-.message__5126c.mentioned__5126c,
-.replying__5126c,
-.ephemeral__5126c {
-    background: var(--mention) !important;
-    box-shadow: inset 0 0 0 1px var(--border) !important;
-}
-
-.message__5126c.mentioned__5126c:hover,
-.replying__5126c:hover,
-.ephemeral__5126c:hover {
-    background: var(--mention-hover) !important;
-}
-
-.message__5126c.mentioned__5126c::before,
-.replying__5126c::before,
-.ephemeral__5126c::before {
-    background: var(--sibylla-embed-accent) !important;
-}
-
-.botTagRegular__82f07,
-.botTag__82f07,
-[class*='botTagRegular__'],
-[class*='botTag__'] {
-    background: var(--accent-2) !important;
-    color: var(--text-0) !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-.botTagOP__82f07,
-[class*='botTagOP__'] {
-    background: var(--accent-3) !important;
-    color: var(--text-0) !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* extra flat pass for dm, friends and utility surfaces */
-:is(
-    [class*='peopleListItem'],
-    [class*='listRow'],
-    [class*='userInfoSection'],
-    [class*='overlayBackground'],
-    [class*='profileCard'],
-    [class*='cardPrimary'],
-    [class*='card_'],
-    [class*='searchBar'],
-    [class*='searchBox'],
-    [class*='autocomplete'],
-    [class*='rolePill'],
-    [class*='newMessagesBar']
-) {
-    background-image: none !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-    filter: none !important;
-}
-
-:is(
-    [class*='peopleListItem'],
-    [class*='listRow'],
-    [class*='card_'],
-    [class*='profileCard']
-):hover {
-    background: var(--sibylla-hover-fill) !important;
-}
-
-:is(
-    [class*='peopleListItem'][aria-selected='true'],
-    [class*='listRow'][aria-selected='true'],
-    [class*='peopleListItem'][aria-current='page'],
-    [class*='listRow'][aria-current='page']
-) {
-    background: var(--sibylla-active-fill) !important;
-}
-
-:is(
-    [class*='searchBar'],
-    [class*='searchBox'],
-    [class*='searchBar'] input,
-    [class*='searchBox'] input
-) {
-    background-color: var(--sibylla-control-fill) !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-:is(
-    [class*='overlayBackground'],
-    [class*='userInfoSection'],
-    [class*='cardPrimary'],
-    [class*='card_']
-) {
-    background-color: var(--sibylla-panel-fill-strong) !important;
-}
-
-:is(
-    .itemCard__7e549,
-    .container__91a9d,
-    .member_c8ffbb,
-    [class*='peopleListItem'],
-    [class*='listRow']
-) {
-    border: none !important;
-    box-shadow: none !important;
-}
-
-
-
-.message__5126c.mentioned__5126c,
-.replying__5126c,
-.ephemeral__5126c {
-    box-shadow: none !important;
-    border: 1px solid var(--border) !important;
-}
-
-.embedFull__623de,
-.reaction__23977,
-.reactionBtn__23977.forceShow__23977,
-.container__9271d {
-    box-shadow: none !important;
+    --sibylla-shell-gradient:
+        radial-gradient(circle at 12% 0%, rgba(240, 210, 137, 0.14) 0%, transparent 18%),
+        radial-gradient(circle at 88% 0%, rgba(216, 168, 76, 0.12) 0%, transparent 18%),
+        linear-gradient(180deg, #17100c 0%, #110c09 50%, #0c0806 100%);
+    --sibylla-panel-fill:
+        radial-gradient(circle at 100% 0%, rgba(240, 210, 137, 0.08) 0%, transparent 24%),
+        linear-gradient(180deg, rgba(36, 26, 19, 0.96) 0%, rgba(13, 9, 7, 0.98) 100%);
+    --sibylla-panel-fill-strong:
+        radial-gradient(circle at 100% 0%, rgba(240, 210, 137, 0.12) 0%, transparent 22%),
+        linear-gradient(180deg, rgba(52, 39, 29, 0.98) 0%, rgba(18, 13, 9, 0.98) 100%);
+    --sibylla-header-fill:
+        linear-gradient(180deg, rgba(36, 26, 19, 0.98) 0%, rgba(13, 9, 7, 0.98) 100%);
+    --sibylla-control-fill:
+        radial-gradient(circle at 100% 0%, rgba(240, 210, 137, 0.10) 0%, transparent 34%),
+        linear-gradient(180deg, rgba(52, 39, 29, 0.96) 0%, rgba(21, 15, 11, 0.98) 100%);
+    --sibylla-embed-fill:
+        linear-gradient(180deg, rgba(36, 26, 19, 0.96) 0%, rgba(21, 15, 11, 0.98) 100%);
+    --sibylla-embed-fill-soft:
+        linear-gradient(180deg, rgba(29, 21, 16, 0.96) 0%, rgba(18, 13, 10, 0.98) 100%);
+    --sibylla-embed-accent: #d8a84c;
+    --sibylla-soft-edge: rgba(255, 240, 214, 0.048);
+    --sibylla-soft-edge-strong: rgba(255, 240, 214, 0.084);
+    --sibylla-blue-glow: rgba(216, 168, 76, 0.12);
+    --sibylla-gold-glow: rgba(240, 210, 137, 0.14);
+    --sibylla-profile-fill:
+        radial-gradient(circle at 84% 18%, rgba(240, 210, 137, 0.14) 0%, transparent 16%),
+        radial-gradient(circle at 16% 22%, rgba(216, 168, 76, 0.10) 0%, transparent 14%),
+        linear-gradient(135deg, rgba(52, 39, 29, 0.98) 0%, rgba(13, 9, 7, 0.98) 100%);
+    --sibylla-profile-overlay:
+        linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.024) 26%, transparent 50%, rgba(255, 255, 255, 0.012) 66%, transparent 84%);
+    --sibylla-card-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.016), transparent 34%);
+    --sibylla-active-fill: linear-gradient(90deg, rgba(240, 210, 137, 0.16) 0%, rgba(216, 168, 76, 0.08) 100%);
+    --sibylla-hover-fill: linear-gradient(90deg, rgba(240, 210, 137, 0.10) 0%, rgba(216, 168, 76, 0.05) 100%);
 }
