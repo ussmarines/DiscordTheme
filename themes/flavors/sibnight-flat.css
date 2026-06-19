@@ -1,102 +1,103 @@
-    /**
-     * @name sibnight-north-polar
-     * @description A flat Polar Night north flavor with zero shadows, disciplined slate layering and cleaner monochrome Nord surfaces.
-     * @author ussmarines
-     * @version 1.7.0
-     * @website https://github.com/ussmarines/DiscordTheme
-     * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-Polar.css
-     * @authorLink https://github.com/ussmarines
-     */
-    /* credits
-     * original design inspired by https://github.com/schnensch0/zelk
-     * theme design inspired by https://github.com/refact0r/midnight-discord
-     * window controls inspired by https://github.com/Dyzean/Tokyo-Night
-     */
+/**
+ * @name sibnight-flat
+ * @description A full flat Sibylla flavor based on the default project palette, rebuilt with solid navy surfaces, gold-blue accents and no shadows or gradients.
+ * @author ussmarines
+ * @version 1.0.0
+ * @website https://github.com/ussmarines/DiscordTheme
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-flat.css
+ * @authorLink https://github.com/ussmarines
+ */
+/* credits
+ * original design inspired by https://github.com/schnensch0/zelk
+ * theme design inspired by https://github.com/refact0r/midnight-discord
+ * window controls inspired by https://github.com/Dyzean/Tokyo-Night
+ */
 
-    @import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/sibnight.theme.css');
+@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/sibnight.theme.css');
 
-    body {
+body {
     --dms-icon-svg-size: 104%;
-    --dms-icon-color-before: #eceff4;
-    --dms-icon-color-after: #2e3440;
-    --dms-background-color: #4c566a;
+    --dms-icon-color-before: #f1d17a;
+    --dms-icon-color-after: #eef5ff;
+    --dms-background-color: #d2aa57;
 }
 
 :root {
-    --accent-1: #eceff4;
-    --accent-2: #4c566a;
-    --accent-3: #434c5e;
-    --accent-4: #3b4252;
-    --accent-5: #2e3440;
-    --accent-new: #4c566a;
-    --mention: rgba(76, 86, 106, 0.24);
-    --mention-hover: rgba(76, 86, 106, 0.34);
-    --reply: rgba(67, 76, 94, 0.24);
-    --reply-hover: rgba(76, 86, 106, 0.30);
-    --text-0: #f7f9fc;
-    --text-1: #eceff4;
-    --text-2: #d8dee9;
-    --text-3: #c5cedb;
-    --text-4: #97a4b8;
-    --text-5: rgba(216, 222, 233, 0.40);
-    --bg-1: #4c566a;
-    --bg-2: #434c5e;
-    --bg-3: #3b4252;
-    --bg-4: #2e3440;
-    --bg-floating: #2e3440;
-    --hover: rgba(76, 86, 106, 0.20);
-    --active: rgba(76, 86, 106, 0.32);
-    --active-2: rgba(76, 86, 106, 0.42);
-    --message-hover: rgba(46, 52, 64, 0.62);
-    --border-light: rgba(236, 239, 244, 0.04);
-    --border: rgba(216, 222, 233, 0.08);
-    --border-hover: rgba(216, 222, 233, 0.14);
-    --button-border: rgba(216, 222, 233, 0.08);
-    --online: #a3be8c;
-    --dnd: #bf616a;
-    --idle: #ebcb8b;
-    --streaming: #b48ead;
-    --sibylla-shell-gradient: #2e3440;
-    --sibylla-panel-fill: #3b4252;
-    --sibylla-panel-fill-strong: #434c5e;
-    --sibylla-header-fill: #434c5e;
-    --sibylla-control-fill: #4c566a;
-    --sibylla-embed-fill: #3b4252;
-    --sibylla-embed-fill-soft: #434c5e;
-    --sibylla-embed-accent: #d8dee9;
-    --sibylla-profile-fill: #3b4252;
-    --sibylla-active-fill: rgba(76, 86, 106, 0.42);
-    --sibylla-hover-fill: rgba(76, 86, 106, 0.24);
-    --icon-default: #d8dee9;
-    --icon-muted: rgba(216, 222, 233, 0.38);
-    --icon-strong: #eceff4;
-    --icon-subtle: #eceff4;
-    --icon-link: #eceff4;
-    --channel-icon: #d8dee9;
-    --channels-default: #d8dee9;
-    --interactive-icon-default: #d8dee9;
-    --interactive-icon-hover: #eceff4;
-    --interactive-icon-active: #eceff4;
-    --interactive-text-default: #d8dee9;
-    --interactive-text-hover: #eceff4;
-    --interactive-text-active: #eceff4;
-    --text-link: #eceff4;
-    --colors: on;
-    color-scheme: dark;
-    --proto-column-shadow: none;
-    --proto-column-border: transparent;
-    --proto-column-border-hover: transparent;
-    --proto-hover-surface: var(--sibylla-hover-fill);
-    --proto-active-surface: var(--sibylla-active-fill);
+    --accent-1: #b9dcff;
+    --accent-2: #82c3ff;
+    --accent-3: #f1d17a;
+    --accent-4: #d9b566;
+    --accent-5: #b78735;
+    --accent-new: #f1d17a;
+
+    --mention: rgba(130, 195, 255, 0.14);
+    --mention-hover: rgba(130, 195, 255, 0.20);
+    --reply: rgba(241, 209, 122, 0.12);
+    --reply-hover: rgba(241, 209, 122, 0.18);
+
+    --text-0: #08111f;
+    --text-1: #eef5ff;
+    --text-2: #d8e4f2;
+    --text-3: #a8b7ca;
+    --text-4: #7f8fa6;
+    --text-5: rgba(168, 183, 202, 0.42);
+
+    --bg-1: #20375b;
+    --bg-2: #162847;
+    --bg-3: #0f1d36;
+    --bg-4: #08111f;
+    --bg-floating: #0f1d36;
+    --hover: rgba(185, 220, 255, 0.07);
+    --active: rgba(130, 195, 255, 0.14);
+    --active-2: rgba(241, 209, 122, 0.18);
+    --message-hover: rgba(15, 29, 54, 0.78);
+
+    --border-light: rgba(216, 228, 242, 0.05);
+    --border: rgba(130, 195, 255, 0.12);
+    --border-hover: rgba(241, 209, 122, 0.18);
+    --button-border: rgba(216, 228, 242, 0.08);
+
+    --online: #8ecc94;
+    --dnd: #d67b76;
+    --idle: #f1d17a;
+    --streaming: #b58ce0;
+
     --panel-shadow: none;
     --panel-shadow-hover: none;
     --panel-backdrop-filter: none;
-    --sibylla-card-sheen: none;
+
+    --sibylla-shell-gradient: #08111f;
+    --sibylla-panel-fill: #0f1d36;
+    --sibylla-panel-fill-strong: #162847;
+    --sibylla-header-fill: #162847;
+    --sibylla-control-fill: #20375b;
+    --sibylla-embed-fill: #0f1d36;
+    --sibylla-embed-fill-soft: #162847;
+    --sibylla-embed-accent: #f1d17a;
     --sibylla-soft-edge: transparent;
     --sibylla-soft-edge-strong: transparent;
     --sibylla-blue-glow: transparent;
     --sibylla-gold-glow: transparent;
+    --sibylla-profile-fill: #162847;
     --sibylla-profile-overlay: none;
+    --sibylla-card-sheen: none;
+    --sibylla-active-fill: rgba(241, 209, 122, 0.16);
+    --sibylla-hover-fill: rgba(130, 195, 255, 0.07);
+
+    --icon-default: #d8e4f2;
+    --icon-muted: rgba(216, 228, 242, 0.36);
+    --icon-strong: #eef5ff;
+    --icon-subtle: #f1d17a;
+    --icon-link: #82c3ff;
+    --channel-icon: #f1d17a;
+    --channels-default: #d8e4f2;
+    --interactive-icon-default: #d8e4f2;
+    --interactive-icon-hover: #eef5ff;
+    --interactive-icon-active: #f1d17a;
+    --interactive-text-default: #d8e4f2;
+    --interactive-text-hover: #eef5ff;
+    --interactive-text-active: #eef5ff;
+    --text-link: #82c3ff;
 }
 
 :is(
@@ -394,91 +395,5 @@
     background: var(--accent-3) !important;
     color: var(--text-0) !important;
     border: none !important;
-    box-shadow: none !important;
-}
-
-/* extra flat pass for dm, friends and utility surfaces */
-:is(
-    [class*='peopleListItem'],
-    [class*='listRow'],
-    [class*='userInfoSection'],
-    [class*='overlayBackground'],
-    [class*='profileCard'],
-    [class*='cardPrimary'],
-    [class*='card_'],
-    [class*='searchBar'],
-    [class*='searchBox'],
-    [class*='autocomplete'],
-    [class*='rolePill'],
-    [class*='newMessagesBar']
-) {
-    background-image: none !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-    filter: none !important;
-}
-
-:is(
-    [class*='peopleListItem'],
-    [class*='listRow'],
-    [class*='card_'],
-    [class*='profileCard']
-):hover {
-    background: var(--sibylla-hover-fill) !important;
-}
-
-:is(
-    [class*='peopleListItem'][aria-selected='true'],
-    [class*='listRow'][aria-selected='true'],
-    [class*='peopleListItem'][aria-current='page'],
-    [class*='listRow'][aria-current='page']
-) {
-    background: var(--sibylla-active-fill) !important;
-}
-
-:is(
-    [class*='searchBar'],
-    [class*='searchBox'],
-    [class*='searchBar'] input,
-    [class*='searchBox'] input
-) {
-    background-color: var(--sibylla-control-fill) !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-:is(
-    [class*='overlayBackground'],
-    [class*='userInfoSection'],
-    [class*='cardPrimary'],
-    [class*='card_']
-) {
-    background-color: var(--sibylla-panel-fill-strong) !important;
-}
-
-:is(
-    .itemCard__7e549,
-    .container__91a9d,
-    .member_c8ffbb,
-    [class*='peopleListItem'],
-    [class*='listRow']
-) {
-    border: none !important;
-    box-shadow: none !important;
-}
-
-
-
-.message__5126c.mentioned__5126c,
-.replying__5126c,
-.ephemeral__5126c {
-    box-shadow: none !important;
-    border: 1px solid var(--border) !important;
-}
-
-.embedFull__623de,
-.reaction__23977,
-.reactionBtn__23977.forceShow__23977,
-.container__9271d {
     box-shadow: none !important;
 }
