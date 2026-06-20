@@ -444,15 +444,9 @@ body {
     .channelBottomBarArea_f75fb0,
     .base_b88801,
     .channelTextArea_f75fb0,
-    .stackedBars__74017,
-    [class*='channelTextAreaInline']
+    .stackedBars__74017
 ) {
     overflow: visible !important;
-}
-
-.scrollableContainer__74017,
-.inner__74017 {
-    overflow: hidden !important;
 }
 
 
@@ -520,8 +514,8 @@ body {
 
 /* ==============================
    Flavor inline editor compatibility
-   Restores multiline edit composer sizing, background and scroll
-   without changing the global flavor design.
+   Restores native inline edit scrolling behavior while preserving flavor surfaces.
+   Leaves Discord's internal editor scrolling model intact.
    ============================== */
 
 :is(
@@ -544,7 +538,36 @@ body {
     [class*='channelTextArea'][class*='Inline']
 ) :is(
     .themedBackground__74017,
-    .scrollableContainer__74017,
+    .stackedBars__74017
+) {
+    background: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+:is(
+    [class*='channelTextAreaInline'],
+    [class^='channelTextAreaInline'],
+    [class*='channelTextArea_'][class*='Inline'],
+    [class*='channelTextArea'][class*='Inline']
+) .scrollableContainer__74017 {
+    background: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    max-height: min(50vh, 420px) !important;
+    overscroll-behavior: contain !important;
+}
+
+:is(
+    [class*='channelTextAreaInline'],
+    [class^='channelTextAreaInline'],
+    [class*='channelTextArea_'][class*='Inline'],
+    [class*='channelTextArea'][class*='Inline']
+) :is(
     .inner__74017,
     .slateTextArea_ec4baf,
     .editor__1b31f,
@@ -558,38 +581,4 @@ body {
     background-image: none !important;
     box-shadow: none !important;
     filter: none !important;
-    max-height: none !important;
-}
-
-:is(
-    [class*='channelTextAreaInline'],
-    [class^='channelTextAreaInline'],
-    [class*='channelTextArea_'][class*='Inline'],
-    [class*='channelTextArea'][class*='Inline']
-) .scrollableContainer__74017 {
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    max-height: min(50vh, 420px) !important;
-    overscroll-behavior: contain !important;
-}
-
-:is(
-    [class*='channelTextAreaInline'],
-    [class^='channelTextAreaInline'],
-    [class*='channelTextArea_'][class*='Inline'],
-    [class*='channelTextArea'][class*='Inline']
-) .inner__74017,
-:is(
-    [class*='channelTextAreaInline'],
-    [class^='channelTextAreaInline'],
-    [class*='channelTextArea_'][class*='Inline'],
-    [class*='channelTextArea'][class*='Inline']
-) .editor__1b31f,
-:is(
-    [class*='channelTextAreaInline'],
-    [class^='channelTextAreaInline'],
-    [class*='channelTextArea_'][class*='Inline'],
-    [class*='channelTextArea'][class*='Inline']
-) [data-slate-editor='true'] {
-    min-height: 0 !important;
 }
