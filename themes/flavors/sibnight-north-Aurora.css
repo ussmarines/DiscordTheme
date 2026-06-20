@@ -1,10 +1,10 @@
 /**
- * @name sibnight-sun
- * @description A warm Sibylla flavor with clearer solar borders, richer gold accents and a dusk-metal finish.
+ * @name sibnight-north-aurora
+ * @description A Nord Aurora flavor for sibnight-discord with dark polar bases and controlled aurora accents.
  * @author ussmarines
  * @version 1.4.0
  * @website https://github.com/ussmarines/DiscordTheme
- * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-sun.css
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-Aurora.css
  * @authorLink https://github.com/ussmarines
  */
 /* credits
@@ -18,88 +18,93 @@
 
 body {
     --dms-icon-svg-size: 104%;
-    --dms-background-color: linear-gradient(135deg, #f0d289 0%, #c48934 48%, #6f4318 100%);
+    --dms-background-color:
+        radial-gradient(circle at 34% 26%, rgba(163, 190, 140, 0.24) 0%, transparent 24%),
+        radial-gradient(circle at 68% 68%, rgba(180, 142, 173, 0.24) 0%, transparent 26%),
+        linear-gradient(135deg, #4c566a 0%, #3b4252 40%, #2e3440 100%);
 }
 
 :root {
-    --accent-1: #fff4db;
-    --accent-2: #f0d289;
-    --accent-3: #d8a84c;
-    --accent-4: #b97727;
-    --accent-5: #8f5418;
-    --accent-new: #f0d289;
+    --accent-1: #eceff4;
+    --accent-2: #a3be8c;
+    --accent-3: #b48ead;
+    --accent-4: #d08770;
+    --accent-5: #bf616a;
+    --accent-new: #ebcb8b;
 
-    --mention: linear-gradient(to right, rgba(240, 210, 137, 0.16) 0%, rgba(216, 168, 76, 0.08) 56%, transparent 82%);
-    --mention-hover: linear-gradient(to right, rgba(240, 210, 137, 0.22) 0%, rgba(216, 168, 76, 0.11) 56%, transparent 84%);
-    --reply: linear-gradient(to right, rgba(216, 168, 76, 0.10) 0%, rgba(185, 119, 39, 0.04) 58%, transparent 82%);
+    --mention: linear-gradient(to right, rgba(180, 142, 173, 0.14) 0%, rgba(163, 190, 140, 0.08) 56%, transparent 82%);
+    --mention-hover: linear-gradient(to right, rgba(163, 190, 140, 0.16) 0%, rgba(208, 135, 112, 0.08) 56%, transparent 84%);
+    --reply: linear-gradient(to right, rgba(208, 135, 112, 0.09) 0%, rgba(191, 97, 106, 0.04) 58%, transparent 82%);
 
-    --text-0: #fffdf8;
-    --text-1: #f7ecd6;
-    --text-2: #e5d4b3;
-    --text-3: #c0aa89;
-    --text-4: #987c5e;
-    --text-5: rgba(224, 207, 177, 0.36);
+    --text-0: #f3f4f8;
+    --text-1: #eceff4;
+    --text-2: #d8dee9;
+    --text-3: #bdc5d1;
+    --text-4: #9ca7b5;
+    --text-5: rgba(216, 222, 233, 0.34);
 
-    --bg-1: #34271d;
-    --bg-2: #241a13;
-    --bg-3: #17100c;
-    --bg-4: #0d0907;
-    --bg-floating: rgba(21, 15, 11, 0.96);
-    --hover: rgba(240, 210, 137, 0.08);
-    --active: rgba(240, 210, 137, 0.16);
-    --active-2: rgba(240, 210, 137, 0.24);
-    --message-hover: rgba(13, 9, 7, 0.84);
+    --bg-1: #434c5e;
+    --bg-2: #3b4252;
+    --bg-3: #2e3440;
+    --bg-4: #252b36;
+    --bg-floating: rgba(46, 52, 64, 0.95);
+    --hover: rgba(180, 142, 173, 0.06);
+    --active: rgba(163, 190, 140, 0.12);
+    --active-2: rgba(180, 142, 173, 0.16);
+    --message-hover: rgba(38, 44, 55, 0.78);
 
-    --border-light: rgba(255, 240, 214, 0.05);
-    --border: rgba(240, 210, 137, 0.11);
-    --border-hover: rgba(240, 210, 137, 0.20);
-    --button-border: rgba(255, 240, 214, 0.10);
+    --border-light: rgba(236, 239, 244, 0.04);
+    --border: rgba(180, 142, 173, 0.08);
+    --border-hover: rgba(163, 190, 140, 0.14);
+    --button-border: rgba(236, 239, 244, 0.07);
 
-    --online: #9bcf85;
-    --dnd: #d27a64;
-    --idle: #f0d289;
-    --streaming: #8b6ad1;
+    --online: #a3be8c;
+    --dnd: #bf616a;
+    --idle: #ebcb8b;
+    --streaming: #b48ead;
 
     --panel-shadow:
-        0 18px 40px rgba(18, 10, 4, 0.34),
-        0 0 0 1px rgba(240, 210, 137, 0.10);
+        0 14px 30px rgba(24, 29, 37, 0.20),
+        0 0 0 1px rgba(180, 142, 173, 0.05);
     --panel-shadow-hover:
-        0 24px 54px rgba(18, 10, 4, 0.42),
-        0 0 0 1px rgba(240, 210, 137, 0.15);
+        0 18px 36px rgba(24, 29, 37, 0.24),
+        0 0 0 1px rgba(163, 190, 140, 0.08);
 
     --sibylla-shell-gradient:
-        radial-gradient(circle at 12% 0%, rgba(240, 210, 137, 0.14) 0%, transparent 18%),
-        radial-gradient(circle at 88% 0%, rgba(216, 168, 76, 0.12) 0%, transparent 18%),
-        linear-gradient(180deg, #17100c 0%, #110c09 50%, #0c0806 100%);
+        radial-gradient(circle at 10% 0%, rgba(163, 190, 140, 0.12) 0%, transparent 16%),
+        radial-gradient(circle at 84% 0%, rgba(180, 142, 173, 0.16) 0%, transparent 18%),
+        radial-gradient(circle at 52% 100%, rgba(208, 135, 112, 0.10) 0%, transparent 18%),
+        linear-gradient(180deg, #2e3440 0%, #2a303a 54%, #242a33 100%);
     --sibylla-panel-fill:
-        radial-gradient(circle at 100% 0%, rgba(240, 210, 137, 0.08) 0%, transparent 24%),
-        linear-gradient(180deg, rgba(36, 26, 19, 0.96) 0%, rgba(13, 9, 7, 0.98) 100%);
+        radial-gradient(circle at 100% 0%, rgba(180, 142, 173, 0.08) 0%, transparent 22%),
+        radial-gradient(circle at 0% 100%, rgba(163, 190, 140, 0.07) 0%, transparent 18%),
+        linear-gradient(180deg, rgba(59, 66, 82, 0.96) 0%, rgba(38, 44, 55, 0.98) 100%);
     --sibylla-panel-fill-strong:
-        radial-gradient(circle at 100% 0%, rgba(240, 210, 137, 0.12) 0%, transparent 22%),
-        linear-gradient(180deg, rgba(52, 39, 29, 0.98) 0%, rgba(18, 13, 9, 0.98) 100%);
+        radial-gradient(circle at 100% 0%, rgba(180, 142, 173, 0.10) 0%, transparent 20%),
+        radial-gradient(circle at 0% 100%, rgba(208, 135, 112, 0.07) 0%, transparent 18%),
+        linear-gradient(180deg, rgba(67, 76, 94, 0.98) 0%, rgba(45, 51, 63, 0.98) 100%);
     --sibylla-header-fill:
-        linear-gradient(180deg, rgba(36, 26, 19, 0.98) 0%, rgba(13, 9, 7, 0.98) 100%);
+        linear-gradient(180deg, rgba(59, 66, 82, 0.98) 0%, rgba(46, 52, 64, 0.98) 100%);
     --sibylla-control-fill:
-        radial-gradient(circle at 100% 0%, rgba(240, 210, 137, 0.10) 0%, transparent 34%),
-        linear-gradient(180deg, rgba(52, 39, 29, 0.96) 0%, rgba(21, 15, 11, 0.98) 100%);
+        linear-gradient(180deg, rgba(67, 76, 94, 0.98) 0%, rgba(46, 52, 64, 0.98) 100%);
     --sibylla-embed-fill:
-        linear-gradient(180deg, rgba(36, 26, 19, 0.96) 0%, rgba(21, 15, 11, 0.98) 100%);
+        linear-gradient(180deg, rgba(61, 69, 85, 0.96) 0%, rgba(46, 52, 64, 0.98) 100%);
     --sibylla-embed-fill-soft:
-        linear-gradient(180deg, rgba(29, 21, 16, 0.96) 0%, rgba(18, 13, 10, 0.98) 100%);
-    --sibylla-embed-accent: #d8a84c;
-    --sibylla-soft-edge: rgba(255, 240, 214, 0.048);
-    --sibylla-soft-edge-strong: rgba(255, 240, 214, 0.084);
-    --sibylla-blue-glow: rgba(216, 168, 76, 0.12);
-    --sibylla-gold-glow: rgba(240, 210, 137, 0.14);
+        linear-gradient(180deg, rgba(67, 76, 94, 0.94) 0%, rgba(46, 52, 64, 0.96) 100%);
+    --sibylla-embed-accent: #a3be8c;
+    --sibylla-soft-edge: rgba(236, 239, 244, 0.022);
+    --sibylla-soft-edge-strong: rgba(236, 239, 244, 0.032);
+    --sibylla-blue-glow: rgba(180, 142, 173, 0.10);
+    --sibylla-gold-glow: rgba(235, 203, 139, 0.06);
     --sibylla-profile-fill:
-        radial-gradient(circle at 84% 18%, rgba(240, 210, 137, 0.14) 0%, transparent 16%),
-        radial-gradient(circle at 16% 22%, rgba(216, 168, 76, 0.10) 0%, transparent 14%),
-        linear-gradient(135deg, rgba(52, 39, 29, 0.98) 0%, rgba(13, 9, 7, 0.98) 100%);
+        radial-gradient(circle at 82% 16%, rgba(180, 142, 173, 0.12) 0%, transparent 14%),
+        radial-gradient(circle at 14% 18%, rgba(163, 190, 140, 0.10) 0%, transparent 14%),
+        linear-gradient(135deg, rgba(67, 76, 94, 0.98) 0%, rgba(38, 44, 55, 0.98) 100%);
     --sibylla-profile-overlay:
-        linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.024) 26%, transparent 50%, rgba(255, 255, 255, 0.012) 66%, transparent 84%);
-    --sibylla-card-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.016), transparent 34%);
-    --sibylla-active-fill: linear-gradient(90deg, rgba(240, 210, 137, 0.16) 0%, rgba(216, 168, 76, 0.08) 100%);
-    --sibylla-hover-fill: linear-gradient(90deg, rgba(240, 210, 137, 0.10) 0%, rgba(216, 168, 76, 0.05) 100%);
+        linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.018) 26%, transparent 54%, rgba(255, 255, 255, 0.01) 70%, transparent 88%);
+    --sibylla-card-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.014), transparent 38%);
+    --sibylla-active-fill: linear-gradient(90deg, rgba(163, 190, 140, 0.14) 0%, rgba(180, 142, 173, 0.08) 100%);
+    --sibylla-hover-fill: linear-gradient(90deg, rgba(208, 135, 112, 0.08) 0%, rgba(191, 97, 106, 0.05) 100%);
 }
 
 /* ============================================
