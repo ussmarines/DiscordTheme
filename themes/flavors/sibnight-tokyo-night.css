@@ -335,9 +335,6 @@ body {
     display: none !important;
 }
 
-.channelTextArea_f75fb0 {
-    overflow: hidden !important;
-}
 
 .base_b88801 > div,
 .channelBottomBarArea_f75fb0 > div {
@@ -435,4 +432,83 @@ body {
 .editor__1b31f,
 .textArea__74017 {
     color: var(--text-2) !important;
+}
+
+/* ==============================
+   Flavor autocomplete / shortcut compatibility
+   Restores Discord @ / # suggestion panels without changing the flavor palette.
+   ============================== */
+
+:is(
+    .form_f75fb0,
+    .channelBottomBarArea_f75fb0,
+    .base_b88801,
+    .channelTextArea_f75fb0,
+    .stackedBars__74017,
+    .scrollableContainer__74017,
+    .inner__74017
+) {
+    overflow: visible !important;
+}
+
+.autocomplete__6b0e0 {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: var(--sibylla-panel-fill-strong) !important;
+    background-image: none !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 14px !important;
+    box-shadow: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    z-index: 1000 !important;
+}
+
+.autocomplete__6b0e0::before,
+.autocomplete__6b0e0::after {
+    display: none !important;
+}
+
+.autocomplete__6b0e0 [class*='scroller'],
+.autocomplete__6b0e0 [class*='list'],
+.autocomplete__6b0e0 [class*='header'],
+.autocomplete__6b0e0 [class*='sectionTag'],
+.autocomplete__6b0e0 [class*='content'],
+.autocomplete__6b0e0 [class*='row'],
+.autocomplete__6b0e0 [role='option'] {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    filter: none !important;
+}
+
+.autocomplete__6b0e0 [class*='header'],
+.autocomplete__6b0e0 [class*='title'],
+.autocomplete__6b0e0 [class*='sectionTag'] {
+    color: var(--text-4) !important;
+}
+
+.autocomplete__6b0e0 [class*='row']:hover,
+.autocomplete__6b0e0 [class*='row'][aria-selected='true'],
+.autocomplete__6b0e0 [role='option']:hover,
+.autocomplete__6b0e0 [role='option'][aria-selected='true'] {
+    background: var(--sibylla-hover-fill) !important;
+}
+
+.autocomplete__6b0e0 [class*='selected'],
+.autocomplete__6b0e0 [class*='selectorSelected'] {
+    background: var(--sibylla-active-fill) !important;
+}
+
+.autocomplete__6b0e0 [class*='icon'],
+.autocomplete__6b0e0 svg {
+    color: var(--icon-default) !important;
+    fill: currentColor !important;
+}
+
+.autocomplete__6b0e0 [class*='description'],
+.autocomplete__6b0e0 [class*='alias'] {
+    color: var(--text-4) !important;
 }
