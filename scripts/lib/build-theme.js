@@ -90,7 +90,7 @@ function ensureThemeTemplate(themeCss) {
     if (!BUILD_IMPORT_PATTERN.test(themeCss)) {
         throw new Error(
             'themes/sibnight.theme.css no longer contains the expected build import. ' +
-                'Keep the raw GitHub import so the build step can inline compiled CSS safely.'
+                'Keep the GitHub Pages build import so the build step can inline compiled CSS safely.'
         );
     }
 }
