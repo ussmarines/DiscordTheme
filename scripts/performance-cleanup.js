@@ -41,12 +41,7 @@ function cleanupCss(css) {
         ''
     );
 
-    output = output.replace(
-        /\n{3,}/gu,
-        '\n\n'
-    );
-
-    return output.trimEnd() + '\n';
+    return output.replace(/\n{3,}/gu, '\n\n').trimEnd() + '\n';
 }
 
 function main() {

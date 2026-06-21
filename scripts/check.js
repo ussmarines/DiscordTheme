@@ -15,6 +15,7 @@ const {
 
 const flavorsDir = path.join(rootDir, 'themes', 'flavors');
 const readmeFile = path.join(rootDir, 'README.md');
+const packageFile = path.join(rootDir, 'package.json');
 
 const EXPECTED_FLAVOR_FILES = [
     'sibnight-flat.theme.css',
@@ -39,6 +40,10 @@ function readTextFile(filePath) {
     return fs.readFileSync(filePath, 'utf8');
 }
 
+function readJsonFile(filePath) {
+    return JSON.parse(readTextFile(filePath));
+}
+
 function ensureFilesExist(filePaths) {
     for (const filePath of filePaths) {
         if (!fs.existsSync(filePath)) {
@@ -49,6 +54,42 @@ function ensureFilesExist(filePaths) {
 
 function stripCssComments(css) {
     return css.replace(/\/\*[\s\S]*?\*\//gu, '');
+}
+
+function listCssFiles(directory) {
+    if (!fs.existsSync(directory)) {
+        return [];
+    }
+
+    const files = [];
+
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+        const entryPath = path.join(directory, entry.name);
+
+        if (entry.isDirectory()) {
+            files.push(...listCssFiles(entryPath));
+            continue;
+        }
+
+        if (entry.isFile() && entry.name.endsWith('.css')) {
+            files.push(entryPath);
+        }
+    }
+
+    return files.sort((left, right) => left.localeCompare(right));
+}
+
+function ensurePackageScriptsAreAligned() {
+    const pkg = readJsonFile(packageFile);
+    const scripts = pkg.scripts || {};
+
+    if (scripts['optimize:css'] !== 'node scripts/performance-cleanup.js') {
+        fail('package.json should define "optimize:css": "node scripts/performance-cleanup.js"');
+    }
+
+    if (!scripts['prepare:release'] || !scripts['prepare:release'].includes('npm run optimize:css')) {
+        fail('package.json prepare:release should run npm run optimize:css before build/check');
+    }
 }
 
 function ensureSingleRemoteBuildImport() {
@@ -120,29 +161,6 @@ function ensureBuildOutputLooksHealthy(compiledCss) {
     if (bundledCss.includes(REMOTE_BUILD_IMPORT)) {
         fail('bundled CSS still contains the remote build import');
     }
-}
-
-function listCssFiles(directory) {
-    if (!fs.existsSync(directory)) {
-        return [];
-    }
-
-    const files = [];
-
-    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-        const entryPath = path.join(directory, entry.name);
-
-        if (entry.isDirectory()) {
-            files.push(...listCssFiles(entryPath));
-            continue;
-        }
-
-        if (entry.isFile() && entry.name.endsWith('.css')) {
-            files.push(entryPath);
-        }
-    }
-
-    return files.sort((left, right) => left.localeCompare(right));
 }
 
 function getFlavorFiles() {
@@ -241,25 +259,18 @@ function ensureReadmeFlavorPathsAreNormalized() {
 }
 
 function ensureNoExpensiveWillChange() {
+    const cssFiles = [
+        ...listCssFiles(srcDir),
+        ...listCssFiles(path.join(rootDir, 'themes')),
+    ];
+
     const offenders = [];
 
-    for (const filePath of listCssFiles(rootDir)) {
-        const relativePath = path.relative(rootDir, filePath);
-
-        if (
-            relativePath.startsWith('node_modules') ||
-            relativePath.startsWith('.git') ||
-            relativePath.startsWith('build') ||
-            relativePath === 'sibnight.css' ||
-            relativePath.startsWith('archive')
-        ) {
-            continue;
-        }
-
+    for (const filePath of cssFiles) {
         const css = readTextFile(filePath);
 
         if (/will-change\s*:\s*scroll-position/iu.test(css)) {
-            offenders.push(relativePath);
+            offenders.push(path.relative(rootDir, filePath));
         }
     }
 
@@ -295,7 +306,8 @@ function logDiscoveredSources() {
 }
 
 function main() {
-    ensureFilesExist([srcDir, themeFile]);
+    ensureFilesExist([packageFile, srcDir, themeFile]);
+    ensurePackageScriptsAreAligned();
     assertSourceOrderIsStrict();
     ensureSingleRemoteBuildImport();
     ensureFlavorFilesAreNormalized();

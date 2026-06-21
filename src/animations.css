@@ -13,6 +13,19 @@ body {
     initial-value: on;
 }
 
+/* Base visual state. Keep transitions out of the base layer so the
+   --animations toggle and reduced-motion preference can actually work. */
+.wrapper__2ea32 .link__2ea32,
+.channel__972a0,
+.container__91a9d,
+.side_aa8da2 .item_aa8da2,
+.link__972a0,
+.interactive__972a0,
+.member_c8ffbb {
+    border-radius: 11px;
+    border: 1px solid transparent;
+}
+
 @container body style(--animations: on) {
     .wrapper__2ea32 .link__2ea32,
     .container__91a9d,
@@ -26,33 +39,29 @@ body {
             border-color var(--list-item-transition),
             color var(--list-item-transition),
             opacity var(--list-item-transition);
-        will-change: auto;
     }
 
     .unread__2ea32 {
         transition:
             background-color var(--list-item-transition),
             opacity var(--list-item-transition);
-        will-change: auto;
+    }
+}
+
+@container body style(--animations: off) {
+    .wrapper__2ea32 .link__2ea32,
+    .container__91a9d,
+    .channel__972a0,
+    .side_aa8da2 .item_aa8da2,
+    .member_c8ffbb,
+    .link__972a0,
+    .interactive__972a0,
+    .unread__2ea32 {
+        transition: none !important;
     }
 }
 
 /* sibnight interactive surfaces */
-.wrapper__2ea32 .link__2ea32,
-.channel__972a0,
-.container__91a9d,
-.side_aa8da2 .item_aa8da2,
-.link__972a0,
-.interactive__972a0,
-.member_c8ffbb {
-    border-radius: 11px;
-    border: 1px solid transparent;
-    transition:
-        background-color 0.14s ease,
-        border-color 0.14s ease,
-        color 0.14s ease;
-}
-
 .wrapper__2ea32:hover .link__2ea32,
 .channel__972a0:hover,
 .container__91a9d:hover,
@@ -81,9 +90,11 @@ body {
     *,
     *::before,
     *::after {
+        animation: none !important;
         animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
+        transition: none !important;
         transition-duration: 0.001ms !important;
     }
 }

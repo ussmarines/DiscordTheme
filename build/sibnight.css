@@ -2242,6 +2242,19 @@ body {
     initial-value: on;
 }
 
+/* Base visual state. Keep transitions out of the base layer so the
+   --animations toggle and reduced-motion preference can actually work. */
+.wrapper__2ea32 .link__2ea32,
+.channel__972a0,
+.container__91a9d,
+.side_aa8da2 .item_aa8da2,
+.link__972a0,
+.interactive__972a0,
+.member_c8ffbb {
+    border-radius: 11px;
+    border: 1px solid transparent;
+}
+
 @container body style(--animations: on) {
     .wrapper__2ea32 .link__2ea32,
     .container__91a9d,
@@ -2255,33 +2268,29 @@ body {
             border-color var(--list-item-transition),
             color var(--list-item-transition),
             opacity var(--list-item-transition);
-        will-change: auto;
     }
 
     .unread__2ea32 {
         transition:
             background-color var(--list-item-transition),
             opacity var(--list-item-transition);
-        will-change: auto;
+    }
+}
+
+@container body style(--animations: off) {
+    .wrapper__2ea32 .link__2ea32,
+    .container__91a9d,
+    .channel__972a0,
+    .side_aa8da2 .item_aa8da2,
+    .member_c8ffbb,
+    .link__972a0,
+    .interactive__972a0,
+    .unread__2ea32 {
+        transition: none !important;
     }
 }
 
 /* sibnight interactive surfaces */
-.wrapper__2ea32 .link__2ea32,
-.channel__972a0,
-.container__91a9d,
-.side_aa8da2 .item_aa8da2,
-.link__972a0,
-.interactive__972a0,
-.member_c8ffbb {
-    border-radius: 11px;
-    border: 1px solid transparent;
-    transition:
-        background-color 0.14s ease,
-        border-color 0.14s ease,
-        color 0.14s ease;
-}
-
 .wrapper__2ea32:hover .link__2ea32,
 .channel__972a0:hover,
 .container__91a9d:hover,
@@ -2310,9 +2319,11 @@ body {
     *,
     *::before,
     *::after {
+        animation: none !important;
         animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
+        transition: none !important;
         transition-duration: 0.001ms !important;
     }
 }
@@ -3580,13 +3591,31 @@ body {
     background-color: var(--sibnight-bg-4, hsl(228, 60%, 6%)) !important;
 }
 
-/* Keep scrollbars quiet even when Discord changes internal class ordering. */
-[class*='scroller']::-webkit-scrollbar {
+/* Keep known high-traffic scroll containers quiet without using broad [class*='scroller'] selectors. */
+.scroller_ef3116::-webkit-scrollbar,
+.scroller__629e4::-webkit-scrollbar,
+.scroller__99e7c::-webkit-scrollbar,
+.scroller__7d20c::-webkit-scrollbar,
+.scroller__23746::-webkit-scrollbar,
+.scrollerBase_d125d2::-webkit-scrollbar,
+.contentRegionScroller__23e6b::-webkit-scrollbar,
+.mainPageScroller__80907::-webkit-scrollbar,
+.shop__08415::-webkit-scrollbar,
+.stack_dbd263:not([id='guild-list-unread-dms'])::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
 
-[class*='scroller'] {
+.scroller_ef3116,
+.scroller__629e4,
+.scroller__99e7c,
+.scroller__7d20c,
+.scroller__23746,
+.scrollerBase_d125d2,
+.contentRegionScroller__23e6b,
+.mainPageScroller__80907,
+.shop__08415,
+.stack_dbd263:not([id='guild-list-unread-dms']) {
     scrollbar-width: none;
 }
 
