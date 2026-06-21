@@ -4,7 +4,7 @@
      * @author ussmarines
      * @version 1.7.0
      * @website https://github.com/ussmarines/DiscordTheme
-     * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-space.css
+     * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-space.theme.css
      * @authorLink https://github.com/ussmarines
      */
     /* credits
@@ -13,7 +13,7 @@
      * window controls inspired by https://github.com/Dyzean/Tokyo-Night
      */
 
-    @import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/sibnight.theme.css');
+    @import url('https://ussmarines.github.io/DiscordTheme/build/sibnight.css');
 
     body {
     --dms-icon-svg-size: 104%;
@@ -23,39 +23,39 @@
 }
 
 :root {
-    --accent-1: #e8fbff;
-    --accent-2: #8deeff;
-    --accent-3: #4fc8ff;
-    --accent-4: #6f86ff;
-    --accent-5: #b67cff;
-    --accent-new: #8deeff;
-    --mention: linear-gradient(90deg, rgba(79, 200, 255, 0.22) 0%, rgba(111, 134, 255, 0.12) 100%);
-    --mention-hover: linear-gradient(90deg, rgba(79, 200, 255, 0.28) 0%, rgba(111, 134, 255, 0.16) 100%);
-    --reply: linear-gradient(90deg, rgba(141, 238, 255, 0.16) 0%, rgba(79, 200, 255, 0.08) 100%);
-    --reply-hover: linear-gradient(90deg, rgba(141, 238, 255, 0.22) 0%, rgba(79, 200, 255, 0.12) 100%);
-    --text-0: #081123;
-    --text-1: #f1f7ff;
-    --text-2: #ccd8f0;
-    --text-3: #9eb4d4;
-    --text-4: #7d8eb0;
-    --text-5: rgba(204, 216, 240, 0.40);
-    --bg-1: #192a56;
-    --bg-2: #102042;
-    --bg-3: #09152f;
-    --bg-4: #040914;
-    --bg-floating: #081228;
-    --hover: rgba(141, 238, 255, 0.10);
-    --active: rgba(79, 200, 255, 0.20);
-    --active-2: rgba(111, 134, 255, 0.18);
-    --message-hover: rgba(8, 15, 31, 0.84);
-    --border-light: rgba(223, 246, 255, 0.05);
-    --border: rgba(141, 238, 255, 0.14);
-    --border-hover: rgba(141, 238, 255, 0.22);
-    --button-border: rgba(232, 251, 255, 0.10);
-    --online: #73d7bf;
-    --dnd: #f06d7b;
-    --idle: #ebcb8b;
-    --streaming: #7b7cff;
+    --sibnight-accent-1: #e8fbff;
+    --sibnight-accent-2: #8deeff;
+    --sibnight-accent-3: #4fc8ff;
+    --sibnight-accent-4: #6f86ff;
+    --sibnight-accent-5: #b67cff;
+    --sibnight-accent-new: #8deeff;
+    --sibnight-mention: linear-gradient(90deg, rgba(79, 200, 255, 0.22) 0%, rgba(111, 134, 255, 0.12) 100%);
+    --sibnight-mention-hover: linear-gradient(90deg, rgba(79, 200, 255, 0.28) 0%, rgba(111, 134, 255, 0.16) 100%);
+    --sibnight-reply: linear-gradient(90deg, rgba(141, 238, 255, 0.16) 0%, rgba(79, 200, 255, 0.08) 100%);
+    --sibnight-reply-hover: linear-gradient(90deg, rgba(141, 238, 255, 0.22) 0%, rgba(79, 200, 255, 0.12) 100%);
+    --sibnight-text-0: #081123;
+    --sibnight-text-1: #f1f7ff;
+    --sibnight-text-2: #ccd8f0;
+    --sibnight-text-3: #9eb4d4;
+    --sibnight-text-4: #7d8eb0;
+    --sibnight-text-5: rgba(204, 216, 240, 0.40);
+    --sibnight-bg-1: #192a56;
+    --sibnight-bg-2: #102042;
+    --sibnight-bg-3: #09152f;
+    --sibnight-bg-4: #040914;
+    --sibnight-bg-floating: #081228;
+    --sibnight-hover: rgba(141, 238, 255, 0.10);
+    --sibnight-active: rgba(79, 200, 255, 0.20);
+    --sibnight-active-2: rgba(111, 134, 255, 0.18);
+    --sibnight-message-hover: rgba(8, 15, 31, 0.84);
+    --sibnight-border-light: rgba(223, 246, 255, 0.05);
+    --sibnight-border: rgba(141, 238, 255, 0.14);
+    --sibnight-border-hover: rgba(141, 238, 255, 0.22);
+    --sibnight-button-border: rgba(232, 251, 255, 0.10);
+    --sibnight-online: #73d7bf;
+    --sibnight-dnd: #f06d7b;
+    --sibnight-idle: #ebcb8b;
+    --sibnight-streaming: #7b7cff;
     --sibylla-shell-gradient: radial-gradient(circle at 14% 8%, rgba(79, 200, 255, 0.18) 0%, transparent 22%), radial-gradient(circle at 84% 14%, rgba(111, 134, 255, 0.18) 0%, transparent 24%), radial-gradient(circle at 72% 76%, rgba(182, 124, 255, 0.14) 0%, transparent 20%), linear-gradient(180deg, #081228 0%, #060d1d 100%);
     --sibylla-panel-fill: #0b1735;
     --sibylla-panel-fill-strong: #12254f;
@@ -97,6 +97,7 @@
     --sibylla-soft-edge-strong: transparent;
     --sibylla-blue-glow: transparent;
     --sibylla-gold-glow: transparent;
+	--sibnight-text-0: #081123;
 }
 
 :is(
@@ -249,19 +250,19 @@
 }
 
 .pill_e5445c .item__58105 {
-    background: var(--accent-2) !important;
+    background: var(--sibnight-accent-2) !important;
 }
 
 .message__5126c:hover,
 .message__5126c.selected__5126c,
 .mouse-mode.full-motion .message__5126c:hover {
-    background: var(--message-hover) !important;
+    background: var(--sibnight-message-hover) !important;
 }
 
 .reaction__23977,
 .reactionBtn__23977.forceShow__23977 {
     background: var(--sibylla-embed-fill-soft) !important;
-    border-color: var(--border) !important;
+    border-color: var(--sibnight-border) !important;
 }
 
 .toolbar__9293f .search__49676 svg,
@@ -352,7 +353,7 @@
 
 .embedFull__623de {
     background: var(--sibylla-embed-fill-soft) !important;
-    border-color: var(--border) !important;
+    border-color: var(--sibnight-border) !important;
     border-left-width: 3px !important;
     border-left-color: var(--sibylla-embed-accent) !important;
 }
@@ -360,14 +361,14 @@
 .message__5126c.mentioned__5126c,
 .replying__5126c,
 .ephemeral__5126c {
-    background: var(--mention) !important;
-    box-shadow: inset 0 0 0 1px var(--border) !important;
+    background: var(--sibnight-mention) !important;
+    box-shadow: inset 0 0 0 1px var(--sibnight-border) !important;
 }
 
 .message__5126c.mentioned__5126c:hover,
 .replying__5126c:hover,
 .ephemeral__5126c:hover {
-    background: var(--mention-hover) !important;
+    background: var(--sibnight-mention-hover) !important;
 }
 
 .message__5126c.mentioned__5126c::before,
@@ -380,16 +381,16 @@
 .botTag__82f07,
 [class*='botTagRegular__'],
 [class*='botTag__'] {
-    background: var(--accent-2) !important;
-    color: var(--text-0) !important;
+    background: var(--sibnight-accent-2) !important;
+    color: var(--sibnight-text-0) !important;
     border: none !important;
     box-shadow: none !important;
 }
 
 .botTagOP__82f07,
 [class*='botTagOP__'] {
-    background: var(--accent-3) !important;
-    color: var(--text-0) !important;
+    background: var(--sibnight-accent-3) !important;
+    color: var(--sibnight-text-0) !important;
     border: none !important;
     box-shadow: none !important;
 }
@@ -617,7 +618,7 @@
         linear-gradient(150deg, rgba(19, 44, 94, 0.94) 0%, rgba(10, 20, 43, 0.98) 100%),
         radial-gradient(circle at 100% 0%, rgba(141, 238, 255, 0.08) 0%, transparent 26%) !important;
     border-left-width: 3px !important;
-    border-left-color: var(--accent-2) !important;
+    border-left-color: var(--sibnight-accent-2) !important;
 }
 
 .botTagRegular__82f07,
@@ -737,7 +738,7 @@
 .actionIcon_f9255e,
 [role='tab'] [class*='icon'],
 [aria-label='Add Friend'] {
-    color: var(--accent-2) !important;
+    color: var(--sibnight-accent-2) !important;
     fill: currentColor !important;
 }
 
@@ -776,7 +777,7 @@
     opacity: 1 !important;
     background: var(--sibylla-panel-fill-strong) !important;
     background-image: none !important;
-    border: 1px solid var(--border) !important;
+    border: 1px solid var(--sibnight-border) !important;
     border-radius: 14px !important;
     box-shadow: none !important;
     filter: none !important;
@@ -806,7 +807,7 @@
 .autocomplete__6b0e0 [class*='header'],
 .autocomplete__6b0e0 [class*='title'],
 .autocomplete__6b0e0 [class*='sectionTag'] {
-    color: var(--text-4) !important;
+    color: var(--sibnight-text-4) !important;
 }
 
 .autocomplete__6b0e0 [class*='row']:hover,
@@ -829,7 +830,7 @@
 
 .autocomplete__6b0e0 [class*='description'],
 .autocomplete__6b0e0 [class*='alias'] {
-    color: var(--text-4) !important;
+    color: var(--sibnight-text-4) !important;
 }
 
 /* ==============================

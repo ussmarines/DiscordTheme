@@ -15,7 +15,7 @@
 
     .popoverReactionHoverBar_f84418 /* message hover quick action bar */,
         .tooltip_c36707 /* tooltips */ {
-        background: var(--bg-floating);
+        background: var(--sibnight-bg-floating);
     }
     .menu_c1e9c4 /* context menus */,
         .contentWrapper__08434 /* emoji/gif panel */,
@@ -26,7 +26,7 @@
         .messagesPopoutWrap_e8b59c /* inbox */,
         .popout__76f04 /* channel hover popout */,
         .bar__7aaec /* channel list new unreads bar */ {
-        background: var(--bg-floating);
+        background: var(--sibnight-bg-floating);
     }
 
     .menu_c1e9c4::before {

@@ -30,82 +30,82 @@ Pour utiliser une flavor, suis les instructions d'installation ci-dessus, mais t
 <table>
   <tr>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-flat.css">
+      <a href="./themes/flavors/sibnight-flat.theme.css">
         <img src="./assets/readme/mockup-flat.png" alt="Aperçu sibnight-flat">
       </a>
       <br>
       <strong>sibnight-flat</strong>
       <br>
-      <code>themes/flavors/sibnight-flat.css</code>
+      <code>themes/flavors/sibnight-flat.theme.css</code>
     </td>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-tokyo-night.css">
+      <a href="./themes/flavors/sibnight-tokyo-night.theme.css">
         <img src="./assets/readme/mockup-tokyo-night.png" alt="Aperçu sibnight-tokyo-night">
       </a>
       <br>
       <strong>sibnight-tokyo-night</strong>
       <br>
-      <code>themes/flavors/sibnight-tokyo-night.css</code>
+      <code>themes/flavors/sibnight-tokyo-night.theme.css</code>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-sun.css">
+      <a href="./themes/flavors/sibnight-sun.theme.css">
         <img src="./assets/readme/mockup-sun.png" alt="Aperçu sibnight-sun">
       </a>
       <br>
       <strong>sibnight-sun</strong>
       <br>
-      <code>themes/flavors/sibnight-sun.css</code>
+      <code>themes/flavors/sibnight-sun.theme.css</code>
     </td>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-space.css">
+      <a href="./themes/flavors/sibnight-space.theme.css">
         <img src="./assets/readme/mockup-space.png" alt="Aperçu sibnight-space">
       </a>
       <br>
       <strong>sibnight-space</strong>
       <br>
-      <code>themes/flavors/sibnight-space.css</code>
+      <code>themes/flavors/sibnight-space.theme.css</code>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-north-Polar.css">
+      <a href="./themes/flavors/sibnight-north-Polar.theme.css">
         <img src="./assets/readme/mockup-north-polar.png" alt="Aperçu sibnight-north-Polar">
       </a>
       <br>
       <strong>sibnight-north-Polar</strong>
       <br>
-      <code>themes/flavors/sibnight-north-Polar.css</code>
+      <code>themes/flavors/sibnight-north-Polar.theme.css</code>
     </td>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-north-Snow.css">
+      <a href="./themes/flavors/sibnight-north-Snow.theme.css">
         <img src="./assets/readme/mockup-north-snow.png" alt="Aperçu sibnight-north-Snow">
       </a>
       <br>
       <strong>sibnight-north-Snow</strong>
       <br>
-      <code>themes/flavors/sibnight-north-Snow.css</code>
+      <code>themes/flavors/sibnight-north-Snow.theme.css</code>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-north-Aurora-Dark.css">
+      <a href="./themes/flavors/sibnight-north-Aurora-Dark.theme.css">
         <img src="./assets/readme/mockup-north-aurora-dark.png" alt="Aperçu sibnight-north-Aurora-Dark">
       </a>
       <br>
       <strong>sibnight-north-Aurora-Dark</strong>
       <br>
-      <code>themes/flavors/sibnight-north-Aurora-Dark.css</code>
+      <code>themes/flavors/sibnight-north-Aurora-Dark.theme.css</code>
     </td>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-north-Aurora-Light.css">
+      <a href="./themes/flavors/sibnight-north-Aurora-Light.theme.css">
         <img src="./assets/readme/mockup-north-aurora-light.png" alt="Aperçu sibnight-north-Aurora-Light">
       </a>
       <br>
       <strong>sibnight-north-Aurora-Light</strong>
       <br>
-      <code>themes/flavors/sibnight-north-Aurora-Light.css</code>
+      <code>themes/flavors/sibnight-north-Aurora-Light.theme.css</code>
     </td>
   </tr>
 </table>

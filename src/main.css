@@ -421,7 +421,7 @@ body {
     margin: 12px;
     margin-bottom: 0;
     padding-left: 16px;
-    background-color: var(--bg-3);
+    background-color: var(--sibnight-bg-3);
     border-radius: var(--radius-sm);
     border: 1px solid var(--border-subtle);
 
@@ -554,13 +554,13 @@ body {
 .inner_c0bea0 {
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.015) 0%, transparent 22%),
-        color-mix(in srgb, var(--bg-3) 30%, var(--bg-4) 70%);
+        color-mix(in srgb, var(--sibnight-bg-3) 30%, var(--sibnight-bg-4) 70%);
 }
 
 .inner_c0bea0 [class*='overlayBackground'],
 .inner_c0bea0 [class*='section'],
 .outer_c0bea0 [class*='note'] {
-    background-color: color-mix(in srgb, var(--bg-3) 38%, transparent) !important;
+    background-color: color-mix(in srgb, var(--sibnight-bg-3) 38%, transparent) !important;
     border: none !important;
 }
 
@@ -569,7 +569,7 @@ body {
     padding-bottom: 0;
 
     .sourceOverlayCTA__2f580 {
-        color: var(--text-3);
+        color: var(--sibnight-text-3);
     }
 
     .footer_a55fdc {
@@ -581,12 +581,12 @@ body {
     }
 }
 .vcd-screen-picker-option-radio[data-checked='true'] span {
-    color: var(--text-0);
+    color: var(--sibnight-text-0);
 }
 
 /* Activity popout message field */
 .replyInput__5ba62 {
-    background-color: var(--bg-4);
+    background-color: var(--sibnight-bg-4);
 }
 
 /* remove unnecessary backgrounds */
@@ -620,8 +620,8 @@ body {
     --proto-column-shadow:
         0 18px 42px rgba(2, 8, 18, 0.30),
         0 0 0 1px rgba(112, 174, 255, 0.03);
-    --proto-hover-surface: color-mix(in srgb, var(--blue-2) 10%, transparent);
-    --proto-active-surface: color-mix(in srgb, var(--blue-2) 16%, transparent);
+    --proto-hover-surface: color-mix(in srgb, var(--sibnight-blue-2) 10%, transparent);
+    --proto-active-surface: color-mix(in srgb, var(--sibnight-blue-2) 16%, transparent);
 }
 
 body {
@@ -842,16 +842,16 @@ nav[class*='guilds'] {
 .interactive_bf202d.selected_bf202d,
 .channel__972a0.container__972a0:hover,
 .interactive__972a0:hover {
-    background: color-mix(in srgb, var(--blue-2) 14%, transparent) !important;
+    background: color-mix(in srgb, var(--sibnight-blue-2) 14%, transparent) !important;
 }
 
 .link__2ea32:hover,
 .interactive_bf202d:hover {
-    background: color-mix(in srgb, var(--blue-2) 10%, transparent) !important;
+    background: color-mix(in srgb, var(--sibnight-blue-2) 10%, transparent) !important;
 }
 
 .pill_e5445c .item__58105 {
-    background: linear-gradient(180deg, var(--blue-2), color-mix(in srgb, var(--yellow-2) 22%, var(--blue-3) 78%)) !important;
+    background: linear-gradient(180deg, var(--sibnight-blue-2), color-mix(in srgb, var(--sibnight-yellow-2) 22%, var(--sibnight-blue-3) 78%)) !important;
     box-shadow: 0 0 14px rgba(99, 170, 255, 0.22);
 }
 
@@ -907,13 +907,13 @@ nav[class*='guilds'] {
     --sibylla-card-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 34%);
     --sibylla-active-fill: linear-gradient(
         90deg,
-        color-mix(in srgb, var(--blue-2) 18%, transparent) 0%,
-        color-mix(in srgb, var(--blue-2) 10%, transparent) 100%
+        color-mix(in srgb, var(--sibnight-blue-2) 18%, transparent) 0%,
+        color-mix(in srgb, var(--sibnight-blue-2) 10%, transparent) 100%
     );
     --sibylla-hover-fill: linear-gradient(
         90deg,
-        color-mix(in srgb, var(--blue-2) 12%, transparent) 0%,
-        color-mix(in srgb, var(--blue-2) 6%, transparent) 100%
+        color-mix(in srgb, var(--sibnight-blue-2) 12%, transparent) 0%,
+        color-mix(in srgb, var(--sibnight-blue-2) 6%, transparent) 100%
     );
 }
 
@@ -963,7 +963,7 @@ nav[class*='guilds'] {
 }
 
 [class*='membersGroup'] {
-    color: color-mix(in srgb, var(--text-2) 76%, var(--yellow-2) 24%) !important;
+    color: color-mix(in srgb, var(--sibnight-text-2) 76%, var(--sibnight-yellow-2) 24%) !important;
     text-shadow: 0 0 10px rgba(97, 168, 255, 0.08);
 }
 
@@ -975,7 +975,7 @@ nav[class*='guilds'] {
 .markup_f8f345 a,
 .anchor_edefb8,
 .fakeLink__2c949 {
-    color: color-mix(in srgb, var(--blue-1) 78%, var(--yellow-2) 22%) !important;
+    color: color-mix(in srgb, var(--sibnight-blue-1) 78%, var(--sibnight-yellow-2) 22%) !important;
 }
 
 .embedFull__623de,
@@ -1014,7 +1014,7 @@ nav[class*='guilds'] {
 
 .reaction__23977,
 .reactionBtn__23977.forceShow__23977 {
-    background: color-mix(in srgb, var(--bg-3) 26%, var(--bg-4) 74%) !important;
+    background: color-mix(in srgb, var(--sibnight-bg-3) 26%, var(--sibnight-bg-4) 74%) !important;
     border-color: rgba(122, 181, 255, 0.04) !important;
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.014),
@@ -1046,7 +1046,7 @@ nav[class*='guilds'] {
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    background-color: color-mix(in srgb, var(--bg-2) 48%, var(--bg-4) 52%) !important;
+    background-color: color-mix(in srgb, var(--sibnight-bg-2) 48%, var(--sibnight-bg-4) 52%) !important;
 }
 
 .banner__68edb::before {

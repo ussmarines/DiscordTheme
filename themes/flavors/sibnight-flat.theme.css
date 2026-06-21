@@ -4,7 +4,7 @@
  * @author ussmarines
  * @version 1.0.0
  * @website https://github.com/ussmarines/DiscordTheme
- * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-flat.css
+ * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-flat.theme.css
  * @authorLink https://github.com/ussmarines
  */
 /* credits
@@ -13,7 +13,7 @@
  * window controls inspired by https://github.com/Dyzean/Tokyo-Night
  */
 
-@import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/sibnight.theme.css');
+@import url('https://ussmarines.github.io/DiscordTheme/build/sibnight.css');
 
 body {
     --dms-icon-svg-size: 104%;
@@ -23,44 +23,44 @@ body {
 }
 
 :root {
-    --accent-1: #b9dcff;
-    --accent-2: #82c3ff;
-    --accent-3: #f1d17a;
-    --accent-4: #d9b566;
-    --accent-5: #b78735;
-    --accent-new: #f1d17a;
+    --sibnight-accent-1: #b9dcff;
+    --sibnight-accent-2: #82c3ff;
+    --sibnight-accent-3: #f1d17a;
+    --sibnight-accent-4: #d9b566;
+    --sibnight-accent-5: #b78735;
+    --sibnight-accent-new: #f1d17a;
 
-    --mention: rgba(130, 195, 255, 0.14);
-    --mention-hover: rgba(130, 195, 255, 0.20);
-    --reply: rgba(241, 209, 122, 0.12);
-    --reply-hover: rgba(241, 209, 122, 0.18);
+    --sibnight-mention: rgba(130, 195, 255, 0.14);
+    --sibnight-mention-hover: rgba(130, 195, 255, 0.20);
+    --sibnight-reply: rgba(241, 209, 122, 0.12);
+    --sibnight-reply-hover: rgba(241, 209, 122, 0.18);
 
-    --text-0: #08111f;
-    --text-1: #eef5ff;
-    --text-2: #d8e4f2;
-    --text-3: #a8b7ca;
-    --text-4: #7f8fa6;
-    --text-5: rgba(168, 183, 202, 0.42);
+    --sibnight-text-0: #08111f;
+    --sibnight-text-1: #eef5ff;
+    --sibnight-text-2: #d8e4f2;
+    --sibnight-text-3: #a8b7ca;
+    --sibnight-text-4: #7f8fa6;
+    --sibnight-text-5: rgba(168, 183, 202, 0.42);
 
-    --bg-1: #20375b;
-    --bg-2: #162847;
-    --bg-3: #0f1d36;
-    --bg-4: #08111f;
-    --bg-floating: #0f1d36;
-    --hover: rgba(185, 220, 255, 0.07);
-    --active: rgba(130, 195, 255, 0.14);
-    --active-2: rgba(241, 209, 122, 0.18);
-    --message-hover: rgba(15, 29, 54, 0.78);
+    --sibnight-bg-1: #20375b;
+    --sibnight-bg-2: #162847;
+    --sibnight-bg-3: #0f1d36;
+    --sibnight-bg-4: #08111f;
+    --sibnight-bg-floating: #0f1d36;
+    --sibnight-hover: rgba(185, 220, 255, 0.07);
+    --sibnight-active: rgba(130, 195, 255, 0.14);
+    --sibnight-active-2: rgba(241, 209, 122, 0.18);
+    --sibnight-message-hover: rgba(15, 29, 54, 0.78);
 
-    --border-light: rgba(216, 228, 242, 0.05);
-    --border: rgba(130, 195, 255, 0.12);
-    --border-hover: rgba(241, 209, 122, 0.18);
-    --button-border: rgba(216, 228, 242, 0.08);
+    --sibnight-border-light: rgba(216, 228, 242, 0.05);
+    --sibnight-border: rgba(130, 195, 255, 0.12);
+    --sibnight-border-hover: rgba(241, 209, 122, 0.18);
+    --sibnight-button-border: rgba(216, 228, 242, 0.08);
 
-    --online: #8ecc94;
-    --dnd: #d67b76;
-    --idle: #f1d17a;
-    --streaming: #b58ce0;
+    --sibnight-online: #8ecc94;
+    --sibnight-dnd: #d67b76;
+    --sibnight-idle: #f1d17a;
+    --sibnight-streaming: #b58ce0;
 
     --panel-shadow: none;
     --panel-shadow-hover: none;
@@ -250,19 +250,19 @@ body {
 }
 
 .pill_e5445c .item__58105 {
-    background: var(--accent-2) !important;
+    background: var(--sibnight-accent-2) !important;
 }
 
 .message__5126c:hover,
 .message__5126c.selected__5126c,
 .mouse-mode.full-motion .message__5126c:hover {
-    background: var(--message-hover) !important;
+    background: var(--sibnight-message-hover) !important;
 }
 
 .reaction__23977,
 .reactionBtn__23977.forceShow__23977 {
     background: var(--sibylla-embed-fill-soft) !important;
-    border-color: var(--border) !important;
+    border-color: var(--sibnight-border) !important;
 }
 
 .toolbar__9293f .search__49676 svg,
@@ -353,7 +353,7 @@ body {
 
 .embedFull__623de {
     background: var(--sibylla-embed-fill-soft) !important;
-    border-color: var(--border) !important;
+    border-color: var(--sibnight-border) !important;
     border-left-width: 3px !important;
     border-left-color: var(--sibylla-embed-accent) !important;
 }
@@ -361,14 +361,14 @@ body {
 .message__5126c.mentioned__5126c,
 .replying__5126c,
 .ephemeral__5126c {
-    background: var(--mention) !important;
-    box-shadow: inset 0 0 0 1px var(--border) !important;
+    background: var(--sibnight-mention) !important;
+    box-shadow: inset 0 0 0 1px var(--sibnight-border) !important;
 }
 
 .message__5126c.mentioned__5126c:hover,
 .replying__5126c:hover,
 .ephemeral__5126c:hover {
-    background: var(--mention-hover) !important;
+    background: var(--sibnight-mention-hover) !important;
 }
 
 .message__5126c.mentioned__5126c::before,
@@ -381,16 +381,16 @@ body {
 .botTag__82f07,
 [class*='botTagRegular__'],
 [class*='botTag__'] {
-    background: var(--accent-2) !important;
-    color: var(--text-0) !important;
+    background: var(--sibnight-accent-2) !important;
+    color: var(--sibnight-text-0) !important;
     border: none !important;
     box-shadow: none !important;
 }
 
 .botTagOP__82f07,
 [class*='botTagOP__'] {
-    background: var(--accent-3) !important;
-    color: var(--text-0) !important;
+    background: var(--sibnight-accent-3) !important;
+    color: var(--sibnight-text-0) !important;
     border: none !important;
     box-shadow: none !important;
 }
@@ -417,7 +417,7 @@ body {
     opacity: 1 !important;
     background: var(--sibylla-panel-fill-strong) !important;
     background-image: none !important;
-    border: 1px solid var(--border) !important;
+    border: 1px solid var(--sibnight-border) !important;
     border-radius: 14px !important;
     box-shadow: none !important;
     filter: none !important;
@@ -447,7 +447,7 @@ body {
 .autocomplete__6b0e0 [class*='header'],
 .autocomplete__6b0e0 [class*='title'],
 .autocomplete__6b0e0 [class*='sectionTag'] {
-    color: var(--text-4) !important;
+    color: var(--sibnight-text-4) !important;
 }
 
 .autocomplete__6b0e0 [class*='row']:hover,
@@ -470,7 +470,7 @@ body {
 
 .autocomplete__6b0e0 [class*='description'],
 .autocomplete__6b0e0 [class*='alias'] {
-    color: var(--text-4) !important;
+    color: var(--sibnight-text-4) !important;
 }
 
 /* ==============================

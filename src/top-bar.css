@@ -114,13 +114,13 @@ body {
 
 .toolbar__9293f .search__49676 svg,
 .toolbar__9293f .search__49676 [class*='icon'] {
-    color: color-mix(in srgb, var(--text-2) 78%, var(--yellow-2) 22%) !important;
+    color: color-mix(in srgb, var(--sibnight-text-2) 78%, var(--sibnight-yellow-2) 22%) !important;
 }
 
 .title_f75fb0 .icon__9293f,
 .container__9293f .icon__9293f,
 .children__9293f > .iconWrapper__9293f:first-child {
-    color: color-mix(in srgb, var(--yellow-2) 54%, var(--text-2) 46%) !important;
+    color: color-mix(in srgb, var(--sibnight-yellow-2) 54%, var(--sibnight-text-2) 46%) !important;
 }
 
 @container body style(--top-bar-button-position: titlebar) {
@@ -382,7 +382,7 @@ body {
 .container__89463 > .contentContainer__89463 {
     border: none !important;
     border-radius: 0 !important;
-    border-bottom: 1px solid color-mix(in srgb, var(--border) 72%, transparent) !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--sibnight-border) 72%, transparent) !important;
     min-width: 0 !important;
     overflow: visible !important;
 }
@@ -427,8 +427,8 @@ body {
     background:
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-1) 68%, var(--bg-3) 32%) 0%,
-            color-mix(in srgb, var(--bg-2) 58%, var(--bg-4) 42%) 100%
+            color-mix(in srgb, var(--sibnight-bg-1) 68%, var(--sibnight-bg-3) 32%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-2) 58%, var(--sibnight-bg-4) 42%) 100%
         ) !important;
     box-shadow:
         inset 0 1px 0 var(--sibylla-soft-edge-strong),
@@ -497,7 +497,7 @@ body {
 .toolbar__9293f .clickable__9293f:hover,
 .trailing_c38106 > :is(div, a, [role='button']):not(.winButtons_c38106):hover,
 .trailing_c38106 .clickable__81391:hover {
-    background: color-mix(in srgb, var(--blue-2) 10%, transparent) !important;
+    background: color-mix(in srgb, var(--sibnight-blue-2) 10%, transparent) !important;
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.025),
         inset 0 0 0 1px rgba(180, 218, 255, 0.04) !important;
@@ -520,13 +520,13 @@ body {
 
 .toolbar__9293f .search__49676 svg,
 .toolbar__9293f .search__49676 [class*='icon'] {
-    color: color-mix(in srgb, var(--text-2) 78%, var(--yellow-2) 22%) !important;
+    color: color-mix(in srgb, var(--sibnight-text-2) 78%, var(--sibnight-yellow-2) 22%) !important;
 }
 
 .title_f75fb0 .icon__9293f,
 .container__9293f .icon__9293f,
 .children__9293f > .iconWrapper__9293f:first-child {
-    color: color-mix(in srgb, var(--yellow-2) 54%, var(--text-2) 46%) !important;
+    color: color-mix(in srgb, var(--sibnight-yellow-2) 54%, var(--sibnight-text-2) 46%) !important;
 }
 
 @container body style(--top-bar-button-position: titlebar) {
@@ -565,7 +565,7 @@ body {
 .toolbar__9293f > div:not(.search__49676):not(.winButtons_c38106):hover,
 .children__9293f > .iconWrapper__9293f:hover,
 .iconWrapper__9293f:hover {
-    background: color-mix(in srgb, var(--blue-2) 10%, transparent) !important;
+    background: color-mix(in srgb, var(--sibnight-blue-2) 10%, transparent) !important;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
