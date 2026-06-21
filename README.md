@@ -70,7 +70,7 @@ Pour utiliser une flavor, suis les instructions d'installation ci-dessus, mais t
   </tr>
   <tr>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-north-Polar.theme.css">
+      <a href="./themes/flavors/sibnight-north-polar.theme.css">
         <img src="./assets/readme/mockup-north-polar.png" alt="Aperçu sibnight-north-Polar">
       </a>
       <br>
