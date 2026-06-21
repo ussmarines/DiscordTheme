@@ -30,7 +30,7 @@ Pour utiliser une flavor, suis les instructions d'installation ci-dessus, mais t
   <tr>
     <td width="50%" align="center" valign="top">
       <a href="./themes/flavors/sibnight-sibnight-flat.theme.css">
-        <img src="./assets/readme/mockup-sibnight-flat.png" alt="Aperçu sibnight-sibnight-flat">
+        <img src="./assets/readme/mockup-flat.png" alt="Aperçu sibnight-sibnight-flat">
       </a>
       <br>
       <strong>sibnight-sibnight-flat</strong>
@@ -39,7 +39,7 @@ Pour utiliser une flavor, suis les instructions d'installation ci-dessus, mais t
     </td>
     <td width="50%" align="center" valign="top">
       <a href="./themes/flavors/sibnight-sibnight-tokyo-night.theme.css">
-        <img src="./assets/readme/mockup-sibnight-tokyo-night.png" alt="Aperçu sibnight-sibnight-tokyo-night">
+        <img src="./assets/readme/mockup-tokyo-night.png" alt="Aperçu sibnight-sibnight-tokyo-night">
       </a>
       <br>
       <strong>sibnight-sibnight-tokyo-night</strong>
@@ -50,7 +50,7 @@ Pour utiliser une flavor, suis les instructions d'installation ci-dessus, mais t
   <tr>
     <td width="50%" align="center" valign="top">
       <a href="./themes/flavors/sibnight-sibnight-sun.theme.css">
-        <img src="./assets/readme/mockup-sibnight-sun.png" alt="Aperçu sibnight-sibnight-sun">
+        <img src="./assets/readme/mockup-sun.png" alt="Aperçu sibnight-sibnight-sun">
       </a>
       <br>
       <strong>sibnight-sibnight-sun</strong>
@@ -59,7 +59,7 @@ Pour utiliser une flavor, suis les instructions d'installation ci-dessus, mais t
     </td>
     <td width="50%" align="center" valign="top">
       <a href="./themes/flavors/sibnight-sibnight-space.theme.css">
-        <img src="./assets/readme/mockup-sibnight-space.png" alt="Aperçu sibnight-sibnight-space">
+        <img src="./assets/readme/mockup-space.png" alt="Aperçu sibnight-sibnight-space">
       </a>
       <br>
       <strong>sibnight-sibnight-space</strong>
