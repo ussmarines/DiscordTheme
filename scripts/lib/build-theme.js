@@ -25,7 +25,7 @@ const BUNDLE_OUTPUTS = [
     path.join(rootDir, 'archive', 'sibnight.css'),
 ];
 
-const REMOTE_BUILD_IMPORT = 'https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css';
+const REMOTE_BUILD_IMPORT = 'https://ussmarines.github.io/DiscordTheme/build/sibnight.css';
 
 const BUILD_IMPORT_PATTERN = new RegExp(
     String.raw`@import\s+url\(['"]${REMOTE_BUILD_IMPORT.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]\);`

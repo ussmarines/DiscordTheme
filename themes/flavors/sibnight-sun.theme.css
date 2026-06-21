@@ -1,10 +1,10 @@
     /**
-     * @name sibnight-north-aurora-light
-     * @description A flat light Aurora flavor combining Snow Storm neutrals with Nord Aurora accents for a brighter colorful Sibnight variant.
+     * @name sibnight-sun
+     * @description A flatter Sibylla sun flavor rebuilt around the real Sibylla gold, deep navy surfaces and fully solid flat panels.
      * @author ussmarines
-     * @version 1.0.0
+     * @version 1.6.0
      * @website https://github.com/ussmarines/DiscordTheme
-     * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-Aurora-Light.css
+     * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-sun.css
      * @authorLink https://github.com/ussmarines
      */
     /* credits
@@ -17,72 +17,72 @@
 
     body {
     --dms-icon-svg-size: 104%;
-    --dms-icon-color-before: #bf616a;
-    --dms-icon-color-after: #eceff4;
-    --dms-background-color: #b48ead;
+    --dms-icon-color-before: #23304a;
+    --dms-icon-color-after: #fcda7d;
+    --dms-background-color: #fcda7d;
 }
 
 :root {
-    --accent-1: #bf616a;
-    --accent-2: #d08770;
-    --accent-3: #ebcb8b;
-    --accent-4: #a3be8c;
-    --accent-5: #b48ead;
-    --accent-new: #bf616a;
-    --mention: rgba(191, 97, 106, 0.10);
-    --mention-hover: rgba(191, 97, 106, 0.16);
-    --reply: rgba(163, 190, 140, 0.10);
-    --reply-hover: rgba(163, 190, 140, 0.16);
-    --text-0: #ffffff;
-    --text-1: #3b4252;
-    --text-2: #4c566a;
-    --text-3: #617089;
-    --text-4: #7b879b;
-    --text-5: rgba(76, 86, 106, 0.44);
-    --bg-1: #d8dee9;
-    --bg-2: #e5e9f0;
-    --bg-3: #eceff4;
-    --bg-4: #f7f9fc;
-    --bg-floating: #eceff4;
-    --hover: rgba(208, 135, 112, 0.08);
-    --active: rgba(180, 142, 173, 0.12);
-    --active-2: rgba(191, 97, 106, 0.16);
-    --message-hover: rgba(180, 142, 173, 0.08);
-    --border-light: rgba(76, 86, 106, 0.04);
-    --border: rgba(180, 142, 173, 0.10);
-    --border-hover: rgba(191, 97, 106, 0.16);
-    --button-border: rgba(76, 86, 106, 0.08);
+    --accent-1: #fff3c4;
+    --accent-2: #fcda7d;
+    --accent-3: #f0c553;
+    --accent-4: #d79a2b;
+    --accent-5: #9f6c20;
+    --accent-new: #fcda7d;
+    --mention: rgba(252, 218, 125, 0.16);
+    --mention-hover: rgba(252, 218, 125, 0.24);
+    --reply: rgba(240, 197, 83, 0.14);
+    --reply-hover: rgba(240, 197, 83, 0.22);
+    --text-0: #151c29;
+    --text-1: #f6ecd1;
+    --text-2: #ead8ab;
+    --text-3: #c6b18a;
+    --text-4: #9d8969;
+    --text-5: rgba(198, 177, 138, 0.42);
+    --bg-1: #3d485e;
+    --bg-2: #2d374b;
+    --bg-3: #1f2839;
+    --bg-4: #151c29;
+    --bg-floating: #1f2839;
+    --hover: rgba(252, 218, 125, 0.08);
+    --active: rgba(252, 218, 125, 0.14);
+    --active-2: rgba(252, 218, 125, 0.20);
+    --message-hover: rgba(31, 40, 57, 0.86);
+    --border-light: rgba(252, 218, 125, 0.04);
+    --border: rgba(252, 218, 125, 0.10);
+    --border-hover: rgba(252, 218, 125, 0.18);
+    --button-border: rgba(252, 218, 125, 0.08);
     --online: #a3be8c;
     --dnd: #bf616a;
     --idle: #ebcb8b;
     --streaming: #b48ead;
-    --sibylla-shell-gradient: #f7f9fc;
-    --sibylla-panel-fill: #eceff4;
-    --sibylla-panel-fill-strong: #e5e9f0;
-    --sibylla-header-fill: #d8dee9;
-    --sibylla-control-fill: #e7edf5;
-    --sibylla-embed-fill: #eceff4;
-    --sibylla-embed-fill-soft: #e6ebf3;
-    --sibylla-embed-accent: #b48ead;
-    --sibylla-profile-fill: #e5e9f0;
-    --sibylla-active-fill: rgba(180, 142, 173, 0.14);
-    --sibylla-hover-fill: rgba(208, 135, 112, 0.10);
-    --icon-default: #bf616a;
-    --icon-muted: rgba(191, 97, 106, 0.40);
-    --icon-strong: #3b4252;
-    --icon-subtle: #b48ead;
-    --icon-link: #bf616a;
-    --channel-icon: #bf616a;
-    --channels-default: #4c566a;
-    --interactive-icon-default: #4c566a;
-    --interactive-icon-hover: #3b4252;
-    --interactive-icon-active: #b48ead;
-    --interactive-text-default: #4c566a;
-    --interactive-text-hover: #3b4252;
-    --interactive-text-active: #3b4252;
-    --text-link: #bf616a;
+    --sibylla-shell-gradient: #151c29;
+    --sibylla-panel-fill: #1f2839;
+    --sibylla-panel-fill-strong: #2d374b;
+    --sibylla-header-fill: #2d374b;
+    --sibylla-control-fill: #33415a;
+    --sibylla-embed-fill: #1f2839;
+    --sibylla-embed-fill-soft: #263247;
+    --sibylla-embed-accent: #fcda7d;
+    --sibylla-profile-fill: #273349;
+    --sibylla-active-fill: rgba(252, 218, 125, 0.18);
+    --sibylla-hover-fill: rgba(252, 218, 125, 0.10);
+    --icon-default: #f0c553;
+    --icon-muted: rgba(240, 197, 83, 0.42);
+    --icon-strong: #fff3c4;
+    --icon-subtle: #d79a2b;
+    --icon-link: #fcda7d;
+    --channel-icon: #f0c553;
+    --channels-default: #ead8ab;
+    --interactive-icon-default: #ead8ab;
+    --interactive-icon-hover: #fff3c4;
+    --interactive-icon-active: #fcda7d;
+    --interactive-text-default: #c6b18a;
+    --interactive-text-hover: #f6ecd1;
+    --interactive-text-active: #f6ecd1;
+    --text-link: #fcda7d;
     --colors: on;
-    color-scheme: light;
+    color-scheme: dark;
     --proto-column-shadow: none;
     --proto-column-border: transparent;
     --proto-column-border-hover: transparent;
