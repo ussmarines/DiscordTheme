@@ -14,11 +14,21 @@
 
 ## install
 
-### vencord / betterdiscord ou tout autre client qui prend en charge les fichiers de thème
+### installation via fichier
+
+Pour **Vencord**, **BetterDiscord** ou tout autre client qui prend en charge les fichiers de thème :
 
 1. Télécharge le fichier de thème `sibnight.theme.css`.
 2. Glisse le fichier dans ton dossier de thèmes.
 3. Active le thème dans les paramètres de ton client.
+
+### installation via lien
+
+Ajoute ce lien dans tes liens d'import de thème :
+
+```text
+https://ussmarines.github.io/DiscordTheme/themes/sibnight.theme.css
+Pour personnaliser le thème, copie les variables du thème dans ton QuickCSS, puis modifie-les depuis là.```
 
 ## flavors
 
