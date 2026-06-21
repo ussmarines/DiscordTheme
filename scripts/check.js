@@ -127,22 +127,22 @@ function listCssFiles(directory) {
         return [];
     }
 
-    const output = [];
+    const files = [];
 
     for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
         const entryPath = path.join(directory, entry.name);
 
         if (entry.isDirectory()) {
-            output.push(...listCssFiles(entryPath));
+            files.push(...listCssFiles(entryPath));
             continue;
         }
 
         if (entry.isFile() && entry.name.endsWith('.css')) {
-            output.push(entryPath);
+            files.push(entryPath);
         }
     }
 
-    return output.sort((left, right) => left.localeCompare(right));
+    return files.sort((left, right) => left.localeCompare(right));
 }
 
 function getFlavorFiles() {
@@ -191,7 +191,7 @@ function ensureFlavorFilesAreNormalized() {
         }
 
         if (!css.includes(`@import url('${REMOTE_BUILD_IMPORT}');`)) {
-            fail(`${fileName} should import the build directly: ${REMOTE_BUILD_IMPORT}`);
+            fail(`${fileName} should import the compiled build directly: ${REMOTE_BUILD_IMPORT}`);
         }
 
         if (css.includes('/themes/sibnight.theme.css')) {
@@ -240,24 +240,45 @@ function ensureReadmeFlavorPathsAreNormalized() {
     }
 }
 
-function ensureNoExpensiveScrollWillChange() {
-    const cssFiles = [
-        ...listCssFiles(srcDir),
-        ...listCssFiles(path.join(rootDir, 'themes')),
-    ];
-
+function ensureNoExpensiveWillChange() {
     const offenders = [];
 
-    for (const filePath of cssFiles) {
+    for (const filePath of listCssFiles(rootDir)) {
+        const relativePath = path.relative(rootDir, filePath);
+
+        if (
+            relativePath.startsWith('node_modules') ||
+            relativePath.startsWith('.git') ||
+            relativePath.startsWith('build') ||
+            relativePath === 'sibnight.css' ||
+            relativePath.startsWith('archive')
+        ) {
+            continue;
+        }
+
         const css = readTextFile(filePath);
 
         if (/will-change\s*:\s*scroll-position/iu.test(css)) {
-            offenders.push(path.relative(rootDir, filePath));
+            offenders.push(relativePath);
         }
     }
 
     if (offenders.length > 0) {
         fail(`remove will-change: scroll-position from: ${offenders.join(', ')}. Run npm run optimize:css.`);
+    }
+}
+
+function ensureReducedMotionExists() {
+    const animationsFile = path.join(srcDir, 'animations.css');
+
+    if (!fs.existsSync(animationsFile)) {
+        fail('src/animations.css is missing');
+    }
+
+    const css = readTextFile(animationsFile);
+
+    if (!css.includes('@media (prefers-reduced-motion: reduce)')) {
+        fail('src/animations.css should include @media (prefers-reduced-motion: reduce)');
     }
 }
 
@@ -279,7 +300,8 @@ function main() {
     ensureSingleRemoteBuildImport();
     ensureFlavorFilesAreNormalized();
     ensureReadmeFlavorPathsAreNormalized();
-    ensureNoExpensiveScrollWillChange();
+    ensureNoExpensiveWillChange();
+    ensureReducedMotionExists();
 
     const compiledCss = compileSourceCss();
 

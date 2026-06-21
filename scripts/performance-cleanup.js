@@ -42,11 +42,11 @@ function cleanupCss(css) {
     );
 
     output = output.replace(
-        /([^{}/]+)\{\s*\}/gu,
-        ''
+        /\n{3,}/gu,
+        '\n\n'
     );
 
-    return output.replace(/\n{3,}/gu, '\n\n').trimEnd() + '\n';
+    return output.trimEnd() + '\n';
 }
 
 function main() {

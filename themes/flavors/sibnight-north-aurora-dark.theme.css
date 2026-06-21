@@ -74,7 +74,7 @@ body {
 }
 /* sibnight flavor layout defaults: end */
 
-    body {
+body {
     --dms-icon-svg-size: 104%;
     --dms-icon-color-before: #ebcb8b;
     --dms-icon-color-after: #3b4252;
