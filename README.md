@@ -26,9 +26,9 @@ Pour **Vencord**, **BetterDiscord** ou tout autre client qui prend en charge les
 
 Ajoute ce lien dans tes liens d'import de thème :
 
-```text
-https://ussmarines.github.io/DiscordTheme/themes/sibnight.theme.css
-Pour personnaliser le thème, copie les variables du thème dans ton QuickCSS, puis modifie-les depuis là.```
+`https://ussmarines.github.io/DiscordTheme/themes/sibnight.theme.css`
+
+Pour personnaliser le thème, copie les variables du thème dans ton **QuickCSS**, puis modifie-les depuis là.
 
 ## flavors
 
