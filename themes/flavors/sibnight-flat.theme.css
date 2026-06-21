@@ -13,7 +13,7 @@
  * window controls inspired by https://github.com/Dyzean/Tokyo-Night
  */
 
-@import url('https://ussmarines.github.io/DiscordTheme/build/sibnight.css');
+@import url('https://ussmarines.github.io/DiscordTheme/themes/sibnight.theme.css');
 
 body {
     --dms-icon-svg-size: 104%;
