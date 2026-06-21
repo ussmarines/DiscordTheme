@@ -14,12 +14,11 @@
 
 ## install
 
-### vencord / betterdiscord (ou tout autre client qui prend en charge les fichiers de thème)
+### vencord / betterdiscord ou tout autre client qui prend en charge les fichiers de thème
 
-1. Télécharge le fichier de thème `sibnight.theme.css`.  
-   *(il devrait y avoir un bouton de téléchargement en haut à droite de la page)*
-2. Glisse le fichier dans ton dossier de thèmes.  
-   *(il devrait y avoir un bouton pour ouvrir le dossier des thèmes dans les paramètres des thèmes)*
+1. Télécharge le fichier de thème `sibnight.theme.css`.
+2. Glisse le fichier dans ton dossier de thèmes.
+3. Active le thème dans les paramètres de ton client.
 
 ## flavors
 
@@ -30,82 +29,82 @@ Pour utiliser une flavor, suis les instructions d'installation ci-dessus, mais t
 <table>
   <tr>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-flat.theme.css">
-        <img src="./assets/readme/mockup-flat.png" alt="Aperçu sibnight-flat">
+      <a href="./themes/flavors/flat.theme.css">
+        <img src="./assets/readme/mockup-flat.png" alt="Aperçu flat">
       </a>
       <br>
-      <strong>sibnight-flat</strong>
+      <strong>flat</strong>
       <br>
-      <code>themes/flavors/sibnight-flat.theme.css</code>
+      <code>themes/flavors/flat.theme.css</code>
     </td>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-tokyo-night.theme.css">
-        <img src="./assets/readme/mockup-tokyo-night.png" alt="Aperçu sibnight-tokyo-night">
+      <a href="./themes/flavors/tokyo-night.theme.css">
+        <img src="./assets/readme/mockup-tokyo-night.png" alt="Aperçu tokyo-night">
       </a>
       <br>
-      <strong>sibnight-tokyo-night</strong>
+      <strong>tokyo-night</strong>
       <br>
-      <code>themes/flavors/sibnight-tokyo-night.theme.css</code>
+      <code>themes/flavors/tokyo-night.theme.css</code>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-sun.theme.css">
-        <img src="./assets/readme/mockup-sun.png" alt="Aperçu sibnight-sun">
+      <a href="./themes/flavors/sun.theme.css">
+        <img src="./assets/readme/mockup-sun.png" alt="Aperçu sun">
       </a>
       <br>
-      <strong>sibnight-sun</strong>
+      <strong>sun</strong>
       <br>
-      <code>themes/flavors/sibnight-sun.theme.css</code>
+      <code>themes/flavors/sun.theme.css</code>
     </td>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-space.theme.css">
-        <img src="./assets/readme/mockup-space.png" alt="Aperçu sibnight-space">
+      <a href="./themes/flavors/space.theme.css">
+        <img src="./assets/readme/mockup-space.png" alt="Aperçu space">
       </a>
       <br>
-      <strong>sibnight-space</strong>
+      <strong>space</strong>
       <br>
-      <code>themes/flavors/sibnight-space.theme.css</code>
+      <code>themes/flavors/space.theme.css</code>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center" valign="top">
       <a href="./themes/flavors/sibnight-north-polar.theme.css">
-        <img src="./assets/readme/mockup-north-polar.png" alt="Aperçu sibnight-north-Polar">
+        <img src="./assets/readme/mockup-north-polar.png" alt="Aperçu sibnight-north-polar">
       </a>
       <br>
-      <strong>sibnight-north-Polar</strong>
+      <strong>sibnight-north-polar</strong>
       <br>
-      <code>themes/flavors/sibnight-north-Polar.theme.css</code>
+      <code>themes/flavors/sibnight-north-polar.theme.css</code>
     </td>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-north-Snow.theme.css">
-        <img src="./assets/readme/mockup-north-snow.png" alt="Aperçu sibnight-north-Snow">
+      <a href="./themes/flavors/sibnight-north-snow.theme.css">
+        <img src="./assets/readme/mockup-north-snow.png" alt="Aperçu sibnight-north-snow">
       </a>
       <br>
-      <strong>sibnight-north-Snow</strong>
+      <strong>sibnight-north-snow</strong>
       <br>
-      <code>themes/flavors/sibnight-north-Snow.theme.css</code>
+      <code>themes/flavors/sibnight-north-snow.theme.css</code>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-north-Aurora-Dark.theme.css">
-        <img src="./assets/readme/mockup-north-aurora-dark.png" alt="Aperçu sibnight-north-Aurora-Dark">
+      <a href="./themes/flavors/sibnight-north-aurora-dark.theme.css">
+        <img src="./assets/readme/mockup-north-aurora-dark.png" alt="Aperçu sibnight-north-aurora-dark">
       </a>
       <br>
-      <strong>sibnight-north-Aurora-Dark</strong>
+      <strong>sibnight-north-aurora-dark</strong>
       <br>
-      <code>themes/flavors/sibnight-north-Aurora-Dark.theme.css</code>
+      <code>themes/flavors/sibnight-north-aurora-dark.theme.css</code>
     </td>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-north-Aurora-Light.theme.css">
-        <img src="./assets/readme/mockup-north-aurora-light.png" alt="Aperçu sibnight-north-Aurora-Light">
+      <a href="./themes/flavors/sibnight-north-aurora-light.theme.css">
+        <img src="./assets/readme/mockup-north-aurora-light.png" alt="Aperçu sibnight-north-aurora-light">
       </a>
       <br>
-      <strong>sibnight-north-Aurora-Light</strong>
+      <strong>sibnight-north-aurora-light</strong>
       <br>
-      <code>themes/flavors/sibnight-north-Aurora-Light.theme.css</code>
+      <code>themes/flavors/sibnight-north-aurora-light.theme.css</code>
     </td>
   </tr>
 </table>
