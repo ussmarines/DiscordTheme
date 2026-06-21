@@ -112,7 +112,7 @@ body {
         padding: 0;
         border-radius: var(--radius-lg);
         border: none;
-        background-color: var(--bg-4);
+        background-color: var(--sibnight-bg-4);
         backdrop-filter: var(--panel-backdrop-filter);
         box-shadow: var(--panel-shadow);
         transition:
@@ -130,7 +130,7 @@ body {
         padding-left: 28px;
         border-width: var(--border-thickness);
         border-radius: var(--radius-lg);
-        background-color: var(--bg-4);
+        background-color: var(--sibnight-bg-4);
     }
 }
 
@@ -167,7 +167,7 @@ body {
 .buttons__74017 > *:hover,
 .attachButton__74017:hover,
 .expression-picker-chat-input-button:hover {
-    background: color-mix(in srgb, var(--blue-2) 10%, transparent) !important;
+    background: color-mix(in srgb, var(--sibnight-blue-2) 10%, transparent) !important;
     border-radius: 10px;
 }
 
@@ -223,7 +223,7 @@ body {
 .messageListItem__5126c:has(.message__5126c.replying__5126c:hover),
 .messageListItem__5126c:has(.message__5126c.mentioned__5126c:hover),
 .messageListItem__5126c:has(.message__5126c.ephemeral__5126c:hover) {
-    background: var(--message-hover) !important;
+    background: var(--sibnight-message-hover) !important;
 }
 
 .message__5126c:hover,
@@ -280,5 +280,5 @@ body {
 
 .placeholder__1b31f,
 .placeholder__3b55d {
-    color: color-mix(in srgb, var(--text-4) 82%, var(--yellow-2) 18%) !important;
+    color: color-mix(in srgb, var(--sibnight-text-4) 82%, var(--sibnight-yellow-2) 18%) !important;
 }

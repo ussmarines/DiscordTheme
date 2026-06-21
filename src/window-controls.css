@@ -43,13 +43,13 @@ body {
         transform: scale(0.9);
     }
     .winButtonClose_c38106::after {
-        background-color: var(--dnd) !important;
+        background-color: var(--sibnight-dnd) !important;
     }
     .winButtonMinMax_c38106:nth-child(1)::after {
-        background-color: var(--idle) !important;
+        background-color: var(--sibnight-idle) !important;
     }
     .winButtonMinMax_c38106:nth-child(2)::after {
-        background-color: var(--online) !important;
+        background-color: var(--sibnight-online) !important;
     }
 }
 

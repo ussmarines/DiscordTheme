@@ -2,7 +2,7 @@
  * @name sibnight-discord
  * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
  * @author ussmarines
- * @version 2.11.6
+ * @version 2.13.0
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
  * @authorLink https://github.com/ussmarines
@@ -438,7 +438,7 @@ body {
     margin: 12px;
     margin-bottom: 0;
     padding-left: 16px;
-    background-color: var(--bg-3);
+    background-color: var(--sibnight-bg-3);
     border-radius: var(--radius-sm);
     border: 1px solid var(--border-subtle);
 
@@ -571,13 +571,13 @@ body {
 .inner_c0bea0 {
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.015) 0%, transparent 22%),
-        color-mix(in srgb, var(--bg-3) 30%, var(--bg-4) 70%);
+        color-mix(in srgb, var(--sibnight-bg-3) 30%, var(--sibnight-bg-4) 70%);
 }
 
 .inner_c0bea0 [class*='overlayBackground'],
 .inner_c0bea0 [class*='section'],
 .outer_c0bea0 [class*='note'] {
-    background-color: color-mix(in srgb, var(--bg-3) 38%, transparent) !important;
+    background-color: color-mix(in srgb, var(--sibnight-bg-3) 38%, transparent) !important;
     border: none !important;
 }
 
@@ -586,7 +586,7 @@ body {
     padding-bottom: 0;
 
     .sourceOverlayCTA__2f580 {
-        color: var(--text-3);
+        color: var(--sibnight-text-3);
     }
 
     .footer_a55fdc {
@@ -598,12 +598,12 @@ body {
     }
 }
 .vcd-screen-picker-option-radio[data-checked='true'] span {
-    color: var(--text-0);
+    color: var(--sibnight-text-0);
 }
 
 /* Activity popout message field */
 .replyInput__5ba62 {
-    background-color: var(--bg-4);
+    background-color: var(--sibnight-bg-4);
 }
 
 /* remove unnecessary backgrounds */
@@ -637,8 +637,8 @@ body {
     --proto-column-shadow:
         0 18px 42px rgba(2, 8, 18, 0.30),
         0 0 0 1px rgba(112, 174, 255, 0.03);
-    --proto-hover-surface: color-mix(in srgb, var(--blue-2) 10%, transparent);
-    --proto-active-surface: color-mix(in srgb, var(--blue-2) 16%, transparent);
+    --proto-hover-surface: color-mix(in srgb, var(--sibnight-blue-2) 10%, transparent);
+    --proto-active-surface: color-mix(in srgb, var(--sibnight-blue-2) 16%, transparent);
 }
 
 body {
@@ -859,16 +859,16 @@ nav[class*='guilds'] {
 .interactive_bf202d.selected_bf202d,
 .channel__972a0.container__972a0:hover,
 .interactive__972a0:hover {
-    background: color-mix(in srgb, var(--blue-2) 14%, transparent) !important;
+    background: color-mix(in srgb, var(--sibnight-blue-2) 14%, transparent) !important;
 }
 
 .link__2ea32:hover,
 .interactive_bf202d:hover {
-    background: color-mix(in srgb, var(--blue-2) 10%, transparent) !important;
+    background: color-mix(in srgb, var(--sibnight-blue-2) 10%, transparent) !important;
 }
 
 .pill_e5445c .item__58105 {
-    background: linear-gradient(180deg, var(--blue-2), color-mix(in srgb, var(--yellow-2) 22%, var(--blue-3) 78%)) !important;
+    background: linear-gradient(180deg, var(--sibnight-blue-2), color-mix(in srgb, var(--sibnight-yellow-2) 22%, var(--sibnight-blue-3) 78%)) !important;
     box-shadow: 0 0 14px rgba(99, 170, 255, 0.22);
 }
 
@@ -924,13 +924,13 @@ nav[class*='guilds'] {
     --sibylla-card-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 34%);
     --sibylla-active-fill: linear-gradient(
         90deg,
-        color-mix(in srgb, var(--blue-2) 18%, transparent) 0%,
-        color-mix(in srgb, var(--blue-2) 10%, transparent) 100%
+        color-mix(in srgb, var(--sibnight-blue-2) 18%, transparent) 0%,
+        color-mix(in srgb, var(--sibnight-blue-2) 10%, transparent) 100%
     );
     --sibylla-hover-fill: linear-gradient(
         90deg,
-        color-mix(in srgb, var(--blue-2) 12%, transparent) 0%,
-        color-mix(in srgb, var(--blue-2) 6%, transparent) 100%
+        color-mix(in srgb, var(--sibnight-blue-2) 12%, transparent) 0%,
+        color-mix(in srgb, var(--sibnight-blue-2) 6%, transparent) 100%
     );
 }
 
@@ -980,7 +980,7 @@ nav[class*='guilds'] {
 }
 
 [class*='membersGroup'] {
-    color: color-mix(in srgb, var(--text-2) 76%, var(--yellow-2) 24%) !important;
+    color: color-mix(in srgb, var(--sibnight-text-2) 76%, var(--sibnight-yellow-2) 24%) !important;
     text-shadow: 0 0 10px rgba(97, 168, 255, 0.08);
 }
 
@@ -992,7 +992,7 @@ nav[class*='guilds'] {
 .markup_f8f345 a,
 .anchor_edefb8,
 .fakeLink__2c949 {
-    color: color-mix(in srgb, var(--blue-1) 78%, var(--yellow-2) 22%) !important;
+    color: color-mix(in srgb, var(--sibnight-blue-1) 78%, var(--sibnight-yellow-2) 22%) !important;
 }
 
 .embedFull__623de,
@@ -1031,7 +1031,7 @@ nav[class*='guilds'] {
 
 .reaction__23977,
 .reactionBtn__23977.forceShow__23977 {
-    background: color-mix(in srgb, var(--bg-3) 26%, var(--bg-4) 74%) !important;
+    background: color-mix(in srgb, var(--sibnight-bg-3) 26%, var(--sibnight-bg-4) 74%) !important;
     border-color: rgba(122, 181, 255, 0.04) !important;
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.014),
@@ -1063,7 +1063,7 @@ nav[class*='guilds'] {
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    background-color: color-mix(in srgb, var(--bg-2) 48%, var(--bg-4) 52%) !important;
+    background-color: color-mix(in srgb, var(--sibnight-bg-2) 48%, var(--sibnight-bg-4) 52%) !important;
 }
 
 .banner__68edb::before {
@@ -1108,130 +1108,130 @@ nav[class*='guilds'] {
 
 :root {
     /* text colors */
-    --text-0: var(--bg-4); /* text on colored elements */
-    --text-1: hsl(214, 50%, 97%); /* other normally white text */
-    --text-2: hsl(213, 30%, 88%); /* headings and important text */
-    --text-3: hsl(214, 17%, 74%); /* normal text */
-    --text-4: hsl(214, 16%, 60%); /* icon buttons and channels */
-    --text-5: hsl(214, 12%, 46%); /* muted channels/chats and timestamps */
+    --sibnight-text-0: var(--sibnight-bg-4); /* text on colored elements */
+    --sibnight-text-1: hsl(214, 50%, 97%); /* other normally white text */
+    --sibnight-text-2: hsl(213, 30%, 88%); /* headings and important text */
+    --sibnight-text-3: hsl(214, 17%, 74%); /* normal text */
+    --sibnight-text-4: hsl(214, 16%, 60%); /* icon buttons and channels */
+    --sibnight-text-5: hsl(214, 12%, 46%); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
-    --bg-1: hsl(218, 44%, 20%); /* dark buttons when clicked */
-    --bg-2: hsl(221, 50%, 13%); /* dark buttons */
-    --bg-3: hsl(225, 58%, 9%); /* spacing, secondary elements */
-    --bg-4: hsl(228, 60%, 6%); /* main background color */
-    --hover: hsla(206, 100%, 76%, 0.09); /* channels and buttons when hovered */
-    --active: hsla(206, 100%, 72%, 0.16); /* channels and buttons when clicked or selected */
-    --active-2: hsla(206, 100%, 72%, 0.24); /* extra state for transparent buttons */
-    --message-hover: rgba(7, 16, 31, 0.86); /* messages when hovered */
+    --sibnight-bg-1: hsl(218, 44%, 20%); /* dark buttons when clicked */
+    --sibnight-bg-2: hsl(221, 50%, 13%); /* dark buttons */
+    --sibnight-bg-3: hsl(225, 58%, 9%); /* spacing, secondary elements */
+    --sibnight-bg-4: hsl(228, 60%, 6%); /* main background color */
+    --sibnight-hover: hsla(206, 100%, 76%, 0.09); /* channels and buttons when hovered */
+    --sibnight-active: hsla(206, 100%, 72%, 0.16); /* channels and buttons when clicked or selected */
+    --sibnight-active-2: hsla(206, 100%, 72%, 0.24); /* extra state for transparent buttons */
+    --sibnight-message-hover: rgba(7, 16, 31, 0.86); /* messages when hovered */
 
     /* accent colors */
-    --accent-1: var(--blue-1); /* links and other accent text */
-    --accent-2: var(--blue-2); /* small accent elements */
-    --accent-3: var(--blue-3); /* accent buttons */
-    --accent-4: var(--blue-4); /* accent buttons when hovered */
-    --accent-5: var(--blue-5); /* accent buttons when clicked */
-    --accent-new: color-mix(in oklab, var(--yellow-2) 64%, var(--blue-2) 36%); /* Sibylla gold for key highlights */
-    --mention: linear-gradient(to right, color-mix(in srgb, var(--blue-2) 22%, transparent) 0%, transparent 70%); /* background of messages that mention you */
-    --mention-hover: linear-gradient(to right, color-mix(in srgb, var(--blue-2) 28%, transparent) 0%, transparent 74%); /* background of messages that mention you when hovered */
-    --reply: linear-gradient(to right, color-mix(in srgb, var(--yellow-2) 12%, transparent) 0%, transparent 68%); /* background of messages that reply to you */
-    --reply-hover: linear-gradient(to right, color-mix(in srgb, var(--yellow-2) 16%, transparent) 0%, transparent 72%); /* background of messages that reply to you when hovered */
+    --sibnight-accent-1: var(--sibnight-blue-1); /* links and other accent text */
+    --sibnight-accent-2: var(--sibnight-blue-2); /* small accent elements */
+    --sibnight-accent-3: var(--sibnight-blue-3); /* accent buttons */
+    --sibnight-accent-4: var(--sibnight-blue-4); /* accent buttons when hovered */
+    --sibnight-accent-5: var(--sibnight-blue-5); /* accent buttons when clicked */
+    --sibnight-accent-new: color-mix(in oklab, var(--sibnight-yellow-2) 64%, var(--sibnight-blue-2) 36%); /* Sibylla gold for key highlights */
+    --sibnight-mention: linear-gradient(to right, color-mix(in srgb, var(--sibnight-blue-2) 22%, transparent) 0%, transparent 70%); /* background of messages that mention you */
+    --sibnight-mention-hover: linear-gradient(to right, color-mix(in srgb, var(--sibnight-blue-2) 28%, transparent) 0%, transparent 74%); /* background of messages that mention you when hovered */
+    --sibnight-reply: linear-gradient(to right, color-mix(in srgb, var(--sibnight-yellow-2) 12%, transparent) 0%, transparent 68%); /* background of messages that reply to you */
+    --sibnight-reply-hover: linear-gradient(to right, color-mix(in srgb, var(--sibnight-yellow-2) 16%, transparent) 0%, transparent 72%); /* background of messages that reply to you when hovered */
 
     /* status indicator colors */
-    --online: var(--green-2); /* change to #43a25a for default */
-    --dnd: var(--red-2); /* change to #d83a42 for default */
-    --idle: var(--yellow-2); /* change to #ca9654 for default */
-    --streaming: var(--purple-2); /* change to #9147ff for default */
-    --offline: var(--text-4); /* change to #83838b for default offline color */
+    --sibnight-online: var(--sibnight-green-2); /* change to #43a25a for default */
+    --sibnight-dnd: var(--sibnight-red-2); /* change to #d83a42 for default */
+    --sibnight-idle: var(--sibnight-yellow-2); /* change to #ca9654 for default */
+    --sibnight-streaming: var(--sibnight-purple-2); /* change to #9147ff for default */
+    --sibnight-offline: var(--sibnight-text-4); /* change to #83838b for default offline color */
 
     /* border colors */
-    --border-light: transparent; /* remove light panel borders */
-    --border: transparent; /* remove panel borders */
-    --border-hover: transparent; /* keep hover states clean */
-    --button-border: hsla(214, 90%, 80%, 0.05); /* minimal neutral outline when Discord requires one */
+    --sibnight-border-light: transparent; /* remove light panel borders */
+    --sibnight-border: transparent; /* remove panel borders */
+    --sibnight-border-hover: transparent; /* keep hover states clean */
+    --sibnight-button-border: hsla(214, 90%, 80%, 0.05); /* minimal neutral outline when Discord requires one */
 
     /* base colors */
-    --red-1: oklch(75% 0.14 28);
-    --red-2: oklch(69% 0.14 28);
-    --red-3: oklch(63% 0.14 28);
-    --red-4: oklch(57% 0.14 28);
-    --red-5: oklch(51% 0.14 28);
+    --sibnight-red-1: oklch(75% 0.14 28);
+    --sibnight-red-2: oklch(69% 0.14 28);
+    --sibnight-red-3: oklch(63% 0.14 28);
+    --sibnight-red-4: oklch(57% 0.14 28);
+    --sibnight-red-5: oklch(51% 0.14 28);
 
-    --green-1: oklch(78% 0.11 160);
-    --green-2: oklch(72% 0.11 160);
-    --green-3: oklch(66% 0.11 160);
-    --green-4: oklch(60% 0.11 160);
-    --green-5: oklch(54% 0.11 160);
+    --sibnight-green-1: oklch(78% 0.11 160);
+    --sibnight-green-2: oklch(72% 0.11 160);
+    --sibnight-green-3: oklch(66% 0.11 160);
+    --sibnight-green-4: oklch(60% 0.11 160);
+    --sibnight-green-5: oklch(54% 0.11 160);
 
-    --blue-1: oklch(84% 0.11 242);
-    --blue-2: oklch(78% 0.12 239);
-    --blue-3: oklch(71% 0.13 235);
-    --blue-4: oklch(64% 0.12 231);
-    --blue-5: oklch(57% 0.11 227);
+    --sibnight-blue-1: oklch(84% 0.11 242);
+    --sibnight-blue-2: oklch(78% 0.12 239);
+    --sibnight-blue-3: oklch(71% 0.13 235);
+    --sibnight-blue-4: oklch(64% 0.12 231);
+    --sibnight-blue-5: oklch(57% 0.11 227);
 
-    --yellow-1: oklch(88% 0.06 92);
-    --yellow-2: oklch(82% 0.07 89);
-    --yellow-3: oklch(76% 0.08 86);
-    --yellow-4: oklch(69% 0.08 83);
-    --yellow-5: oklch(62% 0.08 80);
+    --sibnight-yellow-1: oklch(88% 0.06 92);
+    --sibnight-yellow-2: oklch(82% 0.07 89);
+    --sibnight-yellow-3: oklch(76% 0.08 86);
+    --sibnight-yellow-4: oklch(69% 0.08 83);
+    --sibnight-yellow-5: oklch(62% 0.08 80);
 
-    --purple-1: oklch(76% 0.09 300);
-    --purple-2: oklch(70% 0.09 300);
-    --purple-3: oklch(64% 0.09 300);
-    --purple-4: oklch(58% 0.09 300);
-    --purple-5: oklch(52% 0.09 300);
+    --sibnight-purple-1: oklch(76% 0.09 300);
+    --sibnight-purple-2: oklch(70% 0.09 300);
+    --sibnight-purple-3: oklch(64% 0.09 300);
+    --sibnight-purple-4: oklch(58% 0.09 300);
+    --sibnight-purple-5: oklch(52% 0.09 300);
 
     /* Sibylla surface tokens */
     --sibylla-shell-gradient:
-        radial-gradient(circle at 10% 2%, color-mix(in srgb, var(--yellow-2) 16%, transparent) 0%, transparent 20%),
-        radial-gradient(circle at 82% 0%, color-mix(in srgb, var(--blue-2) 22%, transparent) 0%, transparent 28%),
-        radial-gradient(circle at 92% 88%, color-mix(in srgb, var(--blue-3) 12%, transparent) 0%, transparent 24%),
+        radial-gradient(circle at 10% 2%, color-mix(in srgb, var(--sibnight-yellow-2) 16%, transparent) 0%, transparent 20%),
+        radial-gradient(circle at 82% 0%, color-mix(in srgb, var(--sibnight-blue-2) 22%, transparent) 0%, transparent 28%),
+        radial-gradient(circle at 92% 88%, color-mix(in srgb, var(--sibnight-blue-3) 12%, transparent) 0%, transparent 24%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-4) 90%, black 10%) 0%,
-            color-mix(in srgb, var(--bg-4) 94%, var(--bg-3) 6%) 44%,
-            color-mix(in srgb, var(--bg-4) 80%, var(--bg-3) 20%) 100%
+            color-mix(in srgb, var(--sibnight-bg-4) 90%, black 10%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-4) 94%, var(--sibnight-bg-3) 6%) 44%,
+            color-mix(in srgb, var(--sibnight-bg-4) 80%, var(--sibnight-bg-3) 20%) 100%
         );
     --sibylla-panel-fill:
         radial-gradient(circle at 100% 0%, rgba(97, 168, 255, 0.08) 0%, transparent 34%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 46%, var(--bg-4) 54%) 0%,
-            color-mix(in srgb, var(--bg-3) 26%, var(--bg-4) 74%) 100%
+            color-mix(in srgb, var(--sibnight-bg-2) 46%, var(--sibnight-bg-4) 54%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-3) 26%, var(--sibnight-bg-4) 74%) 100%
         );
     --sibylla-panel-fill-strong:
         radial-gradient(circle at 100% 0%, rgba(97, 168, 255, 0.1) 0%, transparent 32%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 54%, var(--bg-4) 46%) 0%,
-            color-mix(in srgb, var(--bg-3) 30%, var(--bg-4) 70%) 100%
+            color-mix(in srgb, var(--sibnight-bg-2) 54%, var(--sibnight-bg-4) 46%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-3) 30%, var(--sibnight-bg-4) 70%) 100%
         );
     --sibylla-header-fill:
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 48%, var(--bg-4) 52%) 0%,
-            color-mix(in srgb, var(--bg-3) 18%, var(--bg-4) 82%) 100%
+            color-mix(in srgb, var(--sibnight-bg-2) 48%, var(--sibnight-bg-4) 52%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-3) 18%, var(--sibnight-bg-4) 82%) 100%
         );
     --sibylla-control-fill:
         radial-gradient(circle at 100% 0%, rgba(96, 167, 255, 0.08) 0%, transparent 42%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 56%, var(--bg-4) 44%) 0%,
-            color-mix(in srgb, var(--bg-3) 42%, var(--bg-4) 58%) 100%
+            color-mix(in srgb, var(--sibnight-bg-2) 56%, var(--sibnight-bg-4) 44%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-3) 42%, var(--sibnight-bg-4) 58%) 100%
         );
     --sibylla-embed-fill:
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-4) 84%, var(--blue-3) 16%) 0%,
-            color-mix(in srgb, var(--bg-4) 90%, var(--blue-3) 10%) 100%
+            color-mix(in srgb, var(--sibnight-bg-4) 84%, var(--sibnight-blue-3) 16%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-4) 90%, var(--sibnight-blue-3) 10%) 100%
         );
     --sibylla-embed-fill-soft:
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-4) 93%, var(--blue-3) 7%) 0%,
-            color-mix(in srgb, var(--bg-4) 95%, var(--blue-3) 5%) 100%
+            color-mix(in srgb, var(--sibnight-bg-4) 93%, var(--sibnight-blue-3) 7%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-4) 95%, var(--sibnight-blue-3) 5%) 100%
         );
-    --sibylla-embed-accent: color-mix(in srgb, var(--blue-2) 82%, var(--yellow-2) 18%);
+    --sibylla-embed-accent: color-mix(in srgb, var(--sibnight-blue-2) 82%, var(--sibnight-yellow-2) 18%);
     --sibylla-soft-edge: rgba(184, 221, 255, 0.04);
     --sibylla-soft-edge-strong: rgba(184, 221, 255, 0.065);
     --sibylla-blue-glow: rgba(104, 176, 255, 0.18);
@@ -1241,9 +1241,9 @@ nav[class*='guilds'] {
     radial-gradient(circle at 16% 22%, rgba(252, 218, 125, 0.10) 0%, transparent 12%),
     linear-gradient(
         135deg,
-        color-mix(in srgb, var(--bg-2) 44%, var(--blue-3) 56%) 0%,
-        color-mix(in srgb, var(--bg-3) 26%, var(--bg-4) 74%) 52%,
-        color-mix(in srgb, var(--bg-4) 88%, black 12%) 100%
+        color-mix(in srgb, var(--sibnight-bg-2) 44%, var(--sibnight-blue-3) 56%) 0%,
+        color-mix(in srgb, var(--sibnight-bg-3) 26%, var(--sibnight-bg-4) 74%) 52%,
+        color-mix(in srgb, var(--sibnight-bg-4) 88%, black 12%) 100%
     );
 --sibylla-profile-overlay:
     radial-gradient(circle at 80% 16%, rgba(131, 198, 255, 0.18) 0%, transparent 16%),
@@ -1263,240 +1263,240 @@ nav[class*='guilds'] {
     body,
     .theme-dark:not(.custom-user-profile-theme),
     .theme-light:not(.custom-user-profile-theme) {
-        --app-frame-background: var(--bg-3);
-        --app-frame-border: var(--border);
-        --app-message-embed-secondary-text: var(--text-2);
-        --background-accent: var(--bg-2);
-        --background-base-low: var(--bg-4);
-        --background-base-lower: var(--bg-4);
-        --background-base-lowest: var(--bg-4);
-        --background-brand: var(--accent-2);
-        --background-code: var(--bg-3);
-        --background-code-addition: color-mix(in hsl, var(--green-2), transparent 80%);
-        --background-code-deletion: color-mix(in hsl, var(--red-2), transparent 80%);
-        --background-feedback-critical: color-mix(in hsl, var(--red-2), transparent 80%);
-        --background-feedback-info: color-mix(in hsl, var(--blue-2), transparent 80%);
-        --background-feedback-positive: color-mix(in hsl, var(--green-2), transparent 80%);
-        --background-feedback-warning: color-mix(in hsl, var(--yellow-2), transparent 80%);
-        --background-feedback-notification: var(--accent-new);
-        --background-mod-muted: var(--hover);
-        --background-mod-normal: var(--bg-2);
-        --background-mod-strong: var(--bg-1);
-        --background-mod-subtle: var(--hover);
+        --app-frame-background: var(--sibnight-bg-3);
+        --app-frame-border: var(--sibnight-border);
+        --app-message-embed-secondary-text: var(--sibnight-text-2);
+        --background-accent: var(--sibnight-bg-2);
+        --background-base-low: var(--sibnight-bg-4);
+        --background-base-lower: var(--sibnight-bg-4);
+        --background-base-lowest: var(--sibnight-bg-4);
+        --background-brand: var(--sibnight-accent-2);
+        --background-code: var(--sibnight-bg-3);
+        --background-code-addition: color-mix(in hsl, var(--sibnight-green-2), transparent 80%);
+        --background-code-deletion: color-mix(in hsl, var(--sibnight-red-2), transparent 80%);
+        --background-feedback-critical: color-mix(in hsl, var(--sibnight-red-2), transparent 80%);
+        --background-feedback-info: color-mix(in hsl, var(--sibnight-blue-2), transparent 80%);
+        --background-feedback-positive: color-mix(in hsl, var(--sibnight-green-2), transparent 80%);
+        --background-feedback-warning: color-mix(in hsl, var(--sibnight-yellow-2), transparent 80%);
+        --background-feedback-notification: var(--sibnight-accent-new);
+        --background-mod-muted: var(--sibnight-hover);
+        --background-mod-normal: var(--sibnight-bg-2);
+        --background-mod-strong: var(--sibnight-bg-1);
+        --background-mod-subtle: var(--sibnight-hover);
         --background-scrim: hsl(0, 0%, 0%, 0.7);
         --background-scrim-lightbox: hsl(0, 0%, 0%, 0.9);
-        --background-secondary-alt: var(--bg-3);
-        --background-surface-high: var(--bg-3);
-        --background-surface-higher: var(--bg-3);
-        --background-surface-highest: var(--bg-3);
+        --background-secondary-alt: var(--sibnight-bg-3);
+        --background-surface-high: var(--sibnight-bg-3);
+        --background-surface-higher: var(--sibnight-bg-3);
+        --background-surface-highest: var(--sibnight-bg-3);
         /* --background-tile-gradient-pink-end: yellow;
         --background-tile-gradient-pink-start: lime; */
-        --badge-background-default: var(--accent-2);
-        --badge-expressive-background-default: var(--accent-2);
-        --badge-expressive-text-default: var(--text-0);
-        --badge-notification-background: var(--accent-new);
-        --badge-text-default: var(--text-0);
-        --bg-surface-overlay-tmp: var(--bg-3);
-        --bg-surface-raised: var(--bg-3);
-        --border-feedback-critical: var(--border);
-        --border-focus: var(--border);
-        --border-muted: var(--border-light);
-        --border-normal: var(--border);
-        --border-strong: var(--border);
-        --border-subtle: var(--border);
-        --button-danger-background-disabled: var(--green-2);
-        --button-outline-brand-background-hover: var(--blue-2);
-        --button-outline-brand-border-active: var(--purple-2);
-        --button-outline-primary-text: var(--text-1);
-        --card-background-default: var(--bg-3);
-        --card-primary-pressed-bg: var(--green-2);
-        --card-secondary-bg: var(--blue-2);
-        --card-secondary-pressed-bg: var(--purple-2);
-        --channel-icon: var(--text-4);
-        --channel-text-area-placeholder: var(--text-5);
-        --channels-default: var(--text-4);
-        --channeltextarea-background: var(--border);
-        --chat-background: var(--yellow-2);
-        --chat-background-default: var(--bg-3);
-        --chat-border: var(--green-2);
-        --chat-text-muted: var(--text-5);
-        --checkbox-background-active: var(--blue-2);
-        --checkbox-background-default: var(--bg-2);
-        --checkbox-background-hover: var(--bg-1);
-        --checkbox-background-selected-default: var(--accent-2);
-        --checkbox-background-selected-hover: var(--accent-3);
-        --checkbox-border-active: var(--border);
-        --checkbox-border-default: var(--border);
-        --checkbox-border-hover: var(--border);
-        --checkbox-border-selected-default: var(--button-border);
-        --checkbox-border-selected-hover: var(--button-border);
-        --checkbox-icon-active: var(--text-0);
-        --chip-blurple-dark-background: var(--purple-2);
-        --chip-blurple-dark-text: var(--red-2);
-        --chip-blurple-light-background: var(--yellow-2);
-        --chip-blurple-light-text: var(--green-2);
-        --chip-blurple-medium-background: var(--blue-2);
-        --chip-blurple-medium-text: var(--purple-2);
-        --chip-gray-dark-background: var(--red-2);
-        --chip-gray-dark-text: var(--yellow-2);
-        --chip-gray-light-background: var(--green-2);
-        --chip-gray-light-text: var(--blue-2);
-        --chip-gray-medium-background: var(--purple-2);
-        --chip-gray-medium-text: var(--red-2);
-        --chip-green-dark-background: var(--yellow-2);
-        --chip-green-dark-text: var(--green-2);
-        --chip-green-light-background: var(--blue-2);
-        --chip-green-light-text: var(--purple-2);
-        --chip-green-medium-background: var(--red-2);
-        --chip-green-medium-text: var(--yellow-2);
-        --chip-orange-dark-background: var(--green-2);
-        --chip-orange-dark-text: var(--blue-2);
-        --chip-orange-light-background: var(--purple-2);
-        --chip-orange-light-text: var(--red-2);
-        --chip-orange-medium-background: var(--yellow-2);
-        --chip-orange-medium-text: var(--green-2);
-        --chip-pink-dark-background: var(--blue-2);
-        --chip-pink-dark-text: var(--purple-2);
-        --chip-pink-light-background: var(--red-2);
-        --chip-pink-light-text: var(--yellow-2);
-        --chip-pink-medium-background: var(--green-2);
-        --chip-pink-medium-text: var(--blue-2);
-        --chip-purple-dark-background: var(--purple-2);
-        --chip-purple-dark-text: var(--red-2);
-        --chip-purple-light-background: var(--yellow-2);
-        --chip-purple-light-text: var(--green-2);
-        --chip-purple-medium-background: var(--blue-2);
-        --chip-purple-medium-text: var(--purple-2);
-        --chip-red-dark-background: var(--red-2);
-        --chip-red-dark-text: var(--yellow-2);
-        --chip-red-light-background: var(--green-2);
-        --chip-red-light-text: var(--blue-2);
-        --chip-red-medium-background: var(--purple-2);
-        --chip-red-medium-text: var(--red-2);
-        --chip-yellow-dark-background: var(--yellow-2);
-        --chip-yellow-dark-text: var(--green-2);
-        --chip-yellow-light-background: var(--blue-2);
-        --chip-yellow-light-text: var(--purple-2);
-        --chip-yellow-medium-background: var(--red-2);
-        --chip-yellow-medium-text: var(--yellow-2);
-        --content-inventory-media-seekbar-container: var(--bg-1);
-        --content-inventory-overlay-text-primary: var(--text-2);
-        --content-inventory-overlay-text-secondary: var(--text-3);
-        --context-menu-backdrop-background: var(--red-2);
-        --control-brand-foreground: var(--accent-2);
-        --control-brand-foreground-new: var(--green-2);
-        --control-connect-background-active: var(--accent-5);
-        --control-connect-background-default: var(--accent-4);
-        --control-connect-background-hover: var(--accent-3);
-        --control-connect-border-active: var(--button-border);
-        --control-connect-border-default: var(--button-border);
-        --control-connect-border-hover: var(--button-border);
-        --control-connect-icon-active: var(--text-0);
-        --control-connect-icon-default: var(--text-0);
-        --control-connect-icon-hover: var(--text-0);
-        --control-connect-text-active: var(--text-0);
-        --control-connect-text-default: var(--text-0);
-        --control-connect-text-hover: var(--text-0);
-        --control-critical-primary-background-active: var(--red-5);
-        --control-critical-primary-background-default: var(--red-3);
-        --control-critical-primary-background-hover: var(--red-4);
-        --control-critical-primary-border-active: var(--button-border);
-        --control-critical-primary-border-default: var(--button-border);
-        --control-critical-primary-border-hover: var(--button-border);
-        --control-critical-primary-icon-active: var(--text-0);
-        --control-critical-primary-icon-default: var(--text-0);
-        --control-critical-primary-icon-hover: var(--text-0);
-        --control-critical-primary-text-active: var(--text-0);
-        --control-critical-primary-text-default: var(--text-0);
-        --control-critical-primary-text-hover: var(--text-0);
-        --control-critical-secondary-background-active: var(--text-5);
-        --control-critical-secondary-background-default: var(--bg-2);
-        --control-critical-secondary-background-hover: var(--bg-1);
-        --control-critical-secondary-border-active: var(--border-light);
-        --control-critical-secondary-border-default: var(--border-light);
-        --control-critical-secondary-border-hover: var(--border-light);
-        --control-critical-secondary-icon-active: var(--red-2);
-        --control-critical-secondary-icon-default: var(--red-2);
-        --control-critical-secondary-icon-hover: var(--red-2);
-        --control-critical-secondary-text-active: var(--red-2);
-        --control-critical-secondary-text-default: var(--red-2);
-        --control-critical-secondary-text-hover: var(--red-2);
-        --control-expressive-background-active: var(--text-3);
-        --control-expressive-background-default: var(--text-1);
-        --control-expressive-background-hover: var(--text-2);
-        --control-expressive-border-active: var(--button-border);
-        --control-expressive-border-default: var(--button-border);
-        --control-expressive-border-hover: var(--button-border);
-        --control-expressive-icon-active: var(--bg-4);
-        --control-expressive-icon-default: var(--bg-4);
-        --control-expressive-icon-hover: var(--bg-4);
-        --control-expressive-text-active: var(--bg-4);
-        --control-expressive-text-default: var(--bg-4);
-        --control-expressive-text-hover: var(--bg-4);
-        --control-icon-only-background-active: var(--active);
-        --control-icon-only-background-hover: var(--hover);
-        --control-icon-only-border-active: var(--border-light);
-        --control-icon-only-border-hover: var(--border-light);
-        --control-icon-only-icon-active: var(--text-3);
-        --control-icon-only-icon-default: var(--text-4);
-        --control-icon-only-icon-hover: var(--text-3);
-        --control-overlay-primary-background-active: var(--text-3);
-        --control-overlay-primary-background-default: var(--text-1);
-        --control-overlay-primary-background-hover: var(--text-2);
-        --control-overlay-primary-border-active: var(--button-border);
-        --control-overlay-primary-border-default: var(--button-border);
-        --control-overlay-primary-border-hover: var(--button-border);
-        --control-overlay-primary-icon-active: var(--bg-4);
-        --control-overlay-primary-icon-default: var(--bg-4);
-        --control-overlay-primary-icon-hover: var(--bg-4);
-        --control-overlay-primary-text-active: var(--bg-4);
-        --control-overlay-primary-text-default: var(--bg-4);
-        --control-overlay-primary-text-hover: var(--bg-4);
+        --badge-background-default: var(--sibnight-accent-2);
+        --badge-expressive-background-default: var(--sibnight-accent-2);
+        --badge-expressive-text-default: var(--sibnight-text-0);
+        --badge-notification-background: var(--sibnight-accent-new);
+        --badge-text-default: var(--sibnight-text-0);
+        --bg-surface-overlay-tmp: var(--sibnight-bg-3);
+        --bg-surface-raised: var(--sibnight-bg-3);
+        --border-feedback-critical: var(--sibnight-border);
+        --border-focus: var(--sibnight-border);
+        --border-muted: var(--sibnight-border-light);
+        --border-normal: var(--sibnight-border);
+        --border-strong: var(--sibnight-border);
+        --border-subtle: var(--sibnight-border);
+        --button-danger-background-disabled: var(--sibnight-green-2);
+        --button-outline-brand-background-hover: var(--sibnight-blue-2);
+        --button-outline-brand-border-active: var(--sibnight-purple-2);
+        --button-outline-primary-text: var(--sibnight-text-1);
+        --card-background-default: var(--sibnight-bg-3);
+        --card-primary-pressed-bg: var(--sibnight-green-2);
+        --card-secondary-bg: var(--sibnight-blue-2);
+        --card-secondary-pressed-bg: var(--sibnight-purple-2);
+        --channel-icon: var(--sibnight-text-4);
+        --channel-text-area-placeholder: var(--sibnight-text-5);
+        --channels-default: var(--sibnight-text-4);
+        --channeltextarea-background: var(--sibnight-border);
+        --chat-background: var(--sibnight-yellow-2);
+        --chat-background-default: var(--sibnight-bg-3);
+        --chat-border: var(--sibnight-green-2);
+        --chat-text-muted: var(--sibnight-text-5);
+        --checkbox-background-active: var(--sibnight-blue-2);
+        --checkbox-background-default: var(--sibnight-bg-2);
+        --checkbox-background-hover: var(--sibnight-bg-1);
+        --checkbox-background-selected-default: var(--sibnight-accent-2);
+        --checkbox-background-selected-hover: var(--sibnight-accent-3);
+        --checkbox-border-active: var(--sibnight-border);
+        --checkbox-border-default: var(--sibnight-border);
+        --checkbox-border-hover: var(--sibnight-border);
+        --checkbox-border-selected-default: var(--sibnight-button-border);
+        --checkbox-border-selected-hover: var(--sibnight-button-border);
+        --checkbox-icon-active: var(--sibnight-text-0);
+        --chip-blurple-dark-background: var(--sibnight-purple-2);
+        --chip-blurple-dark-text: var(--sibnight-red-2);
+        --chip-blurple-light-background: var(--sibnight-yellow-2);
+        --chip-blurple-light-text: var(--sibnight-green-2);
+        --chip-blurple-medium-background: var(--sibnight-blue-2);
+        --chip-blurple-medium-text: var(--sibnight-purple-2);
+        --chip-gray-dark-background: var(--sibnight-red-2);
+        --chip-gray-dark-text: var(--sibnight-yellow-2);
+        --chip-gray-light-background: var(--sibnight-green-2);
+        --chip-gray-light-text: var(--sibnight-blue-2);
+        --chip-gray-medium-background: var(--sibnight-purple-2);
+        --chip-gray-medium-text: var(--sibnight-red-2);
+        --chip-green-dark-background: var(--sibnight-yellow-2);
+        --chip-green-dark-text: var(--sibnight-green-2);
+        --chip-green-light-background: var(--sibnight-blue-2);
+        --chip-green-light-text: var(--sibnight-purple-2);
+        --chip-green-medium-background: var(--sibnight-red-2);
+        --chip-green-medium-text: var(--sibnight-yellow-2);
+        --chip-orange-dark-background: var(--sibnight-green-2);
+        --chip-orange-dark-text: var(--sibnight-blue-2);
+        --chip-orange-light-background: var(--sibnight-purple-2);
+        --chip-orange-light-text: var(--sibnight-red-2);
+        --chip-orange-medium-background: var(--sibnight-yellow-2);
+        --chip-orange-medium-text: var(--sibnight-green-2);
+        --chip-pink-dark-background: var(--sibnight-blue-2);
+        --chip-pink-dark-text: var(--sibnight-purple-2);
+        --chip-pink-light-background: var(--sibnight-red-2);
+        --chip-pink-light-text: var(--sibnight-yellow-2);
+        --chip-pink-medium-background: var(--sibnight-green-2);
+        --chip-pink-medium-text: var(--sibnight-blue-2);
+        --chip-purple-dark-background: var(--sibnight-purple-2);
+        --chip-purple-dark-text: var(--sibnight-red-2);
+        --chip-purple-light-background: var(--sibnight-yellow-2);
+        --chip-purple-light-text: var(--sibnight-green-2);
+        --chip-purple-medium-background: var(--sibnight-blue-2);
+        --chip-purple-medium-text: var(--sibnight-purple-2);
+        --chip-red-dark-background: var(--sibnight-red-2);
+        --chip-red-dark-text: var(--sibnight-yellow-2);
+        --chip-red-light-background: var(--sibnight-green-2);
+        --chip-red-light-text: var(--sibnight-blue-2);
+        --chip-red-medium-background: var(--sibnight-purple-2);
+        --chip-red-medium-text: var(--sibnight-red-2);
+        --chip-yellow-dark-background: var(--sibnight-yellow-2);
+        --chip-yellow-dark-text: var(--sibnight-green-2);
+        --chip-yellow-light-background: var(--sibnight-blue-2);
+        --chip-yellow-light-text: var(--sibnight-purple-2);
+        --chip-yellow-medium-background: var(--sibnight-red-2);
+        --chip-yellow-medium-text: var(--sibnight-yellow-2);
+        --content-inventory-media-seekbar-container: var(--sibnight-bg-1);
+        --content-inventory-overlay-text-primary: var(--sibnight-text-2);
+        --content-inventory-overlay-text-secondary: var(--sibnight-text-3);
+        --context-menu-backdrop-background: var(--sibnight-red-2);
+        --control-brand-foreground: var(--sibnight-accent-2);
+        --control-brand-foreground-new: var(--sibnight-green-2);
+        --control-connect-background-active: var(--sibnight-accent-5);
+        --control-connect-background-default: var(--sibnight-accent-4);
+        --control-connect-background-hover: var(--sibnight-accent-3);
+        --control-connect-border-active: var(--sibnight-button-border);
+        --control-connect-border-default: var(--sibnight-button-border);
+        --control-connect-border-hover: var(--sibnight-button-border);
+        --control-connect-icon-active: var(--sibnight-text-0);
+        --control-connect-icon-default: var(--sibnight-text-0);
+        --control-connect-icon-hover: var(--sibnight-text-0);
+        --control-connect-text-active: var(--sibnight-text-0);
+        --control-connect-text-default: var(--sibnight-text-0);
+        --control-connect-text-hover: var(--sibnight-text-0);
+        --control-critical-primary-background-active: var(--sibnight-red-5);
+        --control-critical-primary-background-default: var(--sibnight-red-3);
+        --control-critical-primary-background-hover: var(--sibnight-red-4);
+        --control-critical-primary-border-active: var(--sibnight-button-border);
+        --control-critical-primary-border-default: var(--sibnight-button-border);
+        --control-critical-primary-border-hover: var(--sibnight-button-border);
+        --control-critical-primary-icon-active: var(--sibnight-text-0);
+        --control-critical-primary-icon-default: var(--sibnight-text-0);
+        --control-critical-primary-icon-hover: var(--sibnight-text-0);
+        --control-critical-primary-text-active: var(--sibnight-text-0);
+        --control-critical-primary-text-default: var(--sibnight-text-0);
+        --control-critical-primary-text-hover: var(--sibnight-text-0);
+        --control-critical-secondary-background-active: var(--sibnight-text-5);
+        --control-critical-secondary-background-default: var(--sibnight-bg-2);
+        --control-critical-secondary-background-hover: var(--sibnight-bg-1);
+        --control-critical-secondary-border-active: var(--sibnight-border-light);
+        --control-critical-secondary-border-default: var(--sibnight-border-light);
+        --control-critical-secondary-border-hover: var(--sibnight-border-light);
+        --control-critical-secondary-icon-active: var(--sibnight-red-2);
+        --control-critical-secondary-icon-default: var(--sibnight-red-2);
+        --control-critical-secondary-icon-hover: var(--sibnight-red-2);
+        --control-critical-secondary-text-active: var(--sibnight-red-2);
+        --control-critical-secondary-text-default: var(--sibnight-red-2);
+        --control-critical-secondary-text-hover: var(--sibnight-red-2);
+        --control-expressive-background-active: var(--sibnight-text-3);
+        --control-expressive-background-default: var(--sibnight-text-1);
+        --control-expressive-background-hover: var(--sibnight-text-2);
+        --control-expressive-border-active: var(--sibnight-button-border);
+        --control-expressive-border-default: var(--sibnight-button-border);
+        --control-expressive-border-hover: var(--sibnight-button-border);
+        --control-expressive-icon-active: var(--sibnight-bg-4);
+        --control-expressive-icon-default: var(--sibnight-bg-4);
+        --control-expressive-icon-hover: var(--sibnight-bg-4);
+        --control-expressive-text-active: var(--sibnight-bg-4);
+        --control-expressive-text-default: var(--sibnight-bg-4);
+        --control-expressive-text-hover: var(--sibnight-bg-4);
+        --control-icon-only-background-active: var(--sibnight-active);
+        --control-icon-only-background-hover: var(--sibnight-hover);
+        --control-icon-only-border-active: var(--sibnight-border-light);
+        --control-icon-only-border-hover: var(--sibnight-border-light);
+        --control-icon-only-icon-active: var(--sibnight-text-3);
+        --control-icon-only-icon-default: var(--sibnight-text-4);
+        --control-icon-only-icon-hover: var(--sibnight-text-3);
+        --control-overlay-primary-background-active: var(--sibnight-text-3);
+        --control-overlay-primary-background-default: var(--sibnight-text-1);
+        --control-overlay-primary-background-hover: var(--sibnight-text-2);
+        --control-overlay-primary-border-active: var(--sibnight-button-border);
+        --control-overlay-primary-border-default: var(--sibnight-button-border);
+        --control-overlay-primary-border-hover: var(--sibnight-button-border);
+        --control-overlay-primary-icon-active: var(--sibnight-bg-4);
+        --control-overlay-primary-icon-default: var(--sibnight-bg-4);
+        --control-overlay-primary-icon-hover: var(--sibnight-bg-4);
+        --control-overlay-primary-text-active: var(--sibnight-bg-4);
+        --control-overlay-primary-text-default: var(--sibnight-bg-4);
+        --control-overlay-primary-text-hover: var(--sibnight-bg-4);
         --control-overlay-secondary-background-active: hsl(0, 0%, 0%, 0.4);
         --control-overlay-secondary-background-default: hsl(0, 0%, 0%, 0.5);
         --control-overlay-secondary-background-hover: hsl(0, 0%, 0%, 0.6);
-        --control-overlay-secondary-border-active: var(--border-light);
-        --control-overlay-secondary-border-default: var(--border-light);
-        --control-overlay-secondary-border-hover: var(--border-light);
-        --control-overlay-secondary-icon-active: var(--text-3);
-        --control-overlay-secondary-icon-default: var(--text-3);
-        --control-overlay-secondary-icon-hover: var(--text-3);
-        --control-overlay-secondary-text-active: var(--text-3);
-        --control-overlay-secondary-text-default: var(--text-3);
-        --control-overlay-secondary-text-hover: var(--text-3);
-        --control-primary-background-active: var(--accent-5);
-        --control-primary-background-default: var(--accent-3);
-        --control-primary-background-hover: var(--accent-4);
-        --control-primary-border-active: var(--button-border);
-        --control-primary-border-default: var(--button-border);
-        --control-primary-border-hover: var(--button-border);
-        --control-primary-icon-active: var(--text-0);
-        --control-primary-icon-default: var(--text-0);
-        --control-primary-icon-hover: var(--text-0);
-        --control-primary-text-active: var(--text-0);
-        --control-primary-text-default: var(--text-0);
-        --control-primary-text-hover: var(--text-0);
-        --control-secondary-background-active: var(--text-5);
-        --control-secondary-background-default: var(--bg-2);
-        --control-secondary-background-hover: var(--bg-1);
-        --control-secondary-border-active: var(--border-light);
-        --control-secondary-border-default: var(--border-light);
-        --control-secondary-border-hover: var(--border-light);
-        --control-secondary-icon-active: var(--text-3);
-        --control-secondary-icon-default: var(--text-3);
-        --control-secondary-icon-hover: var(--text-3);
-        --control-secondary-text-active: var(--text-3);
-        --control-secondary-text-default: var(--text-3);
-        --control-secondary-text-hover: var(--text-3);
-        --creator-revenue-icon-gradient-end: var(--blue-2);
-        --creator-revenue-icon-gradient-start: var(--purple-2);
-        --creator-revenue-info-box-background: var(--red-2);
-        --creator-revenue-info-box-border: var(--yellow-2);
-        --creator-revenue-locked-channel-icon: var(--green-2);
-        --creator-revenue-progress-bar: var(--blue-2);
-        --embed-background: var(--purple-2);
-        --embed-background-alternate: var(--red-2);
-        --experimental-avatar-embed-bg: var(--yellow-2);
+        --control-overlay-secondary-border-active: var(--sibnight-border-light);
+        --control-overlay-secondary-border-default: var(--sibnight-border-light);
+        --control-overlay-secondary-border-hover: var(--sibnight-border-light);
+        --control-overlay-secondary-icon-active: var(--sibnight-text-3);
+        --control-overlay-secondary-icon-default: var(--sibnight-text-3);
+        --control-overlay-secondary-icon-hover: var(--sibnight-text-3);
+        --control-overlay-secondary-text-active: var(--sibnight-text-3);
+        --control-overlay-secondary-text-default: var(--sibnight-text-3);
+        --control-overlay-secondary-text-hover: var(--sibnight-text-3);
+        --control-primary-background-active: var(--sibnight-accent-5);
+        --control-primary-background-default: var(--sibnight-accent-3);
+        --control-primary-background-hover: var(--sibnight-accent-4);
+        --control-primary-border-active: var(--sibnight-button-border);
+        --control-primary-border-default: var(--sibnight-button-border);
+        --control-primary-border-hover: var(--sibnight-button-border);
+        --control-primary-icon-active: var(--sibnight-text-0);
+        --control-primary-icon-default: var(--sibnight-text-0);
+        --control-primary-icon-hover: var(--sibnight-text-0);
+        --control-primary-text-active: var(--sibnight-text-0);
+        --control-primary-text-default: var(--sibnight-text-0);
+        --control-primary-text-hover: var(--sibnight-text-0);
+        --control-secondary-background-active: var(--sibnight-text-5);
+        --control-secondary-background-default: var(--sibnight-bg-2);
+        --control-secondary-background-hover: var(--sibnight-bg-1);
+        --control-secondary-border-active: var(--sibnight-border-light);
+        --control-secondary-border-default: var(--sibnight-border-light);
+        --control-secondary-border-hover: var(--sibnight-border-light);
+        --control-secondary-icon-active: var(--sibnight-text-3);
+        --control-secondary-icon-default: var(--sibnight-text-3);
+        --control-secondary-icon-hover: var(--sibnight-text-3);
+        --control-secondary-text-active: var(--sibnight-text-3);
+        --control-secondary-text-default: var(--sibnight-text-3);
+        --control-secondary-text-hover: var(--sibnight-text-3);
+        --creator-revenue-icon-gradient-end: var(--sibnight-blue-2);
+        --creator-revenue-icon-gradient-start: var(--sibnight-purple-2);
+        --creator-revenue-info-box-background: var(--sibnight-red-2);
+        --creator-revenue-info-box-border: var(--sibnight-yellow-2);
+        --creator-revenue-locked-channel-icon: var(--sibnight-green-2);
+        --creator-revenue-progress-bar: var(--sibnight-blue-2);
+        --embed-background: var(--sibnight-purple-2);
+        --embed-background-alternate: var(--sibnight-red-2);
+        --experimental-avatar-embed-bg: var(--sibnight-yellow-2);
         /* --expressive-gradient-blue-end: lime;
         --expressive-gradient-blue-start: blue;
         --expressive-gradient-green-end: magenta;
@@ -1525,171 +1525,171 @@ nav[class*='guilds'] {
         --expressive-gradient-tenure-badge-ruby-start: lime;
         --expressive-gradient-tenure-badge-silver-end: blue;
         --expressive-gradient-tenure-badge-silver-start: magenta; */
-        --gradient-progress-pill-background: var(--text-5);
-        --home-background: var(--bg-4);
-        --icon-default: var(--text-4);
-        --icon-feedback-critical: var(--red-1);
-        --icon-feedback-info: var(--blue-1);
-        --icon-feedback-positive: var(--green-1);
-        --icon-feedback-warning: var(--yellow-1);
-        --icon-invert: var(--purple-2);
-        --icon-link: var(--text-4);
-        --icon-muted: var(--text-5);
-        --icon-status-dnd: var(--dnd);
-        --icon-status-idle: var(--idle);
-        --icon-status-offline: var(--offline);
-        --icon-status-online: var(--online);
-        --icon-strong: var(--text-3);
-        --icon-subtle: var(--text-4);
-        --icon-transparent: var(--green-2);
-        --icon-voice-muted: var(--accent-new);
-        --input-background-default: var(--bg-3);
-        --input-background-error-default: color-mix(in hsl, var(--red-2), transparent 90%);
-        --input-border-active: var(--accent-2);
-        --input-border-default: var(--border-light);
-        --input-border-error-default: var(--red-2);
-        --input-border-error-hover: var(--blue-2);
-        --input-border-hover: var(--border);
-        --input-border-readonly: var(--red-2);
-        --input-foreground-placeholder: var(--yellow-2);
-        --input-icon-default: var(--green-2);
-        --input-placeholder-text-default: var(--text-5);
-        --input-text-default: var(--text-3);
-        --input-text-error-default: var(--text-3);
-        --interactive-background-active: var(--active);
-        --interactive-background-hover: var(--hover);
-        --interactive-background-selected: var(--active);
-        --interactive-icon-active: var(--text-3);
-        --interactive-icon-default: var(--text-4);
-        --interactive-icon-hover: var(--text-3);
-        --interactive-muted: var(--text-5);
-        --interactive-text-active: var(--text-3);
-        --interactive-text-default: var(--text-4);
-        --interactive-text-hover: var(--text-3);
-        --logo-primary: var(--yellow-2);
-        --mention-background: color-mix(in hsl, var(--accent-2), transparent 90%);
-        --mention-foreground: var(--accent-1);
-        --message-automod-background-default: var(--green-2);
-        --message-automod-background-hover: var(--blue-2);
-        --message-background-hover: var(--message-hover);
-        --message-highlight-background-default: var(--reply);
-        --message-highlight-background-hover: var(--reply-hover);
-        --message-mentioned-background-default: var(--mention);
-        --message-mentioned-background-hover: var(--mention-hover);
-        --message-reacted-background-default: color-mix(in hsl, var(--accent-2), transparent 80%);
-        --message-reacted-text-default: var(--text-2);
-        --mobile-background-scrim-opaque: var(--purple-2);
-        --mobile-expression-picker-background-default: var(--red-2);
-        --mobile-text-heading-primary: var(--yellow-2);
-        --modal-background: var(--bg-4);
-        --modal-footer-background: var(--bg-4);
-        --navigator-header-tint: var(--green-2);
-        --notice-background-critical: var(--bg-3);
-        --notice-background-info: var(--blue-3);
-        --notice-background-positive: var(--green-3);
-        --notice-background-warning: var(--yellow-3);
-        --notice-text-critical: var(--text-0);
-        --notice-text-info: var(--text-0);
-        --notice-text-positive: var(--text-0);
-        --notice-text-warning: var(--text-0);
-        --overlay-backdrop-lightbox: var(--yellow-2);
-        --panel-bg: var(--green-2);
-        --polls-normal-image-background: var(--blue-2);
-        --polls-victor-fill: color-mix(in hsl, var(--green-2), transparent 90%);
-        --polls-voted-fill: color-mix(in hsl, var(--accent-2), transparent 90%);
+        --gradient-progress-pill-background: var(--sibnight-text-5);
+        --home-background: var(--sibnight-bg-4);
+        --icon-default: var(--sibnight-text-4);
+        --icon-feedback-critical: var(--sibnight-red-1);
+        --icon-feedback-info: var(--sibnight-blue-1);
+        --icon-feedback-positive: var(--sibnight-green-1);
+        --icon-feedback-warning: var(--sibnight-yellow-1);
+        --icon-invert: var(--sibnight-purple-2);
+        --icon-link: var(--sibnight-text-4);
+        --icon-muted: var(--sibnight-text-5);
+        --icon-status-dnd: var(--sibnight-dnd);
+        --icon-status-idle: var(--sibnight-idle);
+        --icon-status-offline: var(--sibnight-offline);
+        --icon-status-online: var(--sibnight-online);
+        --icon-strong: var(--sibnight-text-3);
+        --icon-subtle: var(--sibnight-text-4);
+        --icon-transparent: var(--sibnight-green-2);
+        --icon-voice-muted: var(--sibnight-accent-new);
+        --input-background-default: var(--sibnight-bg-3);
+        --input-background-error-default: color-mix(in hsl, var(--sibnight-red-2), transparent 90%);
+        --input-border-active: var(--sibnight-accent-2);
+        --input-border-default: var(--sibnight-border-light);
+        --input-border-error-default: var(--sibnight-red-2);
+        --input-border-error-hover: var(--sibnight-blue-2);
+        --input-border-hover: var(--sibnight-border);
+        --input-border-readonly: var(--sibnight-red-2);
+        --input-foreground-placeholder: var(--sibnight-yellow-2);
+        --input-icon-default: var(--sibnight-green-2);
+        --input-placeholder-text-default: var(--sibnight-text-5);
+        --input-text-default: var(--sibnight-text-3);
+        --input-text-error-default: var(--sibnight-text-3);
+        --interactive-background-active: var(--sibnight-active);
+        --interactive-background-hover: var(--sibnight-hover);
+        --interactive-background-selected: var(--sibnight-active);
+        --interactive-icon-active: var(--sibnight-text-3);
+        --interactive-icon-default: var(--sibnight-text-4);
+        --interactive-icon-hover: var(--sibnight-text-3);
+        --interactive-muted: var(--sibnight-text-5);
+        --interactive-text-active: var(--sibnight-text-3);
+        --interactive-text-default: var(--sibnight-text-4);
+        --interactive-text-hover: var(--sibnight-text-3);
+        --logo-primary: var(--sibnight-yellow-2);
+        --mention-background: color-mix(in hsl, var(--sibnight-accent-2), transparent 90%);
+        --mention-foreground: var(--sibnight-accent-1);
+        --message-automod-background-default: var(--sibnight-green-2);
+        --message-automod-background-hover: var(--sibnight-blue-2);
+        --message-background-hover: var(--sibnight-message-hover);
+        --message-highlight-background-default: var(--sibnight-reply);
+        --message-highlight-background-hover: var(--sibnight-reply-hover);
+        --message-mentioned-background-default: var(--sibnight-mention);
+        --message-mentioned-background-hover: var(--sibnight-mention-hover);
+        --message-reacted-background-default: color-mix(in hsl, var(--sibnight-accent-2), transparent 80%);
+        --message-reacted-text-default: var(--sibnight-text-2);
+        --mobile-background-scrim-opaque: var(--sibnight-purple-2);
+        --mobile-expression-picker-background-default: var(--sibnight-red-2);
+        --mobile-text-heading-primary: var(--sibnight-yellow-2);
+        --modal-background: var(--sibnight-bg-4);
+        --modal-footer-background: var(--sibnight-bg-4);
+        --navigator-header-tint: var(--sibnight-green-2);
+        --notice-background-critical: var(--sibnight-bg-3);
+        --notice-background-info: var(--sibnight-blue-3);
+        --notice-background-positive: var(--sibnight-green-3);
+        --notice-background-warning: var(--sibnight-yellow-3);
+        --notice-text-critical: var(--sibnight-text-0);
+        --notice-text-info: var(--sibnight-text-0);
+        --notice-text-positive: var(--sibnight-text-0);
+        --notice-text-warning: var(--sibnight-text-0);
+        --overlay-backdrop-lightbox: var(--sibnight-yellow-2);
+        --panel-bg: var(--sibnight-green-2);
+        --polls-normal-image-background: var(--sibnight-blue-2);
+        --polls-victor-fill: color-mix(in hsl, var(--sibnight-green-2), transparent 90%);
+        --polls-voted-fill: color-mix(in hsl, var(--sibnight-accent-2), transparent 90%);
         /* --premium-nitro-pink-text: magenta; */
-        --profile-gradient-note-background: var(--red-2);
-        --profile-gradient-overlay: var(--yellow-2);
-        --profile-gradient-overlay-synced-with-user-theme: var(--green-2);
-        --profile-gradient-role-pill-background: var(--blue-2);
-        --profile-gradient-role-pill-border: var(--purple-2);
-        --profile-gradient-section-box: var(--red-2);
-        --progressbar-indicator-background: var(--accent-2);
-        --progressbar-track-background: var(--bg-2);
-        --radio-background-active: var(--bg-1);
-        --radio-background-default: var(--bg-2);
-        --radio-background-hover: var(--bg-1);
-        --radio-background-selected-default: var(--accent-2);
-        --radio-background-selected-hover: var(--accent-3);
-        --radio-border-active: var(--border);
-        --radio-border-default: var(--border);
-        --radio-border-hover: var(--border);
-        --radio-border-selected-default: var(--button-border);
-        --radio-border-selected-hover: var(--button-border);
-        --radio-foreground-active: var(--yellow-2);
-        --radio-foreground-default: var(--green-2);
-        --radio-foreground-hover: var(--blue-2);
-        --radio-thumb-background-active: var(--text-0);
-        --redesign-button-active-background: var(--red-2);
-        --redesign-button-active-pressed-background: var(--yellow-2);
-        --redesign-button-active-text: var(--green-2);
-        --redesign-button-danger-background: var(--blue-2);
-        --redesign-button-destructive-background: var(--purple-2);
-        --redesign-button-destructive-pressed-background: var(--red-2);
-        --redesign-button-destructive-text: var(--yellow-2);
+        --profile-gradient-note-background: var(--sibnight-red-2);
+        --profile-gradient-overlay: var(--sibnight-yellow-2);
+        --profile-gradient-overlay-synced-with-user-theme: var(--sibnight-green-2);
+        --profile-gradient-role-pill-background: var(--sibnight-blue-2);
+        --profile-gradient-role-pill-border: var(--sibnight-purple-2);
+        --profile-gradient-section-box: var(--sibnight-red-2);
+        --progressbar-indicator-background: var(--sibnight-accent-2);
+        --progressbar-track-background: var(--sibnight-bg-2);
+        --radio-background-active: var(--sibnight-bg-1);
+        --radio-background-default: var(--sibnight-bg-2);
+        --radio-background-hover: var(--sibnight-bg-1);
+        --radio-background-selected-default: var(--sibnight-accent-2);
+        --radio-background-selected-hover: var(--sibnight-accent-3);
+        --radio-border-active: var(--sibnight-border);
+        --radio-border-default: var(--sibnight-border);
+        --radio-border-hover: var(--sibnight-border);
+        --radio-border-selected-default: var(--sibnight-button-border);
+        --radio-border-selected-hover: var(--sibnight-button-border);
+        --radio-foreground-active: var(--sibnight-yellow-2);
+        --radio-foreground-default: var(--sibnight-green-2);
+        --radio-foreground-hover: var(--sibnight-blue-2);
+        --radio-thumb-background-active: var(--sibnight-text-0);
+        --redesign-button-active-background: var(--sibnight-red-2);
+        --redesign-button-active-pressed-background: var(--sibnight-yellow-2);
+        --redesign-button-active-text: var(--sibnight-green-2);
+        --redesign-button-danger-background: var(--sibnight-blue-2);
+        --redesign-button-destructive-background: var(--sibnight-purple-2);
+        --redesign-button-destructive-pressed-background: var(--sibnight-red-2);
+        --redesign-button-destructive-text: var(--sibnight-yellow-2);
         --redesign-button-overlay-alpha-background: hsl(0, 0%, 0%, 0.5);
         --redesign-button-overlay-alpha-pressed-background: hsl(0, 0%, 0%, 0.7);
-        --redesign-button-overlay-alpha-text: var(--text-3);
-        --redesign-button-positive-background: var(--red-2);
-        --redesign-button-premium-primary-pink-for-gradient: var(--yellow-2);
-        --redesign-button-premium-primary-pressed-background: var(--green-2);
-        --redesign-button-premium-primary-purple-for-gradient: var(--blue-2);
-        --redesign-button-premium-primary-purple-for-gradient-2: var(--purple-2);
-        --redesign-button-primary-alt-border: var(--red-2);
-        --redesign-button-primary-background: var(--yellow-2);
-        --redesign-button-primary-overlay-background: var(--green-2);
-        --redesign-button-primary-overlay-pressed-background: var(--blue-2);
-        --redesign-button-primary-overlay-text: var(--purple-2);
-        --redesign-button-primary-pressed-background: var(--red-2);
-        --redesign-button-primary-text: var(--yellow-2);
-        --redesign-button-secondary-background: var(--bg-2);
-        --redesign-button-secondary-border: var(--blue-2);
-        --redesign-button-secondary-overlay-background: var(--purple-2);
-        --redesign-button-secondary-overlay-pressed-background: var(--red-2);
-        --redesign-button-secondary-overlay-text: var(--yellow-2);
-        --redesign-button-secondary-pressed-background: var(--bg-1);
-        --redesign-button-secondary-pressed-border: var(--blue-2);
-        --redesign-button-secondary-text: var(--text-3);
-        --redesign-button-selected-background: var(--purple-2);
-        --redesign-button-selected-pressed-background: var(--red-2);
-        --redesign-button-selected-text: var(--yellow-2);
-        --redesign-button-tertiary-background: var(--green-2);
-        --redesign-button-tertiary-pressed-background: var(--blue-2);
-        --redesign-button-tertiary-pressed-text: var(--purple-2);
-        --redesign-button-tertiary-text: var(--red-2);
-        --scrollbar-auto-scrollbar-color-thumb: var(--yellow-2);
-        --scrollbar-auto-scrollbar-color-track: var(--green-2);
-        --scrollbar-auto-thumb: var(--bg-1);
+        --redesign-button-overlay-alpha-text: var(--sibnight-text-3);
+        --redesign-button-positive-background: var(--sibnight-red-2);
+        --redesign-button-premium-primary-pink-for-gradient: var(--sibnight-yellow-2);
+        --redesign-button-premium-primary-pressed-background: var(--sibnight-green-2);
+        --redesign-button-premium-primary-purple-for-gradient: var(--sibnight-blue-2);
+        --redesign-button-premium-primary-purple-for-gradient-2: var(--sibnight-purple-2);
+        --redesign-button-primary-alt-border: var(--sibnight-red-2);
+        --redesign-button-primary-background: var(--sibnight-yellow-2);
+        --redesign-button-primary-overlay-background: var(--sibnight-green-2);
+        --redesign-button-primary-overlay-pressed-background: var(--sibnight-blue-2);
+        --redesign-button-primary-overlay-text: var(--sibnight-purple-2);
+        --redesign-button-primary-pressed-background: var(--sibnight-red-2);
+        --redesign-button-primary-text: var(--sibnight-yellow-2);
+        --redesign-button-secondary-background: var(--sibnight-bg-2);
+        --redesign-button-secondary-border: var(--sibnight-blue-2);
+        --redesign-button-secondary-overlay-background: var(--sibnight-purple-2);
+        --redesign-button-secondary-overlay-pressed-background: var(--sibnight-red-2);
+        --redesign-button-secondary-overlay-text: var(--sibnight-yellow-2);
+        --redesign-button-secondary-pressed-background: var(--sibnight-bg-1);
+        --redesign-button-secondary-pressed-border: var(--sibnight-blue-2);
+        --redesign-button-secondary-text: var(--sibnight-text-3);
+        --redesign-button-selected-background: var(--sibnight-purple-2);
+        --redesign-button-selected-pressed-background: var(--sibnight-red-2);
+        --redesign-button-selected-text: var(--sibnight-yellow-2);
+        --redesign-button-tertiary-background: var(--sibnight-green-2);
+        --redesign-button-tertiary-pressed-background: var(--sibnight-blue-2);
+        --redesign-button-tertiary-pressed-text: var(--sibnight-purple-2);
+        --redesign-button-tertiary-text: var(--sibnight-red-2);
+        --scrollbar-auto-scrollbar-color-thumb: var(--sibnight-yellow-2);
+        --scrollbar-auto-scrollbar-color-track: var(--sibnight-green-2);
+        --scrollbar-auto-thumb: var(--sibnight-bg-1);
         --scrollbar-auto-track: transparent;
-        --scrollbar-thin-thumb: var(--bg-1);
+        --scrollbar-thin-thumb: var(--sibnight-bg-1);
         --scrollbar-thin-track: transparent;
-        --spine-default: var(--text-5);
-        --spoiler-hidden-background: var(--yellow-2);
-        --spoiler-hidden-background-hover: var(--green-2);
-        --spoiler-revealed-background: var(--blue-2);
-        --status-danger: var(--red-2);
-        --status-online: var(--green-2);
-        --status-positive: var(--green-2);
-        --status-positive-background: var(--green-2);
-        --status-positive-text: var(--purple-2);
-        --status-speaking: var(--green-2);
-        --status-warning: var(--yellow-2);
-        --status-warning-background: var(--red-2);
-        --status-warning-text: var(--yellow-2);
-        --switch-background-active: var(--green-2);
-        --switch-background-default: var(--bg-2);
-        --switch-background-hover: var(--bg-2);
-        --switch-background-selected-default: var(--accent-2);
-        --switch-background-selected-hover: var(--accent-2);
-        --switch-border-default: var(--border);
-        --switch-border-hover: var(--border-hover);
-        --switch-border-selected-default: var(--border-light);
-        --switch-border-selected-hover: var(--border-hover);
+        --spine-default: var(--sibnight-text-5);
+        --spoiler-hidden-background: var(--sibnight-yellow-2);
+        --spoiler-hidden-background-hover: var(--sibnight-green-2);
+        --spoiler-revealed-background: var(--sibnight-blue-2);
+        --status-danger: var(--sibnight-red-2);
+        --status-online: var(--sibnight-green-2);
+        --status-positive: var(--sibnight-green-2);
+        --status-positive-background: var(--sibnight-green-2);
+        --status-positive-text: var(--sibnight-purple-2);
+        --status-speaking: var(--sibnight-green-2);
+        --status-warning: var(--sibnight-yellow-2);
+        --status-warning-background: var(--sibnight-red-2);
+        --status-warning-text: var(--sibnight-yellow-2);
+        --switch-background-active: var(--sibnight-green-2);
+        --switch-background-default: var(--sibnight-bg-2);
+        --switch-background-hover: var(--sibnight-bg-2);
+        --switch-background-selected-default: var(--sibnight-accent-2);
+        --switch-background-selected-hover: var(--sibnight-accent-2);
+        --switch-border-default: var(--sibnight-border);
+        --switch-border-hover: var(--sibnight-border-hover);
+        --switch-border-selected-default: var(--sibnight-border-light);
+        --switch-border-selected-hover: var(--sibnight-border-hover);
         --switch-thumb-background-default: rgb(255, 255, 255);
         --switch-thumb-background-selected-default: rgb(255, 255, 255);
-        --switch-thumb-icon-active: var(--blue-2);
-        --switch-thumb-icon-default: var(--purple-2);
-        --text-brand: var(--accent-1);
+        --switch-thumb-icon-active: var(--sibnight-blue-2);
+        --switch-thumb-icon-default: var(--sibnight-purple-2);
+        --text-brand: var(--sibnight-accent-1);
         /* --text-code: red;
         --text-code-addition: yellow;
         --text-code-builtin: lime;
@@ -1702,79 +1702,79 @@ nav[class*='guilds'] {
         --text-code-tag: magenta;
         --text-code-title: red;
         --text-code-variable: yellow; */
-        --text-default: var(--text-3);
-        --text-feedback-critical: var(--red-1);
-        --text-feedback-info: var(--accent-1);
-        --text-feedback-positive: var(--green-1);
-        --text-feedback-warning: var(--yellow-1);
-        --text-invert: var(--blue-2);
-        --text-link: var(--accent-1);
-        --text-muted: var(--text-5);
-        --text-overlay-dark: var(--purple-2);
-        --text-overlay-light: var(--text-0);
-        --text-status-dnd: var(--dnd);
-        --text-status-idle: var(--idle);
-        --text-status-offline: var(--offline);
-        --text-status-online: var(--online);
-        --text-strong: var(--text-2);
-        --text-subtle: var(--text-4);
-        --textbox-markdown-syntax: var(--text-4);
-        --thread-channel-spine: var(--blue-2);
-        --user-profile-activity-toolbar-background: var(--purple-2);
-        --user-profile-background-hover: var(--hover);
-        --user-profile-border: var(--border);
-        --user-profile-note-background-focus: var(--bg-4);
-        --user-profile-overlay-background: var(--bg-4);
-        --user-profile-overlay-background-hover: var(--hover);
-        --user-profile-toolbar-background: var(--bg-3);
-        --user-profile-toolbar-border: var(--border);
+        --text-default: var(--sibnight-text-3);
+        --text-feedback-critical: var(--sibnight-red-1);
+        --text-feedback-info: var(--sibnight-accent-1);
+        --text-feedback-positive: var(--sibnight-green-1);
+        --text-feedback-warning: var(--sibnight-yellow-1);
+        --text-invert: var(--sibnight-blue-2);
+        --text-link: var(--sibnight-accent-1);
+        --text-muted: var(--sibnight-text-5);
+        --text-overlay-dark: var(--sibnight-purple-2);
+        --text-overlay-light: var(--sibnight-text-0);
+        --text-status-dnd: var(--sibnight-dnd);
+        --text-status-idle: var(--sibnight-idle);
+        --text-status-offline: var(--sibnight-offline);
+        --text-status-online: var(--sibnight-online);
+        --text-strong: var(--sibnight-text-2);
+        --text-subtle: var(--sibnight-text-4);
+        --textbox-markdown-syntax: var(--sibnight-text-4);
+        --thread-channel-spine: var(--sibnight-blue-2);
+        --user-profile-activity-toolbar-background: var(--sibnight-purple-2);
+        --user-profile-background-hover: var(--sibnight-hover);
+        --user-profile-border: var(--sibnight-border);
+        --user-profile-note-background-focus: var(--sibnight-bg-4);
+        --user-profile-overlay-background: var(--sibnight-bg-4);
+        --user-profile-overlay-background-hover: var(--sibnight-hover);
+        --user-profile-toolbar-background: var(--sibnight-bg-3);
+        --user-profile-toolbar-border: var(--sibnight-border);
 
-        --white: var(--text-0);
-        --white-500: var(--text-0);
+        --white: var(--sibnight-text-0);
+        --white-500: var(--sibnight-text-0);
 
-        --brand-260: var(--accent-2);
-        --brand-360: var(--accent-2);
-        --brand-500: var(--accent-2);
-        --blurple-50: var(--accent-2);
+        --brand-260: var(--sibnight-accent-2);
+        --brand-360: var(--sibnight-accent-2);
+        --brand-500: var(--sibnight-accent-2);
+        --blurple-50: var(--sibnight-accent-2);
 
-        --red-400: var(--red-2);
-        --red-500: var(--red-3);
+        --red-400: var(--sibnight-red-2);
+        --red-500: var(--sibnight-red-3);
 
-        --green-360: var(--green-2); /* seems to be mostly used by vencord plugins */
-        --yellow-300: var(--yellow-2); /* voice settings sensitivity bar */
-        --primary-400: var(--text-4);
+        --green-360: var(--sibnight-green-2); /* seems to be mostly used by vencord plugins */
+        --yellow-300: var(--sibnight-yellow-2); /* voice settings sensitivity bar */
+        --primary-400: var(--sibnight-text-4);
     }
 
     .custom-user-profile-theme {
-        --white: var(--text-1);
-        --white-500: var(--text-1);
+        --white: var(--sibnight-text-1);
+        --white-500: var(--sibnight-text-1);
     }
 
     /* User profile sidebar */
     .user-profile-sidebar .inner_c0bea0 {
-        --user-profile-overlay-background: var(--bg-3);
-        --profile-gradient-secondary-color: var(--bg-4);
+        --user-profile-overlay-background: var(--sibnight-bg-3);
+        --profile-gradient-secondary-color: var(--sibnight-bg-4);
     }
 
     ::placeholder {
-        color: var(--text-5);
+        color: var(--sibnight-text-5);
     }
 
     .bg__960e4 /* main background */ {
-        background: var(--bg-3);
+        background: var(--sibnight-bg-3);
     }
 
     .modeUnreadImportant__2ea32 .icon__2ea32,
     .wrapper__2ea32:hover .icon__2ea32 /* correct channel icon color */ {
-        color: var(--text-3);
+        color: var(--sibnight-text-3);
     }
 
     .text_b88801 > strong /* xxx is typing.. */ {
-        color: var(--text-3);
+        color: var(--sibnight-text-3);
     }
 
     .hiddenVisually_b18fe2[aria-expanded="false"] > .folderPreviewWrapper__48112 /* collapsed folders */ {
-        --background-primary: var(--bg-3);
+        --background-primary: var(--sibnight-bg-3);
     }
 
     .panel__5dec7 /* game activity panel */,
@@ -1784,14 +1784,14 @@ nav[class*='guilds'] {
 
     .sidebar__409aa, /* user settings sidebar */
     .sidebarRegionScroller__23e6b /* server and channel settings sidebar */ {
-        background-color: var(--bg-3);
+        background-color: var(--sibnight-bg-3);
     }
     .side_aa8da2 .item_aa8da2:hover /* settings tab */ {
-        background-color: var(--bg-3) !important;
+        background-color: var(--sibnight-bg-3) !important;
     }
     .side_aa8da2 .item_aa8da2:active,
     .side_aa8da2 .item_aa8da2.selected_aa8da2 {
-        background-color: var(--bg-2) !important;
+        background-color: var(--sibnight-bg-2) !important;
     }
 
     .quickSelectPopout_ebaca5 /* dm vc region select popout */,
@@ -1799,106 +1799,106 @@ nav[class*='guilds'] {
     .voiceBar__7aaec /* n in voice bar (channel list) */,
     .mainCard_f369db /* form posts */,
     .accountProfileCard_a9178b /* account settings profile background */ {
-        background-color: var(--bg-3);
+        background-color: var(--sibnight-bg-3);
     }
 
     /* User settings search bar coloring */
     .fixedContent__409aa {
         &::after {
-            background: linear-gradient(to bottom, var(--bg-3), transparent);
+            background: linear-gradient(to bottom, var(--sibnight-bg-3), transparent);
         }
 
         .searchBarContainer_cf016e .wrapper__72c38 {
-            background-color: var(--bg-4);
+            background-color: var(--sibnight-bg-4);
         }
     }
 
     .colorable_f1ceac.primaryDark_f1ceac,
         .reaction_f8896c /* forum post reaction */ {
-        background-color: var(--bg-2);
+        background-color: var(--sibnight-bg-2);
     }
 
     .expandedFolderIconWrapper__48112 > svg[style="color: rgb(88, 101, 242);"] /* folder icon */ {
-        color: var(--accent-2) !important;
+        color: var(--sibnight-accent-2) !important;
     }
     .colorPickerSwatch__459fb[style="background-color: rgb(88, 101, 242);"] /* folder color picker swatch */,
         .newBadge_faa96b /* forum post new badge */,
         .mentioned__5126c:before /* mention message left edge */ {
-        background-color: var(--accent-2) !important;
+        background-color: var(--sibnight-accent-2) !important;
     }
     .replying__5126c:before /* reply message left edge */ {
-        background-color: var(--text-2) !important;
+        background-color: var(--sibnight-text-2) !important;
     }
 
     .badge_c3d04b /* shop "orbs exclusive" badge */ {
-        background-color: var(--text-1);
+        background-color: var(--sibnight-text-1);
     }
 
     #app-mount .message__5126c.replying__5126c:hover /* override fix for message reply hover */ {
-        background: var(--reply-hover);
+        background: var(--sibnight-reply-hover);
     }
 
     .voiceBar__7aaec .barText__7aaec, .voiceChannelsIcon__7aaec /* x in voice bar text */ {
-        color: var(--accent-2);
+        color: var(--sibnight-accent-2);
     }
 
     .ephemeral__5126c /* ephemeral messages */ {
-        background: var(--mention) !important;
+        background: var(--sibnight-mention) !important;
     }
     .ephemeral__5126c:hover {
-        background: var(--mention-hover) !important;
+        background: var(--sibnight-mention-hover) !important;
     }
 
     .botTagRegular__82f07 /* bot tag */ {
-        background-color: var(--accent-2);
+        background-color: var(--sibnight-accent-2);
     }
     .botTagOP__82f07 /* forum post op tag */ {
-        color: var(--text-0);
+        color: var(--sibnight-text-0);
     }
 
     .productCardBadge_b8a6bd {
-        background-color: var(--bg-2) !important;
-        color: var(--text-3) !important;
+        background-color: var(--sibnight-bg-2) !important;
+        color: var(--sibnight-text-3) !important;
     }
 
     #app-mount .addFriend__133bf:hover /* add friend button hover */ {
-        color: var(--text-0);
+        color: var(--sibnight-text-0);
     }
     #app-mount .addFriend__133bf[aria-selected=true] /* add friend button selected */ {
-        background-color: var(--accent-5) !important;
-        color: var(--text-0);
+        background-color: var(--sibnight-accent-5) !important;
+        color: var(--sibnight-text-0);
     }
 
     .container__3f21e /* settings checkbutton background */,
     [data-nav-anchor-key="vencord_plugins_category"] .vc-switch-container {
-        background-color: var(--bg-1) !important;
+        background-color: var(--sibnight-bg-1) !important;
         transition: background-color 0.2s ease;
     }
     .container__3f21e.checked__3f21e /* settings checkbutton background */,
     [data-nav-anchor-key="vencord_plugins_category"] .vc-switch-container.vc-switch-checked {
-        background-color: var(--accent-2) !important;
+        background-color: var(--sibnight-accent-2) !important;
     }
     .container__3f21e .slider__3f21e > svg > path /* settings checkbutton check */,
     .vc-switch-container .vc-switch-slider > svg > path {
-        fill: var(--bg-1) !important;
+        fill: var(--sibnight-bg-1) !important;
         transition: fill 0.2s ease;
     }
     .container__3f21e.checked__3f21e .slider__3f21e > svg > path /* settings checkbutton check */,
     .vc-switch-container.vc-switch-checked .vc-switch-slider > svg > path {
-        fill: var(--accent-2) !important;
+        fill: var(--sibnight-accent-2) !important;
     }
     .container__3f21e rect[fill='white'] /* settings checkbutton slider */,
     .vc-switch-container .vc-switch-slider rect[fill='white'] {
-        fill: var(--text-3) !important;
+        fill: var(--sibnight-text-3) !important;
         transition: fill 0.2s ease;
     }
     .container__3f21e.checked__3f21e rect[fill='white'] /* settings checkbutton slider */,
     .vc-switch-container.vc-switch-checked .vc-switch-slider rect[fill='white'] {
-        fill: var(--text-0) !important;
+        fill: var(--sibnight-text-0) !important;
     }
 
     .refreshIcon__88a69 /* settings radiobutton center */ {
-        fill: var(--text-0);
+        fill: var(--sibnight-text-0);
     }
 
     .categoryText_d02962 /* gif chooser category names */,
@@ -1912,18 +1912,18 @@ nav[class*='guilds'] {
         .mediaMosaicAltText__0f481 /* image alt text label */,
         .bannerButton_fb7f94 /* profile banner corner buttons */,
         .embed__98ba8 /* embed primary text */ {
-        color: var(--text-1);
+        color: var(--sibnight-text-1);
     }
     .headerText_e4cb9a.base_eb1a4c /* stream preview header text */,
         .participantName__2cdb8 /* stream preview participant name */ {
-        color: var(--text-1) !important;
+        color: var(--sibnight-text-1) !important;
     }
     .playPausePopIcon_cf09d8 > path /* video play/pause popup */,
     .normalIconColor__979b1 /* shop favorite button icon */ {
-        fill: var(--text-1);
+        fill: var(--sibnight-text-1);
     }
     .headerTitle_e4cb9a:hover /* stream preview header title hover underline */ {
-        border-color: var(--text-1) !important;
+        border-color: var(--sibnight-text-1) !important;
     }
     .controlIcon_cf09d8 /* video play button */,
         .wrapper_cf09d8 /* video time */,
@@ -1933,12 +1933,12 @@ nav[class*='guilds'] {
         .headerTitle_e4cb9a:hover .backButton_e4cb9a /* stream preview back button hover */,
         .viewersIcon_d6b206:hover /* stream preview viewers icon */,
         .pictureInPictureVideo_e4cb9a .controlIcon_f1ceac:hover /* stream preview control icon */ {
-        color: var(--text-2);
+        color: var(--sibnight-text-2);
     }
     .wrapper__926d7 a:link,
         .wrapper__926d7 a:visited,
         .headerTitle_e4cb9a:hover .headerText_e4cb9a.base_eb1a4c /* stream preview back button hover */ {
-        color: var(--text-2) !important;
+        color: var(--sibnight-text-2) !important;
     }
     .downloadHoverButtonIcon__6c706 /* video download button */,
     .iconContainer__211d1>svg /* vc participants button icon */,
@@ -1953,122 +1953,122 @@ nav[class*='guilds'] {
     .colorable_f1ceac.primaryDark_f1ceac, .colorable_f1ceac.primaryDark_f1ceac .centerIcon_f1ceac /* vc buttons */,
     .item_caf372.active_caf372 /* settings items active */,
     .interactive__972a0.interactiveSelected__972a0 /* dms list items active */ {
-        color: var(--text-3);
+        color: var(--sibnight-text-3);
     }
     .status__2f4f7 path[fill='var(--white)'],
         .emptyChannelIcon__00de6 path[fill='var(--white)'] /* channel start icon */ {
-        fill: var(--text-3);
+        fill: var(--sibnight-text-3);
     }
     .grabber_a562c8 /* vc volume slider grabber */ {
-        background-color: var(--text-3);
+        background-color: var(--sibnight-text-3);
     }
     .textBadge__2b1f5 /* new text badge (right click on person in vc) */ {
-        color: var(--text-0);
+        color: var(--sibnight-text-0);
     }
     .textBadge__2b1f5[style='background-color: var(--primary-500);'] /* vc stream quality badge */ {
-        background-color: var(--bg-2) !important;
-        --white-500: var(--text-3);
+        background-color: var(--sibnight-bg-2) !important;
+        --white-500: var(--sibnight-text-3);
     }
 
     .unread__3b95d /* new unreads bar (channel list */,
         .item_caf372 /* settings items */,
         .interactive__972a0 /* dms list items */ {
-        color: var(--text-4);
+        color: var(--sibnight-text-4);
     }
 
     .colorable_f1ceac.white_f1ceac /* vc icon button nub when white */ {
         background-color: var(--primary-130);
-        color: var(--bg-4);
+        color: var(--sibnight-bg-4);
     }
 
     .iconBadge__650eb.isCurrentUserConnected__650eb /* green vc badge when connected */ {
-        color: var(--text-0);
+        color: var(--sibnight-text-0);
     }
 
     .lookOutlined__201d5.colorWhite__201d5 /* outline buttons */ {
-        border-color: var(--text-5);
-        color: var(--text-3);
+        border-color: var(--sibnight-text-5);
+        color: var(--sibnight-text-3);
     }
 
     .container__37e49 /* user panel buttons */,
         .numberBadge__2b1f5  /* unread number badge */,
         .toolbar__9293f /* toolbar button strikethroughs */ {
-        --status-danger: var(--accent-new);
+        --status-danger: var(--sibnight-accent-new);
     }
 
     .container__37e49 .button__67645.redGlow__67645 /* user panel button backgrounds*/ {
-        background-color: color-mix(in hsl, var(--accent-new), transparent 90%);
+        background-color: color-mix(in hsl, var(--sibnight-accent-new), transparent 90%);
     }
     .container__37e49 .button__67645.enabled__67645.redGlow__67645:hover /* user panel button backgrounds hover */ {
-        background-color: color-mix(in hsl, var(--accent-new), transparent 80%);
+        background-color: color-mix(in hsl, var(--sibnight-accent-new), transparent 80%);
     }
 
     .divider__5126c /* unread divider */ {
-        --divider-color: var(--accent-new);
+        --divider-color: var(--sibnight-accent-new);
     }
 
     .icon_c1e9c4 > circle[fill="#C12A35"] /* server settings icon badge */ {
-        fill: var(--accent-new) !important;
+        fill: var(--sibnight-accent-new) !important;
     }
 
     .iconBadge__9293f /* icon badge */,
         .mentionsBar__7aaec /* new mention pill */,
         .mention__3b95d /* server list new mention pill */,
         .badge_c99c29 /* inbox badge */ {
-        background-color: var(--accent-new);
+        background-color: var(--sibnight-accent-new);
     }
 
     .mention__3b95d:active {
-        background-color: color-mix(in hsl, var(--accent-new), black 10%);
+        background-color: color-mix(in hsl, var(--sibnight-accent-new), black 10%);
     }
 
     .newMessagesBar__0f481 /* unread bar */ {
-        background-color: var(--accent-3);
+        background-color: var(--sibnight-accent-3);
     }
     .barButtonAlt__0f481 /* unread bar mark as read button */ {
-        --control-secondary-background-default: var(--accent-3);
-        --control-secondary-background-hover: var(--accent-4);
+        --control-secondary-background-default: var(--sibnight-accent-3);
+        --control-secondary-background-hover: var(--sibnight-accent-4);
     }
 
     .updateIconForeground__49676 /* update button */ {
-        fill: var(--green-1);
+        fill: var(--sibnight-green-1);
     }
 
     .colorable_f1ceac.red_f1ceac:hover /* vc disconnect button hover */ {
-        background-color: var(--red-4);
+        background-color: var(--sibnight-red-4);
     }
     .button_f7ecac.dangerous_f7ecac:hover /* image attachment delete button hover in chat bar */ {
-        color: var(--red-4);
+        color: var(--sibnight-red-4);
     }
     .contentWrapper__08434 ::-webkit-scrollbar-thumb /* gif picker scrollbar */ {
-        background-color: var(--bg-1);
+        background-color: var(--sibnight-bg-1);
     }
 
     .circleIconButton__5bc7e /* new server button */ {
-        color: var(--text-3);
+        color: var(--sibnight-text-3);
     }
     .circleIconButton__5bc7e:hover {
-        color: var(--bg-4);
+        color: var(--sibnight-bg-4);
     }
 
     .tooltipGrey_c36707 /* spotify plugin time tooltip */ {
-        color: var(--text-3);
-        background-color: var(--bg-3);
+        color: var(--sibnight-text-3);
+        background-color: var(--sibnight-bg-3);
     }
 
     .textContentFooter__9a337 /* forum post image fade */ {
-        background: linear-gradient(0deg, var(--bg-4), transparent);
+        background: linear-gradient(0deg, var(--sibnight-bg-4), transparent);
     }
 
     .result__2dc39:after /* remove gif hover overlay */ {
         display: none;
     }
     .result__2dc39:hover /* gif hover */ {
-        outline: 2px solid var(--accent-2);
+        outline: 2px solid var(--sibnight-accent-2);
     }
 
     .reactionBtn__23977.forceShow__23977:hover /* fix add reaction button border hover */ {
-        border-color: var(--bg-2);
+        border-color: var(--sibnight-bg-2);
     }
 
     .flash__03436[data-flash=true] /* reply message flash */ {
@@ -2076,73 +2076,73 @@ nav[class*='guilds'] {
     }
 
     .flash__03436[data-flash='true'] /* reply message flash */ {
-        background: var(--reply);
+        background: var(--sibnight-reply);
     }
 
     /* status indicators */
     rect[fill='#84858d'] {
-        fill: var(--offline);
+        fill: var(--sibnight-offline);
     }
     .status_a423bd[style='background-color: rgb(132, 133, 141);'] {
-        background-color: var(--offline) !important;
+        background-color: var(--sibnight-offline) !important;
     }
     rect[fill='#45a366'],
         path[fill='#45a366'] /* status activity icon */,
         path[fill='var(--status-positive)'] /* status activity icon */,
         .vc-platform-indicator > svg[fill="#45a366"] {
-        fill: var(--online);
+        fill: var(--sibnight-online);
     }
     .status_a423bd[style='background-color: rgb(69, 163, 102);'] {
-        background-color: var(--online) !important;
+        background-color: var(--sibnight-online) !important;
     }
     rect[fill='#ffc04e'],
     .vc-platform-indicator > svg[fill='#ffc04e'] {
-        fill: var(--idle);
+        fill: var(--sibnight-idle);
     }
     .status_a423bd[style='background-color: rgb(255, 192, 78);'] {
-        background-color: var(--idle) !important;
+        background-color: var(--sibnight-idle) !important;
     }
     rect[fill='#da3e44'],
     .vc-platform-indicator > svg[fill='#da3e44'] {
-        fill: var(--dnd);
+        fill: var(--sibnight-dnd);
     }
     .status_a423bd[style='background-color: rgb(218, 62, 68);'] {
-        background-color: var(--dnd) !important;
+        background-color: var(--sibnight-dnd) !important;
     }
     rect[fill='#9147ff'] {
-        fill: var(--streaming);
+        fill: var(--sibnight-streaming);
     }
     div[style='display: flex; justify-content: center; align-items: center; border-radius: 5px; background-color: rgb(69, 163, 102); height: 10px; width: 25px;'] {
-        background-color: var(--online) !important;
+        background-color: var(--sibnight-online) !important;
     }
 
     /* fix radio bar button colors */
     .radioBar__88a69[style='--radio-bar-accent-color: var(--yellow-360); padding: 10px;'] {
-        --radio-bar-accent-color: var(--yellow-2) !important;
+        --radio-bar-accent-color: var(--sibnight-yellow-2) !important;
     }
     .radioBar__88a69[style='--radio-bar-accent-color: var(--green-360); padding: 10px;'] {
-        --radio-bar-accent-color: var(--green-2) !important;
+        --radio-bar-accent-color: var(--sibnight-green-2) !important;
     }
     .radioBar__88a69[style='--radio-bar-accent-color: var(--red-400); padding: 10px;'] {
-        --radio-bar-accent-color: var(--red-2) !important;
+        --radio-bar-accent-color: var(--sibnight-red-2) !important;
     }
 
     #vc-spotify-player {
-        --vc-spotify-green: var(--accent-2);
+        --vc-spotify-green: var(--sibnight-accent-2);
     }
 
     .vcd-screen-picker-option-radio[data-checked='true'] .defaultColor__4bd52 {
-        color: var(--text-0);
+        color: var(--sibnight-text-0);
     }
 
     .memberRowContainer__71c22.memberSelected__71c22 td {
-        background: var(--bg-3);
+        background: var(--sibnight-bg-3);
     }
 
     :is(div, span, code, a)::selection,
     .highlight {
-        background: var(--accent-3);
-        color: var(--text-0);
+        background: var(--sibnight-accent-3);
+        color: var(--sibnight-text-0);
     }
 
     .switchIndicator_a28278 {
@@ -2150,40 +2150,106 @@ nav[class*='guilds'] {
 
         /* Default state */
         &[style^='opacity: 1; background-color: rgb(88, 101, 242)'] {
-            background-color: var(--accent-3) !important;
+            background-color: var(--sibnight-accent-3) !important;
         }
 
         /* Hovered state */
         &[style^='opacity: 1; background-color: rgb(68, 82, 187)'] {
-            background-color: var(--accent-4) !important;
+            background-color: var(--sibnight-accent-4) !important;
         }
 
         /* Clicked state */
         &:has(> svg:not([style='left: 1px;'])) {
             &:has(rect:not([height='16'])) {
-                background-color: var(--accent-5) !important;
+                background-color: var(--sibnight-accent-5) !important;
             }
 
             .thumb_a28278 > svg path {
-                fill: var(--accent-2);
+                fill: var(--sibnight-accent-2);
             }
         }
     }
 
     .selectedPill__1464f {
-        border-color: var(--accent-2) !important;
+        border-color: var(--sibnight-accent-2) !important;
     }
 
     /* Follow channel footer */
     .wrapper__44df5 {
-        background-color: var(--bg-3);
+        background-color: var(--sibnight-bg-3);
     }
 
     /* VC popout background */
     #app-mount .popout__0bd4a {
-        background-color: var(--bg-3);
+        background-color: var(--sibnight-bg-3);
     }
 }
+
+/* sibnight legacy variable aliases: start */
+/* Backwards-compatible aliases for older snippets/flavors.
+   Prefer the --sibnight-* variables for new custom CSS. */
+:root {
+    --text-0: var(--sibnight-text-0);
+    --text-1: var(--sibnight-text-1);
+    --text-2: var(--sibnight-text-2);
+    --text-3: var(--sibnight-text-3);
+    --text-4: var(--sibnight-text-4);
+    --text-5: var(--sibnight-text-5);
+    --bg-1: var(--sibnight-bg-1);
+    --bg-2: var(--sibnight-bg-2);
+    --bg-3: var(--sibnight-bg-3);
+    --bg-4: var(--sibnight-bg-4);
+    --bg-floating: var(--sibnight-bg-floating);
+    --hover: var(--sibnight-hover);
+    --active: var(--sibnight-active);
+    --active-2: var(--sibnight-active-2);
+    --message-hover: var(--sibnight-message-hover);
+    --accent-1: var(--sibnight-accent-1);
+    --accent-2: var(--sibnight-accent-2);
+    --accent-3: var(--sibnight-accent-3);
+    --accent-4: var(--sibnight-accent-4);
+    --accent-5: var(--sibnight-accent-5);
+    --accent-new: var(--sibnight-accent-new);
+    --mention: var(--sibnight-mention);
+    --mention-hover: var(--sibnight-mention-hover);
+    --reply: var(--sibnight-reply);
+    --reply-hover: var(--sibnight-reply-hover);
+    --online: var(--sibnight-online);
+    --dnd: var(--sibnight-dnd);
+    --idle: var(--sibnight-idle);
+    --streaming: var(--sibnight-streaming);
+    --offline: var(--sibnight-offline);
+    --border-light: var(--sibnight-border-light);
+    --border: var(--sibnight-border);
+    --border-hover: var(--sibnight-border-hover);
+    --button-border: var(--sibnight-button-border);
+    --red-1: var(--sibnight-red-1);
+    --red-2: var(--sibnight-red-2);
+    --red-3: var(--sibnight-red-3);
+    --red-4: var(--sibnight-red-4);
+    --red-5: var(--sibnight-red-5);
+    --green-1: var(--sibnight-green-1);
+    --green-2: var(--sibnight-green-2);
+    --green-3: var(--sibnight-green-3);
+    --green-4: var(--sibnight-green-4);
+    --green-5: var(--sibnight-green-5);
+    --blue-1: var(--sibnight-blue-1);
+    --blue-2: var(--sibnight-blue-2);
+    --blue-3: var(--sibnight-blue-3);
+    --blue-4: var(--sibnight-blue-4);
+    --blue-5: var(--sibnight-blue-5);
+    --yellow-1: var(--sibnight-yellow-1);
+    --yellow-2: var(--sibnight-yellow-2);
+    --yellow-3: var(--sibnight-yellow-3);
+    --yellow-4: var(--sibnight-yellow-4);
+    --yellow-5: var(--sibnight-yellow-5);
+    --purple-1: var(--sibnight-purple-1);
+    --purple-2: var(--sibnight-purple-2);
+    --purple-3: var(--sibnight-purple-3);
+    --purple-4: var(--sibnight-purple-4);
+    --purple-5: var(--sibnight-purple-5);
+}
+/* sibnight legacy variable aliases: end */
 
 /* animations.css */
 /* ========================================
@@ -2263,6 +2329,17 @@ body {
     translate: none !important;
     background: var(--proto-active-surface);
     border-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+    }
 }
 
 /* background-image.css */
@@ -2403,7 +2480,7 @@ body {
         padding: 0;
         border-radius: var(--radius-lg);
         border: none;
-        background-color: var(--bg-4);
+        background-color: var(--sibnight-bg-4);
         backdrop-filter: var(--panel-backdrop-filter);
         box-shadow: var(--panel-shadow);
         transition:
@@ -2421,7 +2498,7 @@ body {
         padding-left: 28px;
         border-width: var(--border-thickness);
         border-radius: var(--radius-lg);
-        background-color: var(--bg-4);
+        background-color: var(--sibnight-bg-4);
     }
 }
 
@@ -2458,7 +2535,7 @@ body {
 .buttons__74017 > *:hover,
 .attachButton__74017:hover,
 .expression-picker-chat-input-button:hover {
-    background: color-mix(in srgb, var(--blue-2) 10%, transparent) !important;
+    background: color-mix(in srgb, var(--sibnight-blue-2) 10%, transparent) !important;
     border-radius: 10px;
 }
 
@@ -2514,7 +2591,7 @@ body {
 .messageListItem__5126c:has(.message__5126c.replying__5126c:hover),
 .messageListItem__5126c:has(.message__5126c.mentioned__5126c:hover),
 .messageListItem__5126c:has(.message__5126c.ephemeral__5126c:hover) {
-    background: var(--message-hover) !important;
+    background: var(--sibnight-message-hover) !important;
 }
 
 .message__5126c:hover,
@@ -2571,7 +2648,7 @@ body {
 
 .placeholder__1b31f,
 .placeholder__3b55d {
-    color: color-mix(in srgb, var(--text-4) 82%, var(--yellow-2) 18%) !important;
+    color: color-mix(in srgb, var(--sibnight-text-4) 82%, var(--sibnight-yellow-2) 18%) !important;
 }
 
 /* dms-button.css */
@@ -2591,8 +2668,8 @@ body {
         radial-gradient(circle at 100% 0%, rgba(99, 170, 255, 0.14), transparent 40%),
         linear-gradient(
             145deg,
-            color-mix(in oklab, var(--blue-3) 80%, var(--bg-3) 20%),
-            color-mix(in oklab, var(--blue-5) 82%, var(--yellow-2) 18%)
+            color-mix(in oklab, var(--sibnight-blue-3) 80%, var(--sibnight-bg-3) 20%),
+            color-mix(in oklab, var(--sibnight-blue-5) 82%, var(--sibnight-yellow-2) 18%)
         );
 }
 
@@ -2809,13 +2886,13 @@ body {
 
 .toolbar__9293f .search__49676 svg,
 .toolbar__9293f .search__49676 [class*='icon'] {
-    color: color-mix(in srgb, var(--text-2) 78%, var(--yellow-2) 22%) !important;
+    color: color-mix(in srgb, var(--sibnight-text-2) 78%, var(--sibnight-yellow-2) 22%) !important;
 }
 
 .title_f75fb0 .icon__9293f,
 .container__9293f .icon__9293f,
 .children__9293f > .iconWrapper__9293f:first-child {
-    color: color-mix(in srgb, var(--yellow-2) 54%, var(--text-2) 46%) !important;
+    color: color-mix(in srgb, var(--sibnight-yellow-2) 54%, var(--sibnight-text-2) 46%) !important;
 }
 
 @container body style(--top-bar-button-position: titlebar) {
@@ -3077,7 +3154,7 @@ body {
 .container__89463 > .contentContainer__89463 {
     border: none !important;
     border-radius: 0 !important;
-    border-bottom: 1px solid color-mix(in srgb, var(--border) 72%, transparent) !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--sibnight-border) 72%, transparent) !important;
     min-width: 0 !important;
     overflow: visible !important;
 }
@@ -3122,8 +3199,8 @@ body {
     background:
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-1) 68%, var(--bg-3) 32%) 0%,
-            color-mix(in srgb, var(--bg-2) 58%, var(--bg-4) 42%) 100%
+            color-mix(in srgb, var(--sibnight-bg-1) 68%, var(--sibnight-bg-3) 32%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-2) 58%, var(--sibnight-bg-4) 42%) 100%
         ) !important;
     box-shadow:
         inset 0 1px 0 var(--sibylla-soft-edge-strong),
@@ -3192,7 +3269,7 @@ body {
 .toolbar__9293f .clickable__9293f:hover,
 .trailing_c38106 > :is(div, a, [role='button']):not(.winButtons_c38106):hover,
 .trailing_c38106 .clickable__81391:hover {
-    background: color-mix(in srgb, var(--blue-2) 10%, transparent) !important;
+    background: color-mix(in srgb, var(--sibnight-blue-2) 10%, transparent) !important;
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.025),
         inset 0 0 0 1px rgba(180, 218, 255, 0.04) !important;
@@ -3215,13 +3292,13 @@ body {
 
 .toolbar__9293f .search__49676 svg,
 .toolbar__9293f .search__49676 [class*='icon'] {
-    color: color-mix(in srgb, var(--text-2) 78%, var(--yellow-2) 22%) !important;
+    color: color-mix(in srgb, var(--sibnight-text-2) 78%, var(--sibnight-yellow-2) 22%) !important;
 }
 
 .title_f75fb0 .icon__9293f,
 .container__9293f .icon__9293f,
 .children__9293f > .iconWrapper__9293f:first-child {
-    color: color-mix(in srgb, var(--yellow-2) 54%, var(--text-2) 46%) !important;
+    color: color-mix(in srgb, var(--sibnight-yellow-2) 54%, var(--sibnight-text-2) 46%) !important;
 }
 
 @container body style(--top-bar-button-position: titlebar) {
@@ -3260,7 +3337,7 @@ body {
 .toolbar__9293f > div:not(.search__49676):not(.winButtons_c38106):hover,
 .children__9293f > .iconWrapper__9293f:hover,
 .iconWrapper__9293f:hover {
-    background: color-mix(in srgb, var(--blue-2) 10%, transparent) !important;
+    background: color-mix(in srgb, var(--sibnight-blue-2) 10%, transparent) !important;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
@@ -3307,7 +3384,7 @@ body {
 
     .popoverReactionHoverBar_f84418 /* message hover quick action bar */,
         .tooltip_c36707 /* tooltips */ {
-        background: var(--bg-floating);
+        background: var(--sibnight-bg-floating);
     }
     .menu_c1e9c4 /* context menus */,
         .contentWrapper__08434 /* emoji/gif panel */,
@@ -3318,7 +3395,7 @@ body {
         .messagesPopoutWrap_e8b59c /* inbox */,
         .popout__76f04 /* channel hover popout */,
         .bar__7aaec /* channel list new unreads bar */ {
-        background: var(--bg-floating);
+        background: var(--sibnight-bg-floating);
     }
 
     .menu_c1e9c4::before {
@@ -3482,13 +3559,13 @@ body {
         transform: scale(0.9);
     }
     .winButtonClose_c38106::after {
-        background-color: var(--dnd) !important;
+        background-color: var(--sibnight-dnd) !important;
     }
     .winButtonMinMax_c38106:nth-child(1)::after {
-        background-color: var(--idle) !important;
+        background-color: var(--sibnight-idle) !important;
     }
     .winButtonMinMax_c38106:nth-child(2)::after {
-        background-color: var(--online) !important;
+        background-color: var(--sibnight-online) !important;
     }
 }
 
@@ -3528,7 +3605,7 @@ body {
 .base_c48ade,
 .content__5e434,
 .page__5e434 {
-    background-color: var(--bg-4, hsl(228, 60%, 6%)) !important;
+    background-color: var(--sibnight-bg-4, hsl(228, 60%, 6%)) !important;
 }
 
 /* Keep scrollbars quiet even when Discord changes internal class ordering. */
@@ -3601,19 +3678,19 @@ body {
     --custom-dms-background: off; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
     --dms-background-image-url: url(''); /* url of the background image */
     --dms-background-image-size: cover; /* size of the background image (css background-size property) */
-    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background property) */
+    --dms-background-color: linear-gradient(70deg, var(--sibnight-blue-2), var(--sibnight-purple-2), var(--sibnight-red-2)); /* fixed color/gradient (css background property) */
 
     /* background image options */
     --background-image: off; /* off: no background image, on: enable background image (must set url variable below) */
     --background-image-url: url(''); /* url of the background image */
 
     /* transparency/blur options */
-    /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
+    /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --sibnight-bg-4: hsla(220, 15%, 10%, 0.7); */
     --transparency-tweaks: off; /* off: no changes, on: remove some elements for better transparency */
-    --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+    --remove-bg-layer: off; /* off: no changes, on: remove the base --sibnight-bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
     --panel-blur: off; /* off: no changes, on: blur the background of panels */
     --blur-amount: 12px; /* amount of blur */
-    --bg-floating: var(--bg-3); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
+    --sibnight-bg-floating: var(--sibnight-bg-3); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
 
     /* chatbar options */
     --custom-chatbar: off; /* off: default chatbar, separated: chatbar separated from chat */
@@ -3628,112 +3705,112 @@ body {
     --colors: on; /* off: discord default colors, on: sibnight custom colors */
 
     /* text colors */
-    --text-0: var(--bg-4); /* text on colored elements */
-    --text-1: hsl(214, 46%, 96%); /* other normally white text */
-    --text-2: hsl(213, 26%, 86%); /* headings and important text */
-    --text-3: hsl(214, 15%, 71%); /* normal text */
-    --text-4: hsl(214, 14%, 57%); /* icon buttons and channels */
-    --text-5: hsl(214, 11%, 43%); /* muted channels/chats and timestamps */
+    --sibnight-text-0: var(--sibnight-bg-4); /* text on colored elements */
+    --sibnight-text-1: hsl(214, 46%, 96%); /* other normally white text */
+    --sibnight-text-2: hsl(213, 26%, 86%); /* headings and important text */
+    --sibnight-text-3: hsl(214, 15%, 71%); /* normal text */
+    --sibnight-text-4: hsl(214, 14%, 57%); /* icon buttons and channels */
+    --sibnight-text-5: hsl(214, 11%, 43%); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
-    --bg-1: hsl(218, 40%, 19%); /* dark buttons when clicked */
-    --bg-2: hsl(221, 46%, 14%); /* dark buttons */
-    --bg-3: hsl(225, 53%, 10%); /* spacing, secondary elements */
-    --bg-4: hsl(228, 56%, 7%); /* main background color */
-    --hover: hsla(206, 100%, 74%, 0.08); /* channels and buttons when hovered */
-    --active: hsla(206, 100%, 70%, 0.14); /* channels and buttons when clicked or selected */
-    --active-2: hsla(206, 100%, 70%, 0.22); /* extra state for transparent buttons */
-    --message-hover: rgba(10, 19, 35, 0.78); /* messages when hovered */
+    --sibnight-bg-1: hsl(218, 40%, 19%); /* dark buttons when clicked */
+    --sibnight-bg-2: hsl(221, 46%, 14%); /* dark buttons */
+    --sibnight-bg-3: hsl(225, 53%, 10%); /* spacing, secondary elements */
+    --sibnight-bg-4: hsl(228, 56%, 7%); /* main background color */
+    --sibnight-hover: hsla(206, 100%, 74%, 0.08); /* channels and buttons when hovered */
+    --sibnight-active: hsla(206, 100%, 70%, 0.14); /* channels and buttons when clicked or selected */
+    --sibnight-active-2: hsla(206, 100%, 70%, 0.22); /* extra state for transparent buttons */
+    --sibnight-message-hover: rgba(10, 19, 35, 0.78); /* messages when hovered */
 
     /* accent colors */
-    --accent-1: var(--blue-1); /* links and other accent text */
-    --accent-2: var(--blue-2); /* small accent elements */
-    --accent-3: var(--blue-3); /* accent buttons */
-    --accent-4: var(--blue-4); /* accent buttons when hovered */
-    --accent-5: var(--blue-5); /* accent buttons when clicked */
-    --accent-new: color-mix(in oklab, var(--yellow-2) 72%, var(--blue-2) 28%); /* Sibylla gold for key highlights */
-    --mention: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 84%) 40%, transparent); /* background of messages that mention you */
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 90%) 40%, transparent); /* background of messages that mention you when hovered */
-    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
-    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
+    --sibnight-accent-1: var(--sibnight-blue-1); /* links and other accent text */
+    --sibnight-accent-2: var(--sibnight-blue-2); /* small accent elements */
+    --sibnight-accent-3: var(--sibnight-blue-3); /* accent buttons */
+    --sibnight-accent-4: var(--sibnight-blue-4); /* accent buttons when hovered */
+    --sibnight-accent-5: var(--sibnight-blue-5); /* accent buttons when clicked */
+    --sibnight-accent-new: color-mix(in oklab, var(--sibnight-yellow-2) 72%, var(--sibnight-blue-2) 28%); /* Sibylla gold for key highlights */
+    --sibnight-mention: linear-gradient(to right, color-mix(in hsl, var(--sibnight-blue-2), transparent 84%) 40%, transparent); /* background of messages that mention you */
+    --sibnight-mention-hover: linear-gradient(to right, color-mix(in hsl, var(--sibnight-blue-2), transparent 90%) 40%, transparent); /* background of messages that mention you when hovered */
+    --sibnight-reply: linear-gradient(to right, color-mix(in hsl, var(--sibnight-text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
+    --sibnight-reply-hover: linear-gradient(to right, color-mix(in hsl, var(--sibnight-text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
 
     /* status indicator colors */
-    --online: var(--green-2); /* change to #40a258 for default */
-    --dnd: var(--red-2); /* change to #d83a41 for default */
-    --idle: var(--yellow-2); /* change to #cc954c for default */
-    --streaming: var(--purple-2); /* change to #9147ff for default */
-    --offline: var(--text-4); /* change to #82838b for default offline color */
+    --sibnight-online: var(--sibnight-green-2); /* change to #40a258 for default */
+    --sibnight-dnd: var(--sibnight-red-2); /* change to #d83a41 for default */
+    --sibnight-idle: var(--sibnight-yellow-2); /* change to #cc954c for default */
+    --sibnight-streaming: var(--sibnight-purple-2); /* change to #9147ff for default */
+    --sibnight-offline: var(--sibnight-text-4); /* change to #82838b for default offline color */
 
     /* border colors */
-    --border-light: transparent; /* general light border color */
-    --border: transparent; /* general normal border color */
-    --border-hover: transparent; /* border color of panels when hovered */
-    --button-border: hsla(214, 90%, 80%, 0.06); /* neutral border color of buttons */
+    --sibnight-border-light: transparent; /* general light border color */
+    --sibnight-border: transparent; /* general normal border color */
+    --sibnight-border-hover: transparent; /* border color of panels when hovered */
+    --sibnight-button-border: hsla(214, 90%, 80%, 0.06); /* neutral border color of buttons */
 
     /* base colors */
-    --red-1: oklch(75% 0.14 28);
-    --red-2: oklch(69% 0.14 28);
-    --red-3: oklch(63% 0.14 28);
-    --red-4: oklch(57% 0.14 28);
-    --red-5: oklch(51% 0.14 28);
+    --sibnight-red-1: oklch(75% 0.14 28);
+    --sibnight-red-2: oklch(69% 0.14 28);
+    --sibnight-red-3: oklch(63% 0.14 28);
+    --sibnight-red-4: oklch(57% 0.14 28);
+    --sibnight-red-5: oklch(51% 0.14 28);
 
-    --green-1: oklch(78% 0.11 160);
-    --green-2: oklch(72% 0.11 160);
-    --green-3: oklch(66% 0.11 160);
-    --green-4: oklch(60% 0.11 160);
-    --green-5: oklch(54% 0.11 160);
+    --sibnight-green-1: oklch(78% 0.11 160);
+    --sibnight-green-2: oklch(72% 0.11 160);
+    --sibnight-green-3: oklch(66% 0.11 160);
+    --sibnight-green-4: oklch(60% 0.11 160);
+    --sibnight-green-5: oklch(54% 0.11 160);
 
-    --blue-1: oklch(84% 0.11 242);
-    --blue-2: oklch(78% 0.12 239);
-    --blue-3: oklch(71% 0.13 235);
-    --blue-4: oklch(64% 0.12 231);
-    --blue-5: oklch(57% 0.11 227);
+    --sibnight-blue-1: oklch(84% 0.11 242);
+    --sibnight-blue-2: oklch(78% 0.12 239);
+    --sibnight-blue-3: oklch(71% 0.13 235);
+    --sibnight-blue-4: oklch(64% 0.12 231);
+    --sibnight-blue-5: oklch(57% 0.11 227);
 
-    --yellow-1: oklch(88% 0.06 92);
-    --yellow-2: oklch(82% 0.07 89);
-    --yellow-3: oklch(76% 0.08 86);
-    --yellow-4: oklch(69% 0.08 83);
-    --yellow-5: oklch(62% 0.08 80);
+    --sibnight-yellow-1: oklch(88% 0.06 92);
+    --sibnight-yellow-2: oklch(82% 0.07 89);
+    --sibnight-yellow-3: oklch(76% 0.08 86);
+    --sibnight-yellow-4: oklch(69% 0.08 83);
+    --sibnight-yellow-5: oklch(62% 0.08 80);
 
-    --purple-1: oklch(76% 0.09 300);
-    --purple-2: oklch(70% 0.09 300);
-    --purple-3: oklch(64% 0.09 300);
-    --purple-4: oklch(58% 0.09 300);
-    --purple-5: oklch(52% 0.09 300);
+    --sibnight-purple-1: oklch(76% 0.09 300);
+    --sibnight-purple-2: oklch(70% 0.09 300);
+    --sibnight-purple-3: oklch(64% 0.09 300);
+    --sibnight-purple-4: oklch(58% 0.09 300);
+    --sibnight-purple-5: oklch(52% 0.09 300);
 
     /* Sibylla surface tokens */
     --sibylla-shell-gradient:
-        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--yellow-2) 12%, transparent) 0%, transparent 22%),
-        radial-gradient(circle at 88% 4%, color-mix(in srgb, var(--blue-2) 18%, transparent) 0%, transparent 30%),
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--sibnight-yellow-2) 12%, transparent) 0%, transparent 22%),
+        radial-gradient(circle at 88% 4%, color-mix(in srgb, var(--sibnight-blue-2) 18%, transparent) 0%, transparent 30%),
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-4) 92%, black 8%) 0%,
-            var(--bg-4) 54%,
-            color-mix(in srgb, var(--bg-4) 82%, var(--bg-3) 18%) 100%
+            color-mix(in srgb, var(--sibnight-bg-4) 92%, black 8%) 0%,
+            var(--sibnight-bg-4) 54%,
+            color-mix(in srgb, var(--sibnight-bg-4) 82%, var(--sibnight-bg-3) 18%) 100%
         );
     --sibylla-panel-fill:
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 34%, var(--bg-4) 66%) 0%,
-            color-mix(in srgb, var(--bg-3) 22%, var(--bg-4) 78%) 100%
+            color-mix(in srgb, var(--sibnight-bg-2) 34%, var(--sibnight-bg-4) 66%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-3) 22%, var(--sibnight-bg-4) 78%) 100%
         );
     --sibylla-panel-fill-strong:
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 42%, var(--bg-4) 58%) 0%,
-            color-mix(in srgb, var(--bg-3) 24%, var(--bg-4) 76%) 100%
+            color-mix(in srgb, var(--sibnight-bg-2) 42%, var(--sibnight-bg-4) 58%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-3) 24%, var(--sibnight-bg-4) 76%) 100%
         );
     --sibylla-header-fill:
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 40%, var(--bg-4) 60%) 0%,
-            color-mix(in srgb, var(--bg-3) 14%, var(--bg-4) 86%) 100%
+            color-mix(in srgb, var(--sibnight-bg-2) 40%, var(--sibnight-bg-4) 60%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-3) 14%, var(--sibnight-bg-4) 86%) 100%
         );
     --sibylla-control-fill:
         linear-gradient(
             180deg,
-            color-mix(in srgb, var(--bg-2) 52%, var(--bg-4) 48%) 0%,
-            color-mix(in srgb, var(--bg-3) 40%, var(--bg-4) 60%) 100%
+            color-mix(in srgb, var(--sibnight-bg-2) 52%, var(--sibnight-bg-4) 48%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-3) 40%, var(--sibnight-bg-4) 60%) 100%
         );
     --sibylla-soft-edge: rgba(180, 218, 255, 0.045);
     --sibylla-soft-edge-strong: rgba(180, 218, 255, 0.07);

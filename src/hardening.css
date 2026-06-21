@@ -23,7 +23,7 @@
 .base_c48ade,
 .content__5e434,
 .page__5e434 {
-    background-color: var(--bg-4, hsl(228, 60%, 6%)) !important;
+    background-color: var(--sibnight-bg-4, hsl(228, 60%, 6%)) !important;
 }
 
 /* Keep scrollbars quiet even when Discord changes internal class ordering. */

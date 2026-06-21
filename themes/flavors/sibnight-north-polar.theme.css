@@ -4,7 +4,7 @@
      * @author ussmarines
      * @version 1.7.0
      * @website https://github.com/ussmarines/DiscordTheme
-     * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-Polar.css
+     * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-polar.theme.css
      * @authorLink https://github.com/ussmarines
      */
     /* credits
@@ -13,7 +13,7 @@
      * window controls inspired by https://github.com/Dyzean/Tokyo-Night
      */
 
-    @import url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/sibnight.theme.css');
+    @import url('https://ussmarines.github.io/DiscordTheme/build/sibnight.css');
 
     body {
     --dms-icon-svg-size: 104%;
@@ -23,39 +23,39 @@
 }
 
 :root {
-    --accent-1: #eceff4;
-    --accent-2: #4c566a;
-    --accent-3: #434c5e;
-    --accent-4: #3b4252;
-    --accent-5: #2e3440;
-    --accent-new: #4c566a;
-    --mention: rgba(76, 86, 106, 0.24);
-    --mention-hover: rgba(76, 86, 106, 0.34);
-    --reply: rgba(67, 76, 94, 0.24);
-    --reply-hover: rgba(76, 86, 106, 0.30);
-    --text-0: #f7f9fc;
-    --text-1: #eceff4;
-    --text-2: #d8dee9;
-    --text-3: #c5cedb;
-    --text-4: #97a4b8;
-    --text-5: rgba(216, 222, 233, 0.40);
-    --bg-1: #4c566a;
-    --bg-2: #434c5e;
-    --bg-3: #3b4252;
-    --bg-4: #2e3440;
-    --bg-floating: #2e3440;
-    --hover: rgba(76, 86, 106, 0.20);
-    --active: rgba(76, 86, 106, 0.32);
-    --active-2: rgba(76, 86, 106, 0.42);
-    --message-hover: rgba(46, 52, 64, 0.62);
-    --border-light: rgba(236, 239, 244, 0.04);
-    --border: rgba(216, 222, 233, 0.08);
-    --border-hover: rgba(216, 222, 233, 0.14);
-    --button-border: rgba(216, 222, 233, 0.08);
-    --online: #a3be8c;
-    --dnd: #bf616a;
-    --idle: #ebcb8b;
-    --streaming: #b48ead;
+    --sibnight-accent-1: #eceff4;
+    --sibnight-accent-2: #4c566a;
+    --sibnight-accent-3: #434c5e;
+    --sibnight-accent-4: #3b4252;
+    --sibnight-accent-5: #2e3440;
+    --sibnight-accent-new: #4c566a;
+    --sibnight-mention: rgba(76, 86, 106, 0.24);
+    --sibnight-mention-hover: rgba(76, 86, 106, 0.34);
+    --sibnight-reply: rgba(67, 76, 94, 0.24);
+    --sibnight-reply-hover: rgba(76, 86, 106, 0.30);
+    --sibnight-text-0: #f7f9fc;
+    --sibnight-text-1: #eceff4;
+    --sibnight-text-2: #d8dee9;
+    --sibnight-text-3: #c5cedb;
+    --sibnight-text-4: #97a4b8;
+    --sibnight-text-5: rgba(216, 222, 233, 0.40);
+    --sibnight-bg-1: #4c566a;
+    --sibnight-bg-2: #434c5e;
+    --sibnight-bg-3: #3b4252;
+    --sibnight-bg-4: #2e3440;
+    --sibnight-bg-floating: #2e3440;
+    --sibnight-hover: rgba(76, 86, 106, 0.20);
+    --sibnight-active: rgba(76, 86, 106, 0.32);
+    --sibnight-active-2: rgba(76, 86, 106, 0.42);
+    --sibnight-message-hover: rgba(46, 52, 64, 0.62);
+    --sibnight-border-light: rgba(236, 239, 244, 0.04);
+    --sibnight-border: rgba(216, 222, 233, 0.08);
+    --sibnight-border-hover: rgba(216, 222, 233, 0.14);
+    --sibnight-button-border: rgba(216, 222, 233, 0.08);
+    --sibnight-online: #a3be8c;
+    --sibnight-dnd: #bf616a;
+    --sibnight-idle: #ebcb8b;
+    --sibnight-streaming: #b48ead;
     --sibylla-shell-gradient: #2e3440;
     --sibylla-panel-fill: #3b4252;
     --sibylla-panel-fill-strong: #434c5e;
@@ -249,19 +249,19 @@
 }
 
 .pill_e5445c .item__58105 {
-    background: var(--accent-2) !important;
+    background: var(--sibnight-accent-2) !important;
 }
 
 .message__5126c:hover,
 .message__5126c.selected__5126c,
 .mouse-mode.full-motion .message__5126c:hover {
-    background: var(--message-hover) !important;
+    background: var(--sibnight-message-hover) !important;
 }
 
 .reaction__23977,
 .reactionBtn__23977.forceShow__23977 {
     background: var(--sibylla-embed-fill-soft) !important;
-    border-color: var(--border) !important;
+    border-color: var(--sibnight-border) !important;
 }
 
 .toolbar__9293f .search__49676 svg,
@@ -352,7 +352,7 @@
 
 .embedFull__623de {
     background: var(--sibylla-embed-fill-soft) !important;
-    border-color: var(--border) !important;
+    border-color: var(--sibnight-border) !important;
     border-left-width: 3px !important;
     border-left-color: var(--sibylla-embed-accent) !important;
 }
@@ -360,14 +360,14 @@
 .message__5126c.mentioned__5126c,
 .replying__5126c,
 .ephemeral__5126c {
-    background: var(--mention) !important;
-    box-shadow: inset 0 0 0 1px var(--border) !important;
+    background: var(--sibnight-mention) !important;
+    box-shadow: inset 0 0 0 1px var(--sibnight-border) !important;
 }
 
 .message__5126c.mentioned__5126c:hover,
 .replying__5126c:hover,
 .ephemeral__5126c:hover {
-    background: var(--mention-hover) !important;
+    background: var(--sibnight-mention-hover) !important;
 }
 
 .message__5126c.mentioned__5126c::before,
@@ -380,16 +380,16 @@
 .botTag__82f07,
 [class*='botTagRegular__'],
 [class*='botTag__'] {
-    background: var(--accent-2) !important;
-    color: var(--text-0) !important;
+    background: var(--sibnight-accent-2) !important;
+    color: var(--sibnight-text-0) !important;
     border: none !important;
     box-shadow: none !important;
 }
 
 .botTagOP__82f07,
 [class*='botTagOP__'] {
-    background: var(--accent-3) !important;
-    color: var(--text-0) !important;
+    background: var(--sibnight-accent-3) !important;
+    color: var(--sibnight-text-0) !important;
     border: none !important;
     box-shadow: none !important;
 }
@@ -469,7 +469,7 @@
 .replying__5126c,
 .ephemeral__5126c {
     box-shadow: none !important;
-    border: 1px solid var(--border) !important;
+    border: 1px solid var(--sibnight-border) !important;
 }
 
 .embedFull__623de,
@@ -501,7 +501,7 @@
     opacity: 1 !important;
     background: var(--sibylla-panel-fill-strong) !important;
     background-image: none !important;
-    border: 1px solid var(--border) !important;
+    border: 1px solid var(--sibnight-border) !important;
     border-radius: 14px !important;
     box-shadow: none !important;
     filter: none !important;
@@ -531,7 +531,7 @@
 .autocomplete__6b0e0 [class*='header'],
 .autocomplete__6b0e0 [class*='title'],
 .autocomplete__6b0e0 [class*='sectionTag'] {
-    color: var(--text-4) !important;
+    color: var(--sibnight-text-4) !important;
 }
 
 .autocomplete__6b0e0 [class*='row']:hover,
@@ -554,7 +554,7 @@
 
 .autocomplete__6b0e0 [class*='description'],
 .autocomplete__6b0e0 [class*='alias'] {
-    color: var(--text-4) !important;
+    color: var(--sibnight-text-4) !important;
 }
 
 /* ==============================

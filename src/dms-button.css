@@ -14,8 +14,8 @@ body {
         radial-gradient(circle at 100% 0%, rgba(99, 170, 255, 0.14), transparent 40%),
         linear-gradient(
             145deg,
-            color-mix(in oklab, var(--blue-3) 80%, var(--bg-3) 20%),
-            color-mix(in oklab, var(--blue-5) 82%, var(--yellow-2) 18%)
+            color-mix(in oklab, var(--sibnight-blue-3) 80%, var(--sibnight-bg-3) 20%),
+            color-mix(in oklab, var(--sibnight-blue-5) 82%, var(--sibnight-yellow-2) 18%)
         );
 }
 
