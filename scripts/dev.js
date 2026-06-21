@@ -13,12 +13,13 @@ function getDevOutputPaths() {
     return (process.env.DEV_OUTPUT_PATH || '')
         .split(',')
         .map((value) => value.trim())
-        .filter(Boolean);
+        .filter(Boolean)
+        .map((value) => path.resolve(rootDir, value));
 }
 
 function logWrittenOutputs(outputs) {
     for (const outputPath of outputs) {
-        console.log(`  wrote ${outputPath}`);
+        console.log(` wrote ${outputPath}`);
     }
 }
 
@@ -32,21 +33,31 @@ function runBuild(outputPaths, reason = 'initial build') {
     }
 }
 
+function debounce(callback, delayMs) {
+    let timer = null;
+
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => callback(...args), delayMs);
+    };
+}
+
 function main() {
     const outputPaths = getDevOutputPaths();
 
     if (outputPaths.length === 0) {
         console.error('[sibnight] DEV_OUTPUT_PATH is not set in .env');
+        console.error('[sibnight] Example: DEV_OUTPUT_PATH="C:/Users/you/AppData/Roaming/BetterDiscord/themes/sibnight.theme.css"');
         process.exit(1);
     }
 
     runBuild(outputPaths);
 
-    chokidar
-        .watch(watchTargets, { ignoreInitial: true })
-        .on('all', (eventName, filePath) => {
-            runBuild(outputPaths, `${eventName} ${path.relative(rootDir, filePath)}`);
-        });
+    const rebuild = debounce((eventName, filePath) => {
+        runBuild(outputPaths, `${eventName} ${path.relative(rootDir, filePath)}`);
+    }, 80);
+
+    chokidar.watch(watchTargets, { ignoreInitial: true }).on('all', rebuild);
 }
 
 main();

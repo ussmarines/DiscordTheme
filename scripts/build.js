@@ -2,8 +2,9 @@ const { buildAll } = require('./lib/build-theme');
 
 function logBuildOutputs(outputs) {
     console.log('[sibnight] release build completed');
+
     for (const outputPath of outputs) {
-        console.log(`  wrote ${outputPath}`);
+        console.log(` wrote ${outputPath}`);
     }
 }
 

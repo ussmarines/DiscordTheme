@@ -17,6 +17,7 @@ const SOURCE_FILE_ORDER = [
     'transparency-blur.css',
     'user-panel.css',
     'window-controls.css',
+    'hardening.css',
 ];
 
 const BUNDLE_OUTPUTS = [
@@ -24,38 +25,52 @@ const BUNDLE_OUTPUTS = [
     path.join(rootDir, 'archive', 'sibnight.css'),
 ];
 
-const REMOTE_BUILD_IMPORT =
-    "https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css";
+const REMOTE_BUILD_IMPORT = 'https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/build/sibnight.css';
 
 const BUILD_IMPORT_PATTERN = new RegExp(
     String.raw`@import\s+url\(['"]${REMOTE_BUILD_IMPORT.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]\);`
 );
 
 function listSourceCssFiles() {
+    if (!fs.existsSync(srcDir)) {
+        throw new Error(`Source directory is missing: ${srcDir}`);
+    }
+
     return fs
         .readdirSync(srcDir)
         .filter((fileName) => fileName.endsWith('.css'))
         .sort((left, right) => left.localeCompare(right));
 }
 
-function resolveSourceFileOrder() {
+function assertSourceOrderIsStrict() {
     const discoveredFiles = listSourceCssFiles();
-    const orderedFiles = [];
-    const remainingFiles = new Set(discoveredFiles);
+    const discoveredSet = new Set(discoveredFiles);
+    const declaredSet = new Set(SOURCE_FILE_ORDER);
 
-    for (const fileName of SOURCE_FILE_ORDER) {
-        if (remainingFiles.has(fileName)) {
-            orderedFiles.push(fileName);
-            remainingFiles.delete(fileName);
-        }
+    const duplicateDeclarations = SOURCE_FILE_ORDER.filter((fileName, index) => {
+        return SOURCE_FILE_ORDER.indexOf(fileName) !== index;
+    });
+
+    if (duplicateDeclarations.length > 0) {
+        throw new Error(`SOURCE_FILE_ORDER contains duplicates: ${duplicateDeclarations.join(', ')}`);
     }
 
-    orderedFiles.push(...Array.from(remainingFiles).sort((left, right) => left.localeCompare(right)));
-    return orderedFiles;
+    const missingFiles = SOURCE_FILE_ORDER.filter((fileName) => !discoveredSet.has(fileName));
+    const undeclaredFiles = discoveredFiles.filter((fileName) => !declaredSet.has(fileName));
+
+    if (missingFiles.length > 0) {
+        throw new Error(`SOURCE_FILE_ORDER references missing files: ${missingFiles.map((file) => `src/${file}`).join(', ')}`);
+    }
+
+    if (undeclaredFiles.length > 0) {
+        throw new Error(`SOURCE_FILE_ORDER is missing files: ${undeclaredFiles.map((file) => `src/${file}`).join(', ')}`);
+    }
 }
 
 function getSourceFiles() {
-    return resolveSourceFileOrder().map((fileName) => path.join(srcDir, fileName));
+    assertSourceOrderIsStrict();
+
+    return SOURCE_FILE_ORDER.map((fileName) => path.join(srcDir, fileName));
 }
 
 function readTextFile(filePath) {
@@ -67,20 +82,29 @@ function writeTextFile(filePath, contents) {
     fs.writeFileSync(filePath, contents);
 }
 
+function normalizeCssText(contents) {
+    return contents.replace(/\r\n/g, '\n').replace(/\s*$/u, '\n');
+}
+
 function ensureThemeTemplate(themeCss) {
     if (!BUILD_IMPORT_PATTERN.test(themeCss)) {
         throw new Error(
             'themes/sibnight.theme.css no longer contains the expected build import. ' +
-            'Keep the raw GitHub import so the build step can inline compiled CSS safely.'
+                'Keep the raw GitHub import so the build step can inline compiled CSS safely.'
         );
     }
 }
 
-function buildSourceCss() {
-    const compiledCss = getSourceFiles()
-        .map((filePath) => `/* ${path.basename(filePath)} */\n${readTextFile(filePath)}\n`)
+function compileSourceCss() {
+    return getSourceFiles()
+        .map((filePath) => {
+            const relativeName = path.basename(filePath);
+            return `/* ${relativeName} */\n${normalizeCssText(readTextFile(filePath))}\n`;
+        })
         .join('');
+}
 
+function writeCompiledCss(compiledCss = compileSourceCss()) {
     writeTextFile(buildFile, compiledCss);
     return compiledCss;
 }
@@ -88,11 +112,16 @@ function buildSourceCss() {
 function buildBundleFromTheme(compiledCss) {
     const themeCss = readTextFile(themeFile);
     ensureThemeTemplate(themeCss);
+
     return themeCss.replace(BUILD_IMPORT_PATTERN, compiledCss);
 }
 
 function getBundleOutputs(extraOutputs = []) {
-    return [...BUNDLE_OUTPUTS, ...extraOutputs.filter(Boolean)];
+    const normalizedExtraOutputs = extraOutputs
+        .filter(Boolean)
+        .map((outputPath) => path.resolve(rootDir, outputPath));
+
+    return [...BUNDLE_OUTPUTS, ...normalizedExtraOutputs];
 }
 
 function writeBundleOutputs(bundledCss, extraOutputs = []) {
@@ -106,11 +135,17 @@ function writeBundleOutputs(bundledCss, extraOutputs = []) {
 }
 
 function buildAll(extraOutputs = []) {
-    const compiledCss = buildSourceCss();
+    const compiledCss = compileSourceCss();
+    writeCompiledCss(compiledCss);
+
     const bundledCss = buildBundleFromTheme(compiledCss);
     const outputs = writeBundleOutputs(bundledCss, extraOutputs);
 
-    return { compiledCss, bundledCss, outputs };
+    return {
+        compiledCss,
+        bundledCss,
+        outputs,
+    };
 }
 
 module.exports = {
@@ -119,11 +154,16 @@ module.exports = {
     themeFile,
     buildFile,
     SOURCE_FILE_ORDER,
+    BUNDLE_OUTPUTS,
     REMOTE_BUILD_IMPORT,
+    BUILD_IMPORT_PATTERN,
+    listSourceCssFiles,
+    assertSourceOrderIsStrict,
     getSourceFiles,
     getBundleOutputs,
-    buildAll,
-    buildSourceCss,
+    compileSourceCss,
+    writeCompiledCss,
     buildBundleFromTheme,
     writeBundleOutputs,
+    buildAll,
 };
