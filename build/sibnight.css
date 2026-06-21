@@ -3502,16 +3502,6 @@ body {
     }
 }
 
-/* Defensive fallbacks for core tokens used by multiple modules. */
-body {
-    --gap: var(--gap, 12px);
-    --divider-thickness: var(--divider-thickness, 4px);
-    --border-thickness: var(--border-thickness, 0px);
-    --panel-backdrop-filter: var(--panel-backdrop-filter, none);
-    --panel-shadow: var(--panel-shadow, 0 18px 42px rgba(2, 8, 18, 0.34));
-    --panel-shadow-hover: var(--panel-shadow-hover, 0 24px 56px rgba(2, 8, 18, 0.42));
-}
-
 /* Prevent accidental debug named colors from leaking through the most visible surfaces. */
 #app-mount,
 .appMount__51fd7,
