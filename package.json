@@ -9,7 +9,8 @@
     "fix:debug-colors": "node scripts/fix-debug-colors.js",
     "normalize:bd": "node scripts/normalize-betterdiscord.js",
     "refactor:vars": "node scripts/refactor-prefix-vars.js",
-    "prepare:release": "npm run normalize:bd && npm run refactor:vars && npm run fix:debug-colors && npm run build && npm run check"
+    "optimize:css": "node scripts/performance-cleanup.js",
+    "prepare:release": "npm run normalize:bd && npm run refactor:vars && npm run fix:debug-colors && npm run optimize:css && npm run build && npm run check"
   },
   "author": "ussmarines",
   "license": "MIT",

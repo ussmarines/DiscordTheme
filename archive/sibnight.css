@@ -173,7 +173,6 @@ body {
     mask: none;
 }
 
-
 /* Server banner sizing and fade */
 .animatedContainer_f37cb1,
 .header_f37cb1 [class*='animatedContainer'] {
@@ -566,7 +565,6 @@ body {
     left: 0;
 }
 
-
 /* Profile cards and popouts */
 .inner_c0bea0 {
     background:
@@ -619,9 +617,6 @@ body {
     --font-code: var(--code-font), 'gg mono', 'Source Code Pro', Consolas, Monaco, monospace;
 }
 
-[class*='scroll'] {
-    will-change: scroll-position;
-}
 .burstGlow__23977 {
     display: none;
 }
@@ -915,7 +910,6 @@ nav[class*='guilds'] {
     background: transparent !important;
 }
 
-
 /* ==========================
    Sibylla final visual pass
    ========================== */
@@ -1018,8 +1012,6 @@ nav[class*='guilds'] {
     background: transparent !important;
     box-shadow: none !important;
 }
-
-
 
 /* Keep rich embeds visually unified */
 .embedFull__623de .codeView__5126c,
@@ -1257,7 +1249,6 @@ nav[class*='guilds'] {
         transparent 82%
     );
 }
-
 
 @container root style(--colors: on) {
     body,
@@ -2624,7 +2615,6 @@ body {
     background-image: none !important;
 }
 
-
 /* ===============================
    Sibylla final chat input polish
    =============================== */
@@ -3307,7 +3297,6 @@ body {
     }
 }
 
-
 /* ==============================
    Sibylla final top bar visuals
    ============================== */
@@ -3465,7 +3454,6 @@ body {
 .connection_e131a9:has(> .inner_e131a9 .labelWrapper__06d62 > a .lineClamp1__4bd52 p) {
     padding: calc(var(--custom-guild-list-padding) - var(--custom-panels-spacing) + 4px) 0;
 }
-
 
 /* Keep Spotify, voice, and account panels stacked without overlap */
 .panels__5e434 {

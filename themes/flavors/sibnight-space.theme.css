@@ -13,7 +13,66 @@
      * window controls inspired by https://github.com/Dyzean/Tokyo-Night
      */
 
-@import url('https://ussmarines.github.io/DiscordTheme/themes/sibnight.theme.css');
+@import url('https://ussmarines.github.io/DiscordTheme/build/sibnight.css');
+
+/* sibnight flavor layout defaults: start */
+body {
+    /* font options */
+    --font: 'figtree';
+    --code-font: '';
+    font-weight: 400;
+
+    /* sizes */
+    --gap: 12px;
+    --divider-thickness: 4px;
+    --border-thickness: 0px;
+
+    /* animation/transition options */
+    --animations: on;
+    --list-item-transition: 0.2s ease;
+    --dms-icon-svg-transition: 0.4s ease;
+    --border-hover-transition: 0.2s ease;
+
+    /* top bar options */
+    --top-bar-height: var(--gap);
+    --top-bar-button-position: titlebar;
+    --top-bar-title-position: off;
+    --subtle-top-bar-title: off;
+
+    /* window controls */
+    --custom-window-controls: on;
+    --window-control-size: 14px;
+
+    /* dms button options */
+    --custom-dms-icon: custom;
+    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg');
+    --dms-icon-svg-size: 104%;
+    --dms-icon-color-before: var(--icon-subtle);
+    --dms-icon-color-after: var(--white);
+    --custom-dms-background: off;
+    --dms-background-image-url: url('');
+    --dms-background-image-size: cover;
+    --dms-background-color: linear-gradient(70deg, var(--sibnight-blue-2), var(--sibnight-purple-2), var(--sibnight-red-2));
+
+    /* background image options */
+    --background-image: off;
+    --background-image-url: url('');
+
+    /* transparency/blur options */
+    --transparency-tweaks: off;
+    --remove-bg-layer: off;
+    --panel-blur: off;
+    --blur-amount: 12px;
+    --sibnight-bg-floating: var(--sibnight-bg-3);
+
+    /* chatbar options */
+    --custom-chatbar: off;
+    --chatbar-height: 47px;
+
+    /* other options */
+    --small-user-panel: on;
+}
+/* sibnight flavor layout defaults: end */
 
     body {
     --dms-icon-svg-size: 104%;
@@ -290,7 +349,6 @@
     color: var(--interactive-icon-active) !important;
 }
 
-
 .content_f75fb0 > aside > .outer_c0bea0,
 .chatContent_f75fb0 > aside > .outer_c0bea0,
 .outer_c0bea0 {
@@ -334,7 +392,6 @@
 .channelTextArea_f75fb0::after {
     display: none !important;
 }
-
 
 .base_b88801 > div,
 .channelBottomBarArea_f75fb0 > div {
@@ -769,7 +826,6 @@
 ) {
     overflow: visible !important;
 }
-
 
 .autocomplete__6b0e0 {
     display: block !important;

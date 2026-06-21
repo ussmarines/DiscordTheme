@@ -24,7 +24,6 @@
     padding: calc(var(--custom-guild-list-padding) - var(--custom-panels-spacing) + 4px) 0;
 }
 
-
 /* Keep Spotify, voice, and account panels stacked without overlap */
 .panels__5e434 {
     gap: 8px;
@@ -70,4 +69,3 @@
 #vc-spotify-player + .container_e131a9 {
     margin-top: 0 !important;
 }
-
