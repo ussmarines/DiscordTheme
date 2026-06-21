@@ -16,8 +16,6 @@ const {
 const flavorsDir = path.join(rootDir, 'themes', 'flavors');
 const readmeFile = path.join(rootDir, 'README.md');
 
-const MAIN_THEME_IMPORT = 'https://ussmarines.github.io/DiscordTheme/themes/sibnight.theme.css';
-
 const EXPECTED_FLAVOR_FILES = [
     'sibnight-flat.theme.css',
     'sibnight-tokyo-night.theme.css',
@@ -30,6 +28,7 @@ const EXPECTED_FLAVOR_FILES = [
 ];
 
 const DEBUG_COLOR_PATTERN = /(^|[^-\w])\b(red|yellow|lime|blue|magenta)\b(?![-\w])/giu;
+const FLAVOR_LAYOUT_DEFAULTS_START = '/* sibnight flavor layout defaults: start */';
 
 function fail(message) {
     console.error(`[sibnight] check failed: ${message}`);
@@ -123,6 +122,29 @@ function ensureBuildOutputLooksHealthy(compiledCss) {
     }
 }
 
+function listCssFiles(directory) {
+    if (!fs.existsSync(directory)) {
+        return [];
+    }
+
+    const output = [];
+
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+        const entryPath = path.join(directory, entry.name);
+
+        if (entry.isDirectory()) {
+            output.push(...listCssFiles(entryPath));
+            continue;
+        }
+
+        if (entry.isFile() && entry.name.endsWith('.css')) {
+            output.push(entryPath);
+        }
+    }
+
+    return output.sort((left, right) => left.localeCompare(right));
+}
+
 function getFlavorFiles() {
     if (!fs.existsSync(flavorsDir)) {
         fail('themes/flavors directory is missing');
@@ -168,16 +190,16 @@ function ensureFlavorFilesAreNormalized() {
             fail(`${fileName} should have a matching @source path`);
         }
 
-        if (!css.includes(`@import url('${MAIN_THEME_IMPORT}');`)) {
-            fail(`${fileName} should import the main theme wrapper: ${MAIN_THEME_IMPORT}`);
+        if (!css.includes(`@import url('${REMOTE_BUILD_IMPORT}');`)) {
+            fail(`${fileName} should import the build directly: ${REMOTE_BUILD_IMPORT}`);
         }
 
-        if (css.includes(REMOTE_BUILD_IMPORT) || css.includes('/build/sibnight.css')) {
-            fail(`${fileName} imports the raw build directly. Flavors must import themes/sibnight.theme.css instead.`);
+        if (css.includes('/themes/sibnight.theme.css')) {
+            fail(`${fileName} imports the main wrapper. Flavors should import build/sibnight.css directly for faster startup.`);
         }
 
-        if (css.includes('raw.githubusercontent.com/ussmarines/DiscordTheme/main/themes/sibnight.theme.css')) {
-            fail(`${fileName} still imports the old raw GitHub theme URL`);
+        if (!css.includes(FLAVOR_LAYOUT_DEFAULTS_START)) {
+            fail(`${fileName} is missing the flavor layout defaults block.`);
         }
     }
 }
@@ -196,6 +218,7 @@ function ensureReadmeFlavorPathsAreNormalized() {
     }
 
     const invalidTokens = [
+        'sibnight-sibnight-',
         'themes/flavors/flat.theme.css',
         'themes/flavors/tokyo-night.theme.css',
         'themes/flavors/sun.theme.css',
@@ -217,6 +240,27 @@ function ensureReadmeFlavorPathsAreNormalized() {
     }
 }
 
+function ensureNoExpensiveScrollWillChange() {
+    const cssFiles = [
+        ...listCssFiles(srcDir),
+        ...listCssFiles(path.join(rootDir, 'themes')),
+    ];
+
+    const offenders = [];
+
+    for (const filePath of cssFiles) {
+        const css = readTextFile(filePath);
+
+        if (/will-change\s*:\s*scroll-position/iu.test(css)) {
+            offenders.push(path.relative(rootDir, filePath));
+        }
+    }
+
+    if (offenders.length > 0) {
+        fail(`remove will-change: scroll-position from: ${offenders.join(', ')}. Run npm run optimize:css.`);
+    }
+}
+
 function logDiscoveredSources() {
     console.log('[sibnight] project check passed');
 
@@ -235,6 +279,7 @@ function main() {
     ensureSingleRemoteBuildImport();
     ensureFlavorFilesAreNormalized();
     ensureReadmeFlavorPathsAreNormalized();
+    ensureNoExpensiveScrollWillChange();
 
     const compiledCss = compileSourceCss();
 

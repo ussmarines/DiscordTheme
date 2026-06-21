@@ -39,42 +39,42 @@ Pour utiliser une flavor, suis les instructions d'installation ci-dessus, mais t
 <table>
   <tr>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-sibnight-flat.theme.css">
-        <img src="./assets/readme/mockup-flat.png" alt="Aperçu sibnight-sibnight-flat">
+      <a href="./themes/flavors/sibnight-flat.theme.css">
+        <img src="./assets/readme/mockup-flat.png" alt="Aperçu sibnight-flat">
       </a>
       <br>
-      <strong>sibnight-sibnight-flat</strong>
+      <strong>sibnight-flat</strong>
       <br>
-      <code>themes/flavors/sibnight-sibnight-flat.theme.css</code>
+      <code>themes/flavors/sibnight-flat.theme.css</code>
     </td>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-sibnight-tokyo-night.theme.css">
-        <img src="./assets/readme/mockup-tokyo-night.png" alt="Aperçu sibnight-sibnight-tokyo-night">
+      <a href="./themes/flavors/sibnight-tokyo-night.theme.css">
+        <img src="./assets/readme/mockup-tokyo-night.png" alt="Aperçu sibnight-tokyo-night">
       </a>
       <br>
-      <strong>sibnight-sibnight-tokyo-night</strong>
+      <strong>sibnight-tokyo-night</strong>
       <br>
-      <code>themes/flavors/sibnight-sibnight-tokyo-night.theme.css</code>
+      <code>themes/flavors/sibnight-tokyo-night.theme.css</code>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-sibnight-sun.theme.css">
-        <img src="./assets/readme/mockup-sun.png" alt="Aperçu sibnight-sibnight-sun">
+      <a href="./themes/flavors/sibnight-sun.theme.css">
+        <img src="./assets/readme/mockup-sun.png" alt="Aperçu sibnight-sun">
       </a>
       <br>
-      <strong>sibnight-sibnight-sun</strong>
+      <strong>sibnight-sun</strong>
       <br>
-      <code>themes/flavors/sibnight-sibnight-sun.theme.css</code>
+      <code>themes/flavors/sibnight-sun.theme.css</code>
     </td>
     <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-sibnight-space.theme.css">
-        <img src="./assets/readme/mockup-space.png" alt="Aperçu sibnight-sibnight-space">
+      <a href="./themes/flavors/sibnight-space.theme.css">
+        <img src="./assets/readme/mockup-space.png" alt="Aperçu sibnight-space">
       </a>
       <br>
-      <strong>sibnight-sibnight-space</strong>
+      <strong>sibnight-space</strong>
       <br>
-      <code>themes/flavors/sibnight-sibnight-space.theme.css</code>
+      <code>themes/flavors/sibnight-space.theme.css</code>
     </td>
   </tr>
   <tr>

@@ -156,7 +156,6 @@ body {
     mask: none;
 }
 
-
 /* Server banner sizing and fade */
 .animatedContainer_f37cb1,
 .header_f37cb1 [class*='animatedContainer'] {
@@ -549,7 +548,6 @@ body {
     left: 0;
 }
 
-
 /* Profile cards and popouts */
 .inner_c0bea0 {
     background:
@@ -602,9 +600,6 @@ body {
     --font-code: var(--code-font), 'gg mono', 'Source Code Pro', Consolas, Monaco, monospace;
 }
 
-[class*='scroll'] {
-    will-change: scroll-position;
-}
 .burstGlow__23977 {
     display: none;
 }
@@ -898,7 +893,6 @@ nav[class*='guilds'] {
     background: transparent !important;
 }
 
-
 /* ==========================
    Sibylla final visual pass
    ========================== */
@@ -1001,8 +995,6 @@ nav[class*='guilds'] {
     background: transparent !important;
     box-shadow: none !important;
 }
-
-
 
 /* Keep rich embeds visually unified */
 .embedFull__623de .codeView__5126c,
