@@ -1,11 +1,13 @@
 {
   "name": "sibnight-discord",
-  "version": "2.11.6",
+  "version": "2.13.0",
   "scripts": {
     "build": "node scripts/build.js",
     "check": "node scripts/check.js",
     "dev": "node scripts/dev.js",
-    "serve": "node scripts/serve.js"
+    "serve": "node scripts/serve.js",
+    "fix:debug-colors": "node scripts/fix-debug-colors.js",
+    "prepare:release": "npm run fix:debug-colors && npm run build && npm run check"
   },
   "author": "ussmarines",
   "license": "MIT",
