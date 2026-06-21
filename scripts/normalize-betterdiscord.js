@@ -14,16 +14,34 @@ const RAW_BASE = 'https://raw.githubusercontent.com/ussmarines/DiscordTheme/main
 const MAIN_BUILD_IMPORT = `${PAGES_BASE}/build/sibnight.css`;
 const MAIN_THEME_IMPORT = `${PAGES_BASE}/themes/sibnight.theme.css`;
 
-const FLAVOR_NAME_MAP = new Map([
-    ['sibnight-flat', 'sibnight-flat'],
-    ['sibnight-tokyo-night', 'sibnight-tokyo-night'],
-    ['sibnight-sun', 'sibnight-sun'],
-    ['sibnight-space', 'sibnight-space'],
-    ['sibnight-north-Polar', 'sibnight-north-polar'],
-    ['sibnight-north-Snow', 'sibnight-north-snow'],
-    ['sibnight-north-Aurora-Dark', 'sibnight-north-aurora-dark'],
-    ['sibnight-north-Aurora-Light', 'sibnight-north-aurora-light'],
+const KNOWN_FLAVOR_SLUGS = [
+    'sibnight-flat',
+    'sibnight-tokyo-night',
+    'sibnight-sun',
+    'sibnight-space',
+    'sibnight-north-polar',
+    'sibnight-north-snow',
+    'sibnight-north-aurora-dark',
+    'sibnight-north-aurora-light',
+];
+
+const FLAVOR_ALIAS_TO_SLUG = new Map();
+
+for (const slug of KNOWN_FLAVOR_SLUGS) {
+    FLAVOR_ALIAS_TO_SLUG.set(slug.toLowerCase(), slug);
+    FLAVOR_ALIAS_TO_SLUG.set(slug.replace(/^sibnight-/u, '').toLowerCase(), slug);
+}
+
+const LEGACY_FLAVOR_ALIASES = new Map([
+    ['sibnight-north-polar', 'sibnight-north-polar'],
+    ['sibnight-north-snow', 'sibnight-north-snow'],
+    ['sibnight-north-aurora-dark', 'sibnight-north-aurora-dark'],
+    ['sibnight-north-aurora-light', 'sibnight-north-aurora-light'],
 ]);
+
+for (const [alias, slug] of LEGACY_FLAVOR_ALIASES) {
+    FLAVOR_ALIAS_TO_SLUG.set(alias.toLowerCase(), slug);
+}
 
 function readFile(filePath) {
     return fs.readFileSync(filePath, 'utf8');
@@ -43,13 +61,27 @@ function replaceAll(text, replacements) {
     return output;
 }
 
-function normalizeFlavorBaseName(fileName) {
-    const baseName = fileName.replace(/\.theme\.css$/u, '').replace(/\.css$/u, '');
-    return FLAVOR_NAME_MAP.get(baseName) || baseName.toLowerCase();
+function normalizeFlavorSlug(value) {
+    const baseName = value
+        .replace(/\.theme\.css$/iu, '')
+        .replace(/\.css$/iu, '')
+        .trim();
+
+    const key = baseName.toLowerCase();
+
+    if (FLAVOR_ALIAS_TO_SLUG.has(key)) {
+        return FLAVOR_ALIAS_TO_SLUG.get(key);
+    }
+
+    if (key.startsWith('sibnight-')) {
+        return key;
+    }
+
+    return `sibnight-${key}`;
 }
 
 function normalizeFlavorFileName(fileName) {
-    return `${normalizeFlavorBaseName(fileName)}.theme.css`;
+    return `${normalizeFlavorSlug(fileName)}.theme.css`;
 }
 
 function normalizeMainTheme() {
@@ -87,27 +119,31 @@ function normalizeBuildThemeScript() {
 
 function normalizeFlavorContent(filePath, nextFilePath) {
     const original = readFile(filePath);
-    const oldFileName = path.basename(filePath);
     const nextFileName = path.basename(nextFilePath);
-    const nextBaseName = nextFileName.replace(/\.theme\.css$/u, '');
+    const nextSlug = nextFileName.replace(/\.theme\.css$/u, '');
 
     let updated = replaceAll(original, [
         [`${RAW_BASE}/themes/sibnight.theme.css`, MAIN_THEME_IMPORT],
         [`${PAGES_BASE}/themes/sibnight.theme.css`, MAIN_THEME_IMPORT],
-        [`${RAW_BASE}/build/sibnight.css`, MAIN_BUILD_IMPORT],
-        [`${PAGES_BASE}/build/sibnight.css`, MAIN_BUILD_IMPORT],
-        [`themes/flavors/${oldFileName}`, `themes/flavors/${nextFileName}`],
-        [`themes/flavors/${oldFileName.replace(/\.theme\.css$/u, '.css')}`, `themes/flavors/${nextFileName}`],
+
+        // Important: flavors must import the wrapper theme, not the raw build.
+        [`${RAW_BASE}/build/sibnight.css`, MAIN_THEME_IMPORT],
+        [`${PAGES_BASE}/build/sibnight.css`, MAIN_THEME_IMPORT],
     ]);
 
     updated = updated.replace(
-        /@source\s+https:\/\/github\.com\/ussmarines\/DiscordTheme\/blob\/main\/themes\/flavors\/[A-Za-z0-9-]+(?:\.theme)?\.css/gu,
+        /@import\s+url\(['"][^'"]*(?:build\/sibnight\.css|themes\/sibnight\.theme\.css)['"]\);/u,
+        `@import url('${MAIN_THEME_IMPORT}');`
+    );
+
+    updated = updated.replace(
+        /@source\s+https:\/\/github\.com\/ussmarines\/DiscordTheme\/blob\/main\/themes\/flavors\/[A-Za-z0-9-]+(?:\.theme)?\.css/u,
         `@source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/${nextFileName}`
     );
 
     updated = updated.replace(
-        /@name\s+([A-Za-z0-9-]+)/u,
-        `@name ${nextBaseName}`
+        /@name\s+[A-Za-z0-9-]+/u,
+        `@name ${nextSlug}`
     );
 
     return updated;
@@ -118,12 +154,12 @@ function normalizeFlavors() {
         throw new Error(`Missing directory: ${flavorsDir}`);
     }
 
-    const files = fs
+    const cssFiles = fs
         .readdirSync(flavorsDir)
         .filter((fileName) => fileName.endsWith('.css'))
         .sort((left, right) => left.localeCompare(right));
 
-    for (const fileName of files) {
+    for (const fileName of cssFiles) {
         const filePath = path.join(flavorsDir, fileName);
         const nextFileName = normalizeFlavorFileName(fileName);
         const nextFilePath = path.join(flavorsDir, nextFileName);
@@ -132,14 +168,17 @@ function normalizeFlavors() {
         if (nextFilePath !== filePath) {
             if (fs.existsSync(nextFilePath)) {
                 fs.unlinkSync(filePath);
+
                 const existingContent = normalizeFlavorContent(nextFilePath, nextFilePath);
                 writeFile(nextFilePath, existingContent);
+
                 console.log(`[sibnight] removed duplicate themes/flavors/${fileName}`);
                 continue;
             }
 
             fs.renameSync(filePath, nextFilePath);
             writeFile(nextFilePath, updatedContent);
+
             console.log(`[sibnight] renamed themes/flavors/${fileName} -> themes/flavors/${nextFileName}`);
             continue;
         }
@@ -151,37 +190,38 @@ function normalizeFlavors() {
     }
 }
 
-function normalizeReadmeFlavorPath(match, prefix, baseName) {
-    const normalizedBaseName = FLAVOR_NAME_MAP.get(baseName) || baseName.toLowerCase();
-    return `${prefix}${normalizedBaseName}.theme.css`;
-}
-
-function normalizeReadmeFlavorTitle(match, baseName) {
-    const normalizedBaseName = FLAVOR_NAME_MAP.get(baseName) || baseName.toLowerCase();
-    return normalizedBaseName;
-}
-
 function normalizeReadme() {
     if (!fs.existsSync(readmeFile)) {
         return;
     }
 
     const original = readFile(readmeFile);
+    let updated = original;
 
-    let updated = original.replace(
+    updated = updated.replace(
         /(\.\/themes\/flavors\/)([A-Za-z0-9-]+)(?:\.theme)?\.css/gu,
-        normalizeReadmeFlavorPath
+        (match, prefix, flavorName) => `${prefix}${normalizeFlavorSlug(flavorName)}.theme.css`
     );
 
     updated = updated.replace(
         /(themes\/flavors\/)([A-Za-z0-9-]+)(?:\.theme)?\.css/gu,
-        normalizeReadmeFlavorPath
+        (match, prefix, flavorName) => `${prefix}${normalizeFlavorSlug(flavorName)}.theme.css`
     );
 
-    updated = updated.replace(
-        /\bsibnight-(flat|tokyo-night|sun|space|north-Polar|north-Snow|north-Aurora-Dark|north-Aurora-Light)\b/gu,
-        normalizeReadmeFlavorTitle
-    );
+    const displayNameReplacements = new Map([
+        ['flat', 'sibnight-flat'],
+        ['tokyo-night', 'sibnight-tokyo-night'],
+        ['sun', 'sibnight-sun'],
+        ['space', 'sibnight-space'],
+        ['sibnight-north-Polar', 'sibnight-north-polar'],
+        ['sibnight-north-Snow', 'sibnight-north-snow'],
+        ['sibnight-north-Aurora-Dark', 'sibnight-north-aurora-dark'],
+        ['sibnight-north-Aurora-Light', 'sibnight-north-aurora-light'],
+    ]);
+
+    for (const [from, to] of displayNameReplacements) {
+        updated = updated.split(from).join(to);
+    }
 
     if (updated !== original) {
         writeFile(readmeFile, updated);
