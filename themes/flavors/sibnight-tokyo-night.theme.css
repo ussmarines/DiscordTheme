@@ -614,7 +614,6 @@ body {
     overflow-y: auto !important;
     overflow-x: hidden !important;
     max-height: min(50vh, 420px) !important;
-    overscroll-behavior: contain !important;
 }
 
 :is(

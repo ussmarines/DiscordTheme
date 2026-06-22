@@ -658,7 +658,6 @@ body {
     overflow-y: auto !important;
     overflow-x: hidden !important;
     max-height: min(50vh, 420px) !important;
-    overscroll-behavior: contain !important;
 }
 
 :is(
@@ -689,8 +688,8 @@ body {
    ============================== */
 
 /* forum/thread title bar: use the darker Polar Night slab */
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container__01ae2 > .container__9293f,
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .chatLayerWrapper__01ae2 .container__9293f {
+.container__01ae2 > .container__9293f,
+.chatLayerWrapper__01ae2 .container__9293f {
     background: #2e3440 !important;
     background-image: none !important;
     box-shadow: none !important;
@@ -698,26 +697,26 @@ body {
 }
 
 /* forum browser shell and controls: keep them on the mid slab instead of the lighter box */
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db,
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db [class*='searchBar'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db [class*='searchBox'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db [class*='segmented'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db [class*='pill'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db [class*='tagPill'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db [class*='header'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db [class*='matchingPosts'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db [class*='browseTagsContainer'] {
+.container_f369db,
+.container_f369db [class*='searchBar'],
+.container_f369db [class*='searchBox'],
+.container_f369db [class*='segmented'],
+.container_f369db [class*='pill'],
+.container_f369db [class*='tagPill'],
+.container_f369db [class*='header'],
+.container_f369db [class*='matchingPosts'],
+.container_f369db [class*='browseTagsContainer'] {
     background-image: none !important;
     box-shadow: none !important;
 }
 
 /* forum post cards / rows in the thread list */
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db .mainCard_f369db,
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db [class*='mainCard_'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db [class*='post'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db [class*='container_'][class*='card'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db [class*='container_'][class*='post'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container_f369db [class*='rowContainer'] {
+.container_f369db .mainCard_f369db,
+.container_f369db [class*='mainCard_'],
+.container_f369db [class*='post'],
+.container_f369db [class*='container_'][class*='card'],
+.container_f369db [class*='container_'][class*='post'],
+.container_f369db [class*='rowContainer'] {
     background: #3b4252 !important;
     background-image: none !important;
     box-shadow: none !important;
@@ -725,12 +724,12 @@ body {
 }
 
 /* forum thread action area under the first post */
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container__01ae2 [class*='actionBar'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container__01ae2 [class*='actionsBar'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container__01ae2 [class*='buttonsContainer'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container__01ae2 [class*='footer'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container__01ae2 [class*='container_'][class*='buttons'],
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container__01ae2 [class*='container_'][class*='footer'] {
+.container__01ae2 [class*='actionBar'],
+.container__01ae2 [class*='actionsBar'],
+.container__01ae2 [class*='buttonsContainer'],
+.container__01ae2 [class*='footer'],
+.container__01ae2 [class*='container_'][class*='buttons'],
+.container__01ae2 [class*='container_'][class*='footer'] {
     background: #3b4252 !important;
     background-image: none !important;
     box-shadow: none !important;
@@ -738,9 +737,9 @@ body {
 }
 
 /* forum reaction pill itself stays slightly darker for contrast */
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .reaction_f8896c,
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container__01ae2 .reaction__23977,
-.page__5e434:has(> div > .chatLayerWrapper__01ae2) .container__01ae2 .reactionBtn__23977.forceShow__23977 {
+.container__01ae2 .reaction_f8896c,
+.container__01ae2 .reaction__23977,
+.container__01ae2 .reactionBtn__23977.forceShow__23977 {
     background: #2e3440 !important;
     background-image: none !important;
     box-shadow: none !important;

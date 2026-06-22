@@ -31,6 +31,13 @@ const EXPECTED_FLAVOR_FILES = [
 const DEBUG_COLOR_PATTERN = /(^|[^-\w])\b(red|yellow|lime|blue|magenta)\b(?![-\w])/giu;
 const FLAVOR_LAYOUT_DEFAULTS_START = '/* sibnight flavor layout defaults: start */';
 const REQUIRED_METADATA = ['@name', '@description', '@author', '@version', '@source'];
+const HAS_SELECTOR_BUDGETS = new Map([
+    ['chatbar.css', 1],
+    ['colors.css', 2],
+    ['main.css', 2],
+    ['top-bar.css', 14],
+    ['user-panel.css', 1],
+]);
 
 function fail(message) {
     console.error(`[sibnight] check failed: ${message}`);
@@ -252,11 +259,15 @@ function ensureThemeMetadataIsValid() {
 function ensureCssPerformanceRules() {
     const cssFiles = [...listCssFiles(srcDir), ...listCssFiles(path.join(rootDir, 'themes'))];
     const broadMessageDescendant = /\.(?:message|messageListItem)_[\w-]+\s+\*/u;
+    const containedOverscroll = /overscroll-behavior(?:-[xy])?\s*:\s*contain\b/iu;
     const transitionAll = /transition(?:-property)?\s*:[^;{}]*\ball\b/iu;
+    const unscopedGuildStack = /^\s*\.stack_dbd263\b/mu;
 
     for (const filePath of cssFiles) {
         const css = stripCssComments(readTextFile(filePath));
         const relativePath = path.relative(rootDir, filePath);
+        const hasSelectorCount = (css.match(/:has\(/gu) || []).length;
+        const hasSelectorBudget = HAS_SELECTOR_BUDGETS.get(path.basename(filePath)) || 0;
 
         if (css.includes('\t')) {
             fail(`${relativePath} contains tabs; use four spaces`);
@@ -264,6 +275,18 @@ function ensureCssPerformanceRules() {
 
         if (broadMessageDescendant.test(css)) {
             fail(`${relativePath} styles every message descendant; target the smallest stable container instead`);
+        }
+
+        if (containedOverscroll.test(css)) {
+            fail(`${relativePath} blocks wheel-event scroll chaining with overscroll-behavior: contain`);
+        }
+
+        if (hasSelectorCount > hasSelectorBudget) {
+            fail(`${relativePath} uses ${hasSelectorCount} :has() selectors; the reviewed budget is ${hasSelectorBudget}`);
+        }
+
+        if (unscopedGuildStack.test(css)) {
+            fail(`${relativePath} targets Discord's shared stack class without the guild scroller scope`);
         }
 
         if (transitionAll.test(css)) {

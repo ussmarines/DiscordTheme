@@ -675,34 +675,11 @@ nav[class*='guilds'] {
     min-height: 0 !important;
 }
 
-.wrapper_ef3116,
-.scroller_ef3116 {
-    height: 100% !important;
-    min-height: 0 !important;
-}
-
-.scroller_ef3116,
-.stack_dbd263:not([id='guild-list-unread-dms']) {
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    overscroll-behavior-y: contain !important;
-    scrollbar-width: none !important;
-    touch-action: pan-y !important;
-    pointer-events: auto !important;
-    -webkit-overflow-scrolling: touch;
-}
-
-.scroller_ef3116::-webkit-scrollbar,
-.stack_dbd263:not([id='guild-list-unread-dms'])::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-
 .tutorialContainer__1f388,
 .listItem__650eb,
 .folderGroup__48112,
 .itemsContainer_ef3116,
-.stack_dbd263[id='guild-list-unread-dms'] {
+.scroller_ef3116 .stack_dbd263[id='guild-list-unread-dms'] {
     overflow: visible !important;
 }
 
@@ -2595,11 +2572,7 @@ body {
 
 .messageListItem__5126c:hover,
 .messageListItem__5126c:focus-within,
-.mouse-mode.full-motion .messageListItem__5126c:hover,
-.messageListItem__5126c:has(.message__5126c.selected__5126c),
-.messageListItem__5126c:has(.message__5126c.replying__5126c:hover),
-.messageListItem__5126c:has(.message__5126c.mentioned__5126c:hover),
-.messageListItem__5126c:has(.message__5126c.ephemeral__5126c:hover) {
+.mouse-mode.full-motion .messageListItem__5126c:hover {
     background: var(--sibnight-message-hover) !important;
 }
 
@@ -2617,6 +2590,10 @@ body {
     background: transparent !important;
     background-image: none !important;
     border-color: transparent !important;
+}
+
+.message__5126c.selected__5126c {
+    background: var(--sibnight-message-hover) !important;
 }
 
 .message__5126c.mentioned__5126c,
@@ -2811,7 +2788,7 @@ body {
     }
 
     /* make server list inner scroll */
-    .stack_dbd263:not([id='guild-list-unread-dms']) {
+    .scroller_ef3116 > .stack_dbd263:not([id='guild-list-unread-dms']) {
         overflow: hidden scroll;
         scrollbar-width: none;
     }
@@ -3616,8 +3593,7 @@ body {
 .scrollerBase_d125d2::-webkit-scrollbar,
 .contentRegionScroller__23e6b::-webkit-scrollbar,
 .mainPageScroller__80907::-webkit-scrollbar,
-.shop__08415::-webkit-scrollbar,
-.stack_dbd263:not([id='guild-list-unread-dms'])::-webkit-scrollbar {
+.shop__08415::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
@@ -3630,8 +3606,7 @@ body {
 .scrollerBase_d125d2,
 .contentRegionScroller__23e6b,
 .mainPageScroller__80907,
-.shop__08415,
-.stack_dbd263:not([id='guild-list-unread-dms']) {
+.shop__08415 {
     scrollbar-width: none;
 }
 
