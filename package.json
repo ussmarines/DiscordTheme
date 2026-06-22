@@ -5,12 +5,7 @@
     "build": "node scripts/build.js",
     "check": "node scripts/check.js",
     "dev": "node scripts/dev.js",
-    "serve": "node scripts/serve.js",
-    "fix:debug-colors": "node scripts/fix-debug-colors.js",
-    "normalize:bd": "node scripts/normalize-betterdiscord.js",
-    "refactor:vars": "node scripts/refactor-prefix-vars.js",
-    "optimize:css": "node scripts/performance-cleanup.js",
-    "prepare:release": "npm run normalize:bd && npm run refactor:vars && npm run fix:debug-colors && npm run optimize:css && npm run build && npm run check"
+    "prepare:release": "npm run build && npm run check"
   },
   "author": "ussmarines",
   "license": "MIT",

@@ -5,6 +5,8 @@ const rootDir = path.join(__dirname, '..', '..');
 const srcDir = path.join(rootDir, 'src');
 const themeFile = path.join(rootDir, 'themes', 'sibnight.theme.css');
 const buildFile = path.join(rootDir, 'build', 'sibnight.css');
+const flavorSourceFile = path.join(srcDir, 'flavor-base.css');
+const flavorBuildFile = path.join(rootDir, 'build', 'sibnight-flavor.css');
 
 const SOURCE_FILE_ORDER = [
     'main.css',
@@ -17,12 +19,12 @@ const SOURCE_FILE_ORDER = [
     'transparency-blur.css',
     'user-panel.css',
     'window-controls.css',
+    'compatibility.css',
     'hardening.css',
 ];
 
-const BUNDLE_OUTPUTS = [path.join(rootDir, 'sibnight.css')];
-
 const REMOTE_BUILD_IMPORT = 'https://ussmarines.github.io/DiscordTheme/build/sibnight.css';
+const REMOTE_FLAVOR_BUILD_IMPORT = 'https://ussmarines.github.io/DiscordTheme/build/sibnight-flavor.css';
 
 const BUILD_IMPORT_PATTERN = new RegExp(
     String.raw`@import\s+url\(['"]${REMOTE_BUILD_IMPORT.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]\);`
@@ -42,7 +44,7 @@ function listSourceCssFiles() {
 function assertSourceOrderIsStrict() {
     const discoveredFiles = listSourceCssFiles();
     const discoveredSet = new Set(discoveredFiles);
-    const declaredSet = new Set(SOURCE_FILE_ORDER);
+    const declaredSet = new Set([...SOURCE_FILE_ORDER, path.basename(flavorSourceFile)]);
 
     const duplicateDeclarations = SOURCE_FILE_ORDER.filter((fileName, index) => {
         return SOURCE_FILE_ORDER.indexOf(fileName) !== index;
@@ -101,6 +103,10 @@ function compileSourceCss() {
         .join('');
 }
 
+function compileFlavorCss(compiledCss = compileSourceCss()) {
+    return `${compiledCss}/* ${path.basename(flavorSourceFile)} */\n${normalizeCssText(readTextFile(flavorSourceFile))}\n`;
+}
+
 function writeCompiledCss(compiledCss = compileSourceCss()) {
     writeTextFile(buildFile, compiledCss);
     return compiledCss;
@@ -118,7 +124,7 @@ function getBundleOutputs(extraOutputs = []) {
         .filter(Boolean)
         .map((outputPath) => path.resolve(rootDir, outputPath));
 
-    return [...BUNDLE_OUTPUTS, ...normalizedExtraOutputs];
+    return normalizedExtraOutputs;
 }
 
 function writeBundleOutputs(bundledCss, extraOutputs = []) {
@@ -134,12 +140,15 @@ function writeBundleOutputs(bundledCss, extraOutputs = []) {
 function buildAll(extraOutputs = []) {
     const compiledCss = compileSourceCss();
     writeCompiledCss(compiledCss);
+    const compiledFlavorCss = compileFlavorCss(compiledCss);
+    writeTextFile(flavorBuildFile, compiledFlavorCss);
 
     const bundledCss = buildBundleFromTheme(compiledCss);
-    const outputs = writeBundleOutputs(bundledCss, extraOutputs);
+    const outputs = [buildFile, flavorBuildFile, ...writeBundleOutputs(bundledCss, extraOutputs)];
 
     return {
         compiledCss,
+        compiledFlavorCss,
         bundledCss,
         outputs,
     };
@@ -150,15 +159,18 @@ module.exports = {
     srcDir,
     themeFile,
     buildFile,
+    flavorSourceFile,
+    flavorBuildFile,
     SOURCE_FILE_ORDER,
-    BUNDLE_OUTPUTS,
     REMOTE_BUILD_IMPORT,
+    REMOTE_FLAVOR_BUILD_IMPORT,
     BUILD_IMPORT_PATTERN,
     listSourceCssFiles,
     assertSourceOrderIsStrict,
     getSourceFiles,
     getBundleOutputs,
     compileSourceCss,
+    compileFlavorCss,
     writeCompiledCss,
     buildBundleFromTheme,
     writeBundleOutputs,

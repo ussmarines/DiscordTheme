@@ -607,12 +607,9 @@ body {
 
 /* sibnight layout foundation */
 :root {
-    --proto-topbar-height: 50px;
     --proto-shell-surface: var(--sibylla-shell-gradient);
     --proto-column-surface: var(--sibylla-panel-fill);
     --proto-column-surface-strong: var(--sibylla-panel-fill-strong);
-    --proto-column-border: transparent;
-    --proto-column-border-hover: transparent;
     --proto-column-shadow:
         0 18px 42px rgba(2, 8, 18, 0.30),
         0 0 0 1px rgba(112, 174, 255, 0.03);
@@ -1188,27 +1185,15 @@ nav[class*='guilds'] {
     --sibylla-soft-edge: rgba(184, 221, 255, 0.04);
     --sibylla-soft-edge-strong: rgba(184, 221, 255, 0.065);
     --sibylla-blue-glow: rgba(104, 176, 255, 0.18);
-    --sibylla-gold-glow: rgba(252, 218, 125, 0.10);
---sibylla-profile-fill:
-    radial-gradient(circle at 84% 18%, rgba(96, 173, 255, 0.18) 0%, transparent 18%),
-    radial-gradient(circle at 16% 22%, rgba(252, 218, 125, 0.10) 0%, transparent 12%),
-    linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--sibnight-bg-2) 44%, var(--sibnight-blue-3) 56%) 0%,
-        color-mix(in srgb, var(--sibnight-bg-3) 26%, var(--sibnight-bg-4) 74%) 52%,
-        color-mix(in srgb, var(--sibnight-bg-4) 88%, black 12%) 100%
-    );
---sibylla-profile-overlay:
-    radial-gradient(circle at 80% 16%, rgba(131, 198, 255, 0.18) 0%, transparent 16%),
-    radial-gradient(circle at 14% 26%, rgba(252, 218, 125, 0.10) 0%, transparent 10%),
-    linear-gradient(
-        115deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.03) 28%,
-        transparent 48%,
-        rgba(255, 255, 255, 0.015) 62%,
-        transparent 82%
-    );
+    --sibylla-profile-fill:
+        radial-gradient(circle at 84% 18%, rgba(96, 173, 255, 0.18) 0%, transparent 18%),
+        radial-gradient(circle at 16% 22%, rgba(252, 218, 125, 0.10) 0%, transparent 12%),
+        linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--sibnight-bg-2) 44%, var(--sibnight-blue-3) 56%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-3) 26%, var(--sibnight-bg-4) 74%) 52%,
+            color-mix(in srgb, var(--sibnight-bg-4) 88%, black 12%) 100%
+        );
 }
 
 @container root style(--colors: on) {
@@ -3539,13 +3524,74 @@ body {
     }
 }
 
+/* compatibility.css */
+/* Autocomplete and inline editors.
+   Keep Discord responsible for visibility and scrolling state. */
+
+:is(.form_f75fb0, .channelBottomBarArea_f75fb0, .base_b88801, .channelTextArea_f75fb0, .stackedBars__74017) {
+    overflow: visible !important;
+}
+
+.autocomplete__6b0e0 {
+    background: var(--sibylla-panel-fill-strong) !important;
+    border: 1px solid var(--sibnight-border) !important;
+    border-radius: 14px !important;
+    box-shadow: var(--panel-shadow) !important;
+    backdrop-filter: var(--panel-backdrop-filter);
+}
+
+.autocomplete__6b0e0::before,
+.autocomplete__6b0e0::after {
+    display: none !important;
+}
+
+.autocomplete__6b0e0 [role='option'] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.autocomplete__6b0e0 [role='option']:hover {
+    background: var(--sibylla-hover-fill) !important;
+}
+
+.autocomplete__6b0e0 [role='option'][aria-selected='true'] {
+    background: var(--sibylla-active-fill) !important;
+}
+
+.autocomplete__6b0e0 svg {
+    color: var(--icon-default) !important;
+    fill: currentColor !important;
+}
+
+[class*='channelTextArea'][class*='Inline'] {
+    background: var(--sibylla-control-fill) !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+
+    :is(.themedBackground__74017, .stackedBars__74017, .scrollableContainer__74017) {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .scrollableContainer__74017 {
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        max-height: min(50vh, 420px) !important;
+    }
+
+    :is(.inner__74017, .slateTextArea_ec4baf, .editor__1b31f, .textArea__74017, [data-slate-editor='true']) {
+        background: transparent !important;
+        box-shadow: none !important;
+        filter: none !important;
+    }
+}
+
 /* hardening.css */
 /* Extra safety layer loaded last.
    Keep this file small: it should only contain fallbacks and defensive fixes. */
-
-:root {
-    --sibylla-safe-transparent: transparent;
-}
 
 /* Avoid invalid calc() chains when top-bar button detection does not match. */
 @container body style(--top-bar-button-position: titlebar) {

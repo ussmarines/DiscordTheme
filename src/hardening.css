@@ -1,10 +1,6 @@
 /* Extra safety layer loaded last.
    Keep this file small: it should only contain fallbacks and defensive fixes. */
 
-:root {
-    --sibylla-safe-transparent: transparent;
-}
-
 /* Avoid invalid calc() chains when top-bar button detection does not match. */
 @container body style(--top-bar-button-position: titlebar) {
     .base__5e434 {

@@ -1,19 +1,3 @@
-/**
- * @name sibnight-discord
- * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
- * @author ussmarines
- * @version 2.13.0
- * @website https://github.com/ussmarines/DiscordTheme
- * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
- * @authorLink https://github.com/ussmarines
-*/
-/* credits
- * original design inspired by https://github.com/schnensch0/zelk
- * theme design inspired by https://github.com/refact0r/midnight-discord
- * window controls inspired by https://github.com/Dyzean/Tokyo-Night
- */
-
-/* import theme modules */
 /* main.css */
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 
@@ -623,12 +607,9 @@ body {
 
 /* sibnight layout foundation */
 :root {
-    --proto-topbar-height: 50px;
     --proto-shell-surface: var(--sibylla-shell-gradient);
     --proto-column-surface: var(--sibylla-panel-fill);
     --proto-column-surface-strong: var(--sibylla-panel-fill-strong);
-    --proto-column-border: transparent;
-    --proto-column-border-hover: transparent;
     --proto-column-shadow:
         0 18px 42px rgba(2, 8, 18, 0.30),
         0 0 0 1px rgba(112, 174, 255, 0.03);
@@ -1204,27 +1185,15 @@ nav[class*='guilds'] {
     --sibylla-soft-edge: rgba(184, 221, 255, 0.04);
     --sibylla-soft-edge-strong: rgba(184, 221, 255, 0.065);
     --sibylla-blue-glow: rgba(104, 176, 255, 0.18);
-    --sibylla-gold-glow: rgba(252, 218, 125, 0.10);
---sibylla-profile-fill:
-    radial-gradient(circle at 84% 18%, rgba(96, 173, 255, 0.18) 0%, transparent 18%),
-    radial-gradient(circle at 16% 22%, rgba(252, 218, 125, 0.10) 0%, transparent 12%),
-    linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--sibnight-bg-2) 44%, var(--sibnight-blue-3) 56%) 0%,
-        color-mix(in srgb, var(--sibnight-bg-3) 26%, var(--sibnight-bg-4) 74%) 52%,
-        color-mix(in srgb, var(--sibnight-bg-4) 88%, black 12%) 100%
-    );
---sibylla-profile-overlay:
-    radial-gradient(circle at 80% 16%, rgba(131, 198, 255, 0.18) 0%, transparent 16%),
-    radial-gradient(circle at 14% 26%, rgba(252, 218, 125, 0.10) 0%, transparent 10%),
-    linear-gradient(
-        115deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.03) 28%,
-        transparent 48%,
-        rgba(255, 255, 255, 0.015) 62%,
-        transparent 82%
-    );
+    --sibylla-profile-fill:
+        radial-gradient(circle at 84% 18%, rgba(96, 173, 255, 0.18) 0%, transparent 18%),
+        radial-gradient(circle at 16% 22%, rgba(252, 218, 125, 0.10) 0%, transparent 12%),
+        linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--sibnight-bg-2) 44%, var(--sibnight-blue-3) 56%) 0%,
+            color-mix(in srgb, var(--sibnight-bg-3) 26%, var(--sibnight-bg-4) 74%) 52%,
+            color-mix(in srgb, var(--sibnight-bg-4) 88%, black 12%) 100%
+        );
 }
 
 @container root style(--colors: on) {
@@ -3555,13 +3524,74 @@ body {
     }
 }
 
+/* compatibility.css */
+/* Autocomplete and inline editors.
+   Keep Discord responsible for visibility and scrolling state. */
+
+:is(.form_f75fb0, .channelBottomBarArea_f75fb0, .base_b88801, .channelTextArea_f75fb0, .stackedBars__74017) {
+    overflow: visible !important;
+}
+
+.autocomplete__6b0e0 {
+    background: var(--sibylla-panel-fill-strong) !important;
+    border: 1px solid var(--sibnight-border) !important;
+    border-radius: 14px !important;
+    box-shadow: var(--panel-shadow) !important;
+    backdrop-filter: var(--panel-backdrop-filter);
+}
+
+.autocomplete__6b0e0::before,
+.autocomplete__6b0e0::after {
+    display: none !important;
+}
+
+.autocomplete__6b0e0 [role='option'] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.autocomplete__6b0e0 [role='option']:hover {
+    background: var(--sibylla-hover-fill) !important;
+}
+
+.autocomplete__6b0e0 [role='option'][aria-selected='true'] {
+    background: var(--sibylla-active-fill) !important;
+}
+
+.autocomplete__6b0e0 svg {
+    color: var(--icon-default) !important;
+    fill: currentColor !important;
+}
+
+[class*='channelTextArea'][class*='Inline'] {
+    background: var(--sibylla-control-fill) !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+
+    :is(.themedBackground__74017, .stackedBars__74017, .scrollableContainer__74017) {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .scrollableContainer__74017 {
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        max-height: min(50vh, 420px) !important;
+    }
+
+    :is(.inner__74017, .slateTextArea_ec4baf, .editor__1b31f, .textArea__74017, [data-slate-editor='true']) {
+        background: transparent !important;
+        box-shadow: none !important;
+        filter: none !important;
+    }
+}
+
 /* hardening.css */
 /* Extra safety layer loaded last.
    Keep this file small: it should only contain fallbacks and defensive fixes. */
-
-:root {
-    --sibylla-safe-transparent: transparent;
-}
 
 /* Avoid invalid calc() chains when top-bar button detection does not match. */
 @container body style(--top-bar-button-position: titlebar) {
@@ -3632,180 +3662,295 @@ body {
     pointer-events: none;
 }
 
+/* flavor-base.css */
+/* Shared structural overrides for all Sibnight flavors. */
 
-
-body {
-    /* font options */
-    --font: 'figtree'; /* change to '' for default discord font */
-    --code-font: ''; /* change to '' for default discord font */
-    font-weight: 400; /* normal text font weight. DOES NOT AFFECT BOLD TEXT */
-
-    /* sizes */
-    --gap: 12px; /* spacing between panels */
-    --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
-    --border-thickness: 0px; /* remove visible panel outlines by default */
-
-    /* animation/transition options */
-    --animations: on; /* off: disable animations/transitions, on: enable animations/transitions */
-    --list-item-transition: 0.2s ease; /* transition for list items */
-    --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
-    --border-hover-transition: 0.2s ease; /* transition for borders when hovered */
-
-    /* top bar options */
-    --top-bar-height: var(--gap); /* height of the top bar (discord default is 36px, old discord style is 24px, var(--gap) recommended if button position is set to titlebar) */
-    --top-bar-button-position: titlebar; /* off: default position, hide: hide buttons completely, serverlist: move inbox button to server list, titlebar: move inbox button to channel titlebar (will hide title) */
-    --top-bar-title-position: off; /* off: default centered position, hide: hide title completely, left: left align title (like old discord) */
-    --subtle-top-bar-title: off; /* off: default, on: hide the icon and use subtle text color (like old discord) */
-
-    /* window controls */
-    --custom-window-controls: on; /* off: default window controls, on: custom window controls */
-    --window-control-size: 14px; /* size of custom window controls */
-
-    /* dms button options */
-    --custom-dms-icon: custom; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
-    --dms-icon-svg-url: url('https://raw.githubusercontent.com/ussmarines/DiscordTheme/main/assets/sibylla-logo.svg'); /* logo asset url */
-    --dms-icon-svg-size: 104%; /* size of the logo image (css background-size property) */
-    --dms-icon-color-before: var(--icon-subtle); /* normal icon color */
-    --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
-    --custom-dms-background: off; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
-    --dms-background-image-url: url(''); /* url of the background image */
-    --dms-background-image-size: cover; /* size of the background image (css background-size property) */
-    --dms-background-color: linear-gradient(70deg, var(--sibnight-blue-2), var(--sibnight-purple-2), var(--sibnight-red-2)); /* fixed color/gradient (css background property) */
-
-    /* background image options */
-    --background-image: off; /* off: no background image, on: enable background image (must set url variable below) */
-    --background-image-url: url(''); /* url of the background image */
-
-    /* transparency/blur options */
-    /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --sibnight-bg-4: hsla(220, 15%, 10%, 0.7); */
-    --transparency-tweaks: off; /* off: no changes, on: remove some elements for better transparency */
-    --remove-bg-layer: off; /* off: no changes, on: remove the base --sibnight-bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
-    --panel-blur: off; /* off: no changes, on: blur the background of panels */
-    --blur-amount: 12px; /* amount of blur */
-    --sibnight-bg-floating: var(--sibnight-bg-3); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
-
-    /* chatbar options */
-    --custom-chatbar: off; /* off: default chatbar, separated: chatbar separated from chat */
-    --chatbar-height: 47px; /* height of the chatbar (56px by default, 47px to align with user panel, 56px recommended for separated) */
-
-    /* other options */
-    --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
+@property --sibnight-flavor {
+    syntax: 'off | on';
+    inherits: false;
+    initial-value: off;
 }
 
-/* color options */
-:root {
-    --colors: on; /* off: discord default colors, on: sibnight custom colors */
-
-    /* text colors */
-    --sibnight-text-0: var(--sibnight-bg-4); /* text on colored elements */
-    --sibnight-text-1: hsl(214, 46%, 96%); /* other normally white text */
-    --sibnight-text-2: hsl(213, 26%, 86%); /* headings and important text */
-    --sibnight-text-3: hsl(214, 15%, 71%); /* normal text */
-    --sibnight-text-4: hsl(214, 14%, 57%); /* icon buttons and channels */
-    --sibnight-text-5: hsl(214, 11%, 43%); /* muted channels/chats and timestamps */
-
-    /* background and dark colors */
-    --sibnight-bg-1: hsl(218, 40%, 19%); /* dark buttons when clicked */
-    --sibnight-bg-2: hsl(221, 46%, 14%); /* dark buttons */
-    --sibnight-bg-3: hsl(225, 53%, 10%); /* spacing, secondary elements */
-    --sibnight-bg-4: hsl(228, 56%, 7%); /* main background color */
-    --sibnight-hover: hsla(206, 100%, 74%, 0.08); /* channels and buttons when hovered */
-    --sibnight-active: hsla(206, 100%, 70%, 0.14); /* channels and buttons when clicked or selected */
-    --sibnight-active-2: hsla(206, 100%, 70%, 0.22); /* extra state for transparent buttons */
-    --sibnight-message-hover: rgba(10, 19, 35, 0.78); /* messages when hovered */
-
-    /* accent colors */
-    --sibnight-accent-1: var(--sibnight-blue-1); /* links and other accent text */
-    --sibnight-accent-2: var(--sibnight-blue-2); /* small accent elements */
-    --sibnight-accent-3: var(--sibnight-blue-3); /* accent buttons */
-    --sibnight-accent-4: var(--sibnight-blue-4); /* accent buttons when hovered */
-    --sibnight-accent-5: var(--sibnight-blue-5); /* accent buttons when clicked */
-    --sibnight-accent-new: color-mix(in oklab, var(--sibnight-yellow-2) 72%, var(--sibnight-blue-2) 28%); /* Sibylla gold for key highlights */
-    --sibnight-mention: linear-gradient(to right, color-mix(in hsl, var(--sibnight-blue-2), transparent 84%) 40%, transparent); /* background of messages that mention you */
-    --sibnight-mention-hover: linear-gradient(to right, color-mix(in hsl, var(--sibnight-blue-2), transparent 90%) 40%, transparent); /* background of messages that mention you when hovered */
-    --sibnight-reply: linear-gradient(to right, color-mix(in hsl, var(--sibnight-text-3), transparent 90%) 40%, transparent); /* background of messages that reply to you */
-    --sibnight-reply-hover: linear-gradient(to right, color-mix(in hsl, var(--sibnight-text-3), transparent 95%) 40%, transparent); /* background of messages that reply to you when hovered */
-
-    /* status indicator colors */
-    --sibnight-online: var(--sibnight-green-2); /* change to #40a258 for default */
-    --sibnight-dnd: var(--sibnight-red-2); /* change to #d83a41 for default */
-    --sibnight-idle: var(--sibnight-yellow-2); /* change to #cc954c for default */
-    --sibnight-streaming: var(--sibnight-purple-2); /* change to #9147ff for default */
-    --sibnight-offline: var(--sibnight-text-4); /* change to #82838b for default offline color */
-
-    /* border colors */
-    --sibnight-border-light: transparent; /* general light border color */
-    --sibnight-border: transparent; /* general normal border color */
-    --sibnight-border-hover: transparent; /* border color of panels when hovered */
-    --sibnight-button-border: hsla(214, 90%, 80%, 0.06); /* neutral border color of buttons */
-
-    /* base colors */
-    --sibnight-red-1: oklch(75% 0.14 28);
-    --sibnight-red-2: oklch(69% 0.14 28);
-    --sibnight-red-3: oklch(63% 0.14 28);
-    --sibnight-red-4: oklch(57% 0.14 28);
-    --sibnight-red-5: oklch(51% 0.14 28);
-
-    --sibnight-green-1: oklch(78% 0.11 160);
-    --sibnight-green-2: oklch(72% 0.11 160);
-    --sibnight-green-3: oklch(66% 0.11 160);
-    --sibnight-green-4: oklch(60% 0.11 160);
-    --sibnight-green-5: oklch(54% 0.11 160);
-
-    --sibnight-blue-1: oklch(84% 0.11 242);
-    --sibnight-blue-2: oklch(78% 0.12 239);
-    --sibnight-blue-3: oklch(71% 0.13 235);
-    --sibnight-blue-4: oklch(64% 0.12 231);
-    --sibnight-blue-5: oklch(57% 0.11 227);
-
-    --sibnight-yellow-1: oklch(88% 0.06 92);
-    --sibnight-yellow-2: oklch(82% 0.07 89);
-    --sibnight-yellow-3: oklch(76% 0.08 86);
-    --sibnight-yellow-4: oklch(69% 0.08 83);
-    --sibnight-yellow-5: oklch(62% 0.08 80);
-
-    --sibnight-purple-1: oklch(76% 0.09 300);
-    --sibnight-purple-2: oklch(70% 0.09 300);
-    --sibnight-purple-3: oklch(64% 0.09 300);
-    --sibnight-purple-4: oklch(58% 0.09 300);
-    --sibnight-purple-5: oklch(52% 0.09 300);
-
-    /* Sibylla surface tokens */
-    --sibylla-shell-gradient:
-        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--sibnight-yellow-2) 12%, transparent) 0%, transparent 22%),
-        radial-gradient(circle at 88% 4%, color-mix(in srgb, var(--sibnight-blue-2) 18%, transparent) 0%, transparent 30%),
-        linear-gradient(
-            180deg,
-            color-mix(in srgb, var(--sibnight-bg-4) 92%, black 8%) 0%,
-            var(--sibnight-bg-4) 54%,
-            color-mix(in srgb, var(--sibnight-bg-4) 82%, var(--sibnight-bg-3) 18%) 100%
-        );
-    --sibylla-panel-fill:
-        linear-gradient(
-            180deg,
-            color-mix(in srgb, var(--sibnight-bg-2) 34%, var(--sibnight-bg-4) 66%) 0%,
-            color-mix(in srgb, var(--sibnight-bg-3) 22%, var(--sibnight-bg-4) 78%) 100%
-        );
-    --sibylla-panel-fill-strong:
-        linear-gradient(
-            180deg,
-            color-mix(in srgb, var(--sibnight-bg-2) 42%, var(--sibnight-bg-4) 58%) 0%,
-            color-mix(in srgb, var(--sibnight-bg-3) 24%, var(--sibnight-bg-4) 76%) 100%
-        );
-    --sibylla-header-fill:
-        linear-gradient(
-            180deg,
-            color-mix(in srgb, var(--sibnight-bg-2) 40%, var(--sibnight-bg-4) 60%) 0%,
-            color-mix(in srgb, var(--sibnight-bg-3) 14%, var(--sibnight-bg-4) 86%) 100%
-        );
-    --sibylla-control-fill:
-        linear-gradient(
-            180deg,
-            color-mix(in srgb, var(--sibnight-bg-2) 52%, var(--sibnight-bg-4) 48%) 0%,
-            color-mix(in srgb, var(--sibnight-bg-3) 40%, var(--sibnight-bg-4) 60%) 100%
-        );
-    --sibylla-soft-edge: rgba(180, 218, 255, 0.045);
-    --sibylla-soft-edge-strong: rgba(180, 218, 255, 0.07);
-    --sibylla-blue-glow: rgba(99, 170, 255, 0.16);
-    --sibylla-gold-glow: rgba(252, 218, 125, 0.12);
+@container body style(--sibnight-flavor: on) {
+    :is(
+        .guilds__5e434,
+        .sidebarList__5e434,
+        .panels__5e434,
+        .chat_f75fb0 > .subtitleContainer_f75fb0,
+        .chatContent_f75fb0,
+        .container_c8ffbb,
+        .content_f75fb0 > .membersWrap_c8ffbb,
+        .container__133bf > .container__9293f,
+        .container_f391e3 > .container__9293f,
+        .homeWrapper__0920e > .container__9293f,
+        .container__01ae2 > .container__9293f,
+        .container_fb64c9 > .container__9293f,
+        .peopleColumn__133bf,
+        .nowPlayingColumn__133bf,
+        .mainPageScroller__80907,
+        .headerBar__1a9ce,
+        .scroller__23746,
+        .container_f391e3 > .content_f75fb0,
+        .shop__6db1d,
+        .content_f75fb0 > aside > .outer_c0bea0,
+        .searchResultsWrap_a98f3b,
+        .container_f369db,
+        .chat_fb64c9,
+        .container_a592e1,
+        .callContainer_cb9592,
+        .wrapper_cb9592.sidebarOpen_cb9592 .callContainer_cb9592,
+        .callContainer__722ff,
+        .chat_f75fb0 > .header_c791b2,
+        .chat_f75fb0 > .scrollerBase_d125d2,
+        .chat_f75fb0 > .header__0b563,
+        .chat_f75fb0 > .container__0b563,
+        .container__8a031,
+        .messagesWrapper__36d07,
+        .channelTextArea_f75fb0,
+        .channelBottomBarArea_f75fb0 .channelTextArea_f75fb0,
+        .wrapper__44df5,
+        .embedFull__623de,
+        .container__9271d,
+        .reaction__23977,
+        .reactionBtn__23977.forceShow__23977,
+        .panels__5e434 > #vc-spotify-player,
+        .member_c8ffbb,
+        .container__91a9d,
+        .itemCard__7e549
+    ) {
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        filter: none !important;
+    }
+    
+    .sidebarList__5e434,
+    .chatContent_f75fb0,
+    .container_c8ffbb,
+    .peopleColumn__133bf,
+    .nowPlayingColumn__133bf,
+    .content_f75fb0 > .membersWrap_c8ffbb,
+    .content_f75fb0 > aside > .outer_c0bea0,
+    .searchResultsWrap_a98f3b,
+    .embedFull__623de,
+    .container__9271d {
+        background-image: none !important;
+        background-color: var(--sibylla-panel-fill) !important;
+    }
+    
+    .panels__5e434,
+    .container__133bf > .container__9293f,
+    .container_f391e3 > .container__9293f,
+    .homeWrapper__0920e > .container__9293f,
+    .container__01ae2 > .container__9293f,
+    .container_fb64c9 > .container__9293f,
+    .headerBar__1a9ce,
+    .chat_f75fb0 > .subtitleContainer_f75fb0,
+    .guilds__5e434 {
+        background-image: none !important;
+        background-color: var(--sibylla-panel-fill-strong) !important;
+    }
+    
+    .channelTextArea_f75fb0,
+    .channelBottomBarArea_f75fb0 .channelTextArea_f75fb0,
+    .wrapper__44df5,
+    .toolbar__9293f .search__49676,
+    .toolbar__9293f .search__49676:hover,
+    .toolbar__9293f .search__49676:focus-within {
+        background-image: none !important;
+        background-color: var(--sibylla-control-fill) !important;
+        box-shadow: none !important;
+    }
+    
+    .content_f75fb0 > aside,
+    .chatContent_f75fb0 > aside {
+        display: flex !important;
+    }
+    
+    .content_f75fb0 > aside > .outer_c0bea0,
+    .chatContent_f75fb0 > aside > .outer_c0bea0 {
+        display: flex !important;
+        flex-direction: column !important;
+        min-width: 340px !important;
+        background-image: none !important;
+        background-color: var(--sibylla-profile-fill) !important;
+        box-shadow: none !important;
+    }
+    
+    .outer_c0bea0::before,
+    .content_f75fb0 > aside > .outer_c0bea0::before,
+    .headerGlass_f37cb1::after,
+    .animatedContainer_f37cb1::after,
+    .banner__68edb::before,
+    .banner__68edb::after {
+        background-image: none !important;
+        background: none !important;
+        display: none !important;
+    }
+    
+    .banner__68edb,
+    .banner__68edb img,
+    .mask__68edb {
+        filter: none !important;
+    }
+    
+    .modeSelected__2ea32 .link__2ea32,
+    .interactive_bf202d.selected_bf202d,
+    .channel__972a0.container__972a0:hover,
+    .interactive__972a0:hover {
+        background: var(--sibylla-active-fill) !important;
+        box-shadow: none !important;
+    }
+    
+    .link__2ea32:hover,
+    .interactive_bf202d:hover,
+    .member_c8ffbb:hover,
+    .container__91a9d:hover,
+    .itemCard__7e549:hover {
+        background: var(--sibylla-hover-fill) !important;
+        box-shadow: none !important;
+    }
+    
+    .pill_e5445c .item__58105,
+    .header_f37cb1,
+    .privateChannelsHeaderContainer__99e7c,
+    .container__2637a .header__99e7c,
+    .panels__5e434 .container_e131a9,
+    [class*='membersGroup'] {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    .pill_e5445c .item__58105 {
+        background: var(--sibnight-accent-2) !important;
+    }
+    
+    .message__5126c:hover,
+    .message__5126c.selected__5126c,
+    .mouse-mode.full-motion .message__5126c:hover {
+        background: var(--sibnight-message-hover) !important;
+    }
+    
+    .reaction__23977,
+    .reactionBtn__23977.forceShow__23977 {
+        background: var(--sibylla-embed-fill-soft) !important;
+        border-color: var(--sibnight-border) !important;
+    }
+    
+    .toolbar__9293f .search__49676 svg,
+    .title_f75fb0 .icon__9293f,
+    .container__9293f .icon__9293f,
+    .children__9293f > .iconWrapper__9293f,
+    .toolbar__9293f .iconWrapper__9293f .icon__9293f,
+    .toolbar__9293f .clickable__9293f svg,
+    .toolbar__9293f .button__67645 svg {
+        color: var(--icon-default) !important;
+    }
+    
+    .link__2ea32 svg,
+    .privateChannels__35e86 svg,
+    .containerDefault__29444 svg,
+    .linkButtonIcon__972a0,
+    .actionIcon_f9255e {
+        color: var(--channel-icon) !important;
+        fill: currentColor !important;
+    }
+    
+    .modeSelected__2ea32 .link__2ea32 svg,
+    .interactive_bf202d.selected_bf202d svg {
+        color: var(--interactive-icon-active) !important;
+    }
+    
+    .content_f75fb0 > aside > .outer_c0bea0,
+    .chatContent_f75fb0 > aside > .outer_c0bea0,
+    .outer_c0bea0 {
+        box-shadow: none !important;
+        background-image: none !important;
+    }
+    
+    .inner_c0bea0,
+    .outer_c0bea0 [class*='overlayBackground'],
+    .outer_c0bea0 [class*='section'],
+    .outer_c0bea0 [class*='note'],
+    .outer_c0bea0 [class*='card'],
+    .outer_c0bea0 [class*='userInfoSection'] {
+        background-image: none !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+    
+    .form_f75fb0,
+    .channelBottomBarArea_f75fb0,
+    .base_b88801 {
+        background-image: none !important;
+        background-color: var(--sibylla-panel-fill) !important;
+        box-shadow: none !important;
+    }
+    
+    .channelTextArea_f75fb0,
+    .form_f75fb0 .themedBackground__74017,
+    .scrollableContainer__74017,
+    .stackedBars__74017 {
+        background-image: none !important;
+        background-color: var(--sibylla-control-fill) !important;
+        box-shadow: none !important;
+    }
+    
+    .form_f75fb0::before,
+    .form_f75fb0::after,
+    .channelBottomBarArea_f75fb0::before,
+    .channelBottomBarArea_f75fb0::after,
+    .channelTextArea_f75fb0::before,
+    .channelTextArea_f75fb0::after {
+        display: none !important;
+    }
+    
+    .base_b88801 > div,
+    .channelBottomBarArea_f75fb0 > div {
+        background-image: none !important;
+        background-color: inherit !important;
+    }
+    
+    .attachWrapper__0923f,
+    .attachButton__74017,
+    .buttons__74017,
+    .buttonContainer__74017,
+    .expression-picker-chat-input-button {
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+    
+    .embedFull__623de {
+        background: var(--sibylla-embed-fill-soft) !important;
+        border-color: var(--sibnight-border) !important;
+        border-left-width: 3px !important;
+        border-left-color: var(--sibylla-embed-accent) !important;
+    }
+    
+    .message__5126c.mentioned__5126c:hover,
+    .replying__5126c:hover,
+    .ephemeral__5126c:hover {
+        background: var(--sibnight-mention-hover) !important;
+    }
+    
+    .message__5126c.mentioned__5126c::before,
+    .replying__5126c::before,
+    .ephemeral__5126c::before {
+        background: var(--sibylla-embed-accent) !important;
+    }
+    
+    .botTagRegular__82f07,
+    .botTag__82f07 {
+        background: var(--sibnight-accent-2) !important;
+        color: var(--sibnight-text-0) !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    .botTagOP__82f07 {
+        background: var(--sibnight-accent-3) !important;
+        color: var(--sibnight-text-0) !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
 }
+
