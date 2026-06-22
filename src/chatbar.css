@@ -210,11 +210,7 @@ body {
 
 .messageListItem__5126c:hover,
 .messageListItem__5126c:focus-within,
-.mouse-mode.full-motion .messageListItem__5126c:hover,
-.messageListItem__5126c:has(.message__5126c.selected__5126c),
-.messageListItem__5126c:has(.message__5126c.replying__5126c:hover),
-.messageListItem__5126c:has(.message__5126c.mentioned__5126c:hover),
-.messageListItem__5126c:has(.message__5126c.ephemeral__5126c:hover) {
+.mouse-mode.full-motion .messageListItem__5126c:hover {
     background: var(--sibnight-message-hover) !important;
 }
 
@@ -232,6 +228,10 @@ body {
     background: transparent !important;
     background-image: none !important;
     border-color: transparent !important;
+}
+
+.message__5126c.selected__5126c {
+    background: var(--sibnight-message-hover) !important;
 }
 
 .message__5126c.mentioned__5126c,
