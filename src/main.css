@@ -606,12 +606,9 @@ body {
 
 /* sibnight layout foundation */
 :root {
-    --proto-topbar-height: 50px;
     --proto-shell-surface: var(--sibylla-shell-gradient);
     --proto-column-surface: var(--sibylla-panel-fill);
     --proto-column-surface-strong: var(--sibylla-panel-fill-strong);
-    --proto-column-border: transparent;
-    --proto-column-border-hover: transparent;
     --proto-column-shadow:
         0 18px 42px rgba(2, 8, 18, 0.30),
         0 0 0 1px rgba(112, 174, 255, 0.03);

@@ -119,8 +119,17 @@ Pour utiliser une flavor, suis les instructions d'installation ci-dessus, mais t
   </tr>
 </table>
 
+## développement
+
+Le projet conserve deux constructions générées :
+
+- `build/sibnight.css` pour le thème principal ;
+- `build/sibnight-flavor.css` pour les flavors, avec leur socle commun mutualisé.
+
+Utilise `npm run build` après une modification, puis `npm run check` avant publication. La commande `npm run prepare:release` exécute les deux étapes dans le bon ordre.
+
 ## crédits
 
-- original design inspired by https://github.com/schnensch0/zelk
-- theme design inspired by https://github.com/refact0r/midnight-discord
-- window controls inspired by https://github.com/Dyzean/Tokyo-Night
+- design original inspiré de [Zelk](https://github.com/schnensch0/zelk) ;
+- conception du thème inspirée de [Midnight](https://github.com/refact0r/midnight-discord) ;
+- contrôles de fenêtre inspirés de [Tokyo Night](https://github.com/Dyzean/Tokyo-Night).

@@ -1,0 +1,63 @@
+/* Autocomplete and inline editors.
+   Keep Discord responsible for visibility and scrolling state. */
+
+:is(.form_f75fb0, .channelBottomBarArea_f75fb0, .base_b88801, .channelTextArea_f75fb0, .stackedBars__74017) {
+    overflow: visible !important;
+}
+
+.autocomplete__6b0e0 {
+    background: var(--sibylla-panel-fill-strong) !important;
+    border: 1px solid var(--sibnight-border) !important;
+    border-radius: 14px !important;
+    box-shadow: var(--panel-shadow) !important;
+    backdrop-filter: var(--panel-backdrop-filter);
+}
+
+.autocomplete__6b0e0::before,
+.autocomplete__6b0e0::after {
+    display: none !important;
+}
+
+.autocomplete__6b0e0 [role='option'] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.autocomplete__6b0e0 [role='option']:hover {
+    background: var(--sibylla-hover-fill) !important;
+}
+
+.autocomplete__6b0e0 [role='option'][aria-selected='true'] {
+    background: var(--sibylla-active-fill) !important;
+}
+
+.autocomplete__6b0e0 svg {
+    color: var(--icon-default) !important;
+    fill: currentColor !important;
+}
+
+[class*='channelTextArea'][class*='Inline'] {
+    background: var(--sibylla-control-fill) !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+
+    :is(.themedBackground__74017, .stackedBars__74017, .scrollableContainer__74017) {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .scrollableContainer__74017 {
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        max-height: min(50vh, 420px) !important;
+    }
+
+    :is(.inner__74017, .slateTextArea_ec4baf, .editor__1b31f, .textArea__74017, [data-slate-editor='true']) {
+        background: transparent !important;
+        box-shadow: none !important;
+        filter: none !important;
+    }
+}

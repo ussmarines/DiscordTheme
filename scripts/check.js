@@ -6,10 +6,14 @@ const {
     srcDir,
     themeFile,
     buildFile,
+    flavorSourceFile,
+    flavorBuildFile,
     REMOTE_BUILD_IMPORT,
+    REMOTE_FLAVOR_BUILD_IMPORT,
     getSourceFiles,
     assertSourceOrderIsStrict,
     compileSourceCss,
+    compileFlavorCss,
     buildBundleFromTheme,
 } = require('./lib/build-theme');
 
@@ -37,6 +41,22 @@ const HAS_SELECTOR_BUDGETS = new Map([
     ['main.css', 2],
     ['top-bar.css', 14],
     ['user-panel.css', 1],
+]);
+const PARTIAL_ATTRIBUTE_SELECTOR_BUDGETS = new Map([
+    ['colors.css', 2],
+    ['compatibility.css', 2],
+    ['flavor-base.css', 6],
+    ['hardening.css', 1],
+    ['main.css', 9],
+    ['top-bar.css', 5],
+    ['sibnight-flat.theme.css', 0],
+    ['sibnight-north-aurora-dark.theme.css', 29],
+    ['sibnight-north-aurora-light.theme.css', 29],
+    ['sibnight-north-polar.theme.css', 52],
+    ['sibnight-north-snow.theme.css', 29],
+    ['sibnight-space.theme.css', 78],
+    ['sibnight-sun.theme.css', 29],
+    ['sibnight-tokyo-night.theme.css', 1],
 ]);
 
 function fail(message) {
@@ -91,12 +111,8 @@ function ensurePackageScriptsAreAligned() {
     const pkg = readJsonFile(packageFile);
     const scripts = pkg.scripts || {};
 
-    if (scripts['optimize:css'] !== 'node scripts/performance-cleanup.js') {
-        fail('package.json should define "optimize:css": "node scripts/performance-cleanup.js"');
-    }
-
-    if (!scripts['prepare:release'] || !scripts['prepare:release'].includes('npm run optimize:css')) {
-        fail('package.json prepare:release should run npm run optimize:css before build/check');
+    if (scripts['prepare:release'] !== 'npm run build && npm run check') {
+        fail('package.json prepare:release should build before checking generated files');
     }
 }
 
@@ -113,15 +129,20 @@ function ensureSingleRemoteBuildImport() {
     }
 }
 
-function ensureGeneratedBuildIsFresh(compiledCss) {
-    if (!fs.existsSync(buildFile)) {
-        fail('build/sibnight.css is missing. Run `npm run build`.');
-    }
+function ensureGeneratedBuildsAreFresh(compiledCss, compiledFlavorCss) {
+    for (const [filePath, expectedCss] of [
+        [buildFile, compiledCss],
+        [flavorBuildFile, compiledFlavorCss],
+    ]) {
+        const relativePath = path.relative(rootDir, filePath);
 
-    const currentBuild = readTextFile(buildFile);
+        if (!fs.existsSync(filePath)) {
+            fail(`${relativePath} is missing. Run \`npm run build\`.`);
+        }
 
-    if (currentBuild !== compiledCss) {
-        fail('build/sibnight.css is stale. Run `npm run build` and commit the regenerated file.');
+        if (readTextFile(filePath) !== expectedCss) {
+            fail(`${relativePath} is stale. Run \`npm run build\` and commit the regenerated file.`);
+        }
     }
 }
 
@@ -146,7 +167,7 @@ function ensureNoDebugColorPlaceholders(compiledCss) {
         fail(
             'debug color placeholders remain in source CSS: ' +
                 hits.join(', ') +
-                '. Run `npm run fix:debug-colors`, then `npm run build`.'
+                '. Replace them with theme variables, then run `npm run build`.'
         );
     }
 }
@@ -160,6 +181,10 @@ function ensureBuildOutputLooksHealthy(compiledCss) {
 
     if (!compiledCss.includes('/* hardening.css */')) {
         fail('compiled build is missing hardening.css');
+    }
+
+    if (!compiledCss.includes('/* compatibility.css */')) {
+        fail('compiled build is missing compatibility.css');
     }
 
     if (!bundledCss.includes('@name sibnight-discord')) {
@@ -216,8 +241,8 @@ function ensureFlavorFilesAreNormalized() {
             fail(`${fileName} should have a matching @source path`);
         }
 
-        if (!css.includes(`@import url('${REMOTE_BUILD_IMPORT}');`)) {
-            fail(`${fileName} should import the compiled build directly: ${REMOTE_BUILD_IMPORT}`);
+        if (!css.includes(`@import url('${REMOTE_FLAVOR_BUILD_IMPORT}');`)) {
+            fail(`${fileName} should import the flavor build directly: ${REMOTE_FLAVOR_BUILD_IMPORT}`);
         }
 
         if (css.includes('/themes/sibnight.theme.css')) {
@@ -226,6 +251,25 @@ function ensureFlavorFilesAreNormalized() {
 
         if (!css.includes(FLAVOR_LAYOUT_DEFAULTS_START)) {
             fail(`${fileName} is missing the flavor layout defaults block.`);
+        }
+
+        if (!css.includes('--sibnight-flavor: on;')) {
+            fail(`${fileName} must enable the shared flavor rules.`);
+        }
+
+        if (css.includes('Flavor autocomplete / shortcut compatibility')) {
+            fail(`${fileName} duplicates the shared compatibility rules.`);
+        }
+
+        const declarations = [...stripCssComments(css).matchAll(/^\s*(--[\w-]+)\s*:/gmu)].map(
+            (match) => match[1]
+        );
+        const duplicateDeclarations = declarations.filter(
+            (property, index) => declarations.indexOf(property) !== index
+        );
+
+        if (duplicateDeclarations.length > 0) {
+            fail(`${fileName} declares duplicate variables: ${[...new Set(duplicateDeclarations)].join(', ')}`);
         }
     }
 }
@@ -268,6 +312,9 @@ function ensureCssPerformanceRules() {
         const relativePath = path.relative(rootDir, filePath);
         const hasSelectorCount = (css.match(/:has\(/gu) || []).length;
         const hasSelectorBudget = HAS_SELECTOR_BUDGETS.get(path.basename(filePath)) || 0;
+        const partialAttributeSelectorCount = (css.match(/\[[^\]]+[\^$*]=/gu) || []).length;
+        const partialAttributeSelectorBudget =
+            PARTIAL_ATTRIBUTE_SELECTOR_BUDGETS.get(path.basename(filePath)) || 0;
 
         if (css.includes('\t')) {
             fail(`${relativePath} contains tabs; use four spaces`);
@@ -283,6 +330,13 @@ function ensureCssPerformanceRules() {
 
         if (hasSelectorCount > hasSelectorBudget) {
             fail(`${relativePath} uses ${hasSelectorCount} :has() selectors; the reviewed budget is ${hasSelectorBudget}`);
+        }
+
+        if (partialAttributeSelectorCount > partialAttributeSelectorBudget) {
+            fail(
+                `${relativePath} uses ${partialAttributeSelectorCount} partial attribute selectors; ` +
+                    `the reviewed budget is ${partialAttributeSelectorBudget}`
+            );
         }
 
         if (unscopedGuildStack.test(css)) {
@@ -348,7 +402,7 @@ function ensureNoExpensiveWillChange() {
     }
 
     if (offenders.length > 0) {
-        fail(`remove will-change: scroll-position from: ${offenders.join(', ')}. Run npm run optimize:css.`);
+        fail(`remove will-change: scroll-position from: ${offenders.join(', ')}`);
     }
 }
 
@@ -379,7 +433,7 @@ function logDiscoveredSources() {
 }
 
 function main() {
-    ensureFilesExist([packageFile, srcDir, themeFile]);
+    ensureFilesExist([packageFile, srcDir, themeFile, flavorSourceFile]);
     ensurePackageScriptsAreAligned();
     assertSourceOrderIsStrict();
     ensureSingleRemoteBuildImport();
@@ -391,9 +445,11 @@ function main() {
     ensureReducedMotionExists();
 
     const compiledCss = compileSourceCss();
+    const compiledFlavorCss = compileFlavorCss(compiledCss);
 
     ensureNoDebugColorPlaceholders(compiledCss);
-    ensureGeneratedBuildIsFresh(compiledCss);
+    ensureNoDebugColorPlaceholders(compiledFlavorCss);
+    ensureGeneratedBuildsAreFresh(compiledCss, compiledFlavorCss);
     ensureBuildOutputLooksHealthy(compiledCss);
     logDiscoveredSources();
 }
