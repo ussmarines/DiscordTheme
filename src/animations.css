@@ -46,6 +46,17 @@ body {
             background-color var(--list-item-transition),
             opacity var(--list-item-transition);
     }
+
+    .messageListItem__5126c {
+        transition: background-color 0.14s ease !important;
+    }
+
+    :is(.message__5126c, .cozy_c19a55.wrapper_c19a55, .compact_c19a55.wrapper_c19a55) {
+        transition:
+            background-color 0.14s ease,
+            border-color 0.14s ease,
+            color 0.14s ease !important;
+    }
 }
 
 @container body style(--animations: off) {
@@ -56,7 +67,11 @@ body {
     .member_c8ffbb,
     .link__972a0,
     .interactive__972a0,
-    .unread__2ea32 {
+    .unread__2ea32,
+    .messageListItem__5126c,
+    .message__5126c,
+    .cozy_c19a55.wrapper_c19a55,
+    .compact_c19a55.wrapper_c19a55 {
         transition: none !important;
     }
 }

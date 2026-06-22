@@ -1,4 +1,4 @@
-    /**
+/**
      * @name sibnight-space
      * @description A Sibnight space flavor refined toward a deeper hologram sci-fi direction with cleaner MP, bot, embed and profile surfaces.
      * @author ussmarines
@@ -156,7 +156,6 @@ body {
     --sibylla-soft-edge-strong: transparent;
     --sibylla-blue-glow: transparent;
     --sibylla-gold-glow: transparent;
-	--sibnight-text-0: #081123;
 }
 
 :is(

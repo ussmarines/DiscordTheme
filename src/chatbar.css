@@ -175,13 +175,10 @@ body {
 .messageListItem__5126c,
 .message__5126c,
 .cozy_c19a55.wrapper_c19a55,
-.compact_c19a55.wrapper_c19a55,
-.message__5126c *,
-.messageListItem__5126c * {
+.compact_c19a55.wrapper_c19a55 {
     transform: none !important;
     translate: none !important;
     animation: none !important;
-    will-change: auto !important;
 }
 
 .messageListItem__5126c {
@@ -192,7 +189,6 @@ body {
     margin-right: 0 !important;
     border-radius: 12px;
     overflow: visible !important;
-    transition: background-color 0.14s ease !important;
 }
 
 .message__5126c,
@@ -202,10 +198,6 @@ body {
     margin-right: 0 !important;
     border-radius: 12px;
     background: transparent !important;
-    transition:
-        background-color 0.14s ease,
-        border-color 0.14s ease,
-        color 0.14s ease !important;
 }
 
 .message__5126c::before,
@@ -240,13 +232,6 @@ body {
     background: transparent !important;
     background-image: none !important;
     border-color: transparent !important;
-}
-
-.message__5126c:hover :is([class*='contents'], [class*='messageContent'], [class*='markup'], [class*='header'], [class*='repliedMessage'], [class*='repliedTextPreview'], [class*='username'], [class*='timestamp'], [class*='messageAccessories'], [class*='buttonContainer'], [class*='buttons']),
-.messageListItem__5126c:hover :is([class*='contents'], [class*='messageContent'], [class*='markup'], [class*='header'], [class*='repliedMessage'], [class*='repliedTextPreview'], [class*='username'], [class*='timestamp'], [class*='messageAccessories'], [class*='buttonContainer'], [class*='buttons']) {
-    transform: none !important;
-    translate: none !important;
-    animation: none !important;
 }
 
 .message__5126c.mentioned__5126c,
