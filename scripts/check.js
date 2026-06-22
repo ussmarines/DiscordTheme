@@ -30,6 +30,7 @@ const EXPECTED_FLAVOR_FILES = [
 
 const DEBUG_COLOR_PATTERN = /(^|[^-\w])\b(red|yellow|lime|blue|magenta)\b(?![-\w])/giu;
 const FLAVOR_LAYOUT_DEFAULTS_START = '/* sibnight flavor layout defaults: start */';
+const REQUIRED_METADATA = ['@name', '@description', '@author', '@version', '@source'];
 
 function fail(message) {
     console.error(`[sibnight] check failed: ${message}`);
@@ -222,6 +223,55 @@ function ensureFlavorFilesAreNormalized() {
     }
 }
 
+function ensureThemeMetadataIsValid() {
+    const themeFiles = [themeFile, ...getFlavorFiles().map((fileName) => path.join(flavorsDir, fileName))];
+
+    for (const filePath of themeFiles) {
+        const css = readTextFile(filePath);
+        const relativePath = path.relative(rootDir, filePath);
+
+        if (!css.startsWith('/**')) {
+            fail(`${relativePath} must start with a BetterDiscord metadata block`);
+        }
+
+        const metadataEnd = css.indexOf('*/');
+
+        if (metadataEnd === -1) {
+            fail(`${relativePath} has an unterminated metadata block`);
+        }
+
+        const metadata = css.slice(0, metadataEnd);
+        const missingFields = REQUIRED_METADATA.filter((field) => !metadata.includes(field));
+
+        if (missingFields.length > 0) {
+            fail(`${relativePath} is missing metadata: ${missingFields.join(', ')}`);
+        }
+    }
+}
+
+function ensureCssPerformanceRules() {
+    const cssFiles = [...listCssFiles(srcDir), ...listCssFiles(path.join(rootDir, 'themes'))];
+    const broadMessageDescendant = /\.(?:message|messageListItem)_[\w-]+\s+\*/u;
+    const transitionAll = /transition(?:-property)?\s*:[^;{}]*\ball\b/iu;
+
+    for (const filePath of cssFiles) {
+        const css = stripCssComments(readTextFile(filePath));
+        const relativePath = path.relative(rootDir, filePath);
+
+        if (css.includes('\t')) {
+            fail(`${relativePath} contains tabs; use four spaces`);
+        }
+
+        if (broadMessageDescendant.test(css)) {
+            fail(`${relativePath} styles every message descendant; target the smallest stable container instead`);
+        }
+
+        if (transitionAll.test(css)) {
+            fail(`${relativePath} uses transition: all; list only the animated properties`);
+        }
+    }
+}
+
 function ensureReadmeFlavorPathsAreNormalized() {
     if (!fs.existsSync(readmeFile)) {
         return;
@@ -311,8 +361,10 @@ function main() {
     assertSourceOrderIsStrict();
     ensureSingleRemoteBuildImport();
     ensureFlavorFilesAreNormalized();
+    ensureThemeMetadataIsValid();
     ensureReadmeFlavorPathsAreNormalized();
     ensureNoExpensiveWillChange();
+    ensureCssPerformanceRules();
     ensureReducedMotionExists();
 
     const compiledCss = compileSourceCss();

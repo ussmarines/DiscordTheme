@@ -1,4 +1,4 @@
-    /**
+/**
      * @name sibnight-north-aurora-dark
      * @description A flat dark Aurora flavor mixing Polar Night structure with Nord Aurora accents for a livelier but still stable Sibnight variant.
      * @author ussmarines
@@ -156,7 +156,6 @@ body {
     --sibylla-blue-glow: transparent;
     --sibylla-gold-glow: transparent;
     --sibylla-profile-overlay: none;
-	--sibnight-text-0: #2e3440;
 }
 
 :is(

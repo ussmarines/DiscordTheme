@@ -20,10 +20,7 @@ const SOURCE_FILE_ORDER = [
     'hardening.css',
 ];
 
-const BUNDLE_OUTPUTS = [
-    path.join(rootDir, 'sibnight.css'),
-    path.join(rootDir, 'archive', 'sibnight.css'),
-];
+const BUNDLE_OUTPUTS = [path.join(rootDir, 'sibnight.css')];
 
 const REMOTE_BUILD_IMPORT = 'https://ussmarines.github.io/DiscordTheme/build/sibnight.css';
 

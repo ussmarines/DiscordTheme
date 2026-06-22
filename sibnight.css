@@ -15,7 +15,7 @@
 
 /* import theme modules */
 /* main.css */
-@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 
 /* =========================
    Global theme foundations
@@ -2291,6 +2291,17 @@ body {
             background-color var(--list-item-transition),
             opacity var(--list-item-transition);
     }
+
+    .messageListItem__5126c {
+        transition: background-color 0.14s ease !important;
+    }
+
+    :is(.message__5126c, .cozy_c19a55.wrapper_c19a55, .compact_c19a55.wrapper_c19a55) {
+        transition:
+            background-color 0.14s ease,
+            border-color 0.14s ease,
+            color 0.14s ease !important;
+    }
 }
 
 @container body style(--animations: off) {
@@ -2301,7 +2312,11 @@ body {
     .member_c8ffbb,
     .link__972a0,
     .interactive__972a0,
-    .unread__2ea32 {
+    .unread__2ea32,
+    .messageListItem__5126c,
+    .message__5126c,
+    .cozy_c19a55.wrapper_c19a55,
+    .compact_c19a55.wrapper_c19a55 {
         transition: none !important;
     }
 }
@@ -2545,13 +2560,10 @@ body {
 .messageListItem__5126c,
 .message__5126c,
 .cozy_c19a55.wrapper_c19a55,
-.compact_c19a55.wrapper_c19a55,
-.message__5126c *,
-.messageListItem__5126c * {
+.compact_c19a55.wrapper_c19a55 {
     transform: none !important;
     translate: none !important;
     animation: none !important;
-    will-change: auto !important;
 }
 
 .messageListItem__5126c {
@@ -2562,7 +2574,6 @@ body {
     margin-right: 0 !important;
     border-radius: 12px;
     overflow: visible !important;
-    transition: background-color 0.14s ease !important;
 }
 
 .message__5126c,
@@ -2572,10 +2583,6 @@ body {
     margin-right: 0 !important;
     border-radius: 12px;
     background: transparent !important;
-    transition:
-        background-color 0.14s ease,
-        border-color 0.14s ease,
-        color 0.14s ease !important;
 }
 
 .message__5126c::before,
@@ -2610,13 +2617,6 @@ body {
     background: transparent !important;
     background-image: none !important;
     border-color: transparent !important;
-}
-
-.message__5126c:hover :is([class*='contents'], [class*='messageContent'], [class*='markup'], [class*='header'], [class*='repliedMessage'], [class*='repliedTextPreview'], [class*='username'], [class*='timestamp'], [class*='messageAccessories'], [class*='buttonContainer'], [class*='buttons']),
-.messageListItem__5126c:hover :is([class*='contents'], [class*='messageContent'], [class*='markup'], [class*='header'], [class*='repliedMessage'], [class*='repliedTextPreview'], [class*='username'], [class*='timestamp'], [class*='messageAccessories'], [class*='buttonContainer'], [class*='buttons']) {
-    transform: none !important;
-    translate: none !important;
-    animation: none !important;
 }
 
 .message__5126c.mentioned__5126c,

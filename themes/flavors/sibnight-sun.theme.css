@@ -1,4 +1,4 @@
-    /**
+/**
      * @name sibnight-sun
      * @description A flatter Sibylla sun flavor rebuilt around the real Sibylla gold, deep navy surfaces and fully solid flat panels.
      * @author ussmarines
@@ -156,7 +156,6 @@ body {
     --sibylla-blue-glow: transparent;
     --sibylla-gold-glow: transparent;
     --sibylla-profile-overlay: none;
-	--sibnight-text-0: #151c29;
 }
 
 :is(

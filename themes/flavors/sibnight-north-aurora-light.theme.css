@@ -1,4 +1,4 @@
-    /**
+/**
      * @name sibnight-north-aurora-light
      * @description A flat light Aurora flavor combining Snow Storm neutrals with Nord Aurora accents for a brighter colorful Sibnight variant.
      * @author ussmarines
@@ -156,7 +156,6 @@ body {
     --sibylla-blue-glow: transparent;
     --sibylla-gold-glow: transparent;
     --sibylla-profile-overlay: none;
-	--sibnight-text-0: #2e3440;
 }
 
 :is(

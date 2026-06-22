@@ -1,4 +1,4 @@
-    /**
+/**
      * @name sibnight-north-snow
      * @description A flat Nord Snow Storm + Frost flavor with solid light panels, zero shadows and cleaner Sibylla-friendly light contrast.
      * @author ussmarines
@@ -156,7 +156,6 @@ body {
     --sibylla-blue-glow: transparent;
     --sibylla-gold-glow: transparent;
     --sibylla-profile-overlay: none;
-	--sibnight-text-0: #2e3440;
 }
 
 :is(
