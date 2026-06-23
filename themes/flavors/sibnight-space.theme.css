@@ -508,3 +508,33 @@ body {
 .button__201d5 svg {
     color: #dff6ff !important;
 }
+
+
+/* Local unread-channel emphasis: keep after the remote import for immediate previews. */
+.modeUnreadImportant__2ea32 .link__2ea32 {
+    background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--sibnight-notification, var(--sibnight-accent-new)) 34%, transparent) 0%,
+        color-mix(in srgb, var(--sibnight-notification, var(--sibnight-accent-new)) 16%, transparent) 76%,
+        transparent 100%
+    ) !important;
+    border-radius: 8px !important;
+    box-shadow:
+        inset 4px 0 0 var(--sibnight-notification, var(--sibnight-accent-new)),
+        inset 0 0 0 1px color-mix(in srgb, var(--sibnight-notification, var(--sibnight-accent-new)) 42%, transparent),
+        0 0 12px color-mix(in srgb, var(--sibnight-notification, var(--sibnight-accent-new)) 20%, transparent) !important;
+}
+
+.modeUnreadImportant__2ea32 :is(.name__2ea32, .icon__2ea32) {
+    color: var(--sibnight-notification-hover, var(--sibnight-notification, var(--sibnight-accent-new))) !important;
+    font-weight: 750 !important;
+    text-shadow: 0 0 10px color-mix(in srgb, var(--sibnight-notification, var(--sibnight-accent-new)) 58%, transparent) !important;
+}
+
+.modeUnreadImportant__2ea32 > .unread__2ea32 {
+    width: 5px !important;
+    height: 20px !important;
+    margin-top: -10px !important;
+    background: var(--sibnight-notification, var(--sibnight-accent-new)) !important;
+    box-shadow: 0 0 10px color-mix(in srgb, var(--sibnight-notification, var(--sibnight-accent-new)) 78%, transparent) !important;
+}
