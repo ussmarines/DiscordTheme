@@ -129,7 +129,7 @@
     }
     
     .modeSelected__2ea32 .link__2ea32,
-    .interactive_bf202d.selected_bf202d,
+    .interactive_f88cfd.selected_f88cfd,
     .channel__972a0.container__972a0:hover,
     .interactive__972a0:hover {
         background: var(--sibylla-active-fill) !important;
@@ -137,7 +137,7 @@
     }
     
     .link__2ea32:hover,
-    .interactive_bf202d:hover,
+    .interactive_f88cfd:hover,
     .member_c8ffbb:hover,
     .container__91a9d:hover,
     .itemCard__7e549:hover {
@@ -182,7 +182,7 @@
     }
     
     .link__2ea32 svg,
-    .privateChannels__35e86 svg,
+    .privateChannels_e6b769 svg,
     .containerDefault__29444 svg,
     .linkButtonIcon__972a0,
     .actionIcon_f9255e {
@@ -191,7 +191,7 @@
     }
     
     .modeSelected__2ea32 .link__2ea32 svg,
-    .interactive_bf202d.selected_bf202d svg {
+    .interactive_f88cfd.selected_f88cfd svg {
         color: var(--interactive-icon-active) !important;
     }
     
