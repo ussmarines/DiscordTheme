@@ -1725,7 +1725,6 @@ nav[class*='guilds'] {
         ) !important;
         border-radius: 8px;
         box-shadow:
-            inset 3px 0 0 var(--sibnight-notification),
             inset 0 0 0 1px color-mix(in srgb, var(--sibnight-notification) 34%, transparent),
             0 0 10px color-mix(in srgb, var(--sibnight-notification) 16%, transparent) !important;
     }
