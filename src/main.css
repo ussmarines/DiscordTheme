@@ -623,18 +623,18 @@ body {
 /* app shell */
 #app-mount,
 .appMount__51fd7,
-.bg__12180,
-.app_de4237,
+.bg__960e4,
+.app__160d8,
 .layers__960e4,
 .layer__960e4,
-.base_c48ade,
+.base__5e434,
 .content__5e434,
 .page__5e434 {
     background: var(--proto-shell-surface) !important;
 }
 
 /* server rail */
-.guilds_c48ade,
+.guilds__5e434,
 .guilds__5e434,
 .wrapper_ef3116,
 .scroller_ef3116,
@@ -649,7 +649,7 @@ nav[class*='guilds'] {
 }
 
 .guilds__5e434,
-.guilds_c48ade {
+.guilds__5e434 {
     border-radius: 0 !important;
     overflow: hidden !important;
     min-height: 0 !important;
@@ -712,8 +712,8 @@ nav[class*='guilds'] {
 .scroller__629e4,
 .scroller__99e7c,
 .header_f37cb1,
-.searchBar__35e86,
-.searchBar__35e86 *,
+.searchBar_e6b769,
+.searchBar_e6b769 *,
 .privateChannelsHeaderContainer__99e7c,
 .container__551b0,
 .container__7d20c,
@@ -731,7 +731,7 @@ nav[class*='guilds'] {
     background: var(--proto-column-surface-strong) !important;
 }
 
-.activityPanel_c48ade,
+.activityPanel__5e434,
 .container_e131a9,
 .wrapper_e131a9,
 .panel__5dec7,
@@ -808,14 +808,14 @@ nav[class*='guilds'] {
 }
 
 .modeSelected__2ea32 .link__2ea32,
-.interactive_bf202d.selected_bf202d,
+.interactive_f88cfd.selected_f88cfd,
 .channel__972a0.container__972a0:hover,
 .interactive__972a0:hover {
     background: color-mix(in srgb, var(--sibnight-blue-2) 14%, transparent) !important;
 }
 
 .link__2ea32:hover,
-.interactive_bf202d:hover {
+.interactive_f88cfd:hover {
     background: color-mix(in srgb, var(--sibnight-blue-2) 10%, transparent) !important;
 }
 
@@ -826,7 +826,7 @@ nav[class*='guilds'] {
 
 .role_dfa8b6,
 .role__48c1c,
-.container__4bbc6 {
+.container_df39b2 {
     border: none !important;
     box-shadow: inset 0 0 0 1px rgba(180, 218, 255, 0.04);
 }
@@ -904,7 +904,7 @@ nav[class*='guilds'] {
 }
 
 .modeSelected__2ea32 .link__2ea32,
-.interactive_bf202d.selected_bf202d,
+.interactive_f88cfd.selected_f88cfd,
 .channel__972a0.container__972a0:hover,
 .interactive__972a0:hover {
     background: var(--sibylla-active-fill) !important;
@@ -914,7 +914,7 @@ nav[class*='guilds'] {
 }
 
 .link__2ea32:hover,
-.interactive_bf202d:hover,
+.interactive_f88cfd:hover,
 .member_c8ffbb:hover,
 .container__91a9d:hover,
 .itemCard__7e549:hover {
@@ -940,7 +940,7 @@ nav[class*='guilds'] {
     color: inherit !important;
 }
 
-.markup_f8f345 a,
+.markup__75297 a,
 .anchor_edefb8,
 .fakeLink__2c949 {
     color: color-mix(in srgb, var(--sibnight-blue-1) 78%, var(--sibnight-yellow-2) 22%) !important;

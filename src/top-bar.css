@@ -355,7 +355,7 @@ body {
 
 /* sibnight top bar */
 .bar_c38106,
-.base_c48ade > .bar_c38106,
+.base__5e434 > .bar_c38106,
 .container__89463,
 .container__89463 > .toolbar__89463,
 .container__89463 > .contentContainer__89463,
@@ -364,7 +364,7 @@ body {
 .container__9293f,
 .headerBar__1a9ce,
 .title_f75fb0,
-.titleWrapper_fc4f04,
+.titleWrapper__9293f,
 .upperContainer__9293f,
 .tabBody__133bf::before {
     background: var(--proto-shell-surface) !important;
@@ -444,7 +444,7 @@ body {
     height: 100% !important;
 }
 
-.toolbar__9293f .search__49676 :is(.searchBar__35e86, .searchBar__97492, .searchBarComponent__35e86) {
+.toolbar__9293f .search__49676 :is(.searchBar_e6b769, .searchBar_c322aa, .searchBarComponent__35e86) {
     display: flex !important;
     align-items: center !important;
     flex: 1 1 auto !important;
@@ -459,12 +459,12 @@ body {
     box-shadow: none !important;
 }
 
-.toolbar__9293f .search__49676 :is(.searchBar__35e86, .searchBar__97492, .searchBarComponent__35e86) > * {
+.toolbar__9293f .search__49676 :is(.searchBar_e6b769, .searchBar_c322aa, .searchBarComponent__35e86) > * {
     flex: 1 1 auto !important;
     min-width: 0 !important;
 }
 
-.toolbar__9293f .search__49676 :is(.searchBar__35e86, .searchBar__97492, .searchBarComponent__35e86) * {
+.toolbar__9293f .search__49676 :is(.searchBar_e6b769, .searchBar_c322aa, .searchBarComponent__35e86) * {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -576,7 +576,7 @@ body {
         0 8px 22px rgba(1, 8, 18, 0.18) !important;
 }
 
-.toolbar__9293f .searchBar__97492,
+.toolbar__9293f .searchBar_c322aa,
 .toolbar__9293f [class*='searchBar'] {
     background: transparent !important;
 }

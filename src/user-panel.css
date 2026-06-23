@@ -30,7 +30,7 @@
 }
 
 .panels__5e434 > #vc-spotify-player,
-.panels__5e434 > .activityPanel_c48ade,
+.panels__5e434 > .activityPanel__5e434,
 .panels__5e434 > .wrapper_e131a9,
 .panels__5e434 > .container_e131a9,
 .panels__5e434 > .panel__5dec7 {
@@ -51,7 +51,7 @@
         0 10px 24px rgba(1, 8, 18, 0.14) !important;
 }
 
-.panels__5e434 > .activityPanel_c48ade {
+.panels__5e434 > .activityPanel__5e434 {
     order: 2;
 }
 
@@ -64,7 +64,7 @@
     order: 4;
 }
 
-#vc-spotify-player + .activityPanel_c48ade,
+#vc-spotify-player + .activityPanel__5e434,
 #vc-spotify-player + .wrapper_e131a9,
 #vc-spotify-player + .container_e131a9 {
     margin-top: 0 !important;
