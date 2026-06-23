@@ -81,7 +81,7 @@ body {
     --sibnight-accent-3: #4fc8ff;
     --sibnight-accent-4: #6f86ff;
     --sibnight-accent-5: #b67cff;
-    --sibnight-accent-new: #8deeff;
+    --sibnight-accent-new: #2ee9ff;
     --sibnight-mention: linear-gradient(90deg, rgba(79, 200, 255, 0.22) 0%, rgba(111, 134, 255, 0.12) 100%);
     --sibnight-mention-hover: linear-gradient(90deg, rgba(79, 200, 255, 0.28) 0%, rgba(111, 134, 255, 0.16) 100%);
     --sibnight-reply: linear-gradient(90deg, rgba(141, 238, 255, 0.16) 0%, rgba(79, 200, 255, 0.08) 100%);
