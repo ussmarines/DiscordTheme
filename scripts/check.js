@@ -349,6 +349,16 @@ function ensureCssPerformanceRules() {
     }
 }
 
+function ensureFlavorOverlayLayerStaysTransparent() {
+    const spaceFile = path.join(flavorsDir, 'sibnight-space.theme.css');
+    const css = stripCssComments(readTextFile(spaceFile));
+    const overlayBackgroundRule = /(?:\.layerContainer(?:_[\w-]+)?|\[class\*=['"]layerContainer['"]\])[^{}]*\{[^{}]*background(?:-image|-color)?\s*:/iu;
+
+    if (overlayBackgroundRule.test(css)) {
+        fail('sibnight-space.theme.css must not paint Discord\'s full-window layerContainer overlay');
+    }
+}
+
 function ensureReadmeFlavorPathsAreNormalized() {
     if (!fs.existsSync(readmeFile)) {
         return;
@@ -442,6 +452,7 @@ function main() {
     ensureReadmeFlavorPathsAreNormalized();
     ensureNoExpensiveWillChange();
     ensureCssPerformanceRules();
+    ensureFlavorOverlayLayerStaysTransparent();
     ensureReducedMotionExists();
 
     const compiledCss = compileSourceCss();
