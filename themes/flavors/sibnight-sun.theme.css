@@ -2,7 +2,7 @@
  * @name sibnight-sun
  * @description A flatter Sibylla sun flavor rebuilt around the real Sibylla gold, deep navy surfaces and fully solid flat panels.
  * @author ussmarines
- * @version 1.6.0
+ * @version 1.6.1
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-sun.theme.css
  * @authorLink https://github.com/ussmarines
@@ -82,6 +82,9 @@ body {
     --sibnight-accent-4: #d79a2b;
     --sibnight-accent-5: #9f6c20;
     --sibnight-accent-new: #ffd24a;
+    --sibnight-notification: #ff7a59;
+    --sibnight-notification-hover: #ff9b7f;
+    --sibnight-notification-text: #151c29;
     --sibnight-mention: rgba(252, 218, 125, 0.16);
     --sibnight-mention-hover: rgba(252, 218, 125, 0.24);
     --sibnight-reply: rgba(240, 197, 83, 0.14);

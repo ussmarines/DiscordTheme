@@ -30,6 +30,9 @@
     --sibnight-accent-4: var(--sibnight-blue-4); /* accent buttons when hovered */
     --sibnight-accent-5: var(--sibnight-blue-5); /* accent buttons when clicked */
     --sibnight-accent-new: #ffd166; /* Sibylla gold for key highlights */
+    --sibnight-notification: #ffd166; /* unread markers, pings and notification badges */
+    --sibnight-notification-hover: #ffe29a;
+    --sibnight-notification-text: #08111f;
     --sibnight-mention: linear-gradient(to right, color-mix(in srgb, var(--sibnight-blue-2) 22%, transparent) 0%, transparent 70%); /* background of messages that mention you */
     --sibnight-mention-hover: linear-gradient(to right, color-mix(in srgb, var(--sibnight-blue-2) 28%, transparent) 0%, transparent 74%); /* background of messages that mention you when hovered */
     --sibnight-reply: linear-gradient(to right, color-mix(in srgb, var(--sibnight-yellow-2) 12%, transparent) 0%, transparent 68%); /* background of messages that reply to you */
@@ -176,11 +179,11 @@
         --background-surface-highest: var(--sibnight-bg-3);
         /* --background-tile-gradient-pink-end: yellow;
         --background-tile-gradient-pink-start: lime; */
-        --badge-background-default: var(--sibnight-accent-2);
-        --badge-expressive-background-default: var(--sibnight-accent-2);
-        --badge-expressive-text-default: var(--sibnight-text-0);
-        --badge-notification-background: var(--sibnight-accent-new);
-        --badge-text-default: var(--sibnight-text-0);
+        --badge-background-default: var(--sibnight-notification);
+        --badge-expressive-background-default: var(--sibnight-notification);
+        --badge-expressive-text-default: var(--sibnight-notification-text);
+        --badge-notification-background: var(--sibnight-notification);
+        --badge-text-default: var(--sibnight-notification-text);
         --bg-surface-overlay-tmp: var(--sibnight-bg-3);
         --bg-surface-raised: var(--sibnight-bg-3);
         --border-feedback-critical: var(--sibnight-border);
@@ -654,6 +657,45 @@
         color: var(--sibnight-text-3);
     }
 
+    .modeUnreadImportant__2ea32 .icon__2ea32,
+    .modeUnreadImportant__2ea32 .name__2ea32 {
+        color: var(--sibnight-notification) !important;
+        font-weight: 700;
+        text-shadow: 0 0 10px color-mix(in srgb, var(--sibnight-notification) 42%, transparent);
+    }
+
+    .modeUnreadImportant__2ea32 .link__2ea32 {
+        background: linear-gradient(
+            90deg,
+            color-mix(in srgb, var(--sibnight-notification) 28%, transparent) 0%,
+            color-mix(in srgb, var(--sibnight-notification) 12%, transparent) 72%,
+            transparent 100%
+        ) !important;
+        border-radius: 8px;
+        box-shadow:
+            inset 3px 0 0 var(--sibnight-notification),
+            inset 0 0 0 1px color-mix(in srgb, var(--sibnight-notification) 34%, transparent),
+            0 0 10px color-mix(in srgb, var(--sibnight-notification) 16%, transparent) !important;
+    }
+
+    .modeUnreadImportant__2ea32 .link__2ea32:hover {
+        background: linear-gradient(
+            90deg,
+            color-mix(in srgb, var(--sibnight-notification-hover) 36%, transparent) 0%,
+            color-mix(in srgb, var(--sibnight-notification-hover) 16%, transparent) 76%,
+            transparent 100%
+        ) !important;
+    }
+
+    .unread__2ea32 {
+        background-color: var(--sibnight-notification) !important;
+        width: 4px;
+        height: 18px;
+        margin-top: -9px;
+        border-radius: 0 4px 4px 0;
+        box-shadow: 0 0 9px color-mix(in srgb, var(--sibnight-notification) 72%, transparent);
+    }
+
     .text_b88801 > strong /* xxx is typing.. */ {
         color: var(--sibnight-text-3);
     }
@@ -878,7 +920,7 @@
     .container__37e49 /* user panel buttons */,
         .numberBadge__463b7  /* unread number badge */,
         .toolbar__9293f /* toolbar button strikethroughs */ {
-        --status-danger: var(--sibnight-accent-new);
+        --status-danger: var(--sibnight-notification);
     }
 
     .container__37e49 .button__67645.redGlow__67645 /* user panel button backgrounds*/ {
@@ -889,32 +931,46 @@
     }
 
     .divider__5126c /* unread divider */ {
-        --divider-color: var(--sibnight-accent-new);
+        --divider-color: var(--sibnight-notification);
     }
 
     .icon_c1e9c4 > circle[fill="#C12A35"] /* server settings icon badge */ {
-        fill: var(--sibnight-accent-new) !important;
+        fill: var(--sibnight-notification) !important;
     }
 
     .iconBadge__9293f /* icon badge */,
         .mentionsBar__7aaec /* new mention pill */,
         .mention__3b95d /* server list new mention pill */,
         .badge_c99c29 /* inbox badge */ {
-        background-color: var(--sibnight-accent-new);
+        background-color: var(--sibnight-notification) !important;
+        color: var(--sibnight-notification-text) !important;
+        box-shadow:
+            0 0 0 1px color-mix(in srgb, var(--sibnight-notification) 72%, white),
+            0 0 10px color-mix(in srgb, var(--sibnight-notification) 56%, transparent);
     }
 
     .mention__3b95d:active {
-        background-color: color-mix(in hsl, var(--sibnight-accent-new), black 10%);
+        background-color: var(--sibnight-notification-hover) !important;
     }
 
     .newMessagesBar__0f481 /* unread bar */ {
-    background-color: var(--sibnight-accent-new);
-	}
+        background-color: var(--sibnight-notification) !important;
+        color: var(--sibnight-notification-text) !important;
+        box-shadow: 0 0 12px color-mix(in srgb, var(--sibnight-notification) 44%, transparent);
+    }
 
-	.barButtonAlt__0f481 /* unread bar mark as read button */ {
-    --control-secondary-background-default: var(--sibnight-accent-new);
-    --control-secondary-background-hover: color-mix(in srgb, var(--sibnight-accent-new) 86%, white 14%);
-	}
+    .barButtonAlt__0f481 /* unread bar mark as read button */ {
+        --control-secondary-background-default: var(--sibnight-notification);
+        --control-secondary-background-hover: var(--sibnight-notification-hover);
+    }
+
+    .numberBadge__463b7 {
+        background-color: var(--sibnight-notification) !important;
+        color: var(--sibnight-notification-text) !important;
+        box-shadow:
+            0 0 0 1px color-mix(in srgb, var(--sibnight-notification) 72%, white),
+            0 0 10px color-mix(in srgb, var(--sibnight-notification) 58%, transparent);
+    }
 
     .updateIconForeground__49676 /* update button */ {
         fill: var(--sibnight-green-1);

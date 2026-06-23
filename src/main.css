@@ -820,8 +820,8 @@ nav[class*='guilds'] {
 }
 
 .pill_e5445c .item__58105 {
-    background: linear-gradient(180deg, var(--sibnight-blue-2), color-mix(in srgb, var(--sibnight-yellow-2) 22%, var(--sibnight-blue-3) 78%)) !important;
-    box-shadow: 0 0 14px rgba(99, 170, 255, 0.22);
+    background: var(--sibnight-notification) !important;
+    box-shadow: 0 0 8px color-mix(in srgb, var(--sibnight-notification) 60%, transparent) !important;
 }
 
 .role_dfa8b6,
