@@ -29,7 +29,7 @@
     --sibnight-accent-3: var(--sibnight-blue-3); /* accent buttons */
     --sibnight-accent-4: var(--sibnight-blue-4); /* accent buttons when hovered */
     --sibnight-accent-5: var(--sibnight-blue-5); /* accent buttons when clicked */
-    --sibnight-accent-new: color-mix(in oklab, var(--sibnight-yellow-2) 64%, var(--sibnight-blue-2) 36%); /* Sibylla gold for key highlights */
+    --sibnight-accent-new: #ffd166; /* Sibylla gold for key highlights */
     --sibnight-mention: linear-gradient(to right, color-mix(in srgb, var(--sibnight-blue-2) 22%, transparent) 0%, transparent 70%); /* background of messages that mention you */
     --sibnight-mention-hover: linear-gradient(to right, color-mix(in srgb, var(--sibnight-blue-2) 28%, transparent) 0%, transparent 74%); /* background of messages that mention you when hovered */
     --sibnight-reply: linear-gradient(to right, color-mix(in srgb, var(--sibnight-yellow-2) 12%, transparent) 0%, transparent 68%); /* background of messages that reply to you */
@@ -908,12 +908,13 @@
     }
 
     .newMessagesBar__0f481 /* unread bar */ {
-        background-color: var(--sibnight-accent-3);
-    }
-    .barButtonAlt__0f481 /* unread bar mark as read button */ {
-        --control-secondary-background-default: var(--sibnight-accent-3);
-        --control-secondary-background-hover: var(--sibnight-accent-4);
-    }
+    background-color: var(--sibnight-accent-new);
+	}
+
+	.barButtonAlt__0f481 /* unread bar mark as read button */ {
+    --control-secondary-background-default: var(--sibnight-accent-new);
+    --control-secondary-background-hover: color-mix(in srgb, var(--sibnight-accent-new) 86%, white 14%);
+	}
 
     .updateIconForeground__49676 /* update button */ {
         fill: var(--sibnight-green-1);
