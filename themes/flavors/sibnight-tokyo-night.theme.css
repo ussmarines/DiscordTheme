@@ -209,7 +209,6 @@ body {
     ) !important;
     border-radius: 8px !important;
     box-shadow:
-        inset 4px 0 0 var(--sibnight-notification, var(--sibnight-accent-new)),
         inset 0 0 0 1px color-mix(in srgb, var(--sibnight-notification, var(--sibnight-accent-new)) 42%, transparent),
         0 0 12px color-mix(in srgb, var(--sibnight-notification, var(--sibnight-accent-new)) 20%, transparent) !important;
 }
