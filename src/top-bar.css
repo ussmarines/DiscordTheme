@@ -96,7 +96,7 @@ body {
     }
 
     .recentsIcon_c99c29:hover .iconBadge__9293f {
-        background: var(--white);
+        background: var(--sibnight-notification-hover) !important;
     }
 }
 

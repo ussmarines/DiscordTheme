@@ -156,7 +156,8 @@
     }
     
     .pill_e5445c .item__58105 {
-        background: var(--sibnight-accent-2) !important;
+        background: var(--sibnight-notification) !important;
+        box-shadow: 0 0 8px color-mix(in srgb, var(--sibnight-notification) 60%, transparent) !important;
     }
     
     .message__5126c:hover,

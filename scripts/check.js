@@ -35,6 +35,11 @@ const EXPECTED_FLAVOR_FILES = [
 const DEBUG_COLOR_PATTERN = /(^|[^-\w])\b(red|yellow|lime|blue|magenta)\b(?![-\w])/giu;
 const FLAVOR_LAYOUT_DEFAULTS_START = '/* sibnight flavor layout defaults: start */';
 const REQUIRED_METADATA = ['@name', '@description', '@author', '@version', '@source'];
+const REQUIRED_FLAVOR_NOTIFICATION_VARIABLES = [
+    '--sibnight-notification:',
+    '--sibnight-notification-hover:',
+    '--sibnight-notification-text:',
+];
 const HAS_SELECTOR_BUDGETS = new Map([
     ['chatbar.css', 1],
     ['colors.css', 2],
@@ -255,6 +260,14 @@ function ensureFlavorFilesAreNormalized() {
 
         if (!css.includes('--sibnight-flavor: on;')) {
             fail(`${fileName} must enable the shared flavor rules.`);
+        }
+
+        const missingNotificationVariables = REQUIRED_FLAVOR_NOTIFICATION_VARIABLES.filter(
+            (variable) => !css.includes(variable)
+        );
+
+        if (missingNotificationVariables.length > 0) {
+            fail(`${fileName} is missing notification palette variables: ${missingNotificationVariables.join(', ')}`);
         }
 
         if (css.includes('Flavor autocomplete / shortcut compatibility')) {
