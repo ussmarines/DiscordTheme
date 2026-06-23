@@ -12,11 +12,11 @@
 /* Prevent accidental debug named colors from leaking through the most visible surfaces. */
 #app-mount,
 .appMount__51fd7,
-.bg__12180,
-.app_de4237,
+.bg__960e4,
+.app__160d8,
 .layers__960e4,
 .layer__960e4,
-.base_c48ade,
+.base__5e434,
 .content__5e434,
 .page__5e434 {
     background-color: var(--sibnight-bg-4, hsl(228, 60%, 6%)) !important;
