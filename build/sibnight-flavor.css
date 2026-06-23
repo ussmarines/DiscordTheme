@@ -1724,9 +1724,7 @@ nav[class*='guilds'] {
             transparent 100%
         ) !important;
         border-radius: 8px;
-        box-shadow:
-            inset 0 0 0 1px color-mix(in srgb, var(--sibnight-notification) 34%, transparent),
-            0 0 10px color-mix(in srgb, var(--sibnight-notification) 16%, transparent) !important;
+        box-shadow: none !important;
     }
 
     .modeUnreadImportant__2ea32 .link__2ea32:hover {
@@ -1739,12 +1737,7 @@ nav[class*='guilds'] {
     }
 
     .unread__2ea32 {
-        background-color: var(--sibnight-notification) !important;
-        width: 4px;
-        height: 18px;
-        margin-top: -9px;
-        border-radius: 0 4px 4px 0;
-        box-shadow: 0 0 9px color-mix(in srgb, var(--sibnight-notification) 72%, transparent);
+        display: none !important;
     }
 
     .text_b88801 > strong /* xxx is typing.. */ {
