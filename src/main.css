@@ -532,8 +532,8 @@ body {
     background-position: center calc(-1 * var(--border-thickness));
     background-size: 100% calc(100% + 2 * var(--border-thickness));
 }
-.root__24502 {
-    background: none;
+.root__24502 /* full user profile modal */ {
+    background: var(--sibylla-profile-fill) !important;
 }
 
 .container__37e49 {
@@ -552,7 +552,7 @@ body {
 .inner_c0bea0 {
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.015) 0%, transparent 22%),
-        color-mix(in srgb, var(--sibnight-bg-3) 30%, var(--sibnight-bg-4) 70%);
+        color-mix(in srgb, var(--sibnight-bg-3) 30%, var(--sibnight-bg-4) 70%) !important;
 }
 
 .inner_c0bea0 [class*='overlayBackground'],
