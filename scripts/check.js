@@ -201,6 +201,20 @@ function ensureBuildOutputLooksHealthy(compiledCss) {
     }
 }
 
+function ensureProfileSurfacesStayOpaque() {
+    const mainCss = stripCssComments(readTextFile(path.join(srcDir, 'main.css')));
+    const fullProfileSurface = /\.root__24502\s*\{[^{}]*background\s*:\s*var\(--sibylla-profile-fill\)\s*!important\s*;/iu;
+    const profileCardSurface = /\.inner_c0bea0\s*\{[^{}]*background\s*:[^{}]*!important\s*;/iu;
+
+    if (!fullProfileSurface.test(mainCss)) {
+        fail('full user profiles must keep an opaque Sibnight background');
+    }
+
+    if (!profileCardSurface.test(mainCss)) {
+        fail('profile cards must keep an opaque background when Discord supplies a custom banner');
+    }
+}
+
 function getFlavorFiles() {
     if (!fs.existsSync(flavorsDir)) {
         fail('themes/flavors directory is missing');
@@ -467,6 +481,7 @@ function main() {
     ensureCssPerformanceRules();
     ensureFlavorOverlayLayerStaysTransparent();
     ensureReducedMotionExists();
+    ensureProfileSurfacesStayOpaque();
 
     const compiledCss = compileSourceCss();
     const compiledFlavorCss = compileFlavorCss(compiledCss);
