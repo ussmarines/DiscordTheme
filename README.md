@@ -22,6 +22,8 @@ Pour **Vencord**, **BetterDiscord** ou tout autre client qui prend en charge les
 2. Glisse le fichier dans ton dossier de thèmes.
 3. Active le thème dans les paramètres de ton client.
 
+Fichier principal dans le dépôt : `themes/sibnight.theme.css`.
+
 ### installation via lien
 
 Ajoute ce lien dans tes liens d'import de thème :
@@ -35,6 +37,8 @@ Pour personnaliser le thème, copie les variables du thème dans ton **QuickCSS*
 Les flavors sont des personnalisations prédéfinies pour **sibnight**.
 
 Pour utiliser une flavor, suis les instructions d'installation ci-dessus, mais télécharge le fichier de thème flavor de ton choix à la place de `sibnight.theme.css`.
+
+Tous les fichiers flavor sont dans `themes/flavors/`, et les aperçus README associés sont dans `assets/readme/`.
 
 <table>
   <tr>
