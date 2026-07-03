@@ -32,9 +32,15 @@ const EXPECTED_FLAVOR_FILES = [
     'sibnight-north-aurora-light.theme.css',
 ];
 
+const EXPECTED_AUTHOR = 'ussmarines';
 const DEBUG_COLOR_PATTERN = /(^|[^-\w])\b(red|yellow|lime|blue|magenta)\b(?![-\w])/giu;
 const FLAVOR_LAYOUT_DEFAULTS_START = '/* sibnight flavor layout defaults: start */';
 const REQUIRED_METADATA = ['@name', '@description', '@author', '@version', '@source'];
+const REQUIRED_CREDIT_REFERENCES = [
+    'https://github.com/schnensch0/zelk',
+    'https://github.com/refact0r/midnight-discord',
+    'https://github.com/Dyzean/Tokyo-Night',
+];
 const REQUIRED_FLAVOR_NOTIFICATION_VARIABLES = [
     '--sibnight-notification:',
     '--sibnight-notification-hover:',
@@ -75,6 +81,17 @@ function readTextFile(filePath) {
 
 function readJsonFile(filePath) {
     return JSON.parse(readTextFile(filePath));
+}
+
+function escapeRegExp(value) {
+    return value.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+}
+
+function readMetadataValue(metadata, field) {
+    const pattern = new RegExp(`^\\s*\\*\\s*${escapeRegExp(field)}\\s+(.+?)\\s*$`, 'imu');
+    const match = metadata.match(pattern);
+
+    return match ? match[1].trim() : '';
 }
 
 function ensureFilesExist(filePaths) {
@@ -265,7 +282,7 @@ function ensureFlavorFilesAreNormalized() {
         }
 
         if (css.includes('/themes/sibnight.theme.css')) {
-            fail(`${fileName} imports the main wrapper. Flavors should import build/sibnight.css directly for faster startup.`);
+            fail(`${fileName} imports the main wrapper. Flavors should import ${REMOTE_FLAVOR_BUILD_IMPORT} directly for faster startup.`);
         }
 
         if (!css.includes(FLAVOR_LAYOUT_DEFAULTS_START)) {
@@ -323,6 +340,29 @@ function ensureThemeMetadataIsValid() {
 
         if (missingFields.length > 0) {
             fail(`${relativePath} is missing metadata: ${missingFields.join(', ')}`);
+        }
+
+        const author = readMetadataValue(metadata, '@author');
+
+        if (author !== EXPECTED_AUTHOR) {
+            fail(`${relativePath} should declare @author ${EXPECTED_AUTHOR}, found ${author || 'nothing'}`);
+        }
+    }
+}
+
+function ensureCreditReferencesStayPresent() {
+    const files = [
+        readmeFile,
+        themeFile,
+        ...getFlavorFiles().map((fileName) => path.join(flavorsDir, fileName)),
+    ];
+
+    for (const filePath of files) {
+        const contents = readTextFile(filePath);
+        const missingCredits = REQUIRED_CREDIT_REFERENCES.filter((reference) => !contents.includes(reference));
+
+        if (missingCredits.length > 0) {
+            fail(`${path.relative(rootDir, filePath)} is missing required credit references: ${missingCredits.join(', ')}`);
         }
     }
 }
@@ -422,6 +462,37 @@ function ensureReadmeFlavorPathsAreNormalized() {
     }
 }
 
+function ensureReadmeLocalReferencesExist() {
+    const readme = readTextFile(readmeFile);
+    const localReferencePattern = /(?:href|src)=["']([^"']+)["']|!?\[[^\]]*\]\(([^)\s]+)(?:\s+["'][^"']*["'])?\)/giu;
+    const missingReferences = [];
+    let match;
+
+    while ((match = localReferencePattern.exec(readme)) !== null) {
+        const reference = match[1] || match[2];
+
+        if (!reference || /^(?:[a-z][a-z\d+.-]*:|\/\/|#)/iu.test(reference)) {
+            continue;
+        }
+
+        const cleanReference = reference.split('#')[0].split('?')[0];
+
+        if (!cleanReference) {
+            continue;
+        }
+
+        const targetPath = path.resolve(path.dirname(readmeFile), cleanReference);
+
+        if (!fs.existsSync(targetPath)) {
+            missingReferences.push(reference);
+        }
+    }
+
+    if (missingReferences.length > 0) {
+        fail(`README.md points to missing local files: ${[...new Set(missingReferences)].join(', ')}`);
+    }
+}
+
 function ensureNoExpensiveWillChange() {
     const cssFiles = [
         ...listCssFiles(srcDir),
@@ -470,13 +541,15 @@ function logDiscoveredSources() {
 }
 
 function main() {
-    ensureFilesExist([packageFile, srcDir, themeFile, flavorSourceFile]);
+    ensureFilesExist([packageFile, readmeFile, srcDir, themeFile, flavorSourceFile]);
     ensurePackageScriptsAreAligned();
     assertSourceOrderIsStrict();
     ensureSingleRemoteBuildImport();
     ensureFlavorFilesAreNormalized();
     ensureThemeMetadataIsValid();
+    ensureCreditReferencesStayPresent();
     ensureReadmeFlavorPathsAreNormalized();
+    ensureReadmeLocalReferencesExist();
     ensureNoExpensiveWillChange();
     ensureCssPerformanceRules();
     ensureFlavorOverlayLayerStaysTransparent();
