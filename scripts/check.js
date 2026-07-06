@@ -32,7 +32,20 @@ const EXPECTED_FLAVOR_FILES = [
     'sibnight-north-aurora-light.theme.css',
 ];
 
+const EXPECTED_README_PREVIEW_FILES = [
+    'mockup-base-theme.png',
+    'mockup-flat.png',
+    'mockup-tokyo-night.png',
+    'mockup-sun.png',
+    'mockup-space.png',
+    'mockup-north-polar.png',
+    'mockup-north-snow.png',
+    'mockup-north-aurora-dark.png',
+    'mockup-north-aurora-light.png',
+];
+
 const EXPECTED_AUTHOR = 'ussmarines';
+const EXPECTED_PACKAGE_NAME = 'sibnight-discord';
 const DEBUG_COLOR_PATTERN = /(^|[^-\w])\b(red|yellow|lime|blue|magenta)\b(?![-\w])/giu;
 const FLAVOR_LAYOUT_DEFAULTS_START = '/* sibnight flavor layout defaults: start */';
 const REQUIRED_METADATA = ['@name', '@description', '@author', '@version', '@source'];
@@ -45,6 +58,13 @@ const REQUIRED_FLAVOR_NOTIFICATION_VARIABLES = [
     '--sibnight-notification:',
     '--sibnight-notification-hover:',
     '--sibnight-notification-text:',
+];
+const REQUIRED_MAIN_THEME_CUSTOMIZATION_VARIABLES = [
+    ...REQUIRED_FLAVOR_NOTIFICATION_VARIABLES,
+    '--sibylla-embed-fill:',
+    '--sibylla-embed-fill-soft:',
+    '--sibylla-embed-accent:',
+    '--sibylla-profile-fill:',
 ];
 const HAS_SELECTOR_BUDGETS = new Map([
     ['chatbar.css', 1],
@@ -132,6 +152,14 @@ function listCssFiles(directory) {
 function ensurePackageScriptsAreAligned() {
     const pkg = readJsonFile(packageFile);
     const scripts = pkg.scripts || {};
+
+    if (pkg.name !== EXPECTED_PACKAGE_NAME) {
+        fail(`package.json name should be ${EXPECTED_PACKAGE_NAME}, found ${pkg.name || 'nothing'}`);
+    }
+
+    if (pkg.author !== EXPECTED_AUTHOR) {
+        fail(`package.json author should be ${EXPECTED_AUTHOR}, found ${pkg.author || 'nothing'}`);
+    }
 
     if (scripts['prepare:release'] !== 'npm run build && npm run check') {
         fail('package.json prepare:release should build before checking generated files');
@@ -350,6 +378,15 @@ function ensureThemeMetadataIsValid() {
     }
 }
 
+function ensureMainThemeCustomizationVariablesAreComplete() {
+    const themeCss = readTextFile(themeFile);
+    const missingVariables = REQUIRED_MAIN_THEME_CUSTOMIZATION_VARIABLES.filter((variable) => !themeCss.includes(variable));
+
+    if (missingVariables.length > 0) {
+        fail(`themes/sibnight.theme.css is missing customization variables: ${missingVariables.join(', ')}`);
+    }
+}
+
 function ensureCreditReferencesStayPresent() {
     const files = [
         readmeFile,
@@ -441,6 +478,8 @@ function ensureReadmeFlavorPathsAreNormalized() {
 
     const invalidTokens = [
         'sibnight-sibnight-',
+        'sibnight-north-Aurora.css',
+        'sibnight-north-Aurora',
         'themes/flavors/flat.theme.css',
         'themes/flavors/tokyo-night.theme.css',
         'themes/flavors/sun.theme.css',
@@ -459,6 +498,27 @@ function ensureReadmeFlavorPathsAreNormalized() {
 
     if (foundInvalidTokens.length > 0) {
         fail(`README.md contains invalid flavor paths/names: ${foundInvalidTokens.join(', ')}`);
+    }
+}
+
+function ensureReadmePreviewImagesAreListedAndExist() {
+    if (!fs.existsSync(readmeFile)) {
+        return;
+    }
+
+    const readme = readTextFile(readmeFile);
+
+    for (const fileName of EXPECTED_README_PREVIEW_FILES) {
+        const previewPath = path.join(rootDir, 'assets', 'readme', fileName);
+        const readmeReference = `assets/readme/${fileName}`;
+
+        if (!fs.existsSync(previewPath)) {
+            fail(`missing README preview asset: ${readmeReference}`);
+        }
+
+        if (!readme.includes(readmeReference)) {
+            fail(`README.md is missing preview image ${readmeReference}`);
+        }
     }
 }
 
@@ -547,8 +607,10 @@ function main() {
     ensureSingleRemoteBuildImport();
     ensureFlavorFilesAreNormalized();
     ensureThemeMetadataIsValid();
+    ensureMainThemeCustomizationVariablesAreComplete();
     ensureCreditReferencesStayPresent();
     ensureReadmeFlavorPathsAreNormalized();
+    ensureReadmePreviewImagesAreListedAndExist();
     ensureReadmeLocalReferencesExist();
     ensureNoExpensiveWillChange();
     ensureCssPerformanceRules();
