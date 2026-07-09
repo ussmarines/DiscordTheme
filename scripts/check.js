@@ -453,6 +453,22 @@ function ensureCssPerformanceRules() {
     }
 }
 
+function ensureMentionHoverStaysStable() {
+    const chatbarCss = stripCssComments(readTextFile(path.join(srcDir, 'chatbar.css')));
+    const clearsMentionHover =
+        /\.message__5126c\.mentioned__5126c:hover\s*,[\s\S]*?\{[\s\S]*?background\s*:\s*transparent\s*!important\s*;[\s\S]*?\}/iu;
+    const hasMouseModeMentionHover =
+        /\.mouse-mode\.full-motion\s+\.message__5126c\.mentioned__5126c:hover\s*\{[^{}]*background\s*:\s*var\(--sibnight-mention\)\s*!important\s*;/iu;
+
+    if (clearsMentionHover.test(chatbarCss)) {
+        fail('src/chatbar.css must not clear mentioned message hover background');
+    }
+
+    if (!hasMouseModeMentionHover.test(chatbarCss)) {
+        fail('src/chatbar.css must keep mentioned message hover stable in mouse mode');
+    }
+}
+
 function ensureFlavorOverlayLayerStaysTransparent() {
     const spaceFile = path.join(flavorsDir, 'sibnight-space.theme.css');
     const css = stripCssComments(readTextFile(spaceFile));
@@ -614,6 +630,7 @@ function main() {
     ensureReadmeLocalReferencesExist();
     ensureNoExpensiveWillChange();
     ensureCssPerformanceRules();
+    ensureMentionHoverStaysStable();
     ensureFlavorOverlayLayerStaysTransparent();
     ensureReducedMotionExists();
     ensureProfileSurfacesStayOpaque();

@@ -1,48 +1,48 @@
 <p align="center">
-  <img width="220" src="./assets/sibylla-logo.svg" alt="Logo Sibylla">
+  <img width="220" src="./assets/sibylla-logo.svg" alt="Sibylla logo">
 </p>
 
 <h1 align="center">sibnight</h1>
 
 <p align="center">
-  Un thème Discord sombre inspiré par l'identité visuelle de Sibylla.
+  A dark Discord theme inspired by Sibylla's visual identity.
 </p>
 
 <p align="center">
-  <img src="./assets/readme/mockup-base-theme.png" alt="Aperçu du thème de base Sibnight">
+  <img src="./assets/readme/mockup-base-theme.png" alt="Base Sibnight theme preview">
 </p>
 
 ## Installation
 
-### Installation via fichier
+### File installation
 
-Pour **Vencord**, **BetterDiscord** ou tout autre client qui prend en charge les fichiers de thème :
+For **Vencord**, **BetterDiscord**, or any other client that supports theme files:
 
-1. Télécharge `themes/sibnight.theme.css`.
-2. Place le fichier dans le dossier de thèmes de ton client Discord.
-3. Active **sibnight** dans les paramètres de ton client.
+1. Download `themes/sibnight.theme.css`.
+2. Place the file in your Discord client's themes folder.
+3. Enable **sibnight** in your client settings.
 
-### Installation via lien
+### Link installation
 
-Ajoute ce lien dans les imports de thème de ton client :
+Add this link to your client's theme imports:
 
 ```text
 https://ussmarines.github.io/DiscordTheme/themes/sibnight.theme.css
 ```
 
-Pour personnaliser le thème, copie les variables du thème dans ton **QuickCSS**, puis modifie les valeurs depuis là.
+To customize the theme, copy the theme variables into your **QuickCSS**, then edit the values there.
 
 ## Flavors
 
-Les flavors sont des variantes prédéfinies de **sibnight**. Chaque flavor est un fichier `.theme.css` autonome qui importe le socle partagé `build/sibnight-flavor.css`.
+Flavors are predefined variants of **sibnight**. Each flavor is a standalone `.theme.css` file that imports the shared base `build/sibnight-flavor.css`.
 
-Pour utiliser une flavor, installe le fichier correspondant dans `themes/flavors/` à la place du thème principal.
+To use a flavor, install the matching file from `themes/flavors/` instead of the main theme.
 
 <table>
   <tr>
     <td width="50%" align="center" valign="top">
       <a href="./themes/flavors/sibnight-flat.theme.css">
-        <img src="./assets/readme/mockup-flat.png" alt="Aperçu sibnight-flat">
+        <img src="./assets/readme/mockup-flat.png" alt="sibnight-flat preview">
       </a>
       <br>
       <strong>sibnight-flat</strong>
@@ -51,7 +51,7 @@ Pour utiliser une flavor, installe le fichier correspondant dans `themes/flavors
     </td>
     <td width="50%" align="center" valign="top">
       <a href="./themes/flavors/sibnight-tokyo-night.theme.css">
-        <img src="./assets/readme/mockup-tokyo-night.png" alt="Aperçu sibnight-tokyo-night">
+        <img src="./assets/readme/mockup-tokyo-night.png" alt="sibnight-tokyo-night preview">
       </a>
       <br>
       <strong>sibnight-tokyo-night</strong>
@@ -62,7 +62,7 @@ Pour utiliser une flavor, installe le fichier correspondant dans `themes/flavors
   <tr>
     <td width="50%" align="center" valign="top">
       <a href="./themes/flavors/sibnight-sun.theme.css">
-        <img src="./assets/readme/mockup-sun.png" alt="Aperçu sibnight-sun">
+        <img src="./assets/readme/mockup-sun.png" alt="sibnight-sun preview">
       </a>
       <br>
       <strong>sibnight-sun</strong>
@@ -71,7 +71,7 @@ Pour utiliser une flavor, installe le fichier correspondant dans `themes/flavors
     </td>
     <td width="50%" align="center" valign="top">
       <a href="./themes/flavors/sibnight-space.theme.css">
-        <img src="./assets/readme/mockup-space.png" alt="Aperçu sibnight-space">
+        <img src="./assets/readme/mockup-space.png" alt="sibnight-space preview">
       </a>
       <br>
       <strong>sibnight-space</strong>
@@ -82,7 +82,7 @@ Pour utiliser une flavor, installe le fichier correspondant dans `themes/flavors
   <tr>
     <td width="50%" align="center" valign="top">
       <a href="./themes/flavors/sibnight-north-polar.theme.css">
-        <img src="./assets/readme/mockup-north-polar.png" alt="Aperçu sibnight-north-polar">
+        <img src="./assets/readme/mockup-north-polar.png" alt="sibnight-north-polar preview">
       </a>
       <br>
       <strong>sibnight-north-polar</strong>
@@ -91,7 +91,7 @@ Pour utiliser une flavor, installe le fichier correspondant dans `themes/flavors
     </td>
     <td width="50%" align="center" valign="top">
       <a href="./themes/flavors/sibnight-north-snow.theme.css">
-        <img src="./assets/readme/mockup-north-snow.png" alt="Aperçu sibnight-north-snow">
+        <img src="./assets/readme/mockup-north-snow.png" alt="sibnight-north-snow preview">
       </a>
       <br>
       <strong>sibnight-north-snow</strong>
@@ -102,7 +102,7 @@ Pour utiliser une flavor, installe le fichier correspondant dans `themes/flavors
   <tr>
     <td width="50%" align="center" valign="top">
       <a href="./themes/flavors/sibnight-north-aurora-dark.theme.css">
-        <img src="./assets/readme/mockup-north-aurora-dark.png" alt="Aperçu sibnight-north-aurora-dark">
+        <img src="./assets/readme/mockup-north-aurora-dark.png" alt="sibnight-north-aurora-dark preview">
       </a>
       <br>
       <strong>sibnight-north-aurora-dark</strong>
@@ -111,7 +111,7 @@ Pour utiliser une flavor, installe le fichier correspondant dans `themes/flavors
     </td>
     <td width="50%" align="center" valign="top">
       <a href="./themes/flavors/sibnight-north-aurora-light.theme.css">
-        <img src="./assets/readme/mockup-north-aurora-light.png" alt="Aperçu sibnight-north-aurora-light">
+        <img src="./assets/readme/mockup-north-aurora-light.png" alt="sibnight-north-aurora-light preview">
       </a>
       <br>
       <strong>sibnight-north-aurora-light</strong>
@@ -121,7 +121,7 @@ Pour utiliser une flavor, installe le fichier correspondant dans `themes/flavors
   </tr>
 </table>
 
-## Liens d'import distants
+## Remote import links
 
 ```text
 https://ussmarines.github.io/DiscordTheme/themes/sibnight.theme.css
@@ -135,14 +135,14 @@ https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-north-aurora-d
 https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-north-aurora-light.theme.css
 ```
 
-## Développement
+## Development
 
-Le projet conserve deux fichiers CSS générés :
+The project keeps two generated CSS files:
 
-- `build/sibnight.css` pour le thème principal ;
-- `build/sibnight-flavor.css` pour les flavors, avec leur socle commun mutualisé.
+- `build/sibnight.css` for the main theme.
+- `build/sibnight-flavor.css` for flavors, with their shared base.
 
-Commandes utiles :
+Useful commands:
 
 ```bash
 npm run build
@@ -150,21 +150,21 @@ npm run check
 npm run prepare:release
 ```
 
-Utilise `npm run build` après une modification des sources CSS, puis `npm run check` avant publication. La commande `npm run prepare:release` exécute les deux étapes dans le bon ordre.
+Run `npm run build` after changing CSS sources, then `npm run check` before publishing. `npm run prepare:release` runs both steps in the correct order.
 
 ## Structure
 
-- `themes/sibnight.theme.css` : fichier principal à installer.
-- `themes/flavors/` : fichiers `.theme.css` des huit flavors existants.
-- `src/` : modules CSS sources utilisés pour générer le build.
-- `build/` : CSS généré et publié via GitHub Pages.
-- `assets/readme/` : captures utilisées dans ce README.
-- `scripts/` : scripts Node de build, dev et vérification.
+- `themes/sibnight.theme.css`: main file to install.
+- `themes/flavors/`: `.theme.css` files for the eight existing flavors.
+- `src/`: source CSS modules used to generate the build.
+- `build/`: generated CSS published through GitHub Pages.
+- `assets/readme/`: screenshots used in this README.
+- `scripts/`: Node scripts for build, development, and checks.
 
-## Crédits
+## Credits
 
-- Design original inspiré de [Zelk](https://github.com/schnensch0/zelk).
-- Conception du thème inspirée de [Midnight](https://github.com/refact0r/midnight-discord).
-- Contrôles de fenêtre inspirés de [Tokyo Night](https://github.com/Dyzean/Tokyo-Night).
+- Original design inspired by [Zelk](https://github.com/schnensch0/zelk).
+- Theme design inspired by [Midnight](https://github.com/refact0r/midnight-discord).
+- Window controls inspired by [Tokyo Night](https://github.com/Dyzean/Tokyo-Night).
 
-L'auteur principal de ce projet est **ussmarines**.
+The main author of this project is **ussmarines**.

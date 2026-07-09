@@ -219,10 +219,7 @@ body {
 .mouse-mode.full-motion .message__5126c:hover,
 .cozy_c19a55.wrapper_c19a55:hover,
 .compact_c19a55.wrapper_c19a55:hover,
-.message__5126c.mentioned__5126c:hover,
-.replying__5126c:hover,
-.ephemeral__5126c:hover,
-#app-mount .message__5126c.replying__5126c:hover {
+.message__5126c.selected__5126c {
     transform: none !important;
     translate: none !important;
     background: transparent !important;
@@ -230,15 +227,34 @@ body {
     border-color: transparent !important;
 }
 
-.message__5126c.selected__5126c {
+.message__5126c.selected__5126c,
+.messageListItem__5126c:hover .message__5126c.selected__5126c {
     background: var(--sibnight-message-hover) !important;
 }
 
 .message__5126c.mentioned__5126c,
-.replying__5126c,
 .ephemeral__5126c {
-    background-color: transparent !important;
-    background-image: none !important;
+    background: var(--sibnight-mention) !important;
+}
+
+.message__5126c.mentioned__5126c:hover,
+.message__5126c.mentioned__5126c:focus-within,
+.ephemeral__5126c:hover,
+.ephemeral__5126c:focus-within,
+.mouse-mode.full-motion .message__5126c.ephemeral__5126c:hover,
+.mouse-mode.full-motion .message__5126c.mentioned__5126c:hover {
+    background: var(--sibnight-mention) !important;
+}
+
+.replying__5126c {
+    background: var(--sibnight-reply) !important;
+}
+
+.replying__5126c:hover,
+.replying__5126c:focus-within,
+#app-mount .message__5126c.replying__5126c:hover,
+.mouse-mode.full-motion .message__5126c.replying__5126c:hover {
+    background: var(--sibnight-reply-hover) !important;
 }
 
 /* ===============================
