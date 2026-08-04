@@ -11,7 +11,7 @@
     "license": "MIT",
     "devDependencies": {
         "chokidar": "^3.6.0",
-        "dotenv": "^16.4.5"
+        "dotenv": "^17.4.2"
     },
     "description": "Sibylla-inspired Discord theme with a stable build pipeline and flavor variants.",
     "private": true
