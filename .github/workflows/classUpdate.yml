@@ -7,35 +7,232 @@ on:
   repository_dispatch:
     types: [update_class]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: class-update-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
-  classUpdate:
+  prepare-update:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
-      contents: write
+      contents: read
+    outputs:
+      changed: ${{ steps.create-patch.outputs.changed }}
 
     steps:
-      - uses: actions/checkout@v6
+      # Immutable SHA: actions/checkout v6.
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
       - id: update-src
-        uses: metro420yt/class-update@v1
+        # The third-party updater runs only in this read-only job.
+        uses: metro420yt/class-update@24007abb2ae3488d7742270787f4807255ab0d97 # v1
         with:
           folder: src
           ext: css
           diff: "https://raw.githubusercontent.com/SyndiShanX/Update-Classes/main/Changes.txt"
+
       - id: update-flavors
-        uses: metro420yt/class-update@v1
+        uses: metro420yt/class-update@24007abb2ae3488d7742270787f4807255ab0d97 # v1
         with:
           folder: themes/flavors
           ext: css
           diff: "https://raw.githubusercontent.com/SyndiShanX/Update-Classes/main/Changes.txt"
-      - uses: actions/setup-node@v6
+
+      - name: Reject unexpected updater changes before executing repository code
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          is_allowed_path() {
+            case "$1" in
+              src/*.css|themes/flavors/*.css)
+                return 0
+                ;;
+              *)
+                return 1
+                ;;
+            esac
+          }
+
+          if IFS= read -r -d '' _ < <(
+            {
+              git ls-files --others --exclude-standard -z
+              git ls-files --others --ignored --exclude-standard -z
+            }
+          ); then
+            echo "::error::The updater created an unexpected untracked file."
+            exit 1
+          fi
+
+          while IFS= read -r -d '' path; do
+            if ! is_allowed_path "$path"; then
+              echo "::error::The updater modified a path outside the approved source CSS allowlist."
+              exit 1
+            fi
+          done < <(git diff --name-only -z HEAD --)
+
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: 24
           cache: npm
-      - run: npm ci
-      - run: npm run prepare:release
-      - uses: EndBug/add-and-commit@v10
-        if: ${{ steps.update-src.outputs.totalChanges > 0 || steps.update-flavors.outputs.totalChanges > 0 }}
+
+      - name: Install dependencies without lifecycle scripts
+        run: npm ci --ignore-scripts
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=moderate
+
+      - name: Build and check release outputs
+        run: npm run prepare:release
+
+      - name: Validate changes and create patch
+        id: create-patch
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          is_allowed_path() {
+            case "$1" in
+              src/*.css|themes/flavors/*.css|build/sibnight.css|build/sibnight-flavor.css)
+                return 0
+                ;;
+              *)
+                return 1
+                ;;
+            esac
+          }
+
+          changed=false
+          while IFS= read -r -d '' path; do
+            changed=true
+            if ! is_allowed_path "$path"; then
+              echo "::error::The updater modified a path outside the approved CSS allowlist."
+              exit 1
+            fi
+          done < <(git diff --name-only -z HEAD --)
+
+          if IFS= read -r -d '' _ < <(git ls-files --others --exclude-standard -z); then
+            echo "::error::The build created an unexpected untracked file."
+            exit 1
+          fi
+
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+          if [[ "$changed" != "true" ]]; then
+            exit 0
+          fi
+
+          patch_path="$RUNNER_TEMP/class-update.patch"
+          git diff --binary --full-index HEAD -- \
+            src \
+            themes/flavors \
+            build/sibnight.css \
+            build/sibnight-flavor.css > "$patch_path"
+          test -s "$patch_path"
+
+      - name: Upload validated patch
+        if: steps.create-patch.outputs.changed == 'true'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
-          default_author: github_actions
-          message: "chore: update classes >_<"
-          fetch: true
+          name: class-update-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/class-update.patch
+          if-no-files-found: error
+          retention-days: 1
+
+  commit-update:
+    needs: prepare-update
+    if: needs.prepare-update.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      # The write-capable job uses only official actions pinned to immutable SHAs.
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        with:
+          name: class-update-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/class-update
+
+      - name: Apply and revalidate patch
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          is_allowed_path() {
+            case "$1" in
+              src/*.css|themes/flavors/*.css|build/sibnight.css|build/sibnight-flavor.css)
+                return 0
+                ;;
+              *)
+                return 1
+                ;;
+            esac
+          }
+
+          patch_path="$RUNNER_TEMP/class-update/class-update.patch"
+          test -f "$patch_path"
+          git apply --check --binary "$patch_path"
+          git apply --binary --index "$patch_path"
+
+          while IFS= read -r -d '' path; do
+            if ! is_allowed_path "$path"; then
+              echo "::error::The patch contains a path outside the approved CSS allowlist."
+              exit 1
+            fi
+          done < <(git diff --cached --name-only -z)
+
+          if ! git diff --quiet || \
+             IFS= read -r -d '' _ < <(git ls-files --others --exclude-standard -z); then
+            echo "::error::The working tree contains unexpected unstaged files."
+            exit 1
+          fi
+
+      - name: Commit validated changes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git diff --cached --quiet; then
+            echo "No validated changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: update Discord classes"
+
+      - name: Push with temporary authentication
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          askpass="$RUNNER_TEMP/git-askpass.sh"
+          cleanup() {
+            rm -f -- "$askpass"
+          }
+          trap cleanup EXIT
+
+          printf '%s\n' \
+            '#!/usr/bin/env bash' \
+            'case "$1" in' \
+            '  *Username*) printf "%s\\n" "x-access-token" ;;' \
+            '  *) printf "%s\\n" "$GITHUB_TOKEN" ;;' \
+            'esac' > "$askpass"
+          chmod 700 "$askpass"
+
+          GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0 \
+            git push origin "HEAD:${GITHUB_REF_NAME}"
