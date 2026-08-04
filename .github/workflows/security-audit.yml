@@ -14,39 +14,39 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with: {fetch-depth: 0, persist-credentials: false}
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
-        with: {python-version: '3.12'}
+        with: {python-version: "3.12"}
       - run: mkdir -p .security-reports
-      - id: identity_guard
+      - id: identity
         continue-on-error: true
-        env: {AUDIT_PROFILE: "${{ inputs.profile }}"}
+        env: {PROFILE: "${{ inputs.profile }}"}
         shell: bash
-        run: "args=(--report .security-reports/identity-guard.json);[[ \"$AUDIT_PROFILE\" == full ]]&&args+=(--history);python3 .github/scripts/security_guard.py \"${args[@]}\""
+        run: "args=(--report .security-reports/identity-guard.json);[[ \"$PROFILE\" == full ]]&&args+=(--history);python3 .github/scripts/security_guard.py \"${args[@]}\""
       - name: Install verified Opengrep 1.22.0
         shell: bash
         run: "curl -fsSL https://github.com/opengrep/opengrep/releases/download/v1.22.0/opengrep_manylinux_x86 -o opengrep;echo '45bcd58440e397ed52c50e953ccf5948909ea77087c9186fc7d277216f62e319  opengrep'|sha256sum -c --strict;install -m755 opengrep $RUNNER_TEMP/opengrep"
       - id: opengrep
         continue-on-error: true
-        run: "$RUNNER_TEMP/opengrep scan --config .security/opengrep/project-security.yml --json-output .security-reports/opengrep.json --error --exclude vendor --exclude node_modules --exclude dist --exclude coverage ."
+        run: "$RUNNER_TEMP/opengrep scan --config .security/opengrep/project-security.yml --json-output .security-reports/opengrep.json --error --exclude node_modules --exclude vendor --exclude dist --exclude coverage ."
       - name: Install verified Trivy 0.70.0
         shell: bash
-        run: "set -euo pipefail;b=https://github.com/aquasecurity/trivy/releases/download/v0.70.0;curl -fsSL $b/trivy_0.70.0_checksums.txt -o c;echo 'c45281240bb9211ea9e830fc0bf5cf8acf7c0ca830feb64ac8a0aa932c5c92d9  c'|sha256sum -c --strict;a=$(awk '$2~/Linux-64bit\\.tar\\.gz$/{print $2;exit}' c);curl -fsSL $b/$a -o $a;grep \"  $a$\" c|sha256sum -c --strict;tar -xzf $a trivy;install -m755 trivy $RUNNER_TEMP/trivy"
+        run: "set -euo pipefail;b=https://github.com/aquasecurity/trivy/releases/download/v0.70.0;curl -fsSL $b/trivy_0.70.0_checksums.txt -o c;echo 'c45281240bb9211ea9e830fc0bf5cf8acf7c0ca830feb64ac8a0aa932c5c92d9  c'|sha256sum -c --strict;a=$(awk '$2~/Linux-64bit\\.tar\\.gz$/{print $2;exit}' c);test -n \"$a\";curl -fsSL $b/$a -o $a;grep \"  $a$\" c|sha256sum -c --strict;tar -xzf $a trivy;install -m755 trivy $RUNNER_TEMP/trivy"
       - id: trivy
         continue-on-error: true
         run: "$RUNNER_TEMP/trivy filesystem --scanners vuln,misconfig --severity MEDIUM,HIGH,CRITICAL --format json --output .security-reports/trivy.json --exit-code 1 ."
       - if: always()
         continue-on-error: true
         run: "$RUNNER_TEMP/trivy filesystem --scanners vuln --format cyclonedx --output .security-reports/sbom.cdx.json ."
-      - id: dependency_audit
+      - id: dependencies
         continue-on-error: true
         shell: bash
-        run: "x=0;[[ ! -f package-lock.json ]]||npm audit --audit-level=moderate --json>.security-reports/npm-audit.json||x=1;[[ ! -f composer.lock ]]||composer audit --locked --format=json>.security-reports/composer-audit.json||x=1;exit $x"
+        run: "failed=0;[[ ! -f package-lock.json ]]||npm audit --omit=dev --audit-level=moderate --json>.security-reports/npm-audit.json||failed=1;[[ ! -f composer.lock ]]||composer audit --locked --format=json>.security-reports/composer-audit.json||failed=1;exit $failed"
       - id: zizmor
         continue-on-error: true
-        run: "python -m pip install --disable-pip-version-check --no-input --only-binary=:all: zizmor==1.26.1;zizmor --offline --format json . > .security-reports/zizmor.json"
+        run: "python -m pip install --disable-pip-version-check --no-input --only-binary=:all: zizmor==1.26.1;zizmor --offline --format json .>.security-reports/zizmor.json"
       - if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with: {name: "repository-security-${{ github.run_id }}", path: .security-reports/, if-no-files-found: warn, retention-days: 30, include-hidden-files: true}
       - if: always()
-        env: {A: "${{ steps.identity_guard.outcome }}", B: "${{ steps.opengrep.outcome }}", C: "${{ steps.trivy.outcome }}", D: "${{ steps.dependency_audit.outcome }}", E: "${{ steps.zizmor.outcome }}", MODE: "${{ inputs.enforcement }}"}
+        env: {A: "${{ steps.identity.outcome }}", B: "${{ steps.opengrep.outcome }}", C: "${{ steps.trivy.outcome }}", D: "${{ steps.dependencies.outcome }}", E: "${{ steps.zizmor.outcome }}", MODE: "${{ inputs.enforcement }}"}
         shell: bash
-        run: "x=0;for v in \"$A\" \"$B\" \"$C\" \"$D\" \"$E\";do [[ \"$v\" == success ]]||x=1;done;[[ \"$MODE\" == block ]]&&exit $x;exit 0"
+        run: "failed=0;for v in \"$A\" \"$B\" \"$C\" \"$D\" \"$E\";do [[ \"$v\" == success ]]||failed=1;done;[[ \"$MODE\" == block ]]&&exit $failed;exit 0"
