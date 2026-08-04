@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       profile: {description: Audit depth, required: true, default: full, type: choice, options: [quick, full]}
-      enforcement: {description: Result handling, required: true, default: report, type: choice, options: [report, block]}
+      enforcement: {description: Result handling, required: true, default: block, type: choice, options: [report, block]}
 permissions: {contents: read}
 concurrency: {group: "manual-security-audit-${{ github.ref }}", cancel-in-progress: false}
 jobs:
@@ -39,7 +39,7 @@ jobs:
       - id: dependencies
         continue-on-error: true
         shell: bash
-        run: "failed=0;[[ ! -f package-lock.json ]]||npm audit --omit=dev --audit-level=moderate --json>.security-reports/npm-audit.json||failed=1;[[ ! -f composer.lock ]]||composer audit --locked --format=json>.security-reports/composer-audit.json||failed=1;exit $failed"
+        run: "failed=0;[[ ! -f package-lock.json ]]||npm audit --audit-level=moderate --json>.security-reports/npm-audit.json||failed=1;[[ ! -f composer.lock ]]||composer audit --locked --format=json>.security-reports/composer-audit.json||failed=1;exit $failed"
       - id: zizmor
         continue-on-error: true
         run: "python -m pip install --disable-pip-version-check --no-input --only-binary=:all: zizmor==1.26.1;zizmor --offline --format json .>.security-reports/zizmor.json"
