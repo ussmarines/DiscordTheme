@@ -1,5 +1,32 @@
 node_modules/
 
-.env
-
 pnpm-lock.yaml
+
+# BEGIN managed secret hardening
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+!.env.dist
+auth.json
+credentials.json
+credentials.*.json
+service-account.json
+service-account*.json
+!credentials.example.json
+!service-account.example.json
+.npmrc
+.pypirc
+.netrc
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.tfstate
+*.tfstate.*
+secrets/
+.secrets/
+# END managed secret hardening
