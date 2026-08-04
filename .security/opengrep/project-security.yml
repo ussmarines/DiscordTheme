@@ -1,0 +1,15 @@
+rules:
+- {id: javascript-eval, message: Dynamic code execution requires review., severity: ERROR, languages: [javascript, typescript], pattern: eval(...)}
+- id: javascript-shell
+  message: Shell execution requires validation.
+  severity: ERROR
+  languages: [javascript, typescript]
+  pattern-either: [{pattern: exec(...)}, {pattern: execSync(...)}, {pattern: spawn(...)}]
+- {id: javascript-html, message: Review HTML assignment., severity: WARNING, languages: [javascript, typescript], pattern: $EL.innerHTML = $VALUE}
+- {id: php-eval, message: Dynamic PHP execution is prohibited., severity: ERROR, languages: [php], pattern: eval(...)}
+- id: php-shell
+  message: OS command execution requires review.
+  severity: ERROR
+  languages: [php]
+  pattern-either: [{pattern: shell_exec(...)}, {pattern: exec(...)}, {pattern: system(...)}, {pattern: passthru(...)}]
+- {id: php-unserialize, message: Review unserialize input., severity: WARNING, languages: [php], pattern: unserialize(...)}

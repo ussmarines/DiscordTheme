@@ -1,0 +1,52 @@
+name: Manual repository security audit
+on:
+  workflow_dispatch:
+    inputs:
+      profile: {description: Audit depth, required: true, default: full, type: choice, options: [quick, full]}
+      enforcement: {description: Result handling, required: true, default: report, type: choice, options: [report, block]}
+permissions: {contents: read}
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with: {fetch-depth: 0, persist-credentials: false}
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with: {python-version: '3.12'}
+      - run: mkdir -p .security-reports
+      - id: identity
+        continue-on-error: true
+        env: {PROFILE: "${{ inputs.profile }}"}
+        shell: bash
+        run: "args=(--report .security-reports/identity.json);[[ \"$PROFILE\" == full ]]&&args+=(--history);python3 .github/scripts/security_guard.py \"${args[@]}\""
+      - run: "curl -fsSL https://github.com/opengrep/opengrep/releases/download/v1.22.0/opengrep_manylinux_x86 -o $RUNNER_TEMP/opengrep;echo \"45bcd58440e397ed52c50e953ccf5948909ea77087c9186fc7d277216f62e319  $RUNNER_TEMP/opengrep\"|sha256sum -c --strict;chmod 755 $RUNNER_TEMP/opengrep"
+      - id: opengrep
+        continue-on-error: true
+        run: "$RUNNER_TEMP/opengrep scan --config .security/opengrep/project-security.yml --json-output .security-reports/opengrep.json --error --exclude node_modules --exclude vendor --exclude dist ."
+      - shell: bash
+        run: "b=https://github.com/aquasecurity/trivy/releases/download/v0.73.0;curl -fsSL $b/trivy_0.73.0_checksums.txt -o c;echo '36890275ffdff13025e9bd9fe039724c6e36bf58e698499856b801f619046fe2  c'|sha256sum -c --strict;a=$(awk '$2~/Linux-64bit\\.tar\\.gz$/{print $2;exit}' c);curl -fsSL $b/$a -o $a;grep \"  $a$\" c|sha256sum -c --strict;tar -xzf $a trivy;install -m755 trivy $RUNNER_TEMP/trivy"
+      - id: trivy
+        continue-on-error: true
+        run: "$RUNNER_TEMP/trivy filesystem --scanners vuln,misconfig --format json --output .security-reports/trivy.json --exit-code 1 ."
+      - if: always()
+        continue-on-error: true
+        run: "$RUNNER_TEMP/trivy filesystem --format cyclonedx --output .security-reports/sbom.cdx.json ."
+      - id: npm
+        if: "${{ hashFiles('package-lock.json') != '' }}"
+        continue-on-error: true
+        run: npm audit --omit=dev --json > .security-reports/npm-audit.json
+      - id: composer
+        if: "${{ hashFiles('composer.lock') != '' }}"
+        continue-on-error: true
+        run: composer audit --locked --format=json > .security-reports/composer-audit.json
+      - id: zizmor
+        continue-on-error: true
+        run: "python -m pip install --disable-pip-version-check zizmor==1.29.0;zizmor --format json . > .security-reports/zizmor.json"
+      - if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with: {name: "repository-security-${{ github.run_id }}", path: .security-reports/, retention-days: 30, include-hidden-files: true}
+      - if: always()
+        env: {A: "${{ steps.identity.outcome }}", B: "${{ steps.opengrep.outcome }}", C: "${{ steps.trivy.outcome }}", D: "${{ steps.npm.outcome }}", F: "${{ steps.composer.outcome }}", G: "${{ steps.zizmor.outcome }}", E: "${{ inputs.enforcement }}"}
+        shell: bash
+        run: "x=0;for v in \"$A\" \"$B\" \"$C\" \"$D\" \"$F\" \"$G\";do [[ \"$v\" == success || \"$v\" == skipped ]]||x=1;done;[[ \"$E\" == block ]]&&exit \"$x\";exit 0"
