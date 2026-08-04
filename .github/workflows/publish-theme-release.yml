@@ -1,0 +1,149 @@
+name: Publish theme release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/publish-theme-release.yml
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag
+        required: true
+        default: themes-2026.08.05
+      title:
+        description: Release title
+        required: true
+        default: SibNight Themes — 2026-08-05
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-theme-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      RELEASE_TAG: ${{ github.event.inputs.tag || 'themes-2026.08.05' }}
+      RELEASE_TITLE: ${{ github.event.inputs.title || 'SibNight Themes — 2026-08-05' }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Validate release inputs
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          main_theme="themes/sibnight.theme.css"
+          [[ -f "$main_theme" && ! -L "$main_theme" ]]
+
+          mapfile -d '' flavors < <(
+            find themes/flavors -maxdepth 1 -type f -name '*.theme.css' -print0 | sort -z
+          )
+
+          if [[ "${#flavors[@]}" -ne 8 ]]; then
+            echo "Expected exactly 8 flavor CSS files, found ${#flavors[@]}." >&2
+            exit 1
+          fi
+
+          for file in "${flavors[@]}"; do
+            [[ -f "$file" && ! -L "$file" ]]
+          done
+
+      - name: Build CSS-only package
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          rm -rf release
+          mkdir -p release/SibNight/flavors
+
+          install -m 0644 themes/sibnight.theme.css release/SibNight/sibnight.theme.css
+          find themes/flavors -maxdepth 1 -type f -name '*.theme.css' -print0 \
+            | sort -z \
+            | xargs -0 -I{} install -m 0644 "{}" release/SibNight/flavors/
+
+          if find release/SibNight -type f ! -name '*.theme.css' -print -quit | grep -q .; then
+            echo "Package contains a non-CSS file." >&2
+            exit 1
+          fi
+
+          css_count="$(find release/SibNight -type f -name '*.theme.css' | wc -l | tr -d ' ')"
+          if [[ "$css_count" != "9" ]]; then
+            echo "Expected 9 CSS files in package, found $css_count." >&2
+            exit 1
+          fi
+
+          safe_tag="${RELEASE_TAG//\//-}"
+          zip_name="SibNight-${safe_tag}-themes.zip"
+          (cd release && zip -q -9 -r "../${zip_name}" SibNight)
+
+          while IFS= read -r entry; do
+            case "$entry" in
+              */|*.theme.css) ;;
+              *)
+                echo "Unexpected ZIP entry: $entry" >&2
+                exit 1
+                ;;
+            esac
+          done < <(zipinfo -1 "$zip_name")
+
+          echo "ZIP_NAME=$zip_name" >> "$GITHUB_ENV"
+
+      - name: Prepare release notes
+        shell: bash
+        run: |
+          cat > release-notes.md <<'EOF'
+          ## SibNight theme pack
+
+          Cette release contient uniquement les fichiers BetterDiscord prêts à l'emploi :
+
+          - `sibnight.theme.css` : thème principal ;
+          - les huit variantes présentes dans le dossier `flavors` ;
+          - une archive ZIP contenant exactement ces neuf fichiers CSS.
+
+          Aucun fichier source JavaScript, outil de sécurité ou fichier de configuration n'est inclus dans l'archive personnalisée.
+
+          GitHub ajoute automatiquement ses archives « Source code » à toute release ; elles sont distinctes du pack CSS fourni ici.
+          EOF
+
+      - name: Publish release and assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -Eeuo pipefail
+
+          assets=(
+            "$ZIP_NAME"
+            release/SibNight/sibnight.theme.css
+            release/SibNight/flavors/*.theme.css
+          )
+
+          if gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" "${assets[@]}" \
+              --repo "$GITHUB_REPOSITORY" \
+              --clobber
+            gh release edit "$RELEASE_TAG" \
+              --repo "$GITHUB_REPOSITORY" \
+              --title "$RELEASE_TITLE" \
+              --notes-file release-notes.md \
+              --latest
+          else
+            gh release create "$RELEASE_TAG" "${assets[@]}" \
+              --repo "$GITHUB_REPOSITORY" \
+              --target "$GITHUB_SHA" \
+              --title "$RELEASE_TITLE" \
+              --notes-file release-notes.md \
+              --latest
+          fi
