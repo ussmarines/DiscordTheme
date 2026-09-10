@@ -1,18 +1,26 @@
 {
     "name": "sibnight-discord",
-    "version": "2.13.0",
+    "version": "2.13.1",
     "scripts": {
         "build": "node scripts/build.js",
         "check": "node scripts/check.js",
         "dev": "node scripts/dev.js",
-        "prepare:release": "npm run build && npm run check"
+        "prepare:release": "npm run build && npm run check",
+        "test": "node --test scripts/test.js",
+        "format:check": "node scripts/format-check.js",
+        "bundle": "node scripts/bundle.js",
+        "check:urls": "node scripts/check-urls.js",
+        "quality": "npm run prepare:release && npm test && npm run format:check && npm audit --audit-level=moderate"
     },
     "author": "ussmarines",
     "license": "MIT",
     "devDependencies": {
-        "chokidar": "^3.6.0",
-        "dotenv": "^17.4.2"
+        "chokidar": "4.0.3",
+        "postcss": "8.5.28"
     },
     "description": "Sibylla-inspired Discord theme with a stable build pipeline and flavor variants.",
-    "private": true
+    "private": true,
+    "engines": {
+        "node": ">=24"
+    }
 }

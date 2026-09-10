@@ -24,11 +24,19 @@ jobs:
       changed: ${{ steps.create-patch.outputs.changed }}
 
     steps:
-      # Immutable SHA: actions/checkout v6.
+      # Immutable SHA: actions/checkout v7.0.1.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 1
           persist-credentials: false
+
+      - name: Freeze mapping for both updater passes
+        shell: bash
+        run: |
+          curl --fail --silent --show-error --location --max-time 30 \
+            https://raw.githubusercontent.com/SyndiShanX/Update-Classes/main/Changes.txt \
+            --output "$RUNNER_TEMP/class-mapping.txt"
+          sha256sum "$RUNNER_TEMP/class-mapping.txt" >> "$GITHUB_STEP_SUMMARY"
 
       - id: update-src
         # The third-party updater runs only in this read-only job.
@@ -36,14 +44,14 @@ jobs:
         with:
           folder: src
           ext: css
-          diff: "https://raw.githubusercontent.com/SyndiShanX/Update-Classes/main/Changes.txt"
+          diff: ${{ runner.temp }}/class-mapping.txt
 
       - id: update-flavors
         uses: metro420yt/class-update@24007abb2ae3488d7742270787f4807255ab0d97 # v1
         with:
           folder: themes/flavors
           ext: css
-          diff: "https://raw.githubusercontent.com/SyndiShanX/Update-Classes/main/Changes.txt"
+          diff: ${{ runner.temp }}/class-mapping.txt
 
       - name: Reject unexpected updater changes before executing repository code
         shell: bash
@@ -89,8 +97,11 @@ jobs:
       - name: Audit dependencies
         run: npm audit --audit-level=moderate
 
+      - name: Reject changes beyond class hashes
+        run: node scripts/check-class-update.js
+
       - name: Build and check release outputs
-        run: npm run prepare:release
+        run: npm run quality
 
       - name: Validate changes and create patch
         id: create-patch
@@ -143,96 +154,8 @@ jobs:
           name: class-update-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/class-update.patch
           if-no-files-found: error
-          retention-days: 1
+          retention-days: 14
 
-  commit-update:
-    needs: prepare-update
-    if: needs.prepare-update.outputs.changed == 'true'
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: write
-
-    steps:
-      # The write-capable job uses only official actions pinned to immutable SHAs.
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          fetch-depth: 1
-          persist-credentials: false
-
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
-        with:
-          name: class-update-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/class-update
-
-      - name: Apply and revalidate patch
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          is_allowed_path() {
-            case "$1" in
-              src/*.css|themes/flavors/*.css|build/sibnight.css|build/sibnight-flavor.css)
-                return 0
-                ;;
-              *)
-                return 1
-                ;;
-            esac
-          }
-
-          patch_path="$RUNNER_TEMP/class-update/class-update.patch"
-          test -f "$patch_path"
-          git apply --check --binary "$patch_path"
-          git apply --binary --index "$patch_path"
-
-          while IFS= read -r -d '' path; do
-            if ! is_allowed_path "$path"; then
-              echo "::error::The patch contains a path outside the approved CSS allowlist."
-              exit 1
-            fi
-          done < <(git diff --cached --name-only -z)
-
-          if ! git diff --quiet || \
-             IFS= read -r -d '' _ < <(git ls-files --others --exclude-standard -z); then
-            echo "::error::The working tree contains unexpected unstaged files."
-            exit 1
-          fi
-
-      - name: Commit validated changes
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if git diff --cached --quiet; then
-            echo "No validated changes to commit."
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: update Discord classes"
-
-      - name: Push with temporary authentication
-        shell: bash
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-
-          askpass="$RUNNER_TEMP/git-askpass.sh"
-          cleanup() {
-            rm -f -- "$askpass"
-          }
-          trap cleanup EXIT
-
-          printf '%s\n' \
-            '#!/usr/bin/env bash' \
-            'case "$1" in' \
-            '  *Username*) printf "%s\\n" "x-access-token" ;;' \
-            '  *) printf "%s\\n" "$GITHUB_TOKEN" ;;' \
-            'esac' > "$askpass"
-          chmod 700 "$askpass"
-
-          GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0 \
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+      - name: Require visual review before publication
+        if: steps.create-patch.outputs.changed == 'true'
+        run: echo 'Download the patch, apply it to the recorded run SHA, run the quality gate and the Discord checklist before committing and pushing main.' >> "$GITHUB_STEP_SUMMARY"

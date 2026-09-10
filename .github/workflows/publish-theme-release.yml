@@ -1,24 +1,17 @@
 name: Publish theme release
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/publish-theme-release.yml
   workflow_dispatch:
     inputs:
       tag:
         description: Release tag
         required: true
-        default: themes-2026.08.05
       title:
         description: Release title
         required: true
-        default: SibNight Themes — 2026-08-05
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: publish-theme-release
@@ -26,11 +19,13 @@ concurrency:
 
 jobs:
   publish:
+    permissions:
+      contents: write
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
-      RELEASE_TAG: ${{ github.event.inputs.tag || 'themes-2026.08.05' }}
-      RELEASE_TITLE: ${{ github.event.inputs.title || 'SibNight Themes — 2026-08-05' }}
+      RELEASE_TAG: ${{ inputs.tag }}
+      RELEASE_TITLE: ${{ inputs.title }}
 
     steps:
       - name: Check out repository
@@ -39,10 +34,25 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+      - run: npm run quality
+      - run: git diff --exit-code -- build
+
       - name: Validate release inputs
         shell: bash
         run: |
           set -Eeuo pipefail
+
+          [[ "$GITHUB_REF" == refs/heads/main ]]
+          [[ "$RELEASE_TAG" =~ ^[A-Za-z0-9][A-Za-z0-9._-]{0,100}$ ]]
+          git check-ref-format "refs/tags/$RELEASE_TAG"
+          existing_tag="$(git ls-remote --tags origin "refs/tags/$RELEASE_TAG")"
+          [[ -z "$existing_tag" ]] || { echo 'Choose a new tag; existing tags are immutable.' >&2; exit 1; }
 
           main_theme="themes/sibnight.theme.css"
           [[ -f "$main_theme" && ! -L "$main_theme" ]]
@@ -130,20 +140,8 @@ jobs:
             release/SibNight/flavors/*.theme.css
           )
 
-          if gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
-            gh release upload "$RELEASE_TAG" "${assets[@]}" \
-              --repo "$GITHUB_REPOSITORY" \
-              --clobber
-            gh release edit "$RELEASE_TAG" \
-              --repo "$GITHUB_REPOSITORY" \
-              --title "$RELEASE_TITLE" \
-              --notes-file release-notes.md \
-              --latest
-          else
-            gh release create "$RELEASE_TAG" "${assets[@]}" \
-              --repo "$GITHUB_REPOSITORY" \
-              --target "$GITHUB_SHA" \
-              --title "$RELEASE_TITLE" \
-              --notes-file release-notes.md \
-              --latest
-          fi
+          gh release create "$RELEASE_TAG" "${assets[@]}" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "$RELEASE_TITLE" \
+            --notes-file release-notes.md

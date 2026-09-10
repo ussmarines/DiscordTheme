@@ -16,6 +16,6 @@ function main() {
 try {
     main();
 } catch (error) {
-    console.error('[sibnight] build failed:', error);
+    console.error('[sibnight] build failed:', error.reason || error.message);
     process.exit(1);
 }

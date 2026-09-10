@@ -1001,11 +1001,6 @@ nav[class*='guilds'] {
         var(--sibylla-panel-fill) !important;
 }
 
-.banner__68edb,
-.banner__68edb img,
-.mask__68edb {
-    filter: saturate(1.05) contrast(1.02);
-}
 
 /* Profile banner polish that preserves user custom banners */
 .banner__68edb {

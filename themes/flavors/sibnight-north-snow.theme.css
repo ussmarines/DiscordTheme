@@ -2,7 +2,7 @@
  * @name sibnight-north-snow
  * @description A flat Nord Snow Storm + Frost flavor with solid light panels, zero shadows and cleaner Sibylla-friendly light contrast.
  * @author ussmarines
- * @version 1.7.1
+ * @version 1.7.2
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-snow.theme.css
  * @authorLink https://github.com/ussmarines
@@ -72,6 +72,7 @@ body {
     /* other options */
     --small-user-panel: on;
     --sibnight-flavor: on;
+    --sibnight-flat-utilities: on;
 }
 /* sibnight flavor layout defaults: end */
 
@@ -157,74 +158,7 @@ body {
     box-shadow: inset 0 0 0 1px var(--sibnight-border) !important;
 }
 
-/* extra flat pass for dm, friends and utility surfaces */
-:is(
-    [class*='peopleListItem'],
-    [class*='listRow'],
-    [class*='userInfoSection'],
-    [class*='overlayBackground'],
-    [class*='profileCard'],
-    [class*='cardPrimary'],
-    [class*='card_'],
-    [class*='searchBar'],
-    [class*='searchBox'],
-    [class*='rolePill'],
-    [class*='newMessagesBar']
-) {
-    background-image: none !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-    filter: none !important;
-}
 
-:is(
-    [class*='peopleListItem'],
-    [class*='listRow'],
-    [class*='card_'],
-    [class*='profileCard']
-):hover {
-    background: var(--sibylla-hover-fill) !important;
-}
-
-:is(
-    [class*='peopleListItem'][aria-selected='true'],
-    [class*='listRow'][aria-selected='true'],
-    [class*='peopleListItem'][aria-current='page'],
-    [class*='listRow'][aria-current='page']
-) {
-    background: var(--sibylla-active-fill) !important;
-}
-
-:is(
-    [class*='searchBar'],
-    [class*='searchBox'],
-    [class*='searchBar'] input,
-    [class*='searchBox'] input
-) {
-    background-color: var(--sibylla-control-fill) !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-:is(
-    [class*='overlayBackground'],
-    [class*='userInfoSection'],
-    [class*='cardPrimary'],
-    [class*='card_']
-) {
-    background-color: var(--sibylla-panel-fill-strong) !important;
-}
-
-:is(
-    .itemCard__7e549,
-    .container__91a9d,
-    .member_c8ffbb,
-    [class*='peopleListItem'],
-    [class*='listRow']
-) {
-    border: none !important;
-    box-shadow: none !important;
-}
 
 .message__5126c.mentioned__5126c,
 .replying__5126c,
@@ -256,9 +190,5 @@ body {
 .modeUnreadImportant__2ea32 :is(.name__2ea32, .icon__2ea32) {
     color: var(--sibnight-notification-hover, var(--sibnight-notification, var(--sibnight-accent-new))) !important;
     font-weight: 750 !important;
-    text-shadow: 0 0 10px color-mix(in srgb, var(--sibnight-notification, var(--sibnight-accent-new)) 58%, transparent) !important;
-}
-
-.modeUnreadImportant__2ea32 > .unread__2ea32 {
-    display: none !important;
+    text-shadow: none !important;
 }

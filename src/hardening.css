@@ -22,32 +22,6 @@
     background-color: var(--sibnight-bg-4, hsl(228, 60%, 6%)) !important;
 }
 
-/* Keep known high-traffic scroll containers quiet without using broad [class*='scroller'] selectors. */
-.scroller_ef3116::-webkit-scrollbar,
-.scroller__629e4::-webkit-scrollbar,
-.scroller__99e7c::-webkit-scrollbar,
-.scroller__7d20c::-webkit-scrollbar,
-.scroller__23746::-webkit-scrollbar,
-.scrollerBase_d125d2::-webkit-scrollbar,
-.contentRegionScroller__23e6b::-webkit-scrollbar,
-.mainPageScroller__80907::-webkit-scrollbar,
-.shop__08415::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-
-.scroller_ef3116,
-.scroller__629e4,
-.scroller__99e7c,
-.scroller__7d20c,
-.scroller__23746,
-.scrollerBase_d125d2,
-.contentRegionScroller__23e6b,
-.mainPageScroller__80907,
-.shop__08415 {
-    scrollbar-width: none;
-}
-
 /* Prevent panel shadows from creating horizontal overflow in narrow windows. */
 .sidebarList__5e434,
 .panels__5e434,

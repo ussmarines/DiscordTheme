@@ -15,3 +15,10 @@ clés privées. Il s'agit de la logique du détecteur, et non d'une clé privée
 L'exception porte uniquement sur ce fingerprint historique. Le fichier
 `.github/scripts/security_guard.py` reste analysé et la règle Gitleaks
 `private-key` reste active pour tous les autres emplacements et commits.
+
+## Vérification du 10 septembre 2026
+
+Le même cas existe au commit `04901049e91994204da503328950c19abd151ee8`, ligne 10.
+Une analyse AST Python confirme que cette ligne affecte `PRIVATE_KEY_MARKERS`
+à un tuple contenant uniquement des en-têtes de détection, sans corps de clé.
+Le fingerprint exact a été ajouté ; aucune règle globale n'est désactivée.

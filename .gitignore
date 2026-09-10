@@ -30,3 +30,11 @@ service-account*.json
 secrets/
 .secrets/
 # END managed secret hardening
+
+# Local validation and installable snapshots
+output/
+release/
+.security-reports/
+tools/security/.reports/
+*.log
+*.zip

@@ -102,14 +102,25 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    #app-mount,
+    #app-mount *,
+    #app-mount *::before,
+    #app-mount *::after {
         animation: none !important;
         animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
         transition: none !important;
         transition-duration: 0.001ms !important;
+    }
+}
+
+/* The explicit opt-out also covers decorative transitions in optional modules. */
+@container body style(--animations: off) {
+    #app-mount *,
+    #app-mount *::before,
+    #app-mount *::after {
+        transition: none !important;
+        animation: none !important;
     }
 }

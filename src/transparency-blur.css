@@ -30,6 +30,7 @@
     }
 
     .menu_c1e9c4::before {
+        pointer-events: none;
         content: '';
         position: absolute;
         backdrop-filter: var(--panel-backdrop-filter);

@@ -2,7 +2,7 @@
  * @name sibnight-discord
  * @description a Sibylla-inspired dark, customizable Discord theme by ussmarines.
  * @author ussmarines
- * @version 2.13.0
+ * @version 2.13.1
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/sibnight.theme.css
  * @authorLink https://github.com/ussmarines
@@ -233,8 +233,4 @@ body {
     color: var(--sibnight-notification-hover, var(--sibnight-notification, var(--sibnight-accent-new))) !important;
     font-weight: 750 !important;
     text-shadow: 0 0 10px color-mix(in srgb, var(--sibnight-notification, var(--sibnight-accent-new)) 58%, transparent) !important;
-}
-
-.modeUnreadImportant__2ea32 > .unread__2ea32 {
-    display: none !important;
 }

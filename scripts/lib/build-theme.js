@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { validateCss } = require('./css-policy');
 
 const rootDir = path.join(__dirname, '..', '..');
 const srcDir = path.join(rootDir, 'src');
@@ -73,7 +74,7 @@ function getSourceFiles() {
 }
 
 function readTextFile(filePath) {
-    return fs.readFileSync(filePath, 'utf8');
+    return fs.readFileSync(filePath, 'utf8').replace(/\r\n/g, '\n');
 }
 
 function writeTextFile(filePath, contents) {
@@ -98,13 +99,17 @@ function compileSourceCss() {
     return getSourceFiles()
         .map((filePath) => {
             const relativeName = path.basename(filePath);
-            return `/* ${relativeName} */\n${normalizeCssText(readTextFile(filePath))}\n`;
+            const css = normalizeCssText(readTextFile(filePath));
+            validateCss(css, `src/${relativeName}`);
+            return `/* ${relativeName} */\n${css}\n`;
         })
         .join('');
 }
 
 function compileFlavorCss(compiledCss = compileSourceCss()) {
-    return `${compiledCss}/* ${path.basename(flavorSourceFile)} */\n${normalizeCssText(readTextFile(flavorSourceFile))}\n`;
+    const css = normalizeCssText(readTextFile(flavorSourceFile));
+    validateCss(css, 'src/flavor-base.css');
+    return `${compiledCss}/* ${path.basename(flavorSourceFile)} */\n${css}\n`;
 }
 
 function writeCompiledCss(compiledCss = compileSourceCss()) {
@@ -114,6 +119,7 @@ function writeCompiledCss(compiledCss = compileSourceCss()) {
 
 function buildBundleFromTheme(compiledCss) {
     const themeCss = readTextFile(themeFile);
+    validateCss(themeCss, 'themes/sibnight.theme.css');
     ensureThemeTemplate(themeCss);
 
     return themeCss.replace(BUILD_IMPORT_PATTERN, compiledCss);
@@ -124,7 +130,13 @@ function getBundleOutputs(extraOutputs = []) {
         .filter(Boolean)
         .map((outputPath) => path.resolve(rootDir, outputPath));
 
-    return normalizedExtraOutputs;
+    for (const outputPath of normalizedExtraOutputs) {
+        const relative = path.relative(rootDir, outputPath);
+        if (!outputPath.endsWith('.theme.css') || (!relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative) && !relative.startsWith(`output${path.sep}`))) {
+            throw new Error('Bundle outputs must be .theme.css files outside the repository or inside output/');
+        }
+    }
+    return [...new Set(normalizedExtraOutputs)];
 }
 
 function writeBundleOutputs(bundledCss, extraOutputs = []) {
@@ -138,12 +150,13 @@ function writeBundleOutputs(bundledCss, extraOutputs = []) {
 }
 
 function buildAll(extraOutputs = []) {
+    getBundleOutputs(extraOutputs);
     const compiledCss = compileSourceCss();
-    writeCompiledCss(compiledCss);
     const compiledFlavorCss = compileFlavorCss(compiledCss);
-    writeTextFile(flavorBuildFile, compiledFlavorCss);
 
     const bundledCss = buildBundleFromTheme(compiledCss);
+    writeCompiledCss(compiledCss);
+    writeTextFile(flavorBuildFile, compiledFlavorCss);
     const outputs = [buildFile, flavorBuildFile, ...writeBundleOutputs(bundledCss, extraOutputs)];
 
     return {

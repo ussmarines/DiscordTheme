@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { validateCss } = require('./lib/css-policy');
 
 const {
     rootDir,
@@ -76,17 +77,17 @@ const HAS_SELECTOR_BUDGETS = new Map([
 const PARTIAL_ATTRIBUTE_SELECTOR_BUDGETS = new Map([
     ['colors.css', 2],
     ['compatibility.css', 2],
-    ['flavor-base.css', 6],
+    ['flavor-base.css', 35],
     ['hardening.css', 1],
     ['main.css', 9],
-    ['top-bar.css', 5],
+    ['top-bar.css', 4],
     ['sibnight-flat.theme.css', 0],
-    ['sibnight-north-aurora-dark.theme.css', 29],
-    ['sibnight-north-aurora-light.theme.css', 29],
-    ['sibnight-north-polar.theme.css', 52],
-    ['sibnight-north-snow.theme.css', 29],
-    ['sibnight-space.theme.css', 78],
-    ['sibnight-sun.theme.css', 29],
+    ['sibnight-north-aurora-dark.theme.css', 0],
+    ['sibnight-north-aurora-light.theme.css', 0],
+    ['sibnight-north-polar.theme.css', 23],
+    ['sibnight-north-snow.theme.css', 0],
+    ['sibnight-space.theme.css', 49],
+    ['sibnight-sun.theme.css', 0],
     ['sibnight-tokyo-night.theme.css', 1],
 ]);
 
@@ -96,7 +97,7 @@ function fail(message) {
 }
 
 function readTextFile(filePath) {
-    return fs.readFileSync(filePath, 'utf8');
+    return fs.readFileSync(filePath, 'utf8').replace(/\r\n/g, '\n');
 }
 
 function readJsonFile(filePath) {
@@ -364,13 +365,20 @@ function ensureThemeMetadataIsValid() {
         }
 
         const metadata = css.slice(0, metadataEnd);
-        const missingFields = REQUIRED_METADATA.filter((field) => !metadata.includes(field));
+        const missingFields = REQUIRED_METADATA.filter((field) => !readMetadataValue(metadata, field));
 
         if (missingFields.length > 0) {
             fail(`${relativePath} is missing metadata: ${missingFields.join(', ')}`);
         }
 
         const author = readMetadataValue(metadata, '@author');
+        for (const field of REQUIRED_METADATA) {
+            const lines = metadata.split('\n').filter((line) => new RegExp(`^\\s*\\*\\s*${field}\\s`).test(line));
+            if (lines.length !== 1) fail(`${relativePath}: duplicate metadata field ${field}`);
+        }
+        if (!/^\d+\.\d+\.\d+$/u.test(readMetadataValue(metadata, '@version'))) {
+            fail(`${relativePath}: version must use major.minor.patch`);
+        }
 
         if (author !== EXPECTED_AUTHOR) {
             fail(`${relativePath} should declare @author ${EXPECTED_AUTHOR}, found ${author || 'nothing'}`);
@@ -617,6 +625,9 @@ function logDiscoveredSources() {
 }
 
 function main() {
+    for (const file of [...listCssFiles(srcDir), ...listCssFiles(path.join(rootDir, 'themes')), ...listCssFiles(path.join(rootDir, 'build'))]) {
+        validateCss(readTextFile(file), path.relative(rootDir, file).replace(/\\/g, '/'));
+    }
     ensureFilesExist([packageFile, readmeFile, srcDir, themeFile, flavorSourceFile]);
     ensurePackageScriptsAreAligned();
     assertSourceOrderIsStrict();
@@ -645,4 +656,9 @@ function main() {
     logDiscoveredSources();
 }
 
-main();
+try {
+    main();
+} catch (error) {
+    console.error(`[sibnight] ${error.file || 'check'}:${error.line || 0}: ${error.reason || error.message}`);
+    process.exitCode = 1;
+}

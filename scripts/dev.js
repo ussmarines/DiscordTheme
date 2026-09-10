@@ -1,13 +1,9 @@
 const path = require('path');
 const chokidar = require('chokidar');
-const dotenv = require('dotenv');
 
 const { rootDir, srcDir, themeFile, buildAll } = require('./lib/build-theme');
 
-const envFile = path.join(rootDir, '.env');
-const watchTargets = [themeFile, `${srcDir}/**/*.css`];
-
-dotenv.config({ path: envFile });
+const watchTargets = [themeFile, srcDir];
 
 function getDevOutputPaths() {
     return (process.env.DEV_OUTPUT_PATH || '')
@@ -28,8 +24,10 @@ function runBuild(outputPaths, reason = 'initial build') {
         const { outputs } = buildAll(outputPaths);
         console.log(`[sibnight] ${reason}`);
         logWrittenOutputs(outputs);
+        return true;
     } catch (error) {
-        console.error('[sibnight] build failed:', error);
+        console.error('[sibnight] build failed:', error.reason || error.message);
+        return false;
     }
 }
 
@@ -46,18 +44,23 @@ function main() {
     const outputPaths = getDevOutputPaths();
 
     if (outputPaths.length === 0) {
-        console.error('[sibnight] DEV_OUTPUT_PATH is not set in .env');
+        console.error('[sibnight] DEV_OUTPUT_PATH is not set in the process environment');
         console.error('[sibnight] Example: DEV_OUTPUT_PATH="C:/Users/you/AppData/Roaming/BetterDiscord/themes/sibnight.theme.css"');
         process.exit(1);
     }
 
-    runBuild(outputPaths);
+    if (!runBuild(outputPaths)) process.exit(1);
 
     const rebuild = debounce((eventName, filePath) => {
         runBuild(outputPaths, `${eventName} ${path.relative(rootDir, filePath)}`);
     }, 80);
 
-    chokidar.watch(watchTargets, { ignoreInitial: true }).on('all', rebuild);
+    const watcher = chokidar.watch(watchTargets, { ignoreInitial: true, ignored: (file, stats) => stats?.isFile() && !file.endsWith('.css') }).on('all', rebuild);
+    watcher.on('error', (error) => {
+        console.error('[sibnight] watcher failed:', error.message);
+        process.exitCode = 1;
+        watcher.close();
+    });
 }
 
 main();
