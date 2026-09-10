@@ -34,6 +34,10 @@ Les 13 modules CSS et les neuf installables ont été parcourus par analyse AST 
 
 Les anciens tokens, spécificités et exceptions de surfaces sont conservés lorsque leur remplacement exigerait un DOM authentifié. Les sélecteurs partiels et `:has()` restants sont budgétés ; les diminutions de duplication et de dépendances ne prouvent pas un gain CPU/FPS. Aucun benchmark Discord réel n'a été réalisé.
 
+Résultats finaux sur `f15b753` : `npm ci --ignore-scripts`, `npm run quality`, six tests Node (26.7.0 et 24.21.0), neuf instantanés sans import CSS, 36 assertions Chromium synthétiques, `git diff --check` et le scan Full/Enforce sont PASS. Identité, Gitleaks, Opengrep, Trivy, SBOM, npm et zizmor passent ; le faux positif historique Gitleaks est documenté séparément. Les workflows modifiés ont été analysés localement, sans lancer de release ni dépenser des runs de sécurité distants. Leur exécution future sur Linux n'est pas présentée comme testée.
+
+Pages a construit le commit publié et les 11 contenus CSS distants correspondent aux fichiers locaux (HTTP 200, text/css, aucune redirection). Le premier contrôle pendant le déploiement voyait encore l'ancien CSS ; le contrôle après déploiement passe. Les deux ressources existantes, police et logo, sont accessibles. Taille non compressée : build principal 130 811 → 129 195 octets ; socle flavor 139 838 → 140 117 ; somme des huit wrappers 73 698 → 62 941. La mutualisation réduit surtout la duplication des sources ; elle ne réduit pas de 10 Ko le CSS chargé par chaque flavor.
+
 Discord accessible ici redirige vers la connexion. L'inventaire des feuilles publiques chargées par `/app` est partiel : l'absence d'une classe dans ces feuilles n'établit pas qu'elle est obsolète. Aucune substitution de classe n'a été inventée à partir de cette absence. Les versions Chromium évoquées dans certaines pages BetterDiscord sont anciennes et ne servent pas de preuve du moteur actuel.
 
 ## Sources primaires consultées
