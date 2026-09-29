@@ -33,10 +33,28 @@ jobs:
       - name: Freeze mapping for both updater passes
         shell: bash
         run: |
+          set -euo pipefail
+
+          mapping_dir="$RUNNER_TEMP/class-update-input"
+          mkdir -p "$mapping_dir"
           curl --fail --silent --show-error --location --max-time 30 \
             https://raw.githubusercontent.com/SyndiShanX/Update-Classes/main/Changes.txt \
-            --output "$RUNNER_TEMP/class-mapping.txt"
-          sha256sum "$RUNNER_TEMP/class-mapping.txt" >> "$GITHUB_STEP_SUMMARY"
+            --output "$mapping_dir/Changes.txt"
+          sha256sum "$mapping_dir/Changes.txt" >> "$GITHUB_STEP_SUMMARY"
+
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory "$mapping_dir" \
+            >"$RUNNER_TEMP/class-update-http.log" 2>&1 &
+          echo "$!" > "$RUNNER_TEMP/class-update-http.pid"
+
+          for _ in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:8765/Changes.txt >/dev/null; then
+              exit 0
+            fi
+            sleep 0.25
+          done
+
+          cat "$RUNNER_TEMP/class-update-http.log" >&2
+          exit 1
 
       - id: update-src
         # The third-party updater runs only in this read-only job.
@@ -44,14 +62,22 @@ jobs:
         with:
           folder: src
           ext: css
-          diff: ${{ runner.temp }}/class-mapping.txt
+          diff: http://127.0.0.1:8765/Changes.txt
 
       - id: update-flavors
         uses: metro420yt/class-update@24007abb2ae3488d7742270787f4807255ab0d97 # v1
         with:
           folder: themes/flavors
           ext: css
-          diff: ${{ runner.temp }}/class-mapping.txt
+          diff: http://127.0.0.1:8765/Changes.txt
+
+      - name: Stop frozen mapping server
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f "$RUNNER_TEMP/class-update-http.pid" ]]; then
+            kill "$(cat "$RUNNER_TEMP/class-update-http.pid")" 2>/dev/null || true
+          fi
 
       - name: Reject unexpected updater changes before executing repository code
         shell: bash
