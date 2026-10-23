@@ -8,6 +8,8 @@ Les neuf installables réservent maintenant 40 px à la barre supérieure. Les b
 
 North Polar 1.7.4 est vérifié dans Discord réel : flèches séparées du bord, indicateurs blancs sélectionnés et non-lus distincts des icônes, contrôles de fenêtre accessibles. Le brouillon et l’appel en cours sont préservés. Les contrôles de géométrie synthétiques vérifient les marges et la taille utile des boutons sur les neuf variantes, soit 112 assertions au total ; ils ne certifient pas tous les écrans natifs. Quality et diff-check sont exécutés sur ce correctif. Le détecteur Impeccable ne signale que la bordure historique des embeds, conservée comme repère natif de contenu, hors de ce correctif d’espacement.
 
+Publication du correctif : PR #14 fusionnée dans `ba86d62d5aab1971234e56ee0c4f26d5071f32b7`. Pages construit et contrôle exact des 11 CSS PASS, deux ressources existantes accessibles. Wrapper North Polar 1.7.4 installé identique à main ; marges et indicateurs revérifiés dans Discord après remplacement de l’instantané. Branche intégrée supprimée, aucun nouvel asset ni release.
+
 ## Maintenance du 23 octobre 2026
 
 Base synchronisée : `464c996` (trois commits distants récupérés par fast-forward). Candidat 2.13.2 : neuf variantes conservées, noms d'assets et crédits inchangés. PostCSS 8.5.31 et Chokidar 6.0.0 sont les versions npm actuelles vérifiées. Chokidar 6 est ESM ; Node 24 et 26 chargent son export `watch` depuis les scripts CommonJS existants via `require(esm)`. Le test réel de changement de fichier passe sur les deux lignes Node. L'ancien choix de conserver Chokidar 4 décrit plus bas est historique.
