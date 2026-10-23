@@ -2,7 +2,7 @@
  * @name sibnight-north-snow
  * @description A flat Nord Snow Storm + Frost flavor with solid light panels, zero shadows and cleaner Sibylla-friendly light contrast.
  * @author ussmarines
- * @version 1.7.2
+ * @version 1.7.3
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-snow.theme.css
  * @authorLink https://github.com/ussmarines
@@ -94,8 +94,8 @@ body {
     --sibnight-text-1: #2e3440;
     --sibnight-text-2: #3b4252;
     --sibnight-text-3: #4c566a;
-    --sibnight-text-4: #62748c;
-    --sibnight-text-5: rgba(76, 86, 106, 0.45);
+    --sibnight-text-4: #526078;
+    --sibnight-text-5: color-mix(in srgb, var(--sibnight-text-3) 95%, var(--sibnight-bg-2));
     --sibnight-bg-1: #d8dee9;
     --sibnight-bg-2: #e5e9f0;
     --sibnight-bg-3: #eceff4;

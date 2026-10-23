@@ -12,6 +12,12 @@ const html = `<!doctype html><meta charset="utf-8"><title>Sibnight synthetic reg
 <script>
 const variants = ${JSON.stringify(data)};
 const results = [];
+const luminance = (rgb) => rgb.slice(0, 3).map(v => v / 255).map(v => v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4).reduce((sum, v, i) => sum + v * [0.2126, 0.7152, 0.0722][i], 0);
+const contrast = (a, b) => {
+    // Composite translucent foregrounds rather than silently treating them as opaque.
+    const foreground = a.slice(0, 3).map((v, i) => v * a[3] / 255 + b[i] * (1 - a[3] / 255));
+    return (Math.max(luminance(foreground), luminance(b)) + 0.05) / (Math.min(luminance(foreground), luminance(b)) + 0.05);
+};
 (async () => {
     for (const [name, css] of variants) {
         const frame = document.createElement('iframe');
@@ -21,13 +27,34 @@ const results = [];
         document.body.append(frame); await ready;
         const doc = frame.contentDocument, win = frame.contentWindow;
         const style = (selector, pseudo) => win.getComputedStyle(doc.querySelector(selector), pseudo);
+        const canvas = doc.createElement('canvas');
+        const context = canvas.getContext('2d', { willReadFrequently: true });
+        const token = (name) => {
+            const probe = doc.createElement('span');
+            probe.style.color = 'var(' + name + ')';
+            doc.body.append(probe);
+            context.clearRect(0, 0, 1, 1);
+            context.fillStyle = win.getComputedStyle(probe).color;
+            context.fillRect(0, 0, 1, 1);
+            probe.remove();
+            return Array.from(context.getImageData(0, 0, 1, 1).data);
+        };
+        // Muted copy belongs on panel surfaces, not pressed/colored button fills.
+        const surfaces = ['--sibnight-bg-2', '--sibnight-bg-3', '--sibnight-bg-4'].map(token);
+        const mutedContrast = Math.min(...surfaces.map(bg => contrast(token('--sibnight-text-5'), bg)));
+        const focusContrast = Math.min(...surfaces.map(bg => contrast(token('--sibnight-focus-ring'), bg)));
+        const button = doc.querySelector('button');
+        button.focus();
         const checks = {
             unreadVisible: style('.unread__2ea32').display !== 'none',
             overlayTransparent: style('.layerContainer__59d0d').backgroundColor === 'rgba(0, 0, 0, 0)',
             animationsOff: style('button').transitionDuration === '0s',
             menuDecorationClickThrough: style('.menu_c1e9c4', '::before').pointerEvents === 'none',
+            mutedTextContrast: mutedContrast >= 4.5,
+            focusContrast: focusContrast >= 3,
+            keyboardFocusVisible: style('button').outlineStyle === 'solid' && style('button').outlineWidth === '2px',
         };
-        results.push({name, checks, pass: Object.values(checks).every(Boolean)});
+        results.push({name, mutedContrast, focusContrast, checks, pass: Object.values(checks).every(Boolean)});
         frame.remove();
     }
     document.querySelector('#results').textContent = JSON.stringify(results, null, 2);

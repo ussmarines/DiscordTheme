@@ -1,10 +1,11 @@
 # Checkpoint Sibnight
 
-- Baseline : `219d953` sur main ; intervention autorisée du 10 septembre 2026.
-- Phase : maintenance publiée ; validation visuelle utilisateur restante.
-- Dernière action : `f15b753` poussé sans force ; Pages construit et contenus CSS vérifiés identiques.
-- Acquis : quality PASS, six tests sous Node 26.7 et 24.21, 36 assertions CSS synthétiques ; scan Full/Enforce PASS ; 11 CSS HTTP 200 text/css avec contenu exact et deux ressources externes accessibles.
-- Reste : checklist Discord authentifié regroupée dans `docs/MAINTENANCE.md`.
-- Limite : aucun Discord authentifié accessible ; checklist unique dans `docs/MAINTENANCE.md`.
-- Prochaine action : tester les neuf variantes dans Discord, puis corriger uniquement les écarts reproduits.
-- Dernier commit de code validé : `f15b753ef28edb8ea0f3f1a65a5525c83b822978`. Le commit portant ce checkpoint ne change que la documentation.
+- Base : `464c996` sur main, synchronisée le 23 octobre 2026.
+- Candidat : 2.13.2 sur `codex/maintenance-discord-2026-10-23` ; neuf variantes conservées.
+- Changements : Chokidar 6.0.0, PostCSS 8.5.31, deux classes upstream actualisées, focus visible, contrastes renforcés, README/maintenance actualisés.
+- Validations : quality, six tests Node 24/26, 63 assertions Chromium, neuf snapshots, scan Full/Enforce et diff-check PASS.
+- Discord réel : neuf snapshots chargés dans stable 647615 + Vencord ; chat/listes/emoji et paramètres ciblés observés. Limites exactes dans `docs/MAINTENANCE.md`.
+- Nettoyage distant : trois branches intégrées supprimées ; deux workflows ponctuels désactivés ; aucune ancienne PR ouverte.
+- Publication : candidat en PR brouillon ; CSS publics de main conservés jusqu'à complétion de la checklist Discord. Aucune release déclenchée.
+- Reste : permissions, forums/threads, édition/envoi, profils, vidéo/partage, popout, zoom/fenêtre étroite, préférences système et BetterDiscord. Compatibilité exhaustive non confirmée.
+- Prochaine action : compléter la checklist regroupée, corriger les écarts reproduits puis intégrer le candidat et vérifier Pages avec `npm run check:urls -- --match-local`.

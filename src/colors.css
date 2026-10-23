@@ -11,7 +11,7 @@
     --sibnight-text-2: hsl(213, 30%, 88%); /* headings and important text */
     --sibnight-text-3: hsl(214, 17%, 74%); /* normal text */
     --sibnight-text-4: hsl(214, 16%, 60%); /* icon buttons and channels */
-    --sibnight-text-5: hsl(214, 12%, 46%); /* muted channels/chats and timestamps */
+    --sibnight-text-5: color-mix(in srgb, var(--sibnight-text-3) 95%, var(--sibnight-bg-2)); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
     --sibnight-bg-1: hsl(218, 44%, 20%); /* dark buttons when clicked */
@@ -187,7 +187,7 @@
         --bg-surface-overlay-tmp: var(--sibnight-bg-3);
         --bg-surface-raised: var(--sibnight-bg-3);
         --border-feedback-critical: var(--sibnight-border);
-        --border-focus: var(--sibnight-border);
+        --border-focus: var(--sibnight-focus-ring);
         --border-muted: var(--sibnight-border-light);
         --border-normal: var(--sibnight-border);
         --border-strong: var(--sibnight-border);
@@ -875,7 +875,7 @@
         .emptyChannelIcon__00de6 path[fill='var(--white)'] /* channel start icon */ {
         fill: var(--sibnight-text-3);
     }
-    .grabber_a562c8 /* vc volume slider grabber */ {
+    .grabber__4c059 /* vc volume slider grabber */ {
         background-color: var(--sibnight-text-3);
     }
     .textBadge__463b7 /* new text badge (right click on person in vc) */ {
@@ -1062,7 +1062,7 @@
         --vc-spotify-green: var(--sibnight-accent-2);
     }
 
-    .vcd-screen-picker-option-radio[data-checked='true'] .defaultColor__4bd52 {
+    .vcd-screen-picker-option-radio[data-checked='true'] .defaultColor_b717a1 {
         color: var(--sibnight-text-0);
     }
 

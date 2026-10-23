@@ -2,7 +2,7 @@
  * @name sibnight-north-aurora-dark
  * @description A flat dark Aurora flavor mixing Polar Night structure with Nord Aurora accents for a livelier but still stable Sibnight variant.
  * @author ussmarines
- * @version 1.0.2
+ * @version 1.0.3
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-aurora-dark.theme.css
  * @authorLink https://github.com/ussmarines
@@ -95,7 +95,7 @@ body {
     --sibnight-text-2: #d8dee9;
     --sibnight-text-3: #c5cedb;
     --sibnight-text-4: #9aa5bc;
-    --sibnight-text-5: rgba(216, 222, 233, 0.42);
+    --sibnight-text-5: color-mix(in srgb, var(--sibnight-text-3) 95%, var(--sibnight-bg-2));
     --sibnight-bg-1: #4c566a;
     --sibnight-bg-2: #434c5e;
     --sibnight-bg-3: #3b4252;

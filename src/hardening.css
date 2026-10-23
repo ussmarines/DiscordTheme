@@ -1,6 +1,23 @@
 /* Extra safety layer loaded last.
    Keep this file small: it should only contain fallbacks and defensive fixes. */
 
+:root {
+    --sibnight-focus-ring: var(--sibnight-text-2);
+}
+
+/* Semantic targets survive Discord class hash changes; mouse focus stays native. */
+#app-mount :is(button, a[href], input, textarea, select, [tabindex], [role='button'], [role='tab'], [role='option']):focus-visible {
+    outline: 2px solid var(--sibnight-focus-ring) !important;
+    outline-offset: -2px;
+}
+
+/* Keep the system high-contrast palette in charge of keyboard navigation. */
+@media (forced-colors: active) {
+    #app-mount :focus-visible {
+        outline: 2px solid Highlight !important;
+    }
+}
+
 /* Avoid invalid calc() chains when top-bar button detection does not match. */
 @container body style(--top-bar-button-position: titlebar) {
     .base__5e434 {

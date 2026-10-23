@@ -151,6 +151,14 @@ https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-north-aurora-l
 
 ## Development
 
+### Compatibility status — 23 October 2026
+
+Sibnight 2.13.2 preserves all nine variants. This maintenance updates PostCSS to 8.5.31 and Chokidar to 6.0.0, refreshes two class names from the current upstream mapping, restores visible keyboard focus, and improves secondary text contrast across the palettes, especially the light variants and Tokyo Night.
+
+Local validation covers the build, dependency audit, Node 24/26 tests and 63 Chromium assertions across the nine variants. The synthetic fixture checks secondary text against the three solid panel tokens (minimum 5.10:1), focus contrast/visibility, unread indicators, transparent overlays, disabled transitions and click-through menu decoration. It does **not** certify all composite backgrounds, role colors or Discord screens.
+
+The installed Discord stable client and Vencord are also inspected separately; exact versions, observed screens and remaining checks are recorded in [maintenance](docs/MAINTENANCE.md). Discord rolls out changes progressively: the [22 October update](https://discord.com/blog/discord-update-october-22-2026) and an up-to-date class mapping cannot establish complete compatibility. Full compatibility with every current Discord rollout remains **unconfirmed** until the grouped checklist is completed.
+
 The project keeps two generated CSS files:
 
 - `build/sibnight.css` for the main theme.
@@ -165,11 +173,14 @@ npm run prepare:release
 npm run quality
 npm run check:urls
 npm run bundle
+node scripts/browser-fixture.js
 ```
 
 Run `npm run build` after changing CSS sources, then `npm run check` before publishing. `npm run prepare:release` runs both steps in the correct order.
 
 Use **Node.js 24 or newer**, then `npm ci --ignore-scripts`. `npm run quality` builds, checks syntax/imports/metadata/freshness and CSS invariants, runs Node tests, checks whitespace and audits all dependencies. Also run `git diff --check`. PostCSS is used only as a parser, without transformation plugins.
+
+The development watcher uses Chokidar 6, an ESM dependency supported by Node 24's `require(esm)` interoperability; the project scripts remain CommonJS. Both supported runtime lines are tested. Serve `output/browser-fixture.html` on loopback and inspect the nine result rows to run the browser checks; generating the HTML alone is not a passing test.
 
 For development, set `DEV_OUTPUT_PATH` in the process environment and run `npm run dev`. Comma-separated `.theme.css` destinations must be outside the repository or inside ignored `output/`. `.env` is no longer loaded automatically. PowerShell example:
 

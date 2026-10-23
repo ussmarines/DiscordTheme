@@ -1,6 +1,6 @@
 {
     "name": "sibnight-discord",
-    "version": "2.13.1",
+    "version": "2.13.2",
     "scripts": {
         "build": "node scripts/build.js",
         "check": "node scripts/check.js",
@@ -15,8 +15,8 @@
     "author": "ussmarines",
     "license": "MIT",
     "devDependencies": {
-        "chokidar": "4.0.3",
-        "postcss": "8.5.29"
+        "chokidar": "6.0.0",
+        "postcss": "8.5.31"
     },
     "description": "Sibylla-inspired Discord theme with a stable build pipeline and flavor variants.",
     "private": true,

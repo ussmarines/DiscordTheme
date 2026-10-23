@@ -2,7 +2,7 @@
  * @name sibnight-north-aurora-light
  * @description A flat light Aurora flavor combining Snow Storm neutrals with Nord Aurora accents for a brighter colorful Sibnight variant.
  * @author ussmarines
- * @version 1.0.2
+ * @version 1.0.3
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-aurora-light.theme.css
  * @authorLink https://github.com/ussmarines
@@ -93,9 +93,9 @@ body {
     --sibnight-text-0: #2e3440;
     --sibnight-text-1: #3b4252;
     --sibnight-text-2: #4c566a;
-    --sibnight-text-3: #617089;
-    --sibnight-text-4: #7b879b;
-    --sibnight-text-5: rgba(76, 86, 106, 0.44);
+    --sibnight-text-3: #4c566a;
+    --sibnight-text-4: #526078;
+    --sibnight-text-5: color-mix(in srgb, var(--sibnight-text-3) 95%, var(--sibnight-bg-2));
     --sibnight-bg-1: #d8dee9;
     --sibnight-bg-2: #e5e9f0;
     --sibnight-bg-3: #eceff4;

@@ -2,7 +2,7 @@
  * @name sibnight-space
  * @description A Sibnight space flavor refined toward a deeper hologram sci-fi direction with cleaner MP, bot, embed and profile surfaces.
  * @author ussmarines
- * @version 1.7.3
+ * @version 1.7.4
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-space.theme.css
  * @authorLink https://github.com/ussmarines
@@ -95,7 +95,7 @@ body {
     --sibnight-text-2: #ccd8f0;
     --sibnight-text-3: #9eb4d4;
     --sibnight-text-4: #7d8eb0;
-    --sibnight-text-5: rgba(204, 216, 240, 0.40);
+    --sibnight-text-5: color-mix(in srgb, var(--sibnight-text-3) 95%, var(--sibnight-bg-2));
     --sibnight-bg-1: #192a56;
     --sibnight-bg-2: #102042;
     --sibnight-bg-3: #09152f;
