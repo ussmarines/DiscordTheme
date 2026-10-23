@@ -254,7 +254,7 @@
     }
     .toolbar__9293f [aria-label="Afficher la liste des membres"] svg > *,
     .toolbar__9293f [aria-label="Show Member List"] svg > * { opacity: 0; }
-    .toolbar__9293f .search__49676 svg { background: currentColor; mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.75%22%20stroke-linecap%3D%22round%22%3E%3Ccircle%20cx%3D%2210.5%22%20cy%3D%2210.5%22%20r%3D%226.5%22%2F%3E%3Cpath%20d%3D%22m16%2016%205%205%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat; }
+    .toolbar__9293f .search__49676 :is(.searchBar_c322aa, .searchBar_e6b769, .searchBarComponent__35e86) svg { background: currentColor !important; mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.75%22%20stroke-linecap%3D%22round%22%3E%3Ccircle%20cx%3D%2210.5%22%20cy%3D%2210.5%22%20r%3D%226.5%22%2F%3E%3Cpath%20d%3D%22m16%2016%205%205%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat; }
     .toolbar__9293f .search__49676 svg > * { opacity: 0; }
     .panels__5e434 .container__37e49 { background: var(--sibnight-nord1) !important; background-image: none !important; border-radius: 6px; }
 }

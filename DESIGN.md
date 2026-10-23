@@ -140,7 +140,7 @@ Keyboard focus uses a Frost outline (2px) with inset offset (-2px); forced-color
 - **Do** reuse existing public tokens and prefix new project tokens with `--sibnight-`.
 - **Do** preserve the Sibylla logo, North Polar name and Zelk/Midnight/Tokyo Night credits.
 - **Do** edit sources and wrapper, then regenerate builds in the declared order.
-- **Do** distinguish static checks, synthetic fixtures and actual Discord observations. Quality checks and six tests passed with audit reporting zero vulnerabilities at the latest checkpoint; 125 Chromium assertions and the local finish review pass; native observations and limits are recorded in docs/MAINTENANCE.md.
+- **Do** distinguish static checks, synthetic fixtures and actual Discord observations. Quality checks and six tests passed with audit reporting zero vulnerabilities at the latest checkpoint; 126 Chromium assertions and the local finish review pass; native observations and limits are recorded in docs/MAINTENANCE.md.
 - **Don't** paint generic layer containers, hide unread state, remove focus or introduce global expensive transitions.
 - **Don't** alter the eight other themes or claim compatibility with all current Discord clients from this implementation alone.
 - **Don't** publish private conversations or screenshots as design examples. Historical concepts describe intent, not current rendered proof.

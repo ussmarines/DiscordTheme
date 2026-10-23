@@ -72,7 +72,7 @@ const contrast = (a, b) => {
         };
         const motionProbe = doc.createElement('div');
         const polarProbe = doc.createElement('div');
-        polarProbe.innerHTML = '<div class="chatContent_f75fb0">Reading page</div><div class="toolbar__9293f"><button aria-label="Fils"><svg><path d="M0 0h1v1Z"/></svg></button><button aria-label="Messages épinglés"><svg><path d="M0 0h1v1Z"/></svg></button><button aria-label="Paramètres de notification"><svg><path d="M0 0h1v1Z"/></svg></button></div><div class="panels__5e434"><div class="fitInAccount_df39b2">Decoration</div></div>';
+        polarProbe.innerHTML = '<div class="chatContent_f75fb0">Reading page</div><div class="toolbar__9293f"><button aria-label="Fils"><svg><path d="M0 0h1v1Z"/></svg></button><button aria-label="Messages épinglés"><svg><path d="M0 0h1v1Z"/></svg></button><button aria-label="Paramètres de notification"><svg><path d="M0 0h1v1Z"/></svg></button></div><div class="toolbar__9293f"><div class="search__49676"><div class="searchBar_c322aa"><svg><path d="M0 0h1v1Z"/></svg></div></div></div><div class="panels__5e434"><div class="fitInAccount_df39b2">Decoration</div></div>';
         doc.querySelector('#app-mount').append(polarProbe);
         const polarEnabled = name === 'sibnight-north-polar.theme.css';
         const glyph = (label) => win.getComputedStyle(polarProbe.querySelector('[aria-label="' + label + '"] svg'));
@@ -81,6 +81,7 @@ const contrast = (a, b) => {
             checks.polarThreadGlyph = glyph('Fils').maskImage.startsWith('url(');
             checks.polarPinGlyphFrench = glyph('Messages épinglés').maskImage.startsWith('url(');
             checks.polarNotificationStateNative = glyph('Paramètres de notification').maskImage === 'none' && win.getComputedStyle(polarProbe.querySelector('[aria-label="Paramètres de notification"] path')).opacity === '1';
+            checks.polarSearchGlyphVisible = style('.search__49676 svg').maskImage.startsWith('url(') && style('.search__49676 svg').backgroundColor !== 'rgba(0, 0, 0, 0)';
             checks.polarAccountDecorationRemoved = style('.fitInAccount_df39b2').display === 'none';
         }
         motionProbe.className = 'messageListItem__5126c';
