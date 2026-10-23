@@ -1,5 +1,21 @@
 # Maintenance de Sibnight
 
+## Refonte North Polar — 24 octobre 2026, Sibnight 2.14.0 / North Polar 2.0.0
+
+Direction Impeccable approuvée explicitement : « Cabinet de lecture », composition « Lecture et repères » et bloc utilisateur connecté du « Cabinet initial ». Les maquettes sont synthétiques et locales. Le système réellement construit est documenté dans `DESIGN.md`, son sidecar et la fiche de surface. Le producteur d’assets a confirmé que seules des formes SVG précises étaient nécessaires ; aucune nouvelle image, police, ressource distante, bibliothèque ou télémétrie n’est ajoutée.
+
+`src/north-polar.css` est déclaré après `flavor-base.css` dans le manifeste. Sa propriété enregistrée `--sibnight-north-polar` vaut `off` par défaut ; seul le wrapper North Polar l’active. Le thème principal et les sept autres wrappers de flavors sont inchangés. La refonte remplace les couleurs hors Nord et les surcharges forum partielles du wrapper par les seize tokens Nord officiels, conserve les alias publics et distingue lecture, index, composer, vocal, mentions, réactions, embeds et fenêtres utilitaires. Prose limitée à 74ch, interligne 1.55, groupes espacés, commandes de 6–8px de rayon.
+
+Les SVG originaux embarqués utilisent une grille 24px et un trait de 1.75px : fils, épingles, membres et recherche. L’action Fils reste native, près de la cloche et des épingles. La cloche conserve son glyph natif afin de préserver la barre de salon muet. Seule la décoration de plaque du compte connecté est neutralisée ; avatars, rôles, contenus et profils personnalisés restent natifs.
+
+Validation : `npm run quality` PASS, six tests sur Node 26.8.1, audit npm zéro vulnérabilité. Chromium : 125 assertions PASS sur les neuf variantes, dont isolation, masques français et préservation de la cloche native. Le contraste Frost/Nord2 des liens était de 4.31:1 : le texte des liens utilise maintenant Snow Storm avec soulignement Frost. Le détecteur Impeccable a rendu une liste vide. Revue indépendante finale **PASS**, deux constats requis résolus ; la densité de lecture avec les deux panneaux ouverts à largeur réduite reste une limite non bloquante.
+
+Discord réel : stable 647615 (3b26879), application 1.0.9265 x64 (96160), Vencord b0e636d, Electron 42.11.15, Chromium 148.0.7778.280. Lecture de Theme Lab, réponses et réactions existantes, code, embeds, spoiler non révélé, fils vides, épingles vides, sélecteur emoji, paramètres Voix et bloc utilisateur observés. Fenêtre native 1618 × 1080, 1101 × 801 puis agrandie. Focus visible dans les commandes consultées. Aucun message, réaction ou fil créé, aucun réglage vocal ou de notification modifié ; appel en cours préservé. Les captures de revue restent locales et ignorées.
+
+Limites : caméra indisponible, nouveau partage/appel non exécuté pour préserver la session ; forums/popouts complets non rejoués sur cette refonte. BetterDiscord, modes d’accessibilité Windows et benchmark non exécutés. Les contrôles CSS de mouvement réduit ne valent pas test du réglage Windows. La galerie historique du README est explicitement signalée ; elle ne prouve pas le rendu courant. Aucune compatibilité exhaustive avec chaque rollout Discord revendiquée.
+
+Publication et installation finale : en cours de consolidation après les contrôles locaux ; aucune release prévue.
+
 ## Espacements corrigés le 24 octobre 2026 — 2.13.3
 
 Le retour du propriétaire a révélé deux défauts non couverts par la validation précédente : barre de navigation de 12 px dans les wrappers, et pastilles blanches presque collées aux serveurs. Reprise avec le skill Impeccable, commande layout, sur l’identité existante ; ce correctif ne constitue pas une refonte complète de la DA.

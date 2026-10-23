@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-24T01:16:58.9533847+02:00",
+  "title": "Design System: Sibnight North Polar",
+  "extensions": {
+    "colorMeta": {
+      "nord0": {
+        "role": "neutral",
+        "displayName": "Polar Night reading page"
+      },
+      "nord1": {
+        "role": "neutral",
+        "displayName": "Polar Night supporting indexes"
+      },
+      "nord2": {
+        "role": "neutral",
+        "displayName": "Polar Night control surface"
+      },
+      "nord3": {
+        "role": "neutral",
+        "displayName": "Polar Night boundaries"
+      },
+      "nord4": {
+        "role": "neutral",
+        "displayName": "Snow Storm reading text"
+      },
+      "nord5": {
+        "role": "neutral",
+        "displayName": "Snow Storm secondary text alias"
+      },
+      "nord6": {
+        "role": "neutral",
+        "displayName": "Snow Storm strong text"
+      },
+      "nord7": {
+        "role": "primary",
+        "displayName": "Frost accent alias"
+      },
+      "nord8": {
+        "role": "primary",
+        "displayName": "Frost active and focus"
+      },
+      "nord9": {
+        "role": "primary",
+        "displayName": "Frost secondary accent alias"
+      },
+      "nord10": {
+        "role": "primary",
+        "displayName": "Frost retained palette color"
+      },
+      "nord11": {
+        "role": "secondary",
+        "displayName": "Aurora danger"
+      },
+      "nord12": {
+        "role": "secondary",
+        "displayName": "Aurora retained palette color"
+      },
+      "nord13": {
+        "role": "secondary",
+        "displayName": "Aurora warning and notification"
+      },
+      "nord14": {
+        "role": "secondary",
+        "displayName": "Aurora connected and positive"
+      },
+      "nord15": {
+        "role": "secondary",
+        "displayName": "Aurora streaming"
+      }
+    },
+    "typographyMeta": {
+      "body": {
+        "displayName": "Reading text",
+        "purpose": "Native Discord size hierarchy with a 74ch maximum reading measure."
+      },
+      "unread-channel": {
+        "displayName": "Unread channel",
+        "purpose": "Weight reinforces native unread indicators."
+      }
+    },
+    "shadows": [
+      {
+        "name": "panel",
+        "value": "none",
+        "purpose": "Flat tonal hierarchy; no decorative panel elevation."
+      },
+      {
+        "name": "message-state-edge",
+        "value": "inset 1px 0 var(--sibnight-nord8)",
+        "purpose": "Mentions, replies and ephemeral state."
+      }
+    ],
+    "motion": [
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Shared source disables decorative animations and transitions; explicit animation opt-out is retained."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-toolbar",
+        "value": "1150px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Threads tool",
+      "kind": "button",
+      "refersTo": "toolbar-control",
+      "description": "Illustrative preview of the original outline artwork. Production styles the native Discord control and preserves its labels and badges.",
+      "html": "<button class=\"threads\" aria-label=\"Threads\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 4h14v11H12l-4 4v-4H5Z\"/><path d=\"M9 7v5m5-5v5M7.5 8.5h8M7.5 11h8\"/></svg></button>",
+      "css": ".threads{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0;border:0;border-radius:6px;background:var(--sibnight-nord1,#3b4252);color:var(--sibnight-nord4,#d8dee9)}.threads:hover,.threads:active{background:var(--sibnight-nord2,#434c5e);color:var(--sibnight-nord8,#88c0d0)}.threads:focus-visible{outline:2px solid var(--sibnight-nord8,#88c0d0);outline-offset:-2px}@media(forced-colors:active){.threads:focus-visible{outline-color:Highlight}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Cabinet de lecture",
+    "overview": "North Polar treats Discord as a continuous reading desk. Quiet indexes frame long conversations, while a compact native account dock and distinct voice connection stay close at hand. This records the North Polar implementation only; 125 Chromium assertions and the local finish review pass; native observations and limits are recorded in docs/MAINTENANCE.md.",
+    "keyCharacteristics": [
+      "Continuous reading surface",
+      "Flat Nord tonal hierarchy",
+      "Native interaction and state semantics",
+      "Original outline toolbar artwork"
+    ],
+    "rules": [
+      {
+        "name": "The Reading Surface Rule",
+        "body": "Keep the reading page distinct from its supporting indexes; do not add decorative message cards.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flat Desk Rule",
+        "body": "Use surface tone and boundaries rather than ornamental elevation.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve unread indicators, native labels and keyboard focus.",
+      "Do keep the notification bell native to retain mute state.",
+      "Do retain native custom profile identity outside the scoped decorative dock nameplate.",
+      "Do preserve shared reduced-motion behavior and the eight other themes."
+    ],
+    "donts": [
+      "Don't paint generic layer containers or remove focus.",
+      "Don't introduce global expensive transitions.",
+      "Don't present synthetic fixtures or historical concepts as real Discord validation.",
+      "Don't publish private conversations or screenshots."
+    ]
+  }
+}
