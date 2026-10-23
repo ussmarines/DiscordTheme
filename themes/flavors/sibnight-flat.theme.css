@@ -2,7 +2,7 @@
  * @name sibnight-flat
  * @description A full flat Sibylla flavor based on the default project palette, rebuilt with solid navy surfaces, gold-blue accents and no shadows or gradients.
  * @author ussmarines
- * @version 1.0.3
+ * @version 1.0.4
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-flat.theme.css
  * @authorLink https://github.com/ussmarines
@@ -34,7 +34,7 @@ body {
     --border-hover-transition: 0.2s ease;
 
     /* top bar options */
-    --top-bar-height: var(--gap);
+    --top-bar-height: 40px; /* reserve space for history buttons */
     --top-bar-button-position: titlebar;
     --top-bar-title-position: off;
     --subtle-top-bar-title: off;

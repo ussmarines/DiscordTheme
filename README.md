@@ -153,9 +153,11 @@ https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-north-aurora-l
 
 ### Compatibility status — 24 October 2026
 
-Sibnight 2.13.2 preserves all nine variants. This maintenance updates PostCSS to 8.5.31 and Chokidar to 6.0.0, refreshes two class names from the current upstream mapping, restores visible keyboard focus, and improves secondary text contrast across the palettes, especially the light variants and Tokyo Night.
+Sibnight 2.13.3 preserves all nine variants. This maintenance updates PostCSS to 8.5.31 and Chokidar to 6.0.0, refreshes two class names from the current upstream mapping, restores visible keyboard focus, and improves secondary text contrast across the palettes, especially the light variants and Tokyo Night.
 
-Local validation covers the build, dependency audit, Node 24/26 tests and 94 Chromium assertions across the nine variants. The synthetic fixture checks secondary text against the three solid panel tokens (minimum 5.10:1), focus contrast/visibility, unread indicators, transparent overlays, disabled transitions, Discord’s reduced-motion class, custom-profile reference surfaces, links, light syntax/status palettes and click-through menu decoration. It does **not** certify all composite backgrounds, role colors or Discord screens.
+Local validation covers the build, dependency audit, Node 24/26 tests and 112 Chromium assertions across the nine variants. The synthetic fixture checks secondary text against the three solid panel tokens (minimum 5.10:1), focus contrast/visibility, unread indicators, transparent overlays, disabled transitions, Discord’s reduced-motion class, custom-profile reference surfaces, links, light syntax/status palettes and click-through menu decoration. It does **not** certify all composite backgrounds, role colors or Discord screens.
+
+The desktop history bar now reserves 40px, with 28px back/forward buttons and clear edge insets. Current server unread/selection markers keep a visible gap from their icons. These spacing fixes were checked in the installed North Polar theme.
 
 The installed Discord stable client and Vencord are also inspected separately; exact versions, observed screens and remaining checks are recorded in [maintenance](docs/MAINTENANCE.md). Discord rolls out changes progressively: the [22 October update](https://discord.com/blog/discord-update-october-22-2026) and an up-to-date class mapping cannot establish complete compatibility. Available Vencord paths were tested, including sending/editing, forums, screen sharing, popouts and narrow windows. Camera input was unavailable; BetterDiscord and OS accessibility modes were not tested. Compatibility with every Discord rollout remains **unconfirmed**.
 

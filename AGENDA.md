@@ -1,10 +1,8 @@
 # Checkpoint Sibnight
 
-- Base : `464c996`, candidat 2.13.2 ; neuf variantes, assets et crédits conservés.
-- PR #13 : dépendances, classes upstream, focus, contrastes, profils, liens, syntaxe claire et mouvement réduit corrigés.
-- Contrôles : quality, six tests Node 24/26, audit sans vulnérabilité, 94 assertions Chromium, neuf snapshots, Full/Enforce initial et diff-check PASS. Dernières modifications : palettes CSS et assertions supplémentaires.
-- Discord stable 647615 + Vencord : neuf snapshots chargés ; paramètres/permissions, profils, chat/édition/mentions, forum/fil, connexion vocale, partage de fenêtre vide, plein écran/popout et fenêtre 1101 × 801 observés. Détails dans `docs/MAINTENANCE.md`.
-- Limites : caméra indisponible ; BetterDiscord, préférences Windows et benchmark non exécutés. Aucune certification de tous les rollouts Discord.
-- Nettoyage : trois branches intégrées supprimées, deux workflows ponctuels désactivés ; tags conservés.
-- Publication : PR #13 fusionnée dans `d8d2fb4` ; branche intégrée supprimée après preuve d’ascendance. Pages a construit ce commit ; `check:urls -- --match-local` PASS pour les 11 CSS exacts et les deux ressources existantes. Aucune release déclenchée.
-- État final Discord : North Polar initial réactivé, snapshot temporaire retiré, partage et appel de test arrêtés, Bloc-notes vide fermé ; fenêtre principale agrandie. Aucun contrôle disponible bloquant restant.
+- Base : main `66270cc`, après fusion de la PR #13 et vérification exacte des 11 CSS Pages.
+- Correctif 2.13.3 : barre supérieure 40 px, boutons retour/avance 28 px avec marges ; pastilles de serveur séparées des logos via le DOM courant. North Polar 1.7.4, neuf variantes conservées.
+- Vérification ciblée Discord : North Polar actif, flèches et indicateurs blancs visibles ; brouillon et appel existants préservés. Revue Impeccable layout, pas refonte complète de la DA.
+- Contrôles : quality, six tests, audit npm sans vulnérabilité et 112 assertions Chromium ; diff-check requis avant publication. Détecteur : seule bordure historique des embeds, conservée.
+- Limites historiques : caméra indisponible ; BetterDiscord, préférences Windows et benchmark non exécutés. Détails dans `docs/MAINTENANCE.md`.
+- Prochaine action : intégrer le correctif d’espacement puis vérifier Pages et réinstaller le wrapper final North Polar. Aucune release.

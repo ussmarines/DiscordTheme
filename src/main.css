@@ -1046,3 +1046,9 @@ nav[class*='guilds'] {
 .mask__68edb {
     filter: saturate(1.08) contrast(1.04);
 }
+
+/* Current Discord uses overlay__58105, without the older pill_e5445c class.
+   Keep the marker inside its clipped rail; remove the old inset that touched the icon. */
+.guilds__5e434 .listItem__650eb > .wrapper__58105 .item__58105 {
+    margin-left: 0;
+}

@@ -49,7 +49,17 @@ const contrast = (a, b) => {
         const focusContrast = Math.min(...surfaces.map(bg => contrast(token('--sibnight-focus-ring'), bg)));
         const button = doc.querySelector('button');
         button.focus();
+        // Minimal native flex layout; theme controls must fit inside its reserved bar.
+        const historyBar = doc.createElement('div');
+        historyBar.className = 'bar_c38106';
+        historyBar.style.cssText = 'display:flex;align-items:center;height:var(--custom-app-top-bar-height)';
+        historyBar.innerHTML = '<div class="leading_c38106"><div class="backForwardButtons__63abb"><button class="button__63abb">Back</button></div></div>';
+        doc.body.append(historyBar);
+        const historyBounds = historyBar.getBoundingClientRect();
+        const historyButton = historyBar.querySelector('button').getBoundingClientRect();
         const checks = {
+            historyControlsInset: historyButton.top - historyBounds.top >= 4 && historyBounds.bottom - historyButton.bottom >= 4 && historyButton.left - historyBounds.left >= 8,
+            historyHitArea: historyButton.width >= 24 && historyButton.height >= 24,
             unreadVisible: style('.unread__2ea32').display !== 'none',
             overlayTransparent: style('.layerContainer__59d0d').backgroundColor === 'rgba(0, 0, 0, 0)',
             animationsOff: style('button').transitionDuration === '0s',
