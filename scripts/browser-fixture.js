@@ -71,6 +71,18 @@ const contrast = (a, b) => {
             linkContrast: Math.min(...surfaces.map(bg => contrast(rgba(style('.anchor__14d82').color), bg))) >= 4.5,
         };
         const motionProbe = doc.createElement('div');
+        const polarProbe = doc.createElement('div');
+        polarProbe.innerHTML = '<div class="chatContent_f75fb0">Reading page</div><div class="toolbar__9293f"><button aria-label="Fils"><svg><path d="M0 0h1v1Z"/></svg></button><button aria-label="Messages épinglés"><svg><path d="M0 0h1v1Z"/></svg></button><button aria-label="Paramètres de notification"><svg><path d="M0 0h1v1Z"/></svg></button></div><div class="panels__5e434"><div class="fitInAccount_df39b2">Decoration</div></div>';
+        doc.querySelector('#app-mount').append(polarProbe);
+        const polarEnabled = name === 'sibnight-north-polar.theme.css';
+        const glyph = (label) => win.getComputedStyle(polarProbe.querySelector('[aria-label="' + label + '"] svg'));
+        checks.polarGuard = (style('.chatContent_f75fb0').backgroundColor === 'rgb(46, 52, 64)') === polarEnabled;
+        if (polarEnabled) {
+            checks.polarThreadGlyph = glyph('Fils').maskImage.startsWith('url(');
+            checks.polarPinGlyphFrench = glyph('Messages épinglés').maskImage.startsWith('url(');
+            checks.polarNotificationStateNative = glyph('Paramètres de notification').maskImage === 'none' && win.getComputedStyle(polarProbe.querySelector('[aria-label="Paramètres de notification"] path')).opacity === '1';
+            checks.polarAccountDecorationRemoved = style('.fitInAccount_df39b2').display === 'none';
+        }
         motionProbe.className = 'messageListItem__5126c';
         doc.querySelector('#app-mount').append(motionProbe);
         doc.body.style.setProperty('--animations', 'on');

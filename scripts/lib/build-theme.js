@@ -7,6 +7,7 @@ const srcDir = path.join(rootDir, 'src');
 const themeFile = path.join(rootDir, 'themes', 'sibnight.theme.css');
 const buildFile = path.join(rootDir, 'build', 'sibnight.css');
 const flavorSourceFile = path.join(srcDir, 'flavor-base.css');
+const FLAVOR_SOURCE_FILE_ORDER = ['flavor-base.css', 'north-polar.css'];
 const flavorBuildFile = path.join(rootDir, 'build', 'sibnight-flavor.css');
 
 const SOURCE_FILE_ORDER = [
@@ -45,7 +46,7 @@ function listSourceCssFiles() {
 function assertSourceOrderIsStrict() {
     const discoveredFiles = listSourceCssFiles();
     const discoveredSet = new Set(discoveredFiles);
-    const declaredSet = new Set([...SOURCE_FILE_ORDER, path.basename(flavorSourceFile)]);
+    const declaredSet = new Set([...SOURCE_FILE_ORDER, ...FLAVOR_SOURCE_FILE_ORDER]);
 
     const duplicateDeclarations = SOURCE_FILE_ORDER.filter((fileName, index) => {
         return SOURCE_FILE_ORDER.indexOf(fileName) !== index;
@@ -55,7 +56,7 @@ function assertSourceOrderIsStrict() {
         throw new Error(`SOURCE_FILE_ORDER contains duplicates: ${duplicateDeclarations.join(', ')}`);
     }
 
-    const missingFiles = SOURCE_FILE_ORDER.filter((fileName) => !discoveredSet.has(fileName));
+    const missingFiles = [...SOURCE_FILE_ORDER, ...FLAVOR_SOURCE_FILE_ORDER].filter((fileName) => !discoveredSet.has(fileName));
     const undeclaredFiles = discoveredFiles.filter((fileName) => !declaredSet.has(fileName));
 
     if (missingFiles.length > 0) {
@@ -107,9 +108,11 @@ function compileSourceCss() {
 }
 
 function compileFlavorCss(compiledCss = compileSourceCss()) {
-    const css = normalizeCssText(readTextFile(flavorSourceFile));
-    validateCss(css, 'src/flavor-base.css');
-    return `${compiledCss}/* ${path.basename(flavorSourceFile)} */\n${css}\n`;
+    return compiledCss + FLAVOR_SOURCE_FILE_ORDER.map((file) => {
+        const css = normalizeCssText(readTextFile(path.join(srcDir, file)));
+        validateCss(css, `src/${file}`);
+        return `/* ${file} */\n${css}\n`;
+    }).join('');
 }
 
 function writeCompiledCss(compiledCss = compileSourceCss()) {

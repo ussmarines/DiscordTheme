@@ -38,3 +38,8 @@ release/
 tools/security/.reports/
 *.log
 *.zip
+
+# Local design studies and private visual review
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/questions/
