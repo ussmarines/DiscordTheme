@@ -6,4 +6,5 @@
 - Discord stable 647615 + Vencord : neuf snapshots chargés ; paramètres/permissions, profils, chat/édition/mentions, forum/fil, connexion vocale, partage de fenêtre vide, plein écran/popout et fenêtre 1101 × 801 observés. Détails dans `docs/MAINTENANCE.md`.
 - Limites : caméra indisponible ; BetterDiscord, préférences Windows et benchmark non exécutés. Aucune certification de tous les rollouts Discord.
 - Nettoyage : trois branches intégrées supprimées, deux workflows ponctuels désactivés ; tags conservés.
-- Prochaine action : intégrer la PR #13, puis vérifier les contenus Pages avec `npm run check:urls -- --match-local`. Aucune release demandée.
+- Publication : PR #13 fusionnée dans `d8d2fb4` ; branche intégrée supprimée après preuve d’ascendance. Pages a construit ce commit ; `check:urls -- --match-local` PASS pour les 11 CSS exacts et les deux ressources existantes. Aucune release déclenchée.
+- État final Discord : North Polar initial réactivé, snapshot temporaire retiré, partage et appel de test arrêtés, Bloc-notes vide fermé ; fenêtre principale agrandie. Aucun contrôle disponible bloquant restant.
