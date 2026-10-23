@@ -77,7 +77,7 @@ body {
 /* sibnight flavor layout defaults: end */
 
 :root {
-    --sibnight-accent-1: #bf616a;
+    --sibnight-accent-1: #984650;
     --sibnight-accent-2: #d08770;
     --sibnight-accent-3: #ebcb8b;
     --sibnight-accent-4: #a3be8c;
@@ -136,8 +136,21 @@ body {
     --interactive-text-default: #4c566a;
     --interactive-text-hover: #3b4252;
     --interactive-text-active: #3b4252;
-    --text-link: #bf616a;
+    --text-link: #984650;
     --colors: on;
+    /* Discord keeps its dark syntax palette unless light flavors provide one. */
+    --text-code: var(--sibnight-text-3);
+    --text-code-addition: #35634a;
+    --text-code-builtin: #664a83;
+    --text-code-bullet: #3d5f87;
+    --text-code-comment: #526078;
+    --text-code-deletion: #984650;
+    --text-code-keyword: #664a83;
+    --text-code-section: #3d5f87;
+    --text-code-string: #35634a;
+    --text-code-tag: #984650;
+    --text-code-title: #3d5f87;
+    --text-code-variable: #664a83;
     color-scheme: light;
     --proto-column-shadow: none;
     --proto-hover-surface: var(--sibylla-hover-fill);

@@ -634,8 +634,9 @@
     }
 
     .custom-user-profile-theme {
-        --white: var(--sibnight-text-1);
-        --white-500: var(--sibnight-text-1);
+        /* Keep Discord's profile foreground and its matching custom surfaces together. */
+        --sibylla-profile-fill: var(--profile-gradient-modal-background-color);
+        --sibylla-panel-fill-strong: var(--profile-gradient-overlay-color);
     }
 
     /* User profile sidebar */

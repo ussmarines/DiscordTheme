@@ -555,10 +555,14 @@ body {
         color-mix(in srgb, var(--sibnight-bg-3) 30%, var(--sibnight-bg-4) 70%) !important;
 }
 
+.custom-user-profile-theme > .inner_c0bea0 {
+    background: var(--profile-gradient-modal-background-color) !important;
+}
+
 .inner_c0bea0 [class*='overlayBackground'],
 .inner_c0bea0 [class*='section'],
 .outer_c0bea0 [class*='note'] {
-    background-color: color-mix(in srgb, var(--sibnight-bg-3) 38%, transparent) !important;
+    background-color: var(--user-profile-overlay-background) !important;
     border: none !important;
 }
 
@@ -943,7 +947,7 @@ nav[class*='guilds'] {
 .markup__75297 a,
 .anchor__14d82,
 .fakeLink__2c949 {
-    color: color-mix(in srgb, var(--sibnight-blue-1) 78%, var(--sibnight-yellow-2) 22%) !important;
+    color: var(--text-link, var(--sibnight-accent-1)) !important;
 }
 
 .embedFull__623de,

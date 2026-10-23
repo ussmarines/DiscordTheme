@@ -151,11 +151,11 @@ https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-north-aurora-l
 
 ## Development
 
-### Compatibility status — 23 October 2026
+### Compatibility status — 24 October 2026
 
 Sibnight 2.13.2 preserves all nine variants. This maintenance updates PostCSS to 8.5.31 and Chokidar to 6.0.0, refreshes two class names from the current upstream mapping, restores visible keyboard focus, and improves secondary text contrast across the palettes, especially the light variants and Tokyo Night.
 
-Local validation covers the build, dependency audit, Node 24/26 tests and 63 Chromium assertions across the nine variants. The synthetic fixture checks secondary text against the three solid panel tokens (minimum 5.10:1), focus contrast/visibility, unread indicators, transparent overlays, disabled transitions and click-through menu decoration. It does **not** certify all composite backgrounds, role colors or Discord screens.
+Local validation covers the build, dependency audit, Node 24/26 tests and 92 Chromium assertions across the nine variants. The synthetic fixture checks secondary text against the three solid panel tokens (minimum 5.10:1), focus contrast/visibility, unread indicators, transparent overlays, disabled transitions, Discord’s reduced-motion class, custom-profile reference surfaces, links, light syntax palettes and click-through menu decoration. It does **not** certify all composite backgrounds, role colors or Discord screens.
 
 The installed Discord stable client and Vencord are also inspected separately; exact versions, observed screens and remaining checks are recorded in [maintenance](docs/MAINTENANCE.md). Discord rolls out changes progressively: the [22 October update](https://discord.com/blog/discord-update-october-22-2026) and an up-to-date class mapping cannot establish complete compatibility. Full compatibility with every current Discord rollout remains **unconfirmed** until the grouped checklist is completed.
 

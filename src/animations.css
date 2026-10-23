@@ -116,6 +116,15 @@ body {
 }
 
 /* The explicit opt-out also covers decorative transitions in optional modules. */
+:root.reduce-motion #app-mount,
+:root.reduce-motion #app-mount *,
+:root.reduce-motion #app-mount *::before,
+:root.reduce-motion #app-mount *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+}
+
 @container body style(--animations: off) {
     #app-mount *,
     #app-mount *::before,
