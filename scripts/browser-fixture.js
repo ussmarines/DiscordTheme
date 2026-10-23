@@ -71,6 +71,7 @@ const contrast = (a, b) => {
         checks.discordReducedMotion = motionEnabled && motionDisabled;
         if (/north-(snow|aurora-light)/.test(name)) {
             const syntaxTokens = ['--text-code', '--text-code-addition', '--text-code-builtin', '--text-code-comment', '--text-code-bullet', '--text-code-deletion', '--text-code-section', '--text-code-keyword', '--text-code-string', '--text-code-tag', '--text-code-title', '--text-code-variable'];
+            checks.lightStatusPaletteContrast = Math.min(...['--sibnight-green-1', '--sibnight-green-2'].flatMap(name => surfaces.map(bg => contrast(token(name), bg)))) >= 4.5;
             checks.lightSyntaxPaletteContrast = Math.min(...syntaxTokens.flatMap(name => surfaces.map(bg => contrast(token(name), bg)))) >= 4.5;
         }
         results.push({name, mutedContrast, focusContrast, linkColor: style('.anchor__14d82').color, checks, pass: Object.values(checks).every(Boolean)});

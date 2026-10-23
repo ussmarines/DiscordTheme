@@ -77,6 +77,8 @@ body {
 /* sibnight flavor layout defaults: end */
 
 :root {
+    --sibnight-green-1: #35634a;
+    --sibnight-green-2: #35634a;
     --sibnight-accent-1: #3d5f87;
     --sibnight-accent-2: #81a1c1;
     --sibnight-accent-3: #88c0d0;
