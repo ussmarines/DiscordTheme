@@ -1,5 +1,13 @@
 # Maintenance de Sibnight
 
+## Espacements corrigés le 24 octobre 2026 — 2.13.3
+
+Le retour du propriétaire a révélé deux défauts non couverts par la validation précédente : barre de navigation de 12 px dans les wrappers, et pastilles blanches presque collées aux serveurs. Reprise avec le skill Impeccable, commande layout, sur l’identité existante ; ce correctif ne constitue pas une refonte complète de la DA.
+
+Les neuf installables réservent maintenant 40 px à la barre supérieure. Les boutons retour/avance utilisent une zone de 28 × 28 px, avec retrait horizontal et espacement entre boutons. Le sélecteur natif observé est `backForwardButtons__63abb`. Pour les serveurs, le DOM courant utilise `wrapper__58105 overlay__58105` sans `pill_e5445c` : le retrait historique de l’élément blanc est supprimé dans la liste de serveurs, en conservant le marqueur dans sa zone de clipping et ses animations natives. Non-lus et sélection restent visibles ; aucune notification n’est masquée.
+
+North Polar 1.7.4 est vérifié dans Discord réel : flèches séparées du bord, indicateurs blancs sélectionnés et non-lus distincts des icônes, contrôles de fenêtre accessibles. Le brouillon et l’appel en cours sont préservés. Les contrôles de géométrie synthétiques vérifient les marges et la taille utile des boutons sur les neuf variantes, soit 112 assertions au total ; ils ne certifient pas tous les écrans natifs. Quality et diff-check sont exécutés sur ce correctif. Le détecteur Impeccable ne signale que la bordure historique des embeds, conservée comme repère natif de contenu, hors de ce correctif d’espacement.
+
 ## Maintenance du 23 octobre 2026
 
 Base synchronisée : `464c996` (trois commits distants récupérés par fast-forward). Candidat 2.13.2 : neuf variantes conservées, noms d'assets et crédits inchangés. PostCSS 8.5.31 et Chokidar 6.0.0 sont les versions npm actuelles vérifiées. Chokidar 6 est ESM ; Node 24 et 26 chargent son export `watch` depuis les scripts CommonJS existants via `require(esm)`. Le test réel de changement de fichier passe sur les deux lignes Node. L'ancien choix de conserver Chokidar 4 décrit plus bas est historique.

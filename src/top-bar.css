@@ -3,7 +3,7 @@
    ========================== */
 
 body {
-    --top-bar-height: 32px;
+    --top-bar-height: 40px;
     --custom-app-top-bar-height: var(--top-bar-height);
 }
 .refresh-title-bar-small {
@@ -556,4 +556,19 @@ body {
 .title__9293f,
 .title_f75fb0 {
     text-shadow: 0 0 10px rgba(100, 170, 255, 0.08);
+}
+
+/* Give desktop history controls a real hit area inside the reserved title bar. */
+.bar_c38106:not(.systemBar_c38106) .leading_c38106 {
+    padding-inline-start: var(--gap);
+}
+.backForwardButtons__63abb {
+    gap: var(--space-xs);
+}
+.backForwardButtons__63abb .button__63abb {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-sm);
 }

@@ -2,7 +2,7 @@
  * @name sibnight-tokyo-night
  * @description A Tokyo Night inspired sibnight flavor with flat midnight surfaces, muted cobalt panels and clean neon accents.
  * @author ussmarines
- * @version 1.0.3
+ * @version 1.0.4
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-tokyo-night.theme.css
  * @authorLink https://github.com/ussmarines
@@ -34,7 +34,7 @@ body {
     --border-hover-transition: 0.2s ease;
 
     /* top bar options */
-    --top-bar-height: var(--gap);
+    --top-bar-height: 40px; /* reserve space for history buttons */
     --top-bar-button-position: titlebar;
     --top-bar-title-position: off;
     --subtle-top-bar-title: off;
