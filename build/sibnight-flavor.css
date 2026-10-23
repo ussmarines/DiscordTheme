@@ -556,10 +556,14 @@ body {
         color-mix(in srgb, var(--sibnight-bg-3) 30%, var(--sibnight-bg-4) 70%) !important;
 }
 
+.custom-user-profile-theme > .inner_c0bea0 {
+    background: var(--profile-gradient-modal-background-color) !important;
+}
+
 .inner_c0bea0 [class*='overlayBackground'],
 .inner_c0bea0 [class*='section'],
 .outer_c0bea0 [class*='note'] {
-    background-color: color-mix(in srgb, var(--sibnight-bg-3) 38%, transparent) !important;
+    background-color: var(--user-profile-overlay-background) !important;
     border: none !important;
 }
 
@@ -944,7 +948,7 @@ nav[class*='guilds'] {
 .markup__75297 a,
 .anchor__14d82,
 .fakeLink__2c949 {
-    color: color-mix(in srgb, var(--sibnight-blue-1) 78%, var(--sibnight-yellow-2) 22%) !important;
+    color: var(--text-link, var(--sibnight-accent-1)) !important;
 }
 
 .embedFull__623de,
@@ -1058,7 +1062,7 @@ nav[class*='guilds'] {
     --sibnight-text-2: hsl(213, 30%, 88%); /* headings and important text */
     --sibnight-text-3: hsl(214, 17%, 74%); /* normal text */
     --sibnight-text-4: hsl(214, 16%, 60%); /* icon buttons and channels */
-    --sibnight-text-5: hsl(214, 12%, 46%); /* muted channels/chats and timestamps */
+    --sibnight-text-5: color-mix(in srgb, var(--sibnight-text-3) 95%, var(--sibnight-bg-2)); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
     --sibnight-bg-1: hsl(218, 44%, 20%); /* dark buttons when clicked */
@@ -1234,7 +1238,7 @@ nav[class*='guilds'] {
         --bg-surface-overlay-tmp: var(--sibnight-bg-3);
         --bg-surface-raised: var(--sibnight-bg-3);
         --border-feedback-critical: var(--sibnight-border);
-        --border-focus: var(--sibnight-border);
+        --border-focus: var(--sibnight-focus-ring);
         --border-muted: var(--sibnight-border-light);
         --border-normal: var(--sibnight-border);
         --border-strong: var(--sibnight-border);
@@ -1681,8 +1685,9 @@ nav[class*='guilds'] {
     }
 
     .custom-user-profile-theme {
-        --white: var(--sibnight-text-1);
-        --white-500: var(--sibnight-text-1);
+        /* Keep Discord's profile foreground and its matching custom surfaces together. */
+        --sibylla-profile-fill: var(--profile-gradient-modal-background-color);
+        --sibylla-panel-fill-strong: var(--profile-gradient-overlay-color);
     }
 
     /* User profile sidebar */
@@ -1922,7 +1927,7 @@ nav[class*='guilds'] {
         .emptyChannelIcon__00de6 path[fill='var(--white)'] /* channel start icon */ {
         fill: var(--sibnight-text-3);
     }
-    .grabber_a562c8 /* vc volume slider grabber */ {
+    .grabber__4c059 /* vc volume slider grabber */ {
         background-color: var(--sibnight-text-3);
     }
     .textBadge__463b7 /* new text badge (right click on person in vc) */ {
@@ -2109,7 +2114,7 @@ nav[class*='guilds'] {
         --vc-spotify-green: var(--sibnight-accent-2);
     }
 
-    .vcd-screen-picker-option-radio[data-checked='true'] .defaultColor__4bd52 {
+    .vcd-screen-picker-option-radio[data-checked='true'] .defaultColor_b717a1 {
         color: var(--sibnight-text-0);
     }
 
@@ -2348,6 +2353,15 @@ body {
 }
 
 /* The explicit opt-out also covers decorative transitions in optional modules. */
+:root.reduce-motion #app-mount,
+:root.reduce-motion #app-mount *,
+:root.reduce-motion #app-mount *::before,
+:root.reduce-motion #app-mount *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+}
+
 @container body style(--animations: off) {
     #app-mount *,
     #app-mount *::before,
@@ -3626,6 +3640,23 @@ body {
 /* hardening.css */
 /* Extra safety layer loaded last.
    Keep this file small: it should only contain fallbacks and defensive fixes. */
+
+:root {
+    --sibnight-focus-ring: var(--sibnight-text-2);
+}
+
+/* Semantic targets survive Discord class hash changes; mouse focus stays native. */
+#app-mount :is(button, a[href], input, textarea, select, [tabindex], [role='button'], [role='tab'], [role='option']):focus-visible {
+    outline: 2px solid var(--sibnight-focus-ring) !important;
+    outline-offset: -2px;
+}
+
+/* Keep the system high-contrast palette in charge of keyboard navigation. */
+@media (forced-colors: active) {
+    #app-mount :focus-visible {
+        outline: 2px solid Highlight !important;
+    }
+}
 
 /* Avoid invalid calc() chains when top-bar button detection does not match. */
 @container body style(--top-bar-button-position: titlebar) {

@@ -1,10 +1,9 @@
 # Checkpoint Sibnight
 
-- Baseline : `219d953` sur main ; intervention autorisée du 10 septembre 2026.
-- Phase : maintenance publiée ; validation visuelle utilisateur restante.
-- Dernière action : `f15b753` poussé sans force ; Pages construit et contenus CSS vérifiés identiques.
-- Acquis : quality PASS, six tests sous Node 26.7 et 24.21, 36 assertions CSS synthétiques ; scan Full/Enforce PASS ; 11 CSS HTTP 200 text/css avec contenu exact et deux ressources externes accessibles.
-- Reste : checklist Discord authentifié regroupée dans `docs/MAINTENANCE.md`.
-- Limite : aucun Discord authentifié accessible ; checklist unique dans `docs/MAINTENANCE.md`.
-- Prochaine action : tester les neuf variantes dans Discord, puis corriger uniquement les écarts reproduits.
-- Dernier commit de code validé : `f15b753ef28edb8ea0f3f1a65a5525c83b822978`. Le commit portant ce checkpoint ne change que la documentation.
+- Base : `464c996`, candidat 2.13.2 ; neuf variantes, assets et crédits conservés.
+- PR #13 : dépendances, classes upstream, focus, contrastes, profils, liens, syntaxe claire et mouvement réduit corrigés.
+- Contrôles : quality, six tests Node 24/26, audit sans vulnérabilité, 94 assertions Chromium, neuf snapshots, Full/Enforce initial et diff-check PASS. Dernières modifications : palettes CSS et assertions supplémentaires.
+- Discord stable 647615 + Vencord : neuf snapshots chargés ; paramètres/permissions, profils, chat/édition/mentions, forum/fil, connexion vocale, partage de fenêtre vide, plein écran/popout et fenêtre 1101 × 801 observés. Détails dans `docs/MAINTENANCE.md`.
+- Limites : caméra indisponible ; BetterDiscord, préférences Windows et benchmark non exécutés. Aucune certification de tous les rollouts Discord.
+- Nettoyage : trois branches intégrées supprimées, deux workflows ponctuels désactivés ; tags conservés.
+- Prochaine action : intégrer la PR #13, puis vérifier les contenus Pages avec `npm run check:urls -- --match-local`. Aucune release demandée.

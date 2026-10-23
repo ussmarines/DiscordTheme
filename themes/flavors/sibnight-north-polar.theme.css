@@ -2,7 +2,7 @@
  * @name sibnight-north-polar
  * @description A flat Polar Night north flavor with zero shadows, disciplined slate layering and cleaner monochrome Nord surfaces.
  * @author ussmarines
- * @version 1.7.2
+ * @version 1.7.3
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-polar.theme.css
  * @authorLink https://github.com/ussmarines
@@ -95,7 +95,7 @@ body {
     --sibnight-text-2: #d8dee9;
     --sibnight-text-3: #c5cedb;
     --sibnight-text-4: #97a4b8;
-    --sibnight-text-5: rgba(216, 222, 233, 0.40);
+    --sibnight-text-5: color-mix(in srgb, var(--sibnight-text-3) 95%, var(--sibnight-bg-2));
     --sibnight-bg-1: #4c566a;
     --sibnight-bg-2: #434c5e;
     --sibnight-bg-3: #3b4252;
