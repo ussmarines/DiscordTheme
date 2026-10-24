@@ -1,16 +1,16 @@
 # Maintenance de Sibnight
 
-## Reconstruction du socle — Sibnight 2.15.0 / North Polar 2.1.0
+## Reconstruction du socle — Sibnight 2.15.1 / North Polar 2.1.1
 
 Le retour du propriétaire a invalidé la fidélité de la livraison précédente. La nouvelle passe reconstruit le socle principal : `src/workspace.css`, déclaré après `hardening.css`, porte les colonnes continues, le header, les glyphes et le dock ; `src/main.css` retire les anciennes gouttières. `src/north-polar.css` redevient un skin de couleurs sémantiques. Les autres wrappers sont conservés mais leur validation visuelle est différée à la demande du propriétaire.
 
-Direction approuvée : Lecture et repères, compte Cabinet initial, Nord sombre. Lecture 74ch / 1rem / 1.5 ; rail72, sidebar328/288, membres264/256px. Le panneau membres conserve sa structure et hauteur natives. Cette largeur ferme la troncature excessive des identités décorées sans retirer badges ou profils. Le compte et la connexion vocale croissent en hauteur, avec des lignes de commandes distinctes. Aide et commandes Windows natives rétablies.
+Direction approuvée : Lecture et repères, compte Cabinet initial, Nord sombre. Lecture 74ch / 1rem / 1.5 ; rail72, sidebar328/288, membres288/280px. Le panneau membres conserve sa structure et hauteur natives. Cette largeur ferme la troncature excessive des identités décorées sans retirer badges ou profils. Le compte et la connexion vocale croissent en hauteur, avec des lignes de commandes distinctes. Aide et commandes Windows natives rétablies.
 
 Revue Impeccable : premier verdict REBUILD REQUIRED, puis corrections matérielles sur le dock et les identités. Après une passe supplémentaire explicitement autorisée, verdict ciblé PASS : nom complet lisible dans les deux formats, badges/décoration conservés, conversation et commandes narrow sans régression matérielle visible. Quatre glyphes originaux sont livrés ; les autres glyphes natifs à états multiples sont conservés. Il ne s'agit pas d'une famille intégralement personnalisée.
 
 La matrice `DISCORD_FUNCTIONS.md` décrit les contrôles réels en lecture seule et les opérations non exécutées. North Polar observé seul actif dans Vencord, fenêtre native large et1101×801. Appel et contenu conservés. Caméra indisponible ; envoi, upload, nouveaux appels/partage et forums non rejoués. Les captures restent locales et ignorées. Les validations historiques ci-dessous ne valent pas preuve de cette reconstruction.
 
-Publication et contrôle du wrapper final : à compléter après intégration et vérification Pages. Aucune release prévue.
+PR #16 fusionnée dans `287cefc` ; branche intégrée supprimée. Pages et onze contenus CSS exacts + deux ressources PASS sur cette intégration. Le chargement du wrapper avec Figtree a révélé une largeur supérieure au fallback local : correctif différentiel 2.15.1 / 2.1.1, membres288/280px. Revue sur la police réelle PASS, nom complet et commandes lisibles dans les deux formats. Aucun deuxième détecteur ni changement aux profils. Contrôle du dernier déploiement et wrapper installé consigné dans AGENDA.md. Aucune release.
 
 ## Refonte North Polar — 24 octobre 2026, Sibnight 2.14.0 / North Polar 2.0.0
 

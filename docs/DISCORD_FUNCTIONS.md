@@ -20,11 +20,12 @@ Contrôle du 24 octobre 2026 sur Discord desktop 1.0.9265, stable 647615, avec V
 | Profil complet | Profil personnalisé du compte ouvert puis fermé ; onglets et widgets visibles | Aucune personnalisation modifiée |
 | Compte et vocal | Profil/statut, micro, casque, options entrée/sortie, paramètres, connexion, déconnexion et actions vocales visibles | Appel en cours conservé ; aucune commande vocale déclenchée |
 | Paramètres | Voix et vidéo puis Vencord Themes ouverts ; North Polar actif observé | Aucun réglage modifié |
+| Messages privés et amis | Conversation, composer, actions vocal/vidéo, épingles et accès groupe visibles ; épingles vides et liste d'amis ouverts | Aucun appel, ajout d'ami ni message ; profil indisponible reste désactivé nativement |
 | Fenêtre réduite | Fenêtre native 1101 × 801 ; composer, nom du compte, connexion/salon et commandes visibles après correction de hauteur | Revue ciblée finale PASS sur le dock, les membres et la conversation |
 | Clavier et protections CSS | 24 assertions Chromium North Polar : focus, non-lus, overlays, contrôle de fenêtre, aide, géométrie et contraste | Fixture synthétique, distincte du client Discord |
 
 ## Parcours non exécutés sur cette reconstruction
 
-Envoi/édition/suppression de contenu, réaction, création de fil ou sondage, upload, achat, invitations, gestion des permissions, nouveaux appels, partage d'écran, capture caméra, forums en situation réelle et parcours complets de messages privés restent **NON EXÉCUTÉS**. La caméra est indisponible dans la session. Les contrôles historiques d'autres versions du thème ne remplacent pas ces validations.
+Envoi/édition/suppression de contenu, réaction, création de fil ou sondage, upload, achat, invitations, gestion des permissions, nouveaux appels, partage d'écran, capture caméra, forums en situation réelle et parcours complets de messages privés restent **NON EXÉCUTÉS**. La caméra est indisponible dans la session. Les contrôles historiques d'autres versions du thème ne remplacent pas ces validations. Le dernier contrôle différentiel inclut Figtree réellement chargée, distincte du fallback des instantanés hors ligne.
 
 BetterDiscord, autres variantes, modes d'accessibilité Windows et benchmark ne sont pas validés ici. Les fonctionnalités conditionnées par les permissions, Nitro ou un rollout Discord conservent leur disponibilité native. Aucun élément fictif n'est ajouté pour simuler une fonction absente.

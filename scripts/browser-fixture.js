@@ -90,7 +90,7 @@ const contrast = (a, b) => {
             doc.querySelector('#app-mount').append(layout);
             const computed = (selector, pseudo) => win.getComputedStyle(layout.querySelector(selector), pseudo);
             checks.coreSidebarResponsive = layout.querySelector('.sidebar__5e434').getBoundingClientRect().width <= 288;
-            checks.coreMembersResponsive = layout.querySelector('.container_c8ffbb').getBoundingClientRect().width <= 256;
+            checks.coreMembersResponsive = layout.querySelector('.container_c8ffbb').getBoundingClientRect().width <= 280;
             checks.coreContinuousColumns = computed('.sidebarList__5e434').borderTopLeftRadius === '0px';
             checks.coreNativeWindowControls = computed('.winButton_c38106 svg').display !== 'none' && computed('.winButton_c38106', '::after').display === 'none';
             checks.coreHelpVisible = computed('a').display !== 'none';

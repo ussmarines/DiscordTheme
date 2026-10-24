@@ -225,7 +225,7 @@
     --custom-guild-list-width: 72px;
     --guildbar-avatar-size: 48px;
     --sibnight-sidebar-max: 328px;
-    --sibnight-member-width: 264px;
+    --sibnight-member-width: 288px;
     --sibnight-native-sidebar-width: var(--custom-guild-sidebar-width, 328px);
 }
 #app-mount .base__5e434 {
@@ -383,7 +383,7 @@
 #app-mount .cozy_c19a55 .markup__75297 { font-size: 1rem; line-height: 1.5; }
 #app-mount .timestamp_c19a55 { color: var(--sibnight-text-5); font-size: 0.75rem; }
 @media (max-width: 1200px) {
-    #app-mount { --sibnight-sidebar-max: 288px; --sibnight-member-width: 256px; }
+    #app-mount { --sibnight-sidebar-max: 288px; --sibnight-member-width: 280px; }
     #app-mount .toolbar__9293f { gap: 4px; padding-right: 8px !important; }
     #app-mount .toolbar__9293f .search__49676 { flex-basis: 128px !important; width: 128px !important; }
     #app-mount .form_f75fb0 { padding-inline: 12px; }
@@ -391,4 +391,3 @@
     #app-mount .panels__5e434 .accountPopoutButtonWrapper__37e49 { min-width: 120px; }
     #app-mount .panels__5e434 .buttons__37e49 { flex: 0 0 100%; justify-content: flex-end; }
 }
-

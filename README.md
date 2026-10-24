@@ -153,7 +153,7 @@ https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-north-aurora-l
 
 ### Compatibility status — 24 October 2026
 
-Sibnight 2.15.0 / North Polar 2.1.0 rebuilds the shared principal theme around **Lecture et repères**, with the connected-user block from **Cabinet initial**. North Polar remains a dark skin using the [official Nord palette](https://www.nordtheme.com/docs/colors-and-palettes/). Native content, custom profiles, unread indicators and keyboard focus are preserved.
+Sibnight 2.15.1 / North Polar 2.1.1 rebuilds the shared principal theme around **Lecture et repères**, with the connected-user block from **Cabinet initial**. North Polar remains a dark skin using the [official Nord palette](https://www.nordtheme.com/docs/colors-and-palettes/). Native content, custom profiles, unread indicators and keyboard focus are preserved.
 
 `src/workspace.css` now owns the continuous columns, reading rhythm, header tools and voice/account dock in the principal source manifest. `src/north-polar.css` supplies the Nord semantic palette after `flavor-base.css`. This is a shared-core change: the other eight variants are retained, but their visual validation is explicitly deferred.
 
@@ -161,7 +161,7 @@ Conversation text uses a 74ch limit and 1.5 line height. Threads remains beside 
 
 The [function-by-function validation matrix](docs/DISCORD_FUNCTIONS.md) distinguishes visible controls, opened menus and executed operations. Read-only checks cover search results, reception, message menus, reply preparation/cancellation, profiles, media pickers, voice settings and Vencord. A real 1101 × 801 window exposed a clipped account row; the dock now grows with its controls. North Polar is observed active in the installed client.
 
-Build checks, six Node tests, npm audit and 24 North Polar Chromium assertions pass at the recorded checkpoint. Synthetic CSS tests do not certify every Discord interaction. The final targeted Impeccable review passes after correcting account overflow and excessive member-name truncation. Member widths of 264px / 256px preserve native row height, badges and custom nameplates. This review covers the supplied real desktop/narrow views, not every Discord screen. Camera input is unavailable. BetterDiscord, the other variants, OS accessibility modes, new calls/sharing, uploads and content publication are not validated in this pass. See [maintenance](docs/MAINTENANCE.md) and [the design system](DESIGN.md). Gallery images above remain historical.
+Build checks, six Node tests, npm audit and 24 North Polar Chromium assertions pass at the recorded checkpoint. Synthetic CSS tests do not certify every Discord interaction. The final targeted Impeccable review passes after correcting account overflow and excessive member-name truncation. Member widths of 288px / 280px preserve native row height, badges and custom nameplates. This review covers the supplied real desktop/narrow views, not every Discord screen. Camera input is unavailable. BetterDiscord, the other variants, OS accessibility modes, new calls/sharing, uploads and content publication are not validated in this pass. See [maintenance](docs/MAINTENANCE.md) and [the design system](DESIGN.md). Gallery images above remain historical.
 
 The project keeps two generated CSS files:
 
