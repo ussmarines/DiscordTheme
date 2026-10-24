@@ -1,10 +1,10 @@
 # Checkpoint Sibnight
 
-- Base publiée : PR #16 intégrée dans main `287cefc` ; correctif final Sibnight2.15.1 / North Polar2.1.1.
-- Portée : socle principal partagé (main/workspace au manifeste), North Polar skin Nord sombre ; huit autres variantes sans validation visuelle à la demande du propriétaire.
-- Direction approuvée : Lecture et repères + Cabinet initial. Colonnes continues, header natif, glyphes fils/pin/membres/recherche ; glyphes natifs à états multiples préservés.
-- Revue : reconstruction exigée puis deux lots correctifs. Passe supplémentaire autorisée ; verdict ciblé final PASS : noms membres complets, dock et commandes lisibles en grand et1101×801, aucune régression matérielle visible. Membres288/280px, hauteur native conservée.
-- Fonctions : matrice réelle `docs/DISCORD_FUNCTIONS.md` ; recherche, réception, fils, épingles, notifications, membres, menus message, réponse préparée/annulée, profils, médias/applications, paramètres Voix/Vencord. Aucun contenu publié ni réglage vocal modifié ; appel préservé. Pas de certification exhaustive de Discord.
-- Contrôles : quality final PASS (six tests, audit zéro), 24 assertions Chromium North-only PASS, y compris le correctif Figtree, diff-check PASS. Détecteur : deux avis typographiques non bloquants, échelle désormais documentée ; aucun deuxième scan.
-- Documents README, DESIGN/sidecar/surface, maintenance et matrice actualisés. Captures locales ignorées. Caméra indisponible ; BetterDiscord/autresvariantes/accessibilitéWindows et opérations réseau non rejoués.
-- Publication : PR #16 fusionnée, branche intégrée supprimée ; Pages et onze CSS exacts + deux ressources PASS sur `287cefc`. Le wrapper avec Figtree a imposé une largeur membres288/280 ; revue différentielle avec police réelle PASS. Correctif et documentation prêts à pousser normalement sur main. Restant : contrôle du dernier Pages, installation et preuve wrapper final. Aucune release.
+- Livré : Sibnight 2.15.1 / North Polar 2.1.1 ; PR #16 fusionnée, code final `8a2a8c6` sur main. Branche intégrée supprimée. Aucune release.
+- Socle : main/workspace partagés ; North Polar skin Nord sombre. Colonnes continues, header natif, aide/commandes Windows restaurées, dock et identités lisibles. Direction Lecture et repères + Cabinet initial.
+- Revue Impeccable finale ciblée PASS, y compris Figtree réellement chargée en grand et1101×801 : noms complets avec badges/profils, conversation et commandes sans chevauchement. Membres288/280px ; hauteurs natives conservées.
+- Contrôles : build/check, six tests, format, audit zéro, diff-check et24 assertions Chromium North-only PASS. Deux avis typographiques non bloquants documentés ; aucun deuxième détecteur. Pages construit `8a2a8c6`, onze CSS exacts et deux ressources PASS.
+- Discord : North Polar seul actif confirmé dans Vencord ; wrapper final installé identique à main, SHA-256 `8d696d5b1729dd2d72555c6352b97ee68160b4c225078e1e341043a6048d0f74`. Rendu revérifié après chargement du CSS publié, paramètres refermés.
+- Fonctions : `docs/DISCORD_FUNCTIONS.md` trace les menus/parcours réels (dont MP et amis) et les opérations non exécutées. Aucun contenu publié, réglage vocal ou action sociale modifié par l'agent ; session vocale laissée en place.
+- Limites : caméra indisponible, BetterDiscord, huit autres variantes, modes Windows, benchmark, nouveaux appels/partage, uploads et opérations persistantes non validés dans cette reconstruction. Pas de certification exhaustive de chaque écran/rollout Discord.
+- README, maintenance, DESIGN/sidecar et fiche de surface actualisés. Captures privées ignorées ; serveur/fixture temporaires arrêtés. Aucun travail requis restant dans le périmètre exécuté.
