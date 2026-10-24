@@ -23,6 +23,7 @@ const SOURCE_FILE_ORDER = [
     'window-controls.css',
     'compatibility.css',
     'hardening.css',
+    'workspace.css',
 ];
 
 const REMOTE_BUILD_IMPORT = 'https://ussmarines.github.io/DiscordTheme/build/sibnight.css';
