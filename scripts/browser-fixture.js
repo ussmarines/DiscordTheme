@@ -6,7 +6,8 @@ const variants = [['sibnight', buildBundleFromTheme(main)]];
 for (const file of fs.readdirSync('themes/flavors').filter((f) => f.endsWith('.theme.css')).sort()) {
     variants.push([file, fs.readFileSync(path.join('themes/flavors', file), 'utf8').replace(`@import url('${REMOTE_FLAVOR_BUILD_IMPORT}');`, compileFlavorCss(main))]);
 }
-const data = variants.map(([name, css]) => [name, css.replace(/@import[^;]+;/g, '').replaceAll('</', '<\\/')]);
+const selected = process.argv.includes('--north-only') ? variants.filter(([name]) => name === 'sibnight-north-polar.theme.css') : variants;
+const data = selected.map(([name, css]) => [name, css.replace(/@import[^;]+;/g, '').replaceAll('</', '<\\/')]);
 const html = `<!doctype html><meta charset="utf-8"><title>Sibnight synthetic regression fixture</title>
 <h1>Synthetic CSS checks — not a Discord compatibility test</h1><pre id="results">Running…</pre>
 <script>
@@ -54,7 +55,7 @@ const contrast = (a, b) => {
         historyBar.className = 'bar_c38106';
         historyBar.style.cssText = 'display:flex;align-items:center;height:var(--custom-app-top-bar-height)';
         historyBar.innerHTML = '<div class="leading_c38106"><div class="backForwardButtons__63abb"><button class="button__63abb">Back</button></div></div>';
-        doc.body.append(historyBar);
+        doc.querySelector('#app-mount').append(historyBar);
         const historyBounds = historyBar.getBoundingClientRect();
         const historyButton = historyBar.querySelector('button').getBoundingClientRect();
         const checks = {
@@ -83,6 +84,17 @@ const contrast = (a, b) => {
             checks.polarNotificationStateNative = glyph('Paramètres de notification').maskImage === 'none' && win.getComputedStyle(polarProbe.querySelector('[aria-label="Paramètres de notification"] path')).opacity === '1';
             checks.polarSearchGlyphVisible = style('.search__49676 svg').maskImage.startsWith('url(') && style('.search__49676 svg').backgroundColor !== 'rgba(0, 0, 0, 0)';
             checks.polarAccountDecorationRemoved = style('.fitInAccount_df39b2').display === 'none';
+            const layout = doc.createElement('div');
+            layout.className = 'base__5e434';
+            layout.innerHTML = '<div class="sidebar__5e434"><div class="sidebarList__5e434">Index</div></div><div class="container_c8ffbb">Members</div><div class="bar_c38106"><div class="trailing_c38106"><a href="https://support.discord.com">Help</a><div class="winButtons_c38106"><button class="winButton_c38106"><svg width="16" height="16"><path d="M1 8h14"/></svg></button></div></div></div>';
+            doc.querySelector('#app-mount').append(layout);
+            const computed = (selector, pseudo) => win.getComputedStyle(layout.querySelector(selector), pseudo);
+            checks.coreSidebarResponsive = layout.querySelector('.sidebar__5e434').getBoundingClientRect().width <= 288;
+            checks.coreMembersResponsive = layout.querySelector('.container_c8ffbb').getBoundingClientRect().width <= 256;
+            checks.coreContinuousColumns = computed('.sidebarList__5e434').borderTopLeftRadius === '0px';
+            checks.coreNativeWindowControls = computed('.winButton_c38106 svg').display !== 'none' && computed('.winButton_c38106', '::after').display === 'none';
+            checks.coreHelpVisible = computed('a').display !== 'none';
+            checks.coreChromeStatic = computed('.trailing_c38106').position === 'static' && computed('.trailing_c38106').opacity === '1';
         }
         motionProbe.className = 'messageListItem__5126c';
         doc.querySelector('#app-mount').append(motionProbe);

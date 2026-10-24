@@ -2,7 +2,7 @@
  * @name sibnight-north-polar
  * @description Cabinet de lecture: dark Nord reading surfaces, coherent outline tools and a compact native voice/account dock.
  * @author ussmarines
- * @version 2.0.0
+ * @version 2.1.0
  * @website https://github.com/ussmarines/DiscordTheme
  * @source https://github.com/ussmarines/DiscordTheme/blob/main/themes/flavors/sibnight-north-polar.theme.css
  * @authorLink https://github.com/ussmarines
@@ -124,7 +124,7 @@ body {
     --sibnight-text-2: var(--sibnight-nord5);
     --sibnight-text-3: var(--sibnight-nord4);
     --sibnight-text-4: var(--sibnight-nord4);
-    --sibnight-text-5: var(--sibnight-nord4);
+    --sibnight-text-5: color-mix(in srgb, var(--sibnight-nord4) 85%, var(--sibnight-nord0));
     --sibnight-bg-1: var(--sibnight-nord3);
     --sibnight-bg-2: var(--sibnight-nord2);
     --sibnight-bg-3: var(--sibnight-nord1);

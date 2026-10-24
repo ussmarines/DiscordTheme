@@ -20,7 +20,7 @@ The current validation environment is Discord desktop with Vencord on Windows. T
 
 ## Capabilities and Constraints
 
-- Redesign North Polar comprehensively; preserve the eight other variants, their asset names and build contracts.
+- Rebuild the shared principal theme structure and controls, as explicitly requested after the first delivery was rejected for insufficient fidelity. North Polar remains the palette skin and the only current visual validation target. Keep all nine assets/build contracts; other variants are not visually validated in this pass, at the owner's request.
 - Preserve unread/mention indicators, native voice controls, keyboard focus, reduced motion and custom profile semantics.
 - Preserve the current call and draft during read-only visual inspection. Sending messages or changing calls requires a specific authorized test.
 - Do not introduce remote resources, scripts, telemetry or third-party code.
@@ -47,3 +47,4 @@ Existing CSS sources, wrappers, generated builds, demonstration messages and his
 - State and hierarchy must remain clear without relying only on color.
 - The redesign must be visibly comprehensive, rather than described as a redesign after only local fixes.
 - Validation reports distinguish rendered evidence from source analysis and synthetic checks.
+- Base Discord functions must stay visible and reachable. Record read-only checks per function and distinguish unavailable or unexecuted operations; do not claim every Discord feature works from screenshots alone.
