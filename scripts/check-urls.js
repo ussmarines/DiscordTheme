@@ -14,7 +14,7 @@ const { FLAVORS } = require('./lib/flavors');
             if (process.argv.includes('--match-local') && css !== fs.readFileSync(path.join(rootDir, file), 'utf8')) throw new Error(`${file}: published CSS differs from local file`);
         }
         console.log(`[${flavor.name}] published build, wrapper and download verified`);
-        const previewPath = `assets/previews/${flavor.id}.png`;
+        const previewPath = `assets/previews/${flavor.id}.jpg`;
         const preview = await fetch(`https://ussmarines.github.io/DiscordTheme/${previewPath}`, { signal: AbortSignal.timeout(20000) });
         if (!preview.ok) throw new Error(`${previewPath}: HTTP ${preview.status}`);
         if (process.argv.includes('--match-local') && !Buffer.from(await preview.arrayBuffer()).equals(fs.readFileSync(path.join(rootDir, previewPath)))) throw new Error(`${previewPath}: published preview differs from local file`);

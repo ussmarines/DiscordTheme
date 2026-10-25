@@ -1,3 +1,5 @@
+![Bannière Sibylla — thèmes Discord et quatre flavors](assets/banners/repository-banner.jpg)
+
 # Sibylla — thèmes Discord
 
 **Sibylla** est le thème principal. **North Polar**, **North Snow**, **Spatial** et **Tokyo-night** sont ses quatre flavors autonomes. Les cinq versions conservent le même agencement, les mêmes icônes et les commandes natives de Discord.
@@ -12,7 +14,7 @@ Aperçus avec un serveur, des membres et des messages entièrement fictifs, rend
 
 Minuit et or, avec le logo discret en haut à droite du chat.
 
-![Aperçu Sibylla — principale — contenu fictif](assets/previews/sibylla.png)
+![Aperçu Sibylla — principale — contenu fictif](assets/previews/sibylla.jpg)
 
 [**Télécharger Sibylla — principale**](https://ussmarines.github.io/DiscordTheme/dist/sibylla.theme.css)
 
@@ -20,7 +22,7 @@ Minuit et or, avec le logo discret en haut à droite du chat.
 
 Nord sombre, version validée conservée.
 
-![Aperçu North Polar — contenu fictif](assets/previews/north-polar.png)
+![Aperçu North Polar — contenu fictif](assets/previews/north-polar.jpg)
 
 [**Télécharger North Polar**](https://ussmarines.github.io/DiscordTheme/dist/north-polar.theme.css)
 
@@ -28,7 +30,7 @@ Nord sombre, version validée conservée.
 
 Nord clair : surfaces Snow Storm et textes Polar Night.
 
-![Aperçu North Snow — contenu fictif](assets/previews/north-snow.png)
+![Aperçu North Snow — contenu fictif](assets/previews/north-snow.jpg)
 
 [**Télécharger North Snow**](https://ussmarines.github.io/DiscordTheme/dist/north-snow.theme.css)
 
@@ -36,7 +38,7 @@ Nord clair : surfaces Snow Storm et textes Polar Night.
 
 Bleu orbital et vaisseau en haut à droite de la zone de messages.
 
-![Aperçu Spatial — contenu fictif](assets/previews/spatial.png)
+![Aperçu Spatial — contenu fictif](assets/previews/spatial.jpg)
 
 [**Télécharger Spatial**](https://ussmarines.github.io/DiscordTheme/dist/spatial.theme.css)
 
@@ -44,7 +46,7 @@ Bleu orbital et vaisseau en haut à droite de la zone de messages.
 
 Tons nocturnes et accents bleus, cyan et violets.
 
-![Aperçu Tokyo-night — contenu fictif](assets/previews/tokyo-night.png)
+![Aperçu Tokyo-night — contenu fictif](assets/previews/tokyo-night.jpg)
 
 [**Télécharger Tokyo-night**](https://ussmarines.github.io/DiscordTheme/dist/tokyo-night.theme.css)
 
