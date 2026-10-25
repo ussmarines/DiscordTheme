@@ -134,3 +134,11 @@ Quality passes five tests and the dependency audit; 25 local documentation links
 The owner's requested preview detail is now applied to the native direct-message/home SVG: its color uses the existing --sibnight-nord8 accent for every flavor. The generated rule changes only color; shape, size, unread badges, native navigation and focus remain intact. Shared CSS grows by 30 bytes to 36843 bytes, within the existing 36 KiB North limit; no selector or :has() is added.
 
 The synthetic family fixture now checks the actual home SVG under an intentionally white parent, ensuring the accent comes from the theme rather than the preview scaffold. All 70 assertions pass, including this inheritance regression in each of the five flavors. Native Discord on the VPS shows the gold Sibylla home icon. Other current call/session state was preserved. Public illustrations already showed the intended colors and remain valid; private native captures are not published.
+
+## Catalogue et guide — 25 octobre 2026
+
+Revue finale indépendante Impeccable : SHIP, aucun correctif matériel ouvert. Rendu inspecté sur le navigateur à 1440px et dans une iframe de la page réelle à 390×844 (le navigateur de contrôle limite sa fenêtre principale à 1280px). Aucun débordement de page ; ce contrôle responsive ne constitue pas un essai sur téléphone physique. Contrastes du texte secondaire mesurés au-delà de9:1, lien d’évitement visible au clavier et téléchargement Sibylla réellement reçu, identique à dist/.
+
+Génération HTML et ancres contrôlées pour le catalogue et le guide ; wiki publié depuis la même source Markdown, procédures vérifiées avec les documentations officielles. Le détecteur Impeccable a fonctionné une fois en mode regex dégradé :35 avis de rôles typographiques/couleurs, sans contrôle DOM/contraste complet. Ce résultat ne vaut pas un audit automatisé complet. Les rôles propres au site sont documentés séparément du thème Discord.
+
+Les cinq CSS distribués restent inchangés. Le laboratoire VPS a été sauvegardé et retiré ; aucune restauration complète de la sauvegarde n’a été exécutée. Les archives privées excluent les données d’authentification. Le serveur Discord de test reste disponible.

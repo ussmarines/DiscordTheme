@@ -20,7 +20,7 @@ Tester le fichier exact, seul actif, sans ancien thème ni QuickCSS en conflit. 
 
 Respecter les états, labels, permissions, géométries d’avatar et fonctions natifs. Ne pas ajouter de faux boutons, supprimer le focus ou altérer les niveaux de qualité réseau. Les bannières personnelles restent natives. Un parseur et une fixture synthétique ne prouvent pas le comportement Discord réel ; consigner distinctement les observations et opérations non exécutées.
 
-Le laboratoire de test est persistant. Ne pas réinitialiser ses salons ni lire les données d’authentification ou le presse-papiers. Les tests de message restent limités au serveur autorisé. Les captures et détails d’accès restent privés.
+Le client du laboratoire VPS a été sauvegardé puis retiré à la demande du propriétaire le 25 octobre 2026. Une nouvelle connexion sera nécessaire après restauration. Le serveur Discord Theme Lab reste persistant. Ne pas réinitialiser ses salons ni lire les données d’authentification ou le presse-papiers. Les tests de message restent limités au serveur autorisé. Les captures et détails d’accès restent privés.
 
 ## Publication et liens
 
@@ -31,3 +31,9 @@ Avant publication : contrôler le diff exact, les fichiers distribués et les se
 Les anciens liens Sibnight sont retirés : la migration et les nouveaux téléchargements sont indiqués dans le README. Ne pas réintroduire silencieusement les neuf variantes abandonnées.
 
 Voir [validation](VALIDATION.md), [fonctions](DISCORD_FUNCTIONS.md), [références](RESEARCH.md) et [sécurité](../SECURITY_PRODUCTION_RULES.md).
+
+## Catalogue et guide débutant
+
+Modifier `scripts/build-site.js` et `assets/site/` pour le catalogue. `npm run site:build` génère `index.html` et `installation.html`. La source unique du tutoriel est `docs/INSTALLATION.md` ; vérifier les procédures avec les documentations officielles avant de les modifier. `npm run check:site` contrôle les sorties, les liens locaux et les ancres.
+
+`npm run wiki:build` prépare Home, Installation, Sidebar et Footer sous `output/wiki/` (ignoré). Leur copie et leur publication dans le dépôt wiki sont des opérations distinctes, à réaliser uniquement dans une portée GitHub autorisée. Ne pas publier le clone local ni les captures de contrôle. Les aperçus publics restent fictifs.

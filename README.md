@@ -52,6 +52,8 @@ Tons nocturnes et accents bleus, cyan et violets.
 
 ## Installer le thème
 
+Première installation ? Suivre le [guide pas à pas sur le site](https://ussmarines.github.io/Sibylla-Discord-Theme/installation.html), également disponible dans le [wiki GitHub](https://github.com/ussmarines/Sibylla-Discord-Theme/wiki/Installation). Il explique l’installation du logiciel, le téléchargement, l’activation et le dépannage pour Vencord et BetterDiscord.
+
 1. Enregistrer le fichier choisi avec son nom complet se terminant par `.theme.css`. S’il s’affiche comme du texte dans le navigateur, utiliser **Enregistrer sous**.
 2. Ouvrir **Paramètres → Vencord → Themes → Open Themes Folder**, ou le dossier des thèmes de BetterDiscord.
 3. Copier le fichier dans ce dossier et activer la version choisie.

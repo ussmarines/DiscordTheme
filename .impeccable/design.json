@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-24T16:06:07.444Z",
+  "generatedAt": "2026-10-25T16:01:00.9083004+01:00",
   "title": "Design System: Sibylla Discord family",
   "extensions": {
     "shadows": [
@@ -73,6 +73,69 @@
       ],
       "source": "scripts/lib/flavors.js",
       "constraint": "Colors and message backgrounds only; approved North geometry unchanged"
+    },
+    "website": {
+      "targets": [
+        "index.html",
+        "installation.html"
+      ],
+      "source": "assets/site/catalog.css",
+      "tokenNamespace": "site- frontmatter tokens map to --sibnight-page-* CSS properties; native Discord tokens remain unchanged",
+      "modes": {
+        "catalogue": "Operate",
+        "guide": "Read"
+      },
+      "northStar": "Editorial midnight and gold, five preview-first rows",
+      "layout": {
+        "maxWidth": "1280px",
+        "desktopGutters": "96px",
+        "comparisonColumns": "minmax(0, 3fr) minmax(220px, 1fr)",
+        "previewAspectRatio": "8 / 5",
+        "guideColumns": "240px minmax(0, 800px)"
+      },
+      "breakpoints": [
+        {
+          "value": "1100px",
+          "behavior": "64px total gutters, tighter comparison and guide columns"
+        },
+        {
+          "value": "760px",
+          "behavior": "40px total gutters; stacked preview-first rows; locally scrolling palette index; static guide contents"
+        }
+      ],
+      "motion": {
+        "condition": "prefers-reduced-motion: no-preference",
+        "value": "140ms ease-out",
+        "properties": [
+          "color",
+          "border-color",
+          "background-color"
+        ],
+        "scroll": "smooth only under the same preference"
+      },
+      "focus": "2px gold outline with 5px offset; skip link becomes visible on focus",
+      "interaction": [
+        "Native same-origin dist downloads and preview links work without JavaScript",
+        "Preview links announce their new tab",
+        "IntersectionObserver only enhances the active palette location cue",
+        "No fabricated download loading or success state"
+      ],
+      "rules": [
+        "Preview before download",
+        "Keep website roles separate from native Discord geometry",
+        "Use fictional demonstration content rather than private screenshots"
+      ],
+      "evidence": {
+        "reviewDisposition": "SHIP; no material fixes",
+        "desktop": "Actual browser page at 1440px",
+        "narrow": "Actual same-origin iframe, measured 390px CSS viewport; no viewport overflow",
+        "checks": [
+          "Visible keyboard focus",
+          "Real downloaded file bytes"
+        ],
+        "detector": "One degraded regex run, 35 token-role advisories; optional parser dependencies unavailable; no rerun",
+        "limits": "Responsive browser evidence is not physical-phone or universal Discord runtime proof"
+      }
     }
   },
   "components": [

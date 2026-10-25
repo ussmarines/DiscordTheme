@@ -5,6 +5,12 @@ name: Sibylla Discord family
 description: Five color worlds sharing the approved reading and voice workspace.
 
 colors:
+  site-bg: "#08080f"
+  site-surface: "#101019"
+  site-text: "#e8eef7"
+  site-muted: "#b1bbce"
+  site-gold: "#fada7d"
+  site-line: "#2b2d3b"
 
   nord0: "#2e3440"
 
@@ -59,6 +65,25 @@ colors:
   muted: "color-mix(in srgb, var(--sibnight-nord4) 76%, var(--sibnight-nord0))"
 
 typography:
+  site-body:
+    fontFamily: "Figtree, sans-serif"
+    fontSize: "17px"
+    fontWeight: 400
+    lineHeight: 1.6
+  site-display:
+    fontFamily: "Figtree, sans-serif"
+    fontSize: "clamp(3rem, 6.1vw, 5.5rem)"
+    fontWeight: 550
+    lineHeight: 1.06
+    letterSpacing: "-.035em"
+  site-section:
+    fontSize: "clamp(2rem, 3.4vw, 3rem)"
+    fontWeight: 550
+    lineHeight: 1.15
+    letterSpacing: "-.025em"
+  site-download:
+    fontSize: "15px"
+    fontWeight: 650
 
   title:
 
@@ -365,3 +390,33 @@ Sibylla uses the website's midnight #04040b, gold #fada7d and cool #dbe8ff text.
 
 
 Owner approval, 25 October 2026: all five variants were tested and accepted; repository publication is authorized. Historical no-publication statements below earlier checkpoints describe their own dates, not the current scope.
+
+## Website catalogue and installation guide — 25 October 2026
+
+This website is a separate editorial surface for the five approved themes. Its midnight/gold tokens use the `site-` frontmatter namespace and map to the stylesheet's `--sibnight-page-*` properties. They do not replace the Discord palette, native geometry or historical contracts above. The catalogue operates in **Operate** mode: compare a preview, choose one theme and download it. The installation guide operates in **Read** mode: follow a novice-friendly sequence with a visible table of contents.
+
+### Palette and typography
+
+Midnight page background, a slightly lighter supporting surface, cool reading text and muted secondary text frame the gold actions. Thin neutral lines separate rows; each palette index and preview hover uses the corresponding theme accent. Swatches are decorative companions to written palette names, not the only identifier. The stylesheet retains the existing Figtree import; no new font family or icon runtime is introduced.
+
+The catalogue display scale is normative in frontmatter. Section titles use the quieter section scale, while row descriptions use (16px), row subheadings (25px/1.28, weight 550), lead copy (19px/1.65), navigation (14px), and file notes/captions (12px). Guide body uses the shared body scale; guide headings use (30px/1.2) and subheadings (21px/1.35). The guide title uses `clamp(2.6rem, 5.5vw, 4.7rem)` with line-height (1.08). Code uses the browser's native monospace face at (.87em). These website reading/display roles are distinct from Discord's compact native hierarchy.
+
+### Composition and responsive states
+
+**The Preview Before Download Rule.** Keep five large comparison rows in the order Sibylla, North Polar, North Snow, Spatial and Tokyo-night. Each pairs a readable preview with its description, named colors, exact filename and download action. Do not replace this comparison with a carousel or hide previews behind selection controls.
+
+Content is centered within maximum width (1280px), with desktop gutters totaling (96px). The hero uses two columns; comparison rows allocate (3fr/1fr) with a (40px) gap. Preview images preserve their (8:5) proportions using contain, bounded by a quiet line and corners (8px). Gold download links have minimum height (50px) and corners (6px). The sticky header has minimum height (84px); its ordinary navigation links retain targets of at least (44px).
+
+At (1100px) and below, gutters total (64px), row columns become (2.3fr/1fr), and guide columns tighten. At (760px) and below, gutters total (40px), header minimum height becomes (72px), hero and theme rows stack, and the preview remains before description/download. The palette index scrolls horizontally within its own region. The secondary themes header link hides while installation and GitHub stay available. Footer and installation regions stack. The guide table of contents becomes static above its article; code blocks and tables scroll locally when necessary. Desktop guide columns are (240px) and up to (800px), with a (70px) gap and sticky contents offset (108px).
+
+### Links, state and accessibility
+
+Native anchors, full-size preview links and same-origin `dist/*.theme.css` downloads work without JavaScript. Each preview link explicitly announces its new tab; captions identify fictional demonstration content. Exact filenames and version notes sit beneath the download action. Downloads do not fabricate progress, completion or success notices. The only JavaScript enhancement observes visible catalogue sections and sets `aria-current="location"`; the active palette also gains an underline. The installation navigation uses `aria-current="page"` on the guide.
+
+Keyboard users receive a visible gold outline (2px, offset 5px) and a focus-revealed skip link. Native text links remain recognizable. Gold download hover becomes lighter; preview borders pick up the theme accent. Only `prefers-reduced-motion: no-preference` enables smooth scrolling and the scoped link color/border/background transitions (140ms ease-out). Reduced motion therefore retains immediate navigation and state changes. No whole-page entrance animation, shadow or blur is part of the website system.
+
+### Authorship and validation boundary
+
+`scripts/build-site.js` generates both HTML pages. The detailed guide is authored in `docs/INSTALLATION.md`, keeping the rendered guide and wiki content aligned through their documented generation flow. Preserve semantic headings, ordered instructions, explicit filenames and separate Vencord/BetterDiscord paths. These instructions and compatibility statements are content, not proof that both runtimes were tested.
+
+Fresh finish review disposition: **SHIP**, with no material fixes. The supplied browser evidence covers the actual page at desktop width (1440px) and an actual same-origin iframe with a measured CSS viewport (390px), including no viewport overflow, visible keyboard focus and real downloaded file bytes. The iframe demonstrates responsive CSS in a browser; it is not physical-phone evidence. The detector ran once in degraded regex mode, reported 35 token-role advisories, and lacked optional parser dependencies; this is limited coverage, not a clean detector pass. No repeat detector or new runtime validation is implied by this documentation finish. Private conversations and screenshots remain excluded from public examples.

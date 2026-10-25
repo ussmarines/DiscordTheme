@@ -6,4 +6,4 @@
 *.md text eol=lf
 *.py text eol=lf
 *.ps1 text eol=lf
-index.html text eol=lf
+*.html text eol=lf

@@ -9,7 +9,7 @@
 - GitHub : garde secrets/identité40198874921 et audit40198877318 terminés avec tous scanners réussis ; rapports expurgés vérifiés, aucun résultat identité/Gitleaks/Opengrep/Zizmor. Déploiement Pages40198993207 réussi. Références cliquables dans docs/VALIDATION.md.
 - Contrôle distant check:urls -- --match-local PASS : catalogue,15URL de thèmes et5JPEG comparés aux fichiers locaux. Les téléchargements sont prêts à l’emploi ; aucun GitHub Release n’a été créé.
 - Dernière maintenance : conserver la politique LF générale existante et ajouter HTML ; enregistrer les preuves de publication. Ces seuls fichiers de maintenance ne modifient pas le CSS ni les aperçus.
-- Laboratoire et serveur de test conservés, Sibylla seul actif au dernier contrôle. Aucun remplacement supplémentaire du thème Windows demandé. Accès, médias privés et sauvegardes restent exclus du dépôt.
+- Client du laboratoire VPS sauvegardé puis retiré le 25 octobre à la demande du propriétaire ; services existants préservés. Serveur Discord Theme Lab conservé. Sauvegardes et détails de restauration privés, nouvelle connexion nécessaire.
 - Limites : BetterDiscord réel, caméra, matériel audio, lecteurs d’écran, tous zooms/états et FPS ne sont pas certifiés. Superpowers désactivé. Suite : retours d’usage du propriétaire, sans nouvelle refonte implicite.
 
 - Identité finale : dépôt renommé ussmarines/Sibylla-Discord-Theme selon le choix du propriétaire ; origin, description, homepage,8topics, imports des5wrappers et tous liens actifs mis à jour. Historique conservé, ancien lien GitHub redirigé.
@@ -17,3 +17,5 @@
 - Nouvelles adresses Pages vérifiées : catalogue,15fichiers thèmes,5aperçus etbannière. Qualité5tests/audit0 et25liens Markdown PASS. Déploiement de référence201f8da ; bilan documentaire sans changement CSS.
 
 - Version3.0.1 : icône MP colorée selon l’accent de chaque thème, comme les aperçus. Correctif du générateur icons.js,30octets CSS, aucune nouvelle requête :has(). Contrôle natif Sibylla sur VPS etfixture70/70PASS ; cinq builds etinstallables régénérés. Préserver l’appel courant du laboratoire.
+
+- Catalogue éditorial minuit/or et guide débutant Vencord/BetterDiscord : sources `scripts/build-site.js`, `assets/site/`, `docs/INSTALLATION.md`. Tutoriel partagé avec le wiki ; aucune modification des cinq thèmes. Contrôles de génération, liens, rendu desktop et largeur CSS390, focus et téléchargement réel effectués ; revue finale indépendante SHIP, aucun correctif matériel ouvert. Qualité5tests/audit0 et suite locale7contrôles PASS ; publication main autorisée par le propriétaire.

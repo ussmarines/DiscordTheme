@@ -2,14 +2,17 @@
     "name": "sibylla-discord-themes",
     "version": "3.0.1",
     "scripts": {
-        "build": "node scripts/icons.js && node scripts/build.js",
+        "build": "node scripts/icons.js && node scripts/build.js && node scripts/build-site.js",
         "check": "node scripts/check.js",
         "test": "node --test scripts/test.js",
-        "quality": "npm run build && npm run check && npm run check:docs && npm test && npm audit --audit-level=moderate",
+        "quality": "npm run build && npm run check && npm run check:docs && npm run check:site && npm test && npm audit --audit-level=moderate",
         "bundle": "npm run build",
         "check:urls": "node scripts/check-urls.js",
         "check:docs": "node scripts/check-docs.js",
-        "previews:build": "node scripts/previews.js"
+        "previews:build": "node scripts/previews.js",
+        "site:build": "node scripts/build-site.js",
+        "check:site": "node scripts/check-site.js",
+        "wiki:build": "node scripts/build-wiki.js"
     },
     "author": "ussmarines",
     "license": "MIT",
