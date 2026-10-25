@@ -1,0 +1,33 @@
+#app-mount :is(.chatContent_f75fb0, .messagesWrapper__36d07, .chat_fb64c9, .container__01ae2) {
+    background: var(--sibnight-canvas);
+    border-radius: 0;
+}
+#app-mount .message__5126c { border-radius: 0; }
+/* Avatar, decoration and reply geometry share the native sizing/spacing tokens. */
+#app-mount .cozy_c19a55 .markup__75297 {
+    max-width: var(--sibnight-reading-measure);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--sibnight-foreground);
+    overflow-wrap: break-word;
+}
+#app-mount .cozy_c19a55.groupStart__5126c { margin-top: 24px; }
+#app-mount .username_c19a55 { font-size: 16px; font-weight: 650; }
+#app-mount .timestamp_c19a55 { color: var(--sibnight-muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+#app-mount .markup__75297 a { color: var(--sibnight-nord8); text-decoration: underline; text-underline-offset: 3px; }
+#app-mount .markup__75297 :is(code, pre, .hljs) { background: var(--sibnight-index); border-color: var(--sibnight-line); }
+#app-mount .embedFull__623de { background: var(--sibnight-index); border-radius: 6px; }
+#app-mount :is(.reaction__23977, .reaction_f8896c) {
+    background: var(--sibnight-control);
+    border: 1px solid transparent;
+    border-radius: 6px;
+}
+#app-mount :is(.reactionMe__23977, .reactionMe_f8896c) { border-color: var(--sibnight-nord8); }
+#app-mount :is(.mentioned__5126c, .replying__5126c) { background: color-mix(in srgb, var(--sibnight-nord8) 8%, transparent); }
+#app-mount .mentioned__5126c::before { background: var(--sibnight-nord8); }
+#app-mount .divider__908e2 { border-width: 1px; border-radius: 0; }
+#app-mount .divider__908e2 .content__908e2 { color: var(--sibnight-muted); background: var(--sibnight-canvas); }
+#app-mount .endCap__908e2 { border-radius: 4px; }
+
+#app-mount .mention { color: var(--sibnight-nord8); background: var(--mention-background); }
+#app-mount .mention:hover { background: var(--mention-background-hover); color: var(--sibnight-nord6); }

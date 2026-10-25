@@ -1,195 +1,52 @@
-const fs = require('fs');
-const path = require('path');
-const { validateCss } = require('./css-policy');
-
-const rootDir = path.join(__dirname, '..', '..');
-const srcDir = path.join(rootDir, 'src');
-const themeFile = path.join(rootDir, 'themes', 'sibnight.theme.css');
-const buildFile = path.join(rootDir, 'build', 'sibnight.css');
-const flavorSourceFile = path.join(srcDir, 'flavor-base.css');
-const FLAVOR_SOURCE_FILE_ORDER = ['flavor-base.css', 'north-polar.css'];
-const flavorBuildFile = path.join(rootDir, 'build', 'sibnight-flavor.css');
-
-const SOURCE_FILE_ORDER = [
-    'main.css',
-    'colors.css',
-    'animations.css',
-    'background-image.css',
-    'chatbar.css',
-    'dms-button.css',
-    'top-bar.css',
-    'transparency-blur.css',
-    'user-panel.css',
-    'window-controls.css',
-    'compatibility.css',
-    'hardening.css',
-    'workspace.css',
-];
-
-const REMOTE_BUILD_IMPORT = 'https://ussmarines.github.io/DiscordTheme/build/sibnight.css';
-const REMOTE_FLAVOR_BUILD_IMPORT = 'https://ussmarines.github.io/DiscordTheme/build/sibnight-flavor.css';
-
-const BUILD_IMPORT_PATTERN = new RegExp(
-    String.raw`@import\s+url\(['"]${REMOTE_BUILD_IMPORT.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]\);`
-);
-
-function listSourceCssFiles() {
-    if (!fs.existsSync(srcDir)) {
-        throw new Error(`Source directory is missing: ${srcDir}`);
-    }
-
-    return fs
-        .readdirSync(srcDir)
-        .filter((fileName) => fileName.endsWith('.css'))
-        .sort((left, right) => left.localeCompare(right));
-}
-
-function assertSourceOrderIsStrict() {
-    const discoveredFiles = listSourceCssFiles();
-    const discoveredSet = new Set(discoveredFiles);
-    const declaredSet = new Set([...SOURCE_FILE_ORDER, ...FLAVOR_SOURCE_FILE_ORDER]);
-
-    const duplicateDeclarations = SOURCE_FILE_ORDER.filter((fileName, index) => {
-        return SOURCE_FILE_ORDER.indexOf(fileName) !== index;
+const fs = require('node:fs');
+const path = require('node:path');
+const postcss = require('postcss');
+const { FLAVORS, flavorCss } = require('./flavors');
+const rootDir = path.resolve(__dirname, '../..');
+const SOURCE_FILE_ORDER = ['00-tokens.css', '10-native-colors.css', '20-shell.css', '30-conversation.css', '40-composer.css', '50-dock.css', '60-overlays.css', '70-icons.css', '75-motion.css', '80-accessibility.css'];
+const FONT_IMPORT = 'https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap';
+const BUILD_IMPORT = 'https://ussmarines.github.io/DiscordTheme/build/north-polar.css';
+const themePath = path.join(rootDir, 'themes/north-polar.theme.css');
+const buildPath = path.join(rootDir, 'build/north-polar.css');
+const LOCAL_SWITCH_STATE = '#app-mount .container_a28278:has(> .hiddenVisually_b18fe2 > input:checked) > .switchIndicator_a28278';
+function validateCss(css, name) {
+    const ast = postcss.parse(css, { from: name });
+    let imports = 0;
+    ast.walkAtRules(/^import$/i, rule => {
+        if (rule.parent !== ast || ![FONT_IMPORT, ...FLAVORS.map(f => `https://ussmarines.github.io/DiscordTheme/build/${f.id}.css`)].some(url => rule.params === `url('${url}')`)) throw rule.error('Unexpected import');
+        imports++;
     });
-
-    if (duplicateDeclarations.length > 0) {
-        throw new Error(`SOURCE_FILE_ORDER contains duplicates: ${duplicateDeclarations.join(', ')}`);
-    }
-
-    const missingFiles = [...SOURCE_FILE_ORDER, ...FLAVOR_SOURCE_FILE_ORDER].filter((fileName) => !discoveredSet.has(fileName));
-    const undeclaredFiles = discoveredFiles.filter((fileName) => !declaredSet.has(fileName));
-
-    if (missingFiles.length > 0) {
-        throw new Error(`SOURCE_FILE_ORDER references missing files: ${missingFiles.map((file) => `src/${file}`).join(', ')}`);
-    }
-
-    if (undeclaredFiles.length > 0) {
-        throw new Error(`SOURCE_FILE_ORDER is missing files: ${undeclaredFiles.map((file) => `src/${file}`).join(', ')}`);
-    }
+    if (imports > 1) throw new Error(`${name}: repeated import`);
+    ast.walkRules(rule => {
+        if (/\[class[*^$]=/u.test(rule.selector)) throw rule.error('Use scoped native component selectors');
+        if (/:has\(/iu.test(rule.selector) && rule.selector !== LOCAL_SWITCH_STATE) throw rule.error('Only the bounded native switch state query is allowed');
+        rule.walkDecls(decl => {
+            if (/layerContainer/u.test(rule.selector) && /^background/u.test(decl.prop) && !/^(none|transparent)$/u.test(decl.value)) throw decl.error('Do not paint overlay roots');
+            if (/\.unread_\w+/u.test(rule.selector) && decl.prop === 'display' && decl.value === 'none') throw decl.error('Do not hide unread indicators');
+            if (decl.prop === 'transition' && /\ball\b/u.test(decl.value)) throw decl.error('Do not transition all properties');
+            if (/^(filter|backdrop-filter)$/u.test(decl.prop) && decl.value !== 'none') throw decl.error('No decorative filters');
+            if (/:focus-visible/u.test(rule.selector) && decl.prop === 'outline' && /^(none|0)$/u.test(decl.value)) throw decl.error('Do not remove keyboard focus');
+        });
+    });
+    return ast;
 }
-
-function getSourceFiles() {
-    assertSourceOrderIsStrict();
-
-    return SOURCE_FILE_ORDER.map((fileName) => path.join(srcDir, fileName));
+function compileSourceCss(id = 'north-polar') {
+    if (!FLAVORS.some(f => f.id === id)) throw new Error('Unknown flavor');
+    const found = fs.readdirSync(path.join(rootDir, 'src')).filter(n => n.endsWith('.css')).sort();
+    if (JSON.stringify(found) !== JSON.stringify([...SOURCE_FILE_ORDER].sort())) throw new Error('Source manifest does not match src/');
+    const common = SOURCE_FILE_ORDER.map(name => {
+        const css = fs.readFileSync(path.join(rootDir, 'src', name), 'utf8').replace(/\r\n/g, '\n').trimEnd();
+        validateCss(css, name);
+        return `/* ${name} */\n${css}\n`;
+    }).join('\n');
+    const css = common + flavorCss(id);
+    validateCss(css, id);
+    return css;
 }
-
-function readTextFile(filePath) {
-    return fs.readFileSync(filePath, 'utf8').replace(/\r\n/g, '\n');
+function bundle(css = compileSourceCss(), id = 'north-polar') {
+    const wrapper = fs.readFileSync(path.join(rootDir, 'themes', `${id}.theme.css`), 'utf8').replace(/\r\n/g, '\n');
+    const url = `https://ussmarines.github.io/DiscordTheme/build/${id}.css`;
+    if (!wrapper.includes(`@import url('${url}');`)) throw new Error('Standalone wrapper import missing');
+    return wrapper.replace(`@import url('${url}');`, css).trimEnd() + '\n';
 }
-
-function writeTextFile(filePath, contents) {
-    fs.mkdirSync(path.dirname(filePath), { recursive: true });
-    fs.writeFileSync(filePath, contents);
-}
-
-function normalizeCssText(contents) {
-    return contents.replace(/\r\n/g, '\n').replace(/\s*$/u, '\n');
-}
-
-function ensureThemeTemplate(themeCss) {
-    if (!BUILD_IMPORT_PATTERN.test(themeCss)) {
-        throw new Error(
-            'themes/sibnight.theme.css no longer contains the expected build import. ' +
-                'Keep the GitHub Pages build import so the build step can inline compiled CSS safely.'
-        );
-    }
-}
-
-function compileSourceCss() {
-    return getSourceFiles()
-        .map((filePath) => {
-            const relativeName = path.basename(filePath);
-            const css = normalizeCssText(readTextFile(filePath));
-            validateCss(css, `src/${relativeName}`);
-            return `/* ${relativeName} */\n${css}\n`;
-        })
-        .join('');
-}
-
-function compileFlavorCss(compiledCss = compileSourceCss()) {
-    return compiledCss + FLAVOR_SOURCE_FILE_ORDER.map((file) => {
-        const css = normalizeCssText(readTextFile(path.join(srcDir, file)));
-        validateCss(css, `src/${file}`);
-        return `/* ${file} */\n${css}\n`;
-    }).join('');
-}
-
-function writeCompiledCss(compiledCss = compileSourceCss()) {
-    writeTextFile(buildFile, compiledCss);
-    return compiledCss;
-}
-
-function buildBundleFromTheme(compiledCss) {
-    const themeCss = readTextFile(themeFile);
-    validateCss(themeCss, 'themes/sibnight.theme.css');
-    ensureThemeTemplate(themeCss);
-
-    return themeCss.replace(BUILD_IMPORT_PATTERN, compiledCss);
-}
-
-function getBundleOutputs(extraOutputs = []) {
-    const normalizedExtraOutputs = extraOutputs
-        .filter(Boolean)
-        .map((outputPath) => path.resolve(rootDir, outputPath));
-
-    for (const outputPath of normalizedExtraOutputs) {
-        const relative = path.relative(rootDir, outputPath);
-        if (!outputPath.endsWith('.theme.css') || (!relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative) && !relative.startsWith(`output${path.sep}`))) {
-            throw new Error('Bundle outputs must be .theme.css files outside the repository or inside output/');
-        }
-    }
-    return [...new Set(normalizedExtraOutputs)];
-}
-
-function writeBundleOutputs(bundledCss, extraOutputs = []) {
-    const outputs = getBundleOutputs(extraOutputs);
-
-    for (const outputPath of outputs) {
-        writeTextFile(outputPath, bundledCss);
-    }
-
-    return outputs;
-}
-
-function buildAll(extraOutputs = []) {
-    getBundleOutputs(extraOutputs);
-    const compiledCss = compileSourceCss();
-    const compiledFlavorCss = compileFlavorCss(compiledCss);
-
-    const bundledCss = buildBundleFromTheme(compiledCss);
-    writeCompiledCss(compiledCss);
-    writeTextFile(flavorBuildFile, compiledFlavorCss);
-    const outputs = [buildFile, flavorBuildFile, ...writeBundleOutputs(bundledCss, extraOutputs)];
-
-    return {
-        compiledCss,
-        compiledFlavorCss,
-        bundledCss,
-        outputs,
-    };
-}
-
-module.exports = {
-    rootDir,
-    srcDir,
-    themeFile,
-    buildFile,
-    flavorSourceFile,
-    flavorBuildFile,
-    SOURCE_FILE_ORDER,
-    REMOTE_BUILD_IMPORT,
-    REMOTE_FLAVOR_BUILD_IMPORT,
-    BUILD_IMPORT_PATTERN,
-    listSourceCssFiles,
-    assertSourceOrderIsStrict,
-    getSourceFiles,
-    getBundleOutputs,
-    compileSourceCss,
-    compileFlavorCss,
-    writeCompiledCss,
-    buildBundleFromTheme,
-    writeBundleOutputs,
-    buildAll,
-};
+module.exports = { rootDir, SOURCE_FILE_ORDER, FONT_IMPORT, BUILD_IMPORT, themePath, buildPath, validateCss, compileSourceCss, bundle };

@@ -1,120 +1,127 @@
-const fs = require('fs');
-const path = require('path');
-const { compileSourceCss, compileFlavorCss, buildBundleFromTheme, REMOTE_FLAVOR_BUILD_IMPORT } = require('./lib/build-theme');
-const main = compileSourceCss();
-const variants = [['sibnight', buildBundleFromTheme(main)]];
-for (const file of fs.readdirSync('themes/flavors').filter((f) => f.endsWith('.theme.css')).sort()) {
-    variants.push([file, fs.readFileSync(path.join('themes/flavors', file), 'utf8').replace(`@import url('${REMOTE_FLAVOR_BUILD_IMPORT}');`, compileFlavorCss(main))]);
-}
-const selected = process.argv.includes('--north-only') ? variants.filter(([name]) => name === 'sibnight-north-polar.theme.css') : variants;
-const data = selected.map(([name, css]) => [name, css.replace(/@import[^;]+;/g, '').replaceAll('</', '<\\/')]);
-const html = `<!doctype html><meta charset="utf-8"><title>Sibnight synthetic regression fixture</title>
-<h1>Synthetic CSS checks — not a Discord compatibility test</h1><pre id="results">Running…</pre>
+const fs = require('node:fs');
+const { compileSourceCss, FONT_IMPORT } = require('./lib/build-theme');
+const css = compileSourceCss().replace(`@import url('${FONT_IMPORT}');`, '').replaceAll('</', '<\\/');
+const html = `<!doctype html><meta charset="utf-8"><title>North Polar isolated CSS checks</title>
+<h1>North Polar synthetic guards — not a Discord runtime test</h1><pre id="results">Running</pre>
 <script>
-const variants = ${JSON.stringify(data)};
-const results = [];
-const luminance = (rgb) => rgb.slice(0, 3).map(v => v / 255).map(v => v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4).reduce((sum, v, i) => sum + v * [0.2126, 0.7152, 0.0722][i], 0);
-const contrast = (a, b) => {
-    // Composite translucent foregrounds rather than silently treating them as opaque.
-    const foreground = a.slice(0, 3).map((v, i) => v * a[3] / 255 + b[i] * (1 - a[3] / 255));
-    return (Math.max(luminance(foreground), luminance(b)) + 0.05) / (Math.min(luminance(foreground), luminance(b)) + 0.05);
-};
-(async () => {
-    for (const [name, css] of variants) {
-        const frame = document.createElement('iframe');
-        frame.style.width = '900px'; frame.style.height = '200px';
-        const ready = new Promise(resolve => frame.onload = resolve);
-        frame.srcdoc = '<!doctype html><style>' + css + '</style><body style="--animations:off;--panel-blur:on"><div id="app-mount"><div class="modeUnreadImportant__2ea32"><span class="unread__2ea32">Unread</span><a class="link__2ea32">Channel</a></div><button class="iconWrapper__9293f">Menu</button><div class="layerContainer__59d0d"></div><div class="menu_c1e9c4">Popover</div><div class="outer_c0bea0 custom-user-profile-theme" style="--profile-gradient-modal-background-color:#12141e;--profile-gradient-overlay-color:rgba(0,0,0,.6);--white:#fff;--white-500:#fff"><div class="inner_c0bea0"><div class="card_e1364f" style="color:var(--white)">Custom profile widget</div></div></div><a class="anchor__14d82" href="#">Link</a></div></body>';
-        document.body.append(frame); await ready;
-        const doc = frame.contentDocument, win = frame.contentWindow;
-        const style = (selector, pseudo) => win.getComputedStyle(doc.querySelector(selector), pseudo);
-        const canvas = doc.createElement('canvas');
-        const context = canvas.getContext('2d', { willReadFrequently: true });
-        const rgba = (color) => {
-            context.clearRect(0, 0, 1, 1);
-            context.fillStyle = color;
-            context.fillRect(0, 0, 1, 1);
-            return Array.from(context.getImageData(0, 0, 1, 1).data);
-        };
-        const token = (name) => {
-            const probe = doc.createElement('span');
-            probe.style.color = 'var(' + name + ')';
-            doc.body.append(probe);
-            const value = rgba(win.getComputedStyle(probe).color);
-            probe.remove();
-            return value;
-        };
-        // Muted copy belongs on panel surfaces, not pressed/colored button fills.
-        const surfaces = ['--sibnight-bg-2', '--sibnight-bg-3', '--sibnight-bg-4'].map(token);
-        const mutedContrast = Math.min(...surfaces.map(bg => contrast(token('--sibnight-text-5'), bg)));
-        const focusContrast = Math.min(...surfaces.map(bg => contrast(token('--sibnight-focus-ring'), bg)));
-        const button = doc.querySelector('button');
-        button.focus();
-        // Minimal native flex layout; theme controls must fit inside its reserved bar.
-        const historyBar = doc.createElement('div');
-        historyBar.className = 'bar_c38106';
-        historyBar.style.cssText = 'display:flex;align-items:center;height:var(--custom-app-top-bar-height)';
-        historyBar.innerHTML = '<div class="leading_c38106"><div class="backForwardButtons__63abb"><button class="button__63abb">Back</button></div></div>';
-        doc.querySelector('#app-mount').append(historyBar);
-        const historyBounds = historyBar.getBoundingClientRect();
-        const historyButton = historyBar.querySelector('button').getBoundingClientRect();
-        const checks = {
-            historyControlsInset: historyButton.top - historyBounds.top >= 4 && historyBounds.bottom - historyButton.bottom >= 4 && historyButton.left - historyBounds.left >= 8,
-            historyHitArea: historyButton.width >= 24 && historyButton.height >= 24,
-            unreadVisible: style('.unread__2ea32').display !== 'none',
-            overlayTransparent: style('.layerContainer__59d0d').backgroundColor === 'rgba(0, 0, 0, 0)',
-            animationsOff: style('button').transitionDuration === '0s',
-            menuDecorationClickThrough: style('.menu_c1e9c4', '::before').pointerEvents === 'none',
-            mutedTextContrast: mutedContrast >= 4.5,
-            focusContrast: focusContrast >= 3,
-            keyboardFocusVisible: style('button').outlineStyle === 'solid' && style('button').outlineWidth === '2px',
-            customProfileContrast: contrast(rgba(style('.card_e1364f').color), rgba(style('.inner_c0bea0').backgroundColor)) >= 4.5,
-            linkContrast: Math.min(...surfaces.map(bg => contrast(rgba(style('.anchor__14d82').color), bg))) >= 4.5,
-        };
-        const motionProbe = doc.createElement('div');
-        const polarProbe = doc.createElement('div');
-        polarProbe.innerHTML = '<div class="chatContent_f75fb0">Reading page</div><div class="toolbar__9293f"><button aria-label="Fils"><svg><path d="M0 0h1v1Z"/></svg></button><button aria-label="Messages épinglés"><svg><path d="M0 0h1v1Z"/></svg></button><button aria-label="Paramètres de notification"><svg><path d="M0 0h1v1Z"/></svg></button></div><div class="toolbar__9293f"><div class="search__49676"><div class="searchBar_c322aa"><svg><path d="M0 0h1v1Z"/></svg></div></div></div><div class="panels__5e434"><div class="fitInAccount_df39b2">Decoration</div></div>';
-        doc.querySelector('#app-mount').append(polarProbe);
-        const polarEnabled = name === 'sibnight-north-polar.theme.css';
-        const glyph = (label) => win.getComputedStyle(polarProbe.querySelector('[aria-label="' + label + '"] svg'));
-        checks.polarGuard = (style('.chatContent_f75fb0').backgroundColor === 'rgb(46, 52, 64)') === polarEnabled;
-        if (polarEnabled) {
-            checks.polarThreadGlyph = glyph('Fils').maskImage.startsWith('url(');
-            checks.polarPinGlyphFrench = glyph('Messages épinglés').maskImage.startsWith('url(');
-            checks.polarNotificationStateNative = glyph('Paramètres de notification').maskImage === 'none' && win.getComputedStyle(polarProbe.querySelector('[aria-label="Paramètres de notification"] path')).opacity === '1';
-            checks.polarSearchGlyphVisible = style('.search__49676 svg').maskImage.startsWith('url(') && style('.search__49676 svg').backgroundColor !== 'rgba(0, 0, 0, 0)';
-            checks.polarAccountDecorationRemoved = style('.fitInAccount_df39b2').display === 'none';
-            const layout = doc.createElement('div');
-            layout.className = 'base__5e434';
-            layout.innerHTML = '<div class="sidebar__5e434"><div class="sidebarList__5e434">Index</div></div><div class="container_c8ffbb">Members</div><div class="bar_c38106"><div class="trailing_c38106"><a href="https://support.discord.com">Help</a><div class="winButtons_c38106"><button class="winButton_c38106"><svg width="16" height="16"><path d="M1 8h14"/></svg></button></div></div></div>';
-            doc.querySelector('#app-mount').append(layout);
-            const computed = (selector, pseudo) => win.getComputedStyle(layout.querySelector(selector), pseudo);
-            checks.coreSidebarResponsive = layout.querySelector('.sidebar__5e434').getBoundingClientRect().width <= 288;
-            checks.coreMembersResponsive = layout.querySelector('.container_c8ffbb').getBoundingClientRect().width <= 280;
-            checks.coreContinuousColumns = computed('.sidebarList__5e434').borderTopLeftRadius === '0px';
-            checks.coreNativeWindowControls = computed('.winButton_c38106 svg').display !== 'none' && computed('.winButton_c38106', '::after').display === 'none';
-            checks.coreHelpVisible = computed('a').display !== 'none';
-            checks.coreChromeStatic = computed('.trailing_c38106').position === 'static' && computed('.trailing_c38106').opacity === '1';
-        }
-        motionProbe.className = 'messageListItem__5126c';
-        doc.querySelector('#app-mount').append(motionProbe);
-        doc.body.style.setProperty('--animations', 'on');
-        await new Promise(resolve => win.requestAnimationFrame(() => win.requestAnimationFrame(resolve)));
-        const motionEnabled = win.getComputedStyle(motionProbe).transitionDuration !== '0s';
-        doc.documentElement.classList.add('reduce-motion');
-        const motionDisabled = win.getComputedStyle(motionProbe).transitionDuration === '0s';
-        checks.discordReducedMotion = motionEnabled && motionDisabled;
-        if (/north-(snow|aurora-light)/.test(name)) {
-            const syntaxTokens = ['--text-code', '--text-code-addition', '--text-code-builtin', '--text-code-comment', '--text-code-bullet', '--text-code-deletion', '--text-code-section', '--text-code-keyword', '--text-code-string', '--text-code-tag', '--text-code-title', '--text-code-variable'];
-            checks.lightStatusPaletteContrast = Math.min(...['--sibnight-green-1', '--sibnight-green-2'].flatMap(name => surfaces.map(bg => contrast(token(name), bg)))) >= 4.5;
-            checks.lightSyntaxPaletteContrast = Math.min(...syntaxTokens.flatMap(name => surfaces.map(bg => contrast(token(name), bg)))) >= 4.5;
-        }
-        results.push({name, mutedContrast, focusContrast, linkColor: style('.anchor__14d82').color, checks, pass: Object.values(checks).every(Boolean)});
-        frame.remove();
-    }
-    document.querySelector('#results').textContent = JSON.stringify(results, null, 2);
+const css=${JSON.stringify(css)};
+(async()=>{
+ const results=[];
+ for(const width of [1600,1101]){
+  const frame=document.createElement('iframe');frame.style.cssText='width:'+width+'px;height:801px';
+  const ready=new Promise(r=>frame.onload=r);
+  frame.srcdoc='<!doctype html><style>'+css+'</style><body class="theme-dark"><div id="app-mount"><div class="base__5e434"><aside class="sidebar__5e434"><nav class="guilds__5e434"><div class="listItem__650eb"><div class="blobContainer_e5445c"><div class="wrapper__6e9f8" data-list-item-id="guildsnav___home"><div class="childWrapper__6e9f8"><svg><path d="M0 0h1"/></svg></div></div></div></div></nav><div class="sidebarList__5e434">Index <span class="unread__2ea32">Unread</span></div></aside><div class="toolbar__9293f"><button class="iconWrapper__9293f" aria-label="Fils"><svg><path/></svg></button><button aria-label="Paramètres de notification"><svg><path/></svg></button><button aria-label="Messages épinglés"><svg><path/></svg></button></div><form class="form_f75fb0"><div class="channelTextArea_f75fb0"><div class="scrollableContainer__74017"><div class="inner__74017"><div class="attachWrapper__0923f"><button><svg/></button></div><div class="slateTextArea_ec4baf" contenteditable="true">Composer</div></div></div></div></form><div class="layerContainer__59d0d"><div class="menu_c1e9c4">Menu</div></div><div class="custom-user-profile-theme theme-dark" style="--background-primary:#123456;background:var(--background-primary)">Custom profile</div><button id="focus">Focus</button><div id="notice" style="color:var(--notice-text-critical);background:var(--notice-background-critical)">Critical notice</div></div></div></body>';
+  document.body.append(frame);await ready;
+  const d=frame.contentDocument,w=frame.contentWindow;
+  const q=s=>d.querySelector(s),style=s=>w.getComputedStyle(q(s));
+  const canvas=d.createElement('canvas'),ctx=canvas.getContext('2d',{willReadFrequently:true});
+  const rgb=c=>{ctx.clearRect(0,0,1,1);ctx.fillStyle=c;ctx.fillRect(0,0,1,1);return [...ctx.getImageData(0,0,1,1).data].slice(0,3)};
+  const token=n=>{const p=d.createElement('span');p.style.color='var('+n+')';d.body.append(p);const c=rgb(w.getComputedStyle(p).color);p.remove();return c};
+  const lum=c=>c.map(x=>x/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4).reduce((s,x,i)=>s+x*[.2126,.7152,.0722][i],0);
+  const contrast=(a,b)=>(Math.max(lum(a),lum(b))+.05)/(Math.min(lum(a),lum(b))+.05);
+  const surfaces=['--sibnight-canvas','--sibnight-index','--sibnight-control'].map(token);
+  q('#focus').focus();
+  // Reproduce the native grid and the distinct call/text header branches.
+  // A nested thread header must not receive the main history reservation.
+  const regression=d.createElement('div');
+  regression.className='base__5e434 history-regression';
+  regression.style.cssText='display:grid;grid-template-areas:"titleBar titleBar" "channelsList page";grid-template-columns:var(--sibnight-sidebar) 1fr;grid-template-rows:36px auto;position:relative';
+  regression.innerHTML='<div class="bar_c38106"><div class="title_c38106">App title</div><div class="leading_c38106"><div class="backForwardButtons__63abb" style="display:flex"><div role="button" class="button__63abb" aria-label="Back"><svg width="16" height="16"></svg></div><div role="button" class="button__63abb" aria-label="Forward"><svg width="16" height="16"></svg></div></div></div><div class="trailing_c38106">Window controls</div></div><aside style="grid-area:channelsList">Index</aside><main class="page__5e434" style="grid-area:page"><div class="headerWrapper_cb9592"><div class="subtitleContainer__49508"><section class="headerBar__49508 container__9293f"><span class="probe-title">Voice title</span></section></div></div><section class="container__9293f probe-thread">Nested thread title</section></main>';
+  q('#app-mount').append(regression);
+  const historyRight=()=>regression.querySelector('.backForwardButtons__63abb').getBoundingClientRect().right;
+  const voiceClear=regression.querySelector('.probe-title').getBoundingClientRect().left>=historyRight();
+  const nestedUnshifted=w.getComputedStyle(regression.querySelector('.probe-thread')).paddingInlineStart!=='112px';
+  regression.querySelector('.headerWrapper_cb9592').className='subtitleContainer_f75fb0';
+  regression.querySelector('.subtitleContainer__49508').className='';
+  regression.querySelector('.headerBar__49508').className='title_f75fb0 container__9293f';
+  const textClear=regression.querySelector('.probe-title').getBoundingClientRect().left>=historyRight();
+  regression.remove();
+  // Native quality SVG children carry the levels; the theme must not flatten them.
+  const quality=d.createElement('div');quality.className='connection_e131a9';
+  quality.innerHTML=['Fine','Average','Bad'].map((level,i)=>'<span class="rtcConnectionQuality'+level+'__06d62"><svg class="ping__06d62 largePing__06d62" viewBox="0 0 16 16"><path fill-opacity="1" d="M1 12h3v3H1z"/><path fill-opacity="'+(i<2?1:.25)+'" d="M6 7h3v8H6z"/><path fill-opacity="'+(i===0?1:.25)+'" d="M11 1h3v14h-3z"/></svg></span>').join('');
+  q('#app-mount').append(quality);
+  const qualityStates=[...quality.querySelectorAll('svg')].every((svg,i)=>w.getComputedStyle(svg).maskImage==='none'&&svg.getBoundingClientRect().width===16&&svg.getBoundingClientRect().height===16&&[...svg.children].every(p=>w.getComputedStyle(p).opacity==='1')&&w.getComputedStyle(svg.lastElementChild).fillOpacity===(i===0?'1':'0.25'));
+  quality.remove();
+  const nativeSwitch=d.createElement('div');nativeSwitch.className='container_a28278';
+  nativeSwitch.innerHTML='<div class="switchIndicator_a28278" style="background-color:rgb(88,101,242)"></div><span class="hiddenVisually_b18fe2"><input type="checkbox" role="switch" checked></span>';
+  q('#app-mount').append(nativeSwitch);
+  const track=nativeSwitch.firstElementChild;
+  const checkedSwitch=contrast(rgb(w.getComputedStyle(track).backgroundColor),[255,255,255])>=3&&w.getComputedStyle(track).backgroundColor==='rgb(94, 129, 172)';
+  nativeSwitch.querySelector('input').checked=false;track.style.backgroundColor='rgba(0,0,0,.12)';
+  const uncheckedSwitch=w.getComputedStyle(track).backgroundColor==='rgba(0, 0, 0, 0.12)';
+  nativeSwitch.remove();
+  // Minimal native portal topology: the call and lower chat must not intersect.
+  const split=d.createElement('div');split.className='voice-probe';
+  split.style.cssText='position:relative;width:calc(100vw - var(--sibnight-sidebar));height:765px';
+  split.innerHTML='<style>.voice-probe>.wrapper_cb9592{height:100%;width:100%;display:flex}.voice-probe .callContainer_cb9592{flex:1;height:100%}.voice-probe>.layerContainer__59d0d{position:absolute;inset:0;pointer-events:none}.voice-probe .chatLayerWrapper__01ae2{position:absolute;top:0;right:0;height:100%}.voice-probe .container__01ae2{position:absolute;top:0;bottom:0;right:0;width:450px;box-sizing:border-box}</style><section class="wrapper_cb9592 sidebarOpen_cb9592"><div class="callContainer_cb9592">Stage</div></section><div class="layerContainer__59d0d"><div class="chatLayerWrapper__01ae2 connectedRight__01ae2"><div class="container__01ae2 floating__01ae2" style="width:450px">Chat</div></div></div>';
+  q('#app-mount').append(split);
+  const stageRect=split.querySelector('.wrapper_cb9592').getBoundingClientRect(),chatRect=split.querySelector('.container__01ae2').getBoundingClientRect();
+  const stackedClear=width>1200||chatRect.top>=stageRect.bottom-1;
+  const stackedFullWidth=width>1200||Math.abs(chatRect.width-stageRect.width)<1;
+  const stackedChatFits=width>1200||chatRect.bottom<=split.getBoundingClientRect().bottom+1;
+  split.style.height='500px';
+  const shortStage=split.querySelector('.wrapper_cb9592').getBoundingClientRect(),shortChat=split.querySelector('.container__01ae2').getBoundingClientRect();
+  const shortSplitClear=width>1200||(shortChat.top>=shortStage.bottom-1&&shortChat.bottom<=split.getBoundingClientRect().bottom+1);
+  split.remove();
+  // Native sizing contracts: theme rules must not defeat the user's width or virtual rows.
+  const sidebarWidths=[300,444].map(size=>{
+   d.documentElement.style.setProperty('--custom-guild-sidebar-width',size+'px');
+   return q('.sidebar__5e434').getBoundingClientRect().width===size;
+  });
+  d.documentElement.style.removeProperty('--custom-guild-sidebar-width');
+  const nativeGeometry=d.createElement('div');
+  nativeGeometry.innerHTML='<style>.native-geometry .wrapper_c19a55{position:relative;height:100px;--chat-avatar-size:40px;--custom-message-avatar-size:40px;--custom-message-avatar-decoration-size:48px;--custom-message-margin-horizontal:16px}.native-geometry .avatar_c19a55{position:absolute;top:0;left:var(--custom-message-margin-horizontal);width:var(--chat-avatar-size);height:var(--chat-avatar-size);margin-top:2px}.native-geometry .avatarDecoration_c19a55{position:absolute;top:0;left:calc(var(--custom-message-margin-horizontal) - (var(--custom-message-avatar-decoration-size) - var(--custom-message-avatar-size))/2);width:var(--custom-message-avatar-decoration-size);height:var(--custom-message-avatar-decoration-size);margin-top:-2px}.native-geometry .containerDefault__29444{padding-top:16px;height:24px;box-sizing:content-box}.native-geometry .link__2ea32{height:32px}.native-geometry .member_c8ffbb{background:rgb(10,20,30)}</style><div class="cozy_c19a55 wrapper_c19a55"><div class="avatar_c19a55"></div><div class="avatarDecoration_c19a55"></div></div><div class="containerDefault__29444"></div><div class="link__2ea32"></div><div class="member_c8ffbb">Member</div>';
+  nativeGeometry.className='native-geometry';q('#app-mount').append(nativeGeometry);
+  const avatar=nativeGeometry.querySelector('.avatar_c19a55').getBoundingClientRect(),decoration=nativeGeometry.querySelector('.avatarDecoration_c19a55').getBoundingClientRect();
+  const avatarAligned=Math.abs(avatar.x+avatar.width/2-decoration.x-decoration.width/2)<.1&&Math.abs(avatar.y+avatar.height/2-decoration.y-decoration.height/2)<.1;
+  const nativeCategory=nativeGeometry.querySelector('.containerDefault__29444').getBoundingClientRect().height===40;
+  const nativeChannel=nativeGeometry.querySelector('.link__2ea32').getBoundingClientRect().height===32;
+  const memberClear=w.getComputedStyle(nativeGeometry.querySelector('.member_c8ffbb')).backgroundColor==='rgba(0, 0, 0, 0)';
+  nativeGeometry.remove();
+  const checks={
+   userSidebarWidthsPreserved:sidebarWidths.every(Boolean),
+   avatarDecorationCentred:avatarAligned,
+   virtualCategoryHeightPreserved:nativeCategory,
+   virtualChannelHeightPreserved:nativeChannel,
+   memberRestBackgroundClear:memberClear,
+   nativeQualityStatesPreserved:qualityStates,
+   selectedSwitchContrast:contrast(token('--switch-background-selected-default'),token('--switch-thumb-background-selected-default'))>=3,
+   legacyCheckedSwitchContrast:checkedSwitch,
+   legacyUncheckedSwitchPreserved:uncheckedSwitch,
+   stackedCallChatClear:stackedClear,
+   stackedChatFullWidth:stackedFullWidth,
+   stackedChatFits:stackedChatFits,
+   shortCallChatClear:shortSplitClear,
+   mainVoiceHeaderClear:voiceClear,
+   nestedHeaderUnshifted:nestedUnshifted,
+   mainTextHeaderClear:textClear,
+   foregroundContrast:Math.min(...surfaces.map(bg=>contrast(token('--sibnight-foreground'),bg)))>=4.5,
+   mutedContrast:Math.min(...surfaces.map(bg=>contrast(token('--sibnight-muted'),bg)))>=4.5,
+   focusContrast:Math.min(...surfaces.map(bg=>contrast(token('--sibnight-focus'),bg)))>=3,
+   attentionBadgeContrast:contrast(token('--sibnight-nord6'),token('--sibnight-attention'))>=4.5,
+   criticalNoticeContrast:contrast(rgb(style('#notice').color),rgb(style('#notice').backgroundColor))>=4.5,
+   overlayTransparent:style('.layerContainer__59d0d').backgroundColor==='rgba(0, 0, 0, 0)',
+   unreadVisible:style('.unread__2ea32').display!=='none',
+   nativeProfilePreserved:style('.custom-user-profile-theme').backgroundColor==='rgb(18, 52, 86)',
+   focusVisible:style('#focus').outlineStyle==='solid'&&style('#focus').outlineWidth==='2px',
+   rail72:style('.guilds__5e434').width==='72px',
+   icon40:q('.wrapper__6e9f8').getBoundingClientRect().width===40&&q('.wrapper__6e9f8').getBoundingClientRect().height===40,
+   readChannelContrast:contrast(token('--sibnight-channel-rest'),token('--sibnight-index'))>=4.5,
+   sidebarTrack:style('.sidebar__5e434').width==='344px',
+   composerInnerTransparent:style('.scrollableContainer__74017').backgroundColor==='rgba(0, 0, 0, 0)',
+   composerHeight:parseFloat(style('.inner__74017').minHeight)>=56,
+   homeHasMessageIcon:style('.childWrapper__6e9f8 svg').maskImage.startsWith('url('),
+   threadHasIcon:style('[aria-label="Fils"] svg').maskImage.startsWith('url('),
+   pinHasIcon:style('[aria-label="Messages épinglés"] svg').maskImage.startsWith('url('),
+   bellStatePreserved:style('[aria-label="Paramètres de notification"] svg').maskImage==='none'
+  };
+  d.documentElement.classList.add('reduce-motion');
+  checks.discordReducedMotion=style('.menu_c1e9c4').animationName==='none';
+  results.push({width,checks,pass:Object.values(checks).every(Boolean)});frame.remove();
+ }
+ document.querySelector('#results').textContent=JSON.stringify(results,null,2);
 })();
 </script>`;
 fs.mkdirSync('output', { recursive: true });
-fs.writeFileSync('output/browser-fixture.html', html);
-console.log('Serve output/browser-fixture.html on loopback; inspect the nine result rows in a browser.');
+fs.writeFileSync('output/north-polar-checks.html', html);
+console.log('Serve output/north-polar-checks.html on loopback; read both result rows.');

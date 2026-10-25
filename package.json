@@ -1,24 +1,22 @@
 {
-    "name": "sibnight-discord",
-    "version": "2.15.1",
+    "name": "sibylla-discord-themes",
+    "version": "3.0.0",
     "scripts": {
-        "build": "node scripts/build.js",
+        "build": "node scripts/icons.js && node scripts/build.js",
         "check": "node scripts/check.js",
-        "dev": "node scripts/dev.js",
-        "prepare:release": "npm run build && npm run check",
         "test": "node --test scripts/test.js",
-        "format:check": "node scripts/format-check.js",
-        "bundle": "node scripts/bundle.js",
+        "quality": "npm run build && npm run check && npm run check:docs && npm test && npm audit --audit-level=moderate",
+        "bundle": "npm run build",
         "check:urls": "node scripts/check-urls.js",
-        "quality": "npm run prepare:release && npm test && npm run format:check && npm audit --audit-level=moderate"
+        "check:docs": "node scripts/check-docs.js",
+        "previews:build": "node scripts/previews.js"
     },
     "author": "ussmarines",
     "license": "MIT",
     "devDependencies": {
-        "chokidar": "6.0.0",
         "postcss": "8.5.31"
     },
-    "description": "Sibylla-inspired Discord theme with a stable build pipeline and flavor variants.",
+    "description": "Sibylla Discord workspace with North Polar, North Snow, Spatial and Tokyo-night flavors",
     "private": true,
     "engines": {
         "node": ">=24"

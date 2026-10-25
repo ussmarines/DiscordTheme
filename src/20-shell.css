@@ -1,0 +1,214 @@
+/* Native grid tracks remain native. Only their shared dimensions are supplied. */
+#app-mount, .bg__960e4, .app__160d8, .base__5e434, .page__5e434 {
+    background: var(--sibnight-canvas);
+}
+#app-mount .base__5e434 {
+    --custom-guild-list-width: var(--sibnight-rail);
+}
+#app-mount .sidebar__5e434 {
+    width: var(--sibnight-sidebar);
+    margin: 0;
+    border-radius: 0;
+}
+#app-mount .page__5e434 { padding: 0; }
+#app-mount .guilds__5e434 {
+    --guildbar-avatar-size: 40px;
+    --guildbar-folder-size: 48px;
+    --custom-guild-list-padding: 16px;
+    width: var(--sibnight-rail);
+    margin: 0;
+    background: var(--sibnight-canvas);
+    border-radius: 0;
+    border-inline-end: 1px solid var(--sibnight-line);
+    box-sizing: border-box;
+}
+#app-mount .guilds__5e434 .listItem__650eb {
+    width: var(--sibnight-rail);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Native SVGs retain their 40px coordinate system, badges and hit targets. */
+#app-mount .guilds__5e434 .blobContainer_e5445c { position: relative; margin-block: 0; }
+#app-mount .guilds__5e434 .wrapper__6e9f8 { width: 40px; height: 40px; }
+#app-mount .guilds__5e434 .icon__6e9f8 { width: 40px; height: 40px; object-fit: cover; }
+#app-mount .guilds__5e434 .listItem__650eb > .wrapper__58105 { left: 0; }
+/* A flat index tab supports the native selection pill, without circling the logo. */
+#app-mount .guilds__5e434 .blobContainer_e5445c.selected_e5445c {
+    isolation: isolate;
+}
+#app-mount .guilds__5e434 .blobContainer_e5445c.selected_e5445c::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: -8px;
+    inset-block-start: -4px;
+    width: 56px;
+    height: 48px;
+    background: var(--sibnight-selected);
+    border-radius: var(--sibnight-radius);
+    pointer-events: none;
+    z-index: -1;
+}
+#app-mount .guilds__5e434 .folderGroupBackground__48112 {
+    inset-inline-start: calc((var(--sibnight-rail) - 56px) / 2);
+    width: 56px;
+    background: var(--sibnight-index);
+    border-color: var(--sibnight-line);
+    border-radius: 8px;
+}
+/* Change only the base silhouette: badge cutouts and native status masks remain intact. */
+#app-mount .guilds__5e434 .svg_cc5dd2 > defs > path {
+    d: path("M8 0H32Q40 0 40 8V32Q40 40 32 40H8Q0 40 0 32V8Q0 0 8 0Z");
+}
+#app-mount .guilds__5e434 .folderIcon__48112 { color: var(--sibnight-nord8); }
+#app-mount .guilds__5e434 .folderButtonInner__48112 { border-radius: var(--sibnight-radius); }
+#app-mount .guilds__5e434 .folderPreviewWrapper__48112 {
+    background: var(--sibnight-index);
+    border-radius: var(--sibnight-radius);
+}
+/* Sparse folders keep their artwork centred on the native tooltip anchor. */
+#app-mount .guilds__5e434 .folderPreview__48112 { align-content: center; justify-content: center; }
+.keyboard-mode #app-mount .guilds__5e434 .focusStroke_cc5dd2 { stroke: var(--sibnight-nord8); }
+#app-mount .scroller_ef3116 { padding-top: 16px; }
+#app-mount .sidebarList__5e434 {
+    min-width: 0;
+    /* Native channel/DM scrollers already reserve the measured account/voice panels. */
+    margin-bottom: 0;
+    background: var(--sibnight-index);
+    border-radius: 0;
+    border-right: 1px solid var(--sibnight-line);
+}
+#app-mount :is(.container__2637a, .privateChannels_e6b769, .scroller__629e4, .header_f37cb1) { background: transparent; }
+/* Navigation uses Nord; the account panel keeps its native personal banner. */
+#app-mount .privateChannels_e6b769 .dm__972a0 .container_df39b2 { visibility: hidden; }
+#app-mount .privateChannels_e6b769 .interactiveSelected__972a0 { background: var(--sibnight-selected); color: var(--sibnight-heading); }
+#app-mount .header_f37cb1 { min-height: var(--sibnight-header-height); padding-inline: 20px; box-shadow: none; }
+#app-mount .privateChannels_e6b769 .searchBar_e6b769 { height: var(--sibnight-header-height); }
+#app-mount .name_f37cb1 { color: var(--sibnight-heading); font-size: 18px; font-weight: 650; }
+/* Row heights belong to Discord's virtualizer, including its density settings. */
+#app-mount .link__2ea32 { border-radius: 6px; }
+#app-mount .name__2ea32 { color: var(--sibnight-channel-rest); font-size: 16px; font-weight: 400; }
+#app-mount .icon__2ea32 { color: var(--sibnight-channel-rest); }
+#app-mount .modeMuted__2ea32 :is(.name__2ea32, .icon__2ea32) { color: var(--sibnight-channel-rest); opacity: .7; }
+#app-mount .link__2ea32:hover :is(.name__2ea32, .icon__2ea32) { color: var(--sibnight-heading); }
+#app-mount .unread__2ea32 { width: 4px; height: 10px; margin-top: -5px; background: var(--sibnight-nord8); border-radius: 0 2px 2px 0; }
+#app-mount .modeUnreadImportant__2ea32 .link__2ea32 { background: color-mix(in srgb, var(--sibnight-nord8) 5%, transparent); }
+#app-mount .modeUnreadImportant__2ea32 .icon__2ea32 { color: var(--sibnight-nord8); }
+#app-mount .modeSelected__2ea32 .link__2ea32 { background: var(--sibnight-selected); }
+#app-mount .modeSelected__2ea32 .name__2ea32 { color: var(--sibnight-heading); font-weight: 650; }
+#app-mount .modeUnreadImportant__2ea32 :is(.name__2ea32, .icon__2ea32) { color: var(--sibnight-heading); font-weight: 700; }
+#app-mount .container__9293f {
+    min-height: var(--sibnight-header-height);
+    margin: 0;
+    background: var(--sibnight-header);
+    box-shadow: none;
+    border-bottom: 1px solid var(--sibnight-line);
+}
+#app-mount .subtitleContainer_f75fb0 { margin: 0; }
+#app-mount .toolbar__9293f { gap: 8px; padding-right: 16px; }
+#app-mount .toolbar__9293f .iconWrapper__9293f {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 6px;
+}
+#app-mount .toolbar__9293f .iconWrapper__9293f:hover { background: var(--sibnight-hover); }
+#app-mount .toolbar__9293f .search__49676 {
+    width: clamp(128px, 18vw, 220px);
+    min-width: 128px;
+    flex: 0 1 220px;
+}
+#app-mount .searchBar_c322aa {
+    height: 34px;
+    padding-inline: 10px;
+    background: var(--sibnight-canvas);
+    border: 1px solid var(--sibnight-line);
+    border-radius: 6px;
+}
+#app-mount :is(.container_c8ffbb, .membersWrap_c8ffbb, .members_c8ffbb) {
+    width: var(--sibnight-members);
+    min-width: 0;
+    margin: 0;
+    background: var(--sibnight-index);
+    border-radius: 0;
+}
+#app-mount .container_c8ffbb { flex: 0 0 var(--sibnight-members); border-left: 1px solid var(--sibnight-line); }
+#app-mount .member_c8ffbb { margin-inline: 8px; max-width: calc(100% - 16px); border-radius: 6px; background: transparent; }
+#app-mount .member_c8ffbb:is(:hover, :focus-within) { background: var(--sibnight-hover); }
+#app-mount .member__5d473.offline__5d473 { opacity: 1; }
+#app-mount .container__91a9d { max-width: none; }
+#app-mount .bar_c38106 { min-height: 36px; background: var(--sibnight-canvas); }
+/* Keep native window chrome; align history with the conversation rather than the rail edge. */
+#app-mount .backForwardButtons__63abb { margin-inline-start: var(--sibnight-sidebar); min-width: 88px; gap: 4px; padding-inline: 8px; }
+#app-mount .button__63abb { min-width: 28px; min-height: 28px; }
+@media (max-width: 1200px) {
+    #app-mount .toolbar__9293f { gap: 4px; padding-right: 8px; }
+    #app-mount .toolbar__9293f .search__49676 { width: 128px; flex-basis: 128px; }
+    /* Keep the native stage wide enough to retain its commands; chat occupies the lower track. */
+    #app-mount .wrapper_cb9592.sidebarOpen_cb9592 {
+        height: max(284px, 52%);
+        box-sizing: border-box;
+    }
+    #app-mount .wrapper_cb9592.sidebarOpen_cb9592 ~ .layerContainer__59d0d > .chatLayerWrapper__01ae2.connectedRight__01ae2 {
+        top: max(284px, 52%);
+        height: calc(100% - max(284px, 52%));
+        width: 100%;
+    }
+    #app-mount .wrapper_cb9592.sidebarOpen_cb9592 ~ .layerContainer__59d0d > .chatLayerWrapper__01ae2.connectedRight__01ae2 > .container__01ae2 {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+#app-mount .callContainer_cb9592 {
+    min-width: 0;
+    container: sibnight-call / inline-size;
+}
+@container sibnight-call (max-width: 560px) {
+    #app-mount .bottomControls_bfe55a {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+    #app-mount .centerControls_bfe55a {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        min-width: 0;
+    }
+    #app-mount .centerControls_bfe55a > :last-child {
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+    #app-mount .edgeControls_bfe55a { grid-row: 2; gap: 8px; }
+}
+
+/* Reuse the native page grid area: history follows notices without fixed coordinates. */
+@supports (display: contents) {
+    #app-mount .base__5e434 > .bar_c38106,
+    #app-mount .base__5e434 > .bar_c38106 > .leading_c38106 { display: contents; }
+    #app-mount .base__5e434 > .bar_c38106 > .title_c38106 {
+        grid-area: titleBar;
+        position: relative;
+        inset: auto;
+        min-height: var(--custom-app-top-bar-height);
+        -webkit-app-region: drag;
+    }
+    #app-mount .base__5e434 > .bar_c38106 > .trailing_c38106 {
+        grid-area: titleBar;
+        justify-self: end;
+        align-self: center;
+    }
+    #app-mount .backForwardButtons__63abb {
+        grid-area: page;
+        align-self: start;
+        justify-self: start;
+        position: relative;
+        margin: 12px 8px;
+        height: 36px;
+        z-index: 101;
+    }
+    #app-mount .subtitleContainer_f75fb0 .title_f75fb0,
+    #app-mount .headerWrapper_cb9592 > .subtitleContainer__49508 > .headerBar__49508,
+    #app-mount .container__133bf .container__9293f { padding-inline-start: 112px; }
+}

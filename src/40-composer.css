@@ -1,0 +1,33 @@
+/* One surface, not a form containing another painted input container. */
+#app-mount .form_f75fb0 { padding-inline: 20px; background: transparent; }
+#app-mount .channelTextArea_f75fb0 {
+    margin-bottom: 18px;
+    background: var(--sibnight-control);
+    border: 0;
+    border-radius: var(--sibnight-radius);
+    box-shadow: none;
+}
+#app-mount .channelTextArea_f75fb0 :is(.scrollableContainer__74017, .themedBackground__74017, .inner__74017) {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+#app-mount .channelTextArea_f75fb0 .inner__74017 { min-height: var(--sibnight-composer-height); align-items: center; }
+#app-mount .slateTextArea_ec4baf { padding-block: 16px; caret-color: var(--sibnight-nord8); }
+#app-mount .channelTextArea_f75fb0:focus-within { outline: 1px solid var(--sibnight-focus); outline-offset: 0; }
+#app-mount .attachWrapper__0923f { display: flex; align-items: center; padding-block: 0; }
+#app-mount .channelTextArea_f75fb0 :is(.attachButton__74017, .attachWrapper__0923f button) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 4px;
+    border-radius: 50%;
+    background: var(--sibnight-foreground);
+    color: var(--sibnight-canvas);
+}
+#app-mount .channelTextArea_f75fb0 :is(.attachButton__74017, .attachWrapper__0923f button) svg { width: 20px; height: 20px; color: inherit; }
+@media (max-width: 1200px) {
+    #app-mount .form_f75fb0 { padding-inline: 12px; }
+}

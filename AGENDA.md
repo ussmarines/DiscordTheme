@@ -1,10 +1,12 @@
-# Checkpoint Sibnight
+# Checkpoint — publication de la famille Sibylla, 25 octobre 2026
 
-- Livré : Sibnight 2.15.1 / North Polar 2.1.1 ; PR #16 fusionnée, code final `8a2a8c6` sur main. Branche intégrée supprimée. Aucune release.
-- Socle : main/workspace partagés ; North Polar skin Nord sombre. Colonnes continues, header natif, aide/commandes Windows restaurées, dock et identités lisibles. Direction Lecture et repères + Cabinet initial.
-- Revue Impeccable finale ciblée PASS, y compris Figtree réellement chargée en grand et1101×801 : noms complets avec badges/profils, conversation et commandes sans chevauchement. Membres288/280px ; hauteurs natives conservées.
-- Contrôles : build/check, six tests, format, audit zéro, diff-check et24 assertions Chromium North-only PASS. Deux avis typographiques non bloquants documentés ; aucun deuxième détecteur. Pages construit `8a2a8c6`, onze CSS exacts et deux ressources PASS.
-- Discord : North Polar seul actif confirmé dans Vencord ; wrapper final installé identique à main, SHA-256 `8d696d5b1729dd2d72555c6352b97ee68160b4c225078e1e341043a6048d0f74`. Rendu revérifié après chargement du CSS publié, paramètres refermés.
-- Fonctions : `docs/DISCORD_FUNCTIONS.md` trace les menus/parcours réels (dont MP et amis) et les opérations non exécutées. Aucun contenu publié, réglage vocal ou action sociale modifié par l'agent ; session vocale laissée en place.
-- Limites : caméra indisponible, BetterDiscord, huit autres variantes, modes Windows, benchmark, nouveaux appels/partage, uploads et opérations persistantes non validés dans cette reconstruction. Pas de certification exhaustive de chaque écran/rollout Discord.
-- README, maintenance, DESIGN/sidecar et fiche de surface actualisés. Captures privées ignorées ; serveur/fixture temporaires arrêtés. Aucun travail requis restant dans le périmètre exécuté.
+- Le propriétaire a essayé et validé les cinq thèmes, puis autorisé leur publication dans le dépôt : Sibylla principal, North Polar, North Snow, Spatial et Tokyo-night.
+- Agencement et CSS des cinq versions inchangés depuis l’essai ; la référence d’essai North Polar conserve son empreinte historique ; le téléchargement normalise seulement une ligne vide finale, sans changement de déclarations. Corrections antérieures conservées, voir docs/VALIDATION.md.
+- Sources communes src/, palettes/fonds scripts/lib/flavors.js ; build explicite. Cinq builds, cinq wrappers et cinq téléchargements autonomes dist/. Copies locales output/ ignorées. Aucun runtime JavaScript ou nouvelle dépendance dans Discord.
+- Documentation : README français, installation/mise à jour/migration, références, limites BetterDiscord et catalogue Pages. Les anciens neuf thèmes et anciens aperçus sont retirés du projet actif ; leur récupération reste dans Git et dans des copies privées exclues.
+- Cinq aperçus 1600×1000 sous assets/previews/ : données entièrement fictives, rendues avec le CSS actuel par scripts/previews.js. Aucun média ni contenu du compte personnel. Illustrations explicitement distinctes des preuves Discord natives.
+- Contrôles locaux : qualité et cinq tests PASS, audit dépendances0,24liens Markdown PASS. Fixtures antérieures :72régressions géométriques et65contrastes/préconditions de palette PASS ; pas de nouvelle revendication native à partir de ces fixtures.
+- Publication en préparation sur codex/north-vps-fidelity, base main7dc30958f74af96d43b69996706caf0cb35680f4. Vérifier le diff indexé et la sécurité avant commit/push, puis intégrer sans force-push. Audit local complet :7contrôles PASS. Pas de release GitHub demandée.
+- GitHub Pages sert main à la racine. Après intégration : npm run check:urls -- --match-local doit confirmer catalogue,15URL de thèmes et5aperçus contre les fichiers locaux. Ne pas annoncer les liens vérifiés tant que le contrôle distant n’est pas vert.
+- Laboratoire : conserver la session et le serveur de test ; Sibylla seul actif lors du dernier contrôle. Les accès et sauvegardes opérationnels restent privés. Aucun changement supplémentaire du PC demandé.
+- Limites : BetterDiscord réel, caméra, matériel audio, lecteurs d’écran, tous zooms/états et FPS ne sont pas certifiés. Superpowers désactivé. Pas de captures privées, profils, journaux ou credentials à publier.

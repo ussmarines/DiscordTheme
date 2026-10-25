@@ -1,0 +1,10 @@
+/* Menus settle beside their trigger; native positioning transforms stay intact. */
+@keyframes north-polar-open {
+    from { opacity: 0; translate: 0 4px; }
+    to { opacity: 1; translate: 0 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+    :root:not(.reduce-motion) #app-mount :is(.menu_c1e9c4, .messagesPopoutWrap__45690, .contentWrapper__08434) {
+        animation: north-polar-open 130ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+}

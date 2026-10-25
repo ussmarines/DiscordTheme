@@ -22,7 +22,7 @@ Les mutations GitHub restent interdites par défaut. Une demande explicite du pr
 ## Maintenance et reprise
 
 - Lire `AGENDA.md` pour le checkpoint et `docs/MAINTENANCE.md` pour les limites de validation.
-- Conserver les neuf thèmes, les crédits Zelk/Midnight/Tokyo Night et les noms des assets.
+- Conserver les cinq thèmes actifs, les crédits Zelk/Midnight/Tokyo Night et les noms des assets réutilisés.
 - Modifier `src/` et les wrappers `themes/`, puis régénérer `build/` ; ne pas éditer les builds à la main.
 - L'ordre de cascade est explicite dans `scripts/lib/build-theme.js`. Déclarer tout nouveau module ; ne pas réordonner sans preuve.
 - Réutiliser les tokens existants. Préfixer les nouveaux tokens propres au projet par `--sibnight-` ; préserver les anciens alias publics.
@@ -32,3 +32,7 @@ Les mutations GitHub restent interdites par défaut. Une demande explicite du pr
 - Commit/push exigent l'autorisation explicite du propriétaire. L'intervention du 10 septembre 2026 autorise la mise à jour bornée de main, sans release ni force-push.
 - Maintenir un seul checkpoint compact dans `AGENDA.md`. Ne pas présenter une fixture synthétique comme un test Discord réel.
 - Superpowers reste désactivé dans ce dépôt.
+
+## Famille autorisée — 25 octobre 2026
+
+Le propriétaire a validé North Polar comme socle et demande désormais Sibylla principal, avec North Polar, North Snow, Spatial et Tokyo-night comme flavors autonomes. Préserver strictement la géométrie commune ; changer uniquement palettes/fonds. Les neuf anciennes variantes sont retirées du projet actif après copie privée de récupération. Cette portée remplace les obligations d’archivage actif sous legacy/sibnight. Après essai des cinq thèmes, le propriétaire autorise leur publication et la mise à jour bornée de main le 25 octobre 2026, sans release ni force-push. Les règles de secrets et de provenance restent applicables.
