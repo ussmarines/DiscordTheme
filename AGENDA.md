@@ -11,3 +11,7 @@
 - Dernière maintenance : conserver la politique LF générale existante et ajouter HTML ; enregistrer les preuves de publication. Ces seuls fichiers de maintenance ne modifient pas le CSS ni les aperçus.
 - Laboratoire et serveur de test conservés, Sibylla seul actif au dernier contrôle. Aucun remplacement supplémentaire du thème Windows demandé. Accès, médias privés et sauvegardes restent exclus du dépôt.
 - Limites : BetterDiscord réel, caméra, matériel audio, lecteurs d’écran, tous zooms/états et FPS ne sont pas certifiés. Superpowers désactivé. Suite : retours d’usage du propriétaire, sans nouvelle refonte implicite.
+
+- Identité finale : dépôt renommé ussmarines/Sibylla-Discord-Theme selon le choix du propriétaire ; origin, description, homepage,8topics, imports des5wrappers et tous liens actifs mis à jour. Historique conservé, ancien lien GitHub redirigé.
+- Bannière1280×640JPEG créée, publiée en tête du README et appliquée comme aperçu social GitHub ; comparaison binaire avec repository-images PASS. Les5aperçus ont leur vraie extension.jpg, sans modification des images.
+- Nouvelles adresses Pages vérifiées : catalogue,15fichiers thèmes,5aperçus etbannière. Qualité5tests/audit0 et25liens Markdown PASS. Déploiement de référence201f8da ; bilan documentaire sans changement CSS.

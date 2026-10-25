@@ -120,3 +120,11 @@ Five public preview JPEGs (1600×1000) were generated with authored fictional me
 [PR #17](https://github.com/ussmarines/Sibylla-Discord-Theme/pull/17) merged the approved family into main at 4e5c981db74c9f4f06f6fb0ba89081924d1d90e4. Both manual GitHub checks completed with no failed scanner steps: [secret/identity guard](https://github.com/ussmarines/Sibylla-Discord-Theme/actions/runs/40198874921), [repository security audit](https://github.com/ussmarines/Sibylla-Discord-Theme/actions/runs/40198877318). Downloaded redacted reports show zero identity, Gitleaks, Opengrep and Zizmor findings. [Pages deployment](https://github.com/ussmarines/Sibylla-Discord-Theme/actions/runs/40198993207) succeeded.
 
 `npm run check:urls -- --match-local` passed against the published catalog, all 15 theme files (five builds, wrappers and installables) and all five public preview JPEGs. The public downloads match local distribution content; preview JPEGs match byte-for-byte. No private screenshots or operational backups were published. Follow-up documentation and line-ending-policy maintenance do not alter the approved CSS or the public previews.
+
+## Repository identity — 25 October 2026
+
+The owner selected `ussmarines/Sibylla-Discord-Theme`. GitHub repository name, description, homepage and eight relevant topics were updated; the existing repository identity and history are preserved. The local origin, five wrapper imports, downloadable metadata, build policy and documentation now use the new canonical URL. The old repository URL redirects to the new one; the README tells users to replace old Pages/wrapper URLs.
+
+The 1280×640 JPEG banner is published in the README and applied as GitHub's custom social preview. The public repository-images asset matches the local banner byte-for-byte. Five public preview files retain identical pixels and bytes but now use their actual `.jpg` format instead of the incorrect `.png` extension. All current links were updated accordingly.
+
+Quality passes five tests and the dependency audit; 25 local documentation links pass. The new Pages catalog, all 15 theme URLs and five preview images match local files; the banner at the new Pages address also matches. The old repository redirect was verified. No source declarations, approved layout or theme palette changed during this rename.
