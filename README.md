@@ -16,7 +16,7 @@ Minuit et or, avec le logo discret en haut à droite du chat.
 
 ![Aperçu Sibylla — principale — contenu fictif](assets/previews/sibylla.jpg)
 
-[**Télécharger Sibylla — principale**](https://ussmarines.github.io/DiscordTheme/dist/sibylla.theme.css)
+[**Télécharger Sibylla — principale**](https://ussmarines.github.io/Sibylla-Discord-Theme/dist/sibylla.theme.css)
 
 ### North Polar
 
@@ -24,7 +24,7 @@ Nord sombre, version validée conservée.
 
 ![Aperçu North Polar — contenu fictif](assets/previews/north-polar.jpg)
 
-[**Télécharger North Polar**](https://ussmarines.github.io/DiscordTheme/dist/north-polar.theme.css)
+[**Télécharger North Polar**](https://ussmarines.github.io/Sibylla-Discord-Theme/dist/north-polar.theme.css)
 
 ### North Snow
 
@@ -32,7 +32,7 @@ Nord clair : surfaces Snow Storm et textes Polar Night.
 
 ![Aperçu North Snow — contenu fictif](assets/previews/north-snow.jpg)
 
-[**Télécharger North Snow**](https://ussmarines.github.io/DiscordTheme/dist/north-snow.theme.css)
+[**Télécharger North Snow**](https://ussmarines.github.io/Sibylla-Discord-Theme/dist/north-snow.theme.css)
 
 ### Spatial
 
@@ -40,7 +40,7 @@ Bleu orbital et vaisseau en haut à droite de la zone de messages.
 
 ![Aperçu Spatial — contenu fictif](assets/previews/spatial.jpg)
 
-[**Télécharger Spatial**](https://ussmarines.github.io/DiscordTheme/dist/spatial.theme.css)
+[**Télécharger Spatial**](https://ussmarines.github.io/Sibylla-Discord-Theme/dist/spatial.theme.css)
 
 ### Tokyo-night
 
@@ -48,7 +48,7 @@ Tons nocturnes et accents bleus, cyan et violets.
 
 ![Aperçu Tokyo-night — contenu fictif](assets/previews/tokyo-night.jpg)
 
-[**Télécharger Tokyo-night**](https://ussmarines.github.io/DiscordTheme/dist/tokyo-night.theme.css)
+[**Télécharger Tokyo-night**](https://ussmarines.github.io/Sibylla-Discord-Theme/dist/tokyo-night.theme.css)
 
 ## Installer le thème
 
@@ -59,7 +59,11 @@ Tons nocturnes et accents bleus, cyan et violets.
 
 Pour mettre à jour une installation locale, remplacer le fichier existant par le nouveau téléchargement. Pour passer d’une version à l’autre, désactiver l’ancienne avant d’activer la suivante. Désactiver aussi les anciens thèmes Sibnight et les liens de thème en ligne ; du QuickCSS personnalisé peut entrer en conflit avec le rendu.
 
-Les fichiers de `dist/` contiennent tout le CSS, les icônes et les fonds locaux. Ils conservent uniquement l’import de police Figtree existant. Les fichiers de [themes/](themes/) sont des wrappers légers qui importent le CSS publié sur GitHub Pages : ils dépendent de cet accès réseau. Le [catalogue de téléchargement](https://ussmarines.github.io/DiscordTheme/) présente les cinq versions.
+Les fichiers de `dist/` contiennent tout le CSS, les icônes et les fonds locaux. Ils conservent uniquement l’import de police Figtree existant. Les fichiers de [themes/](themes/) sont des wrappers légers qui importent le CSS publié sur GitHub Pages : ils dépendent de cet accès réseau. Le [catalogue de téléchargement](https://ussmarines.github.io/Sibylla-Discord-Theme/) présente les cinq versions.
+
+## Adresse du projet
+
+Le dépôt est désormais **[ussmarines/Sibylla-Discord-Theme](https://github.com/ussmarines/Sibylla-Discord-Theme)**. Utiliser le [nouveau catalogue](https://ussmarines.github.io/Sibylla-Discord-Theme/) et ses téléchargements. Pour un ancien wrapper ou lien Vencord utilisant `/DiscordTheme/`, le remplacer par la nouvelle adresse ; un téléchargement autonome peut être réinstallé avec le fichier actuel sans changement de disposition.
 
 ## Migrer depuis Sibnight
 

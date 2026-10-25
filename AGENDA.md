@@ -2,7 +2,7 @@
 
 - Les cinq thèmes ont été essayés et validés par le propriétaire : Sibylla principal, North Polar, North Snow, Spatial, Tokyo-night. Publication autorisée et réalisée via PR #17, fusionnée dans main (4e5c981db74c9f4f06f6fb0ba89081924d1d90e4).
 - CSS et agencement approuvés conservés. Packaging : seule une ligne vide finale redondante a été retirée des installables. Aucun changement des déclarations North Polar. Les anciens correctifs natifs restent documentés dans docs/VALIDATION.md.
-- Sources src/ ; palettes/fonds scripts/lib/flavors.js ; build explicite. Cinq sorties build/, wrappers themes/ et téléchargements autonomes dist/. Copies locales output/ ignorées. Catalogue public : https://ussmarines.github.io/DiscordTheme/.
+- Sources src/ ; palettes/fonds scripts/lib/flavors.js ; build explicite. Cinq sorties build/, wrappers themes/ et téléchargements autonomes dist/. Copies locales output/ ignorées. Catalogue public : https://ussmarines.github.io/Sibylla-Discord-Theme/.
 - README français, installation, mise à jour, migration des anciens liens, références et limites actualisés. Ancien code et anciens aperçus retirés de l’arbre actif ; historique Git et copies privées de récupération conservés.
 - Cinq aperçus publics 1600×1000 sous assets/previews/, rendus par scripts/previews.js avec contenu entièrement fictif. Aucun serveur, pseudo, bannière ni message du compte personnel. Illustrations explicitement distinctes des tests Discord réels.
 - Contrôles locaux PASS : qualité,5tests, audit dépendances0,24liens Markdown,10liens locaux du catalogue, diff sans erreur d’espacement. Audit local complet :7contrôles PASS. Fixtures historiques72géométries et65palettes distinctes du client natif.

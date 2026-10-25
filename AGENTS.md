@@ -1,4 +1,4 @@
-# Règles des agents — DiscordTheme
+# Règles des agents — Sibylla Discord Theme
 
 ## Portée
 

@@ -20,5 +20,13 @@
     "private": true,
     "engines": {
         "node": ">=24"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ussmarines/Sibylla-Discord-Theme.git"
+    },
+    "homepage": "https://ussmarines.github.io/Sibylla-Discord-Theme/",
+    "bugs": {
+        "url": "https://github.com/ussmarines/Sibylla-Discord-Theme/issues"
     }
 }
