@@ -43,3 +43,6 @@ tools/security/.reports/
 .impeccable/mocks/
 .impeccable/review/
 .impeccable/questions/
+
+# Private VPS laboratory artifacts
+.local/

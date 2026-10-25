@@ -1,157 +1,367 @@
 ---
-name: Sibnight — Lecture et repères
-description: Shared continuous reading workspace with North Polar as its dark Nord skin.
+
+name: Sibylla Discord family
+
+description: Five color worlds sharing the approved reading and voice workspace.
+
 colors:
+
   nord0: "#2e3440"
+
   nord1: "#3b4252"
+
   nord2: "#434c5e"
+
   nord3: "#4c566a"
+
   nord4: "#d8dee9"
+
   nord5: "#e5e9f0"
+
   nord6: "#eceff4"
+
   nord7: "#8fbcbb"
+
   nord8: "#88c0d0"
+
   nord9: "#81a1c1"
+
   nord10: "#5e81ac"
+
   nord11: "#bf616a"
+
   nord12: "#d08770"
+
   nord13: "#ebcb8b"
+
   nord14: "#a3be8c"
+
   nord15: "#b48ead"
+
+  shadow-black: "rgb(0 0 0 / 24%)"
+
+  canvas: "color-mix(in srgb, color-mix(in srgb, var(--sibnight-nord0) 55%, var(--sibnight-nord10)) 45%, #000)"
+
+  index: "color-mix(in srgb, var(--sibnight-nord0) 90%, var(--sibnight-canvas))"
+
+  control: "color-mix(in srgb, var(--sibnight-nord2) 60%, var(--sibnight-canvas))"
+
+  hover: "color-mix(in srgb, var(--sibnight-nord3) 40%, transparent)"
+
+  selected: "color-mix(in srgb, var(--sibnight-nord9) 28%, var(--sibnight-index))"
+
+  line: "color-mix(in srgb, var(--sibnight-nord4) 16%, transparent)"
+
+  attention: "color-mix(in srgb, var(--sibnight-nord11) 85%, #000)"
+
+  channel-rest: "color-mix(in srgb, var(--sibnight-nord4) 55%, var(--sibnight-nord3))"
+
+  muted: "color-mix(in srgb, var(--sibnight-nord4) 76%, var(--sibnight-nord0))"
+
 typography:
-  body:
-    fontFamily: "figtree"
-    fontWeight: 400
-    fontSize: "1rem"
-    lineHeight: 1.5
-  metadata:
-    fontSize: "0.75rem"
-  history-title:
-    fontSize: "12px"
-  channel:
-    fontWeight: 500
-  selected-channel:
+
+  title:
+
+    fontFamily: "Figtree, gg sans, sans-serif"
+
+    fontSize: "18px"
+
     fontWeight: 650
-  unread-channel:
-    fontWeight: 750
+
+  body:
+
+    fontFamily: "Figtree, gg sans, sans-serif"
+
+    fontSize: "16px"
+
+    fontWeight: 400
+
+    lineHeight: 1.5
+
+  label:
+
+    fontFamily: "Figtree, gg sans, sans-serif"
+
+    fontSize: "16px"
+
+    fontWeight: 400
+
+  timestamp:
+
+    fontFamily: "Figtree, gg sans, sans-serif"
+
+    fontSize: "12px"
+
+  code:
+
+    fontFamily: "gg mono, Consolas, monospace"
+
 rounded:
-  control: "6px"
+
+  unread-tip: "2px"
+
+  separator-cap: "4px"
+
+  compact: "6px"
+
   surface: "8px"
+
+  square: "0"
+
 spacing:
-  composer-inset: "20px"
-  toolbar-gap: "8px"
-  dock-padding: "6px 8px"
+
+  tight: "4px"
+
+  compact: "8px"
+
+  inset: "12px"
+
+  regular: "16px"
+
+  wide: "20px"
+
+  group: "24px"
+
 components:
-  toolbar-control:
-    rounded: "{rounded.control}"
-    width: "32px"
-    height: "32px"
-  toolbar-control-hover:
-    backgroundColor: "{colors.nord2}"
-    textColor: "{colors.nord8}"
+
   composer:
-    backgroundColor: "{colors.nord2}"
+
+    backgroundColor: "{colors.control}"
+
+    textColor: "{colors.nord4}"
+
     rounded: "{rounded.surface}"
-  popout:
-    backgroundColor: "{colors.nord1}"
+
+    height: "56px"
+
+  selected-channel:
+
+    backgroundColor: "{colors.selected}"
+
+    textColor: "{colors.nord6}"
+
+    rounded: "{rounded.compact}"
+
+  popup:
+
+    backgroundColor: "{colors.nord0}"
+
     rounded: "{rounded.surface}"
+
 ---
 
-# Design System: Sibnight — Lecture et repères
+
+
+# Design System: North Polar
+
+
 
 ## Overview
 
-**Creative North Star: "Cabinet de lecture"**
 
-North Polar treats Discord as a continuous reading desk. Quiet indexes frame long conversations; a compact account dock and a distinct voice connection remain close at hand. The approved composition combines reference-desk with the connected-user block from the selected assigned concept.
 
-The structure is shared: `src/main.css` supplies the principal theme and `src/workspace.css` supplies the continuous workspace, reading typography, native account layout and toolbar artwork. The build manifest compiles workspace last in the principal sources, then `flavor-base.css` and `north-polar.css` for flavors. North Polar is a palette skin: its wrapper defines the official Nord tokens and `src/north-polar.css` binds native Discord semantic colors. The eight other variants retain their palettes and installable names; their visual behavior has not been reviewed for this refactor. The Nord tokens below describe the North Polar expression, not a mandatory palette for every variant.
+**Creative North Star: Cabinet de lecture.** A quiet reading room for long Discord discussions and voice sessions. Dark Polar Night planes frame the conversation; Frost marks useful actions and focus. Figtree and a coherent outline icon family keep the interface readable and recognizable.
+
+
+
+This documents the implemented standalone North Polar system, extracted from the active numbered source modules. It supersedes the rejected shared Sibnight architecture. The old nine themes are retired from active sources; their Git history and current attribution remain available. Composition-specific decisions and validation limits live in `.impeccable/surfaces/src-north-polar-css.md`.
+
+
 
 **Key Characteristics:**
 
-- Continuous dark reading surface; messages are not individual cards.
-- Flat tonal hierarchy, restrained Frost accents and compact rounded controls.
-- Native navigation, content, accessible labels, unread indicators and voice semantics.
-- Original outline toolbar artwork with functional native state preserved.
+
+
+- Continuous conversation canvas with quiet supporting indexes.
+
+- One composer surface and an integrated account area.
+
+- Flat tonal separation, restrained borders and limited popup depth.
+
+- Native Discord content, status, accessible labels and interaction semantics.
+
+
 
 ## Colors
 
-The normative frontmatter records all sixteen Nord colors exactly; the wrapper exposes them through the corresponding `--sibnight-nord0` through `--sibnight-nord15` properties.
+
+
+The exact Nord primitives remain intact. The canvas mixes Polar Night with nord10 and black; indexes and controls derive from that canvas and the Polar Night primitives; they are not the unmodified official palette swatches. Source custom properties retain the `--sibnight-` prefix.
+
+
 
 ### Primary
 
-Frost nord8 identifies focus, selected toolbar tools, the composer caret, reaction selection and thin mention/reply edges. Frost nord7 and nord9 remain accent aliases; nord10 remains available in the official palette without a newly invented role.
+
+
+Frost (nord8) identifies links, focus, selected reactions and mention accents. Links are underlined; color alone must not communicate interaction.
+
+
 
 ### Secondary
 
-Aurora nord11 carries danger and do-not-disturb, nord13 carries warnings, idle and notifications, nord14 carries positive/online/connected voice states, and nord15 carries streaming. Nord12 remains part of the palette without a newly assigned component role. Preserve textual and native state indicators alongside color.
+
+
+Aurora colors retain their semantic roles: green for connected/success states, red for danger and yellow for warnings. Other Nord primitives remain available to native semantic bindings. They are not permission to decorate every control with another accent.
+
+
 
 ### Neutral
 
-Polar Night nord0 is the conversation and server rail foundation. Nord1 supports channel/member indexes, headers, popouts, embeds and the account/voice dock. Nord2 supports controls, selection, reactions and the composer; nord3 supplies boundaries and scroll thumbs. Snow Storm nord4 is readable body and secondary text, nord5 is retained through the text aliases, and nord6 provides headings, stronger labels and underlined links.
 
-**The Reading Surface Rule.** Preserve the difference between the continuous reading page and its supporting indexes; do not add gradients, glow or decorative message cards.
+
+The canvas is the darkest continuous reading plane. The index supports navigation, code and embeds. The control fill distinguishes the composer and reactions; nord0 supports headers and floating surfaces. Snow Storm supplies body text and headings; the muted mixture supplies timestamps and secondary text. The line mixture defines quiet boundaries. The channel-rest mixture keeps read channel labels quieter but legible. The attention mixture darkens nord11 for notification counters and critical controls; foreground remains Snow Storm. The measured white badge foreground contrast against attention is 4.657:1. Modern native button, radio, checkbox and focus roles map to the same Nord vocabulary.
+
+
+
+**The State Rule.** Preserve native unread, mention, mute and connection distinctions; do not erase them to simplify the palette.
+
+
 
 ## Typography
 
-The wrapper requests Figtree through the existing shared font mechanism. Discord retains its fallback behavior. Cozy message prose explicitly uses the body size in frontmatter; this theme introduces no separate display typeface.
 
-Body text has regular weight and an open line height (see frontmatter), with a reading measure of (74ch) through `--sibnight-reading-width`. Long content wraps without forcing a wider page. Usernames and selected channel labels use weight (650); unread channel labels use weight (750). Timestamps use tabular numerals. Links retain an underline, a Frost underline color and an offset (3px), so recognition does not depend only on hue.
+
+Figtree uses the existing font import, with gg sans and sans-serif fallbacks. Code retains gg mono and Consolas fallbacks. No new font service is introduced.
+
+
+
+Body text uses a relaxed line height and a bounded reading measure. Names and selected navigation use stronger weight; timestamps are smaller with tabular numerals. The implementation has no separate display headline scale or ornamental type treatment.
+
+
 
 ## Layout
 
-The workspace is continuous, with square outer panel edges and no floating shell gaps. The server rail is (72px), with avatars (48px). The sidebar is border-box and capped at (328px), including the rail; the member index is (288px). Native sidebar width preferences can reduce the sidebar within that cap. The top bar is (40px); native window controls remain at its end. The conversation header has minimum height (60px).
 
-Toolbar targets are square (32px). Search uses a width clamped from (128px) to (220px), with height (34px). Message groups have top margin (22px); the composer has horizontal inset from frontmatter, bottom margin (16px), and text vertical padding (12px).
 
-At viewport widths of (1200px) or less, the sidebar cap becomes (288px), member index (280px), toolbar gap (4px), search (128px), and composer inset (12px). The account can wrap at every viewport width: identity and controls occupy distinct lines when space requires it, with automatic height. At this compact breakpoint the controls explicitly occupy the second line; the identity area keeps a minimum width (120px). The account row has minimum height (64px), with (36px) avatar. Voice stays above the account row within the channel column, outside the server rail. The voice connection has automatic height with a minimum (88px), with connection text and commands on separate lines.
+Native Discord grid tracks remain authoritative. Source tokens supply a server rail (72px), combined sidebar (344px), member area (272px) and prose measure (74ch). The effective channel width remains 272px. At a viewport width of 1200px or less, members become 256px while the sidebar stays 344px. The account remains on one row. Native validation at 1101 × 801 verified this compact geometry, aligned icons and an open folder.
 
-An additional compact rule at (1150px) reduces message-group spacing to (16px). These are source-defined adaptations, not a claim of compatibility at every window size. Local current observations are `.impeccable/review/core-member-desktop.jpg` and `core-member-narrow.jpg` (native narrow window: 1101 × 801); they are private evidence, not distributable assets or exhaustive validation.
+
+
+The server rail keeps native 40px icons at a 48px cadence without zoom. Only the native SVG base path becomes an 8px rounded rectangle; badge cutouts and status masks remain intact. Selection is a flat 56 × 48px tonal tab, centered behind the icon at left -8px/top -4px, with 8px corners and relative positioning/isolation; it has no ring. Expanded folders use a neutral index-colored 56px track centered at 8px. Closed previews use the same neutral index tone and the folder glyph uses Frost. The native folder size variable remains 48px beside 40px avatars; native folder-header negative margins remain authoritative for tooltip anchors. Do not compensate with ad hoc tooltip offsets. History controls reuse the native base grid page area and appear inline before the channel name at its header height. Title and window controls retain the native titleBar area. Display-contents wrappers allow notice rows to retain layout ownership; no fixed screen coordinates or anchor positioning are used. Header content reserves 112px for the history controls. The channel index adds no extra bottom margin: native panel reservation already protects its scrollable list. The reading canvas and outer panels meet directly with square boundaries. Message groups have deliberate separation (24px); each message is not a card. Native avatars and content remain intact. Channel and chat headers have a minimum height (60px). The composer has a minimum height defined by its component token, with transparent inner layers. At <=1200px, the open voice call keeps full width with height max(284px, 52%); its connected chat portal occupies the remaining height below. Exact general-sibling selectors start at the voice wrapper, leaving DM and thread panels unaffected. The named call container supplies a two-row control-grid fallback at <=560px. Native 1101 × 801 evidence records the stacked call and chat. Geometry describes source intent, not proof that every viewport has been validated.
+
+
 
 ## Elevation & Depth
 
-Depth comes from flat tonal surfaces and fine borders. The shared workspace removes decorative panel shadows; North Polar also disables backdrop blur, sheen and glow through its wrapper. Popouts have a quiet nord3 border (1px). Mentions, replies and ephemeral messages use nord1 with a Frost inset edge (1px), preserving their native significance without turning every message into a card.
 
-**The Flat Desk Rule.** Use surface tone and boundaries to separate functions; do not introduce ornamental lifting or shadows to ordinary messages.
+
+Ordinary layout uses tone and thin boundaries. The composer has no shadow. Actual floating menus and pickers use one restrained shadow, recorded in the sidecar; their full-window layer containers remain transparent. No glow, glass blur or decorative gradients belong to this system.
+
+
+
+**The Continuous Canvas Rule.** Separate functions without nesting ornamental containers around the conversation or each message.
+
+
 
 ## Shapes
 
-Controls, navigation rows, reactions and input fields use the compact radius in frontmatter; embeds, popouts and the composer use the surface radius. Outer shell panels and messages remain square; ordinary messages are borderless. Preserve Discord's native avatar and identity silhouettes.
+
+
+Outer panels remain square. Small navigation controls, toolbar targets, reactions and embeds use compact corners. The composer, floating components and distinct native voice connection surface use the surface radius. Unread rail tips intentionally use a 2px corner and separator caps use 4px corners. The attachment action is circular. Rounded geometry marks bounded controls, rather than rounding every available panel.
+
+
 
 ## Components
 
-### Toolbar
 
-Threads, pins, member-list controls and search use original local outline SVG artwork, drawn on a (24px) viewBox with stroke width (1.75). It is presentation applied to existing controls: native labels, badges and actions remain. The notification bell deliberately stays native because its muted slash communicates functional state. Do not replace or invent a threads action when Discord does not supply one.
 
-Hover and selection use nord2 with Frost foreground. Keep toolbar controls compact and recognizable; preserve the source selectors' actual language/state coverage rather than claiming every Discord locale is supported.
+### Navigation and toolbar
 
-### Conversation and composer
 
-The conversation is a continuous nord0 surface. Embeds and code use supporting nord1 surfaces; reactions use nord2 and selected reactions add a Frost border. The composer uses nord2 and a Frost focus-within outline (1px). Ordinary fields use nord0, nord3 borders and a Frost focus border.
 
-### Navigation
+Native navigation and unread indicators stay visible. Selected channels combine tonal fill and heavier heading text. Toolbar controls have compact targets (32px) and a shared outline vocabulary. Eleven pinned Lucide SVGs are locally vendored with license and source provenance; masks are generated from them. Ten masks are active: five header/rail glyphs and five voice glyphs (video, video-off, screen-share, shapes and party-popper). The vendored signal asset is retained but unused; native network-quality SVG paths remain visible. The pin keeps its source geometry and is tilted (35 degrees). Native notification and voice state remain native; CSS must not invent unavailable actions. No additional runtime fetch or package is introduced.
 
-Channel rows have minimum height (34px). Selection uses nord2 and stronger Snow Storm text. Unread rows retain a darker surface, increased text weight and native indicators. Never hide unread or mention markers to simplify the design.
 
-### Member index
 
-The wider index reserves space for native names and badges. Member names keep their native internal formatting and row heights; the member content container removes its maximum-width cap. Do not recreate the removed experimental name-reformatting rules.
+### Composer
 
-### Account and voice dock
 
-The native account controls and voice controls remain operational. Only the decorative account nameplate in the dock is hidden. The dock name is normalized for readability; public/custom profile cards and their native identity treatments remain intact. Do not generalize this scoped suppression to profile popouts or other identity surfaces.
 
-### Focus and motion
+One control-colored outer surface contains transparent editable layers. The circular attachment action (28px) uses foreground against canvas. A Frost outline appears on focus within. Preserve drafts, labels, menus and native actions.
 
-Keyboard focus uses a Frost outline (2px) with inset offset (-2px); forced-colors mode maps the outline to the system Highlight color. Reduced-motion and explicit animation opt-out behavior are inherited from shared sources. Preserve narrow, property-specific transitions and the shared reduced-motion guards.
+
+
+### Account and voice
+
+
+
+The account area is integrated below the channel index, with minimum height (76px), padding (10px vertically, 4px horizontally), avatar (36px), main command widths (28px) and input/output option widths (24px). The native account nameplate remains visible behind identity and controls; local name text keeps the reading typography. One bounded voice container covers both connection status and all four native actions. Its status row has a minimum height (40px); action buttons are 40px high, have no horizontal padding and retain 20px icon flex bases. It expands naturally and preserves native controls. Active voice actions use a nord14-derived fill and border with nord14 text. Network quality retains Discord’s native 16px SVG with zero padding and its Fine/Average/Bad paths; no static signal mask replaces state.
+
+
+
+### Floating components
+
+
+
+Style the actual menu, pins panel, picker or autocomplete rather than its overlay root. Selected menu rows use the selected tone; labels wrap to preserve long options at narrow widths. Populated pinned messages form a flat readable list: entries are transparent, square and borderless, with a thin separator only between siblings. Popup entrances last 130ms with a small vertical settle; they run only when both operating-system and Discord reduced-motion settings allow them. Native positioning transforms remain intact.
+
+
+
+### Native settings controls
+
+Modern native switch roles use Frost tracks and dark thumbs. One exact local checked-state query handles the legacy switch: `#app-mount .container_a28278:has(> .hiddenVisually_b18fe2 > input:checked) > .switchIndicator_a28278`. Its nord10 background uses `!important` because Discord animates the track with an inline color. This sole exception does not permit ancestor-wide relational queries; the checker limits the count to one and the validator whitelists only that exact selector.
+
+### Focus and content state
+
+
+
+Interactive elements receive a visible Frost outline (2px, inset offset). Forced colors uses the system Highlight color. Composer focus within remains distinct. Selected reactions retain an outline; mentions retain their leading marker. Targeted native checks observed Frost keyboard focus in the input-device submenu, the output-device menu and real unread/mention presentation. Those observations do not establish every keyboard path, state or operating-system accessibility mode.
+
+
 
 ## Do's and Don'ts
 
-- **Do** reuse existing public tokens and prefix new project tokens with `--sibnight-`.
-- **Do** preserve the Sibylla logo, North Polar name and Zelk/Midnight/Tokyo Night credits.
-- **Do** edit sources and wrapper, then regenerate builds in the declared order.
-- **Do** distinguish static checks, synthetic fixtures and actual Discord observations. Previous validation counts belong to their recorded checkpoint and do not certify this shared refactor. Current observations and remaining limits belong in docs/MAINTENANCE.md.
-- **Don't** paint generic layer containers, hide unread state, remove focus or introduce global expensive transitions.
-- **Don't** replace the other eight palettes or claim their visual validation from North Polar observations.
-- **Don't** publish private conversations or screenshots as design examples. Historical concepts describe intent, not current rendered proof.
+
+
+- **Do** reuse existing tokens and prefix new project tokens with `--sibnight-`.
+
+- **Do** preserve native labels, content, focus, unread state, profile identity and voice semantics.
+
+- **Do** edit declared source modules, then regenerate outputs in the explicit build order.
+
+- **Do** distinguish source inspection, synthetic fixtures and observed Discord runtime states.
+
+- **Don't** add decorative nested cards, blanket rounded panels, glow, blur or global motion.
+
+- **Don't** add remote resources, telemetry or unreviewed code.
+
+- **Don't** use partial class selectors, global ancestor `:has()` queries or transitions of all properties. Only the exact local legacy-switch query documented above is permitted.
+
+- **Don't** treat mockups, static checks or historical screenshots as current visual validation.
+
+- **Don't** publish private screenshots or conversation content.
+
+
+
+### Current compact rail and voice correction
+
+
+
+The owner rejected the earlier gallery rail and selection ring. Current geometry is the compact 72px rail described above. Native folders, badges, unread pills and scrolling remain authoritative. The main voice header reserves 112px for history via its exact headerWrapper/subtitleContainer/headerBar hierarchy; nested chat titles remain unshifted. Earlier native open/close cycles and the text header were observed on the VPS.
+
+
+Voice masks target direct native buttons nth-of-type(1), (2) and (3), plus the soundboard aria label. Hidden spans remain in the native DOM; active video overrides the inactive video-off mask. The build budget is 36 KiB. Latest quality verification passed four tests with zero dependency audit findings. Final generated CSS: 36,797 bytes, 170 rules, six !important declarations and one exact component-local :has() query. The installable bundle SHA-256 matches locally and on the VPS: `21fd38c2c95a913cc0611cbd737b544ab2aecfc181ba359254f1d8a52f94baff`. Final synthetic fixture passed 62/62 assertions at 1600px and 1101px, including the short split regression, all three native quality states with alpha retained, and native legacy checked/unchecked switch states. Native 1101 × 801 checks verified compact geometry and open-folder alignment; the rail-bottom add dialog and pins were accessible, and notification options opened. Two expanded folders, activities, Soundboard and share-selector access also observed. Other native combinations remain untested. These targeted observations do not establish universal visual or functional approval. No publication.
+
+
+Current private native evidence: `.impeccable/review/voice-chat-narrow-stacked.png`, `voice-chat-narrow-menu.png`, `settings-voice-narrow.png`, `settings-camera-narrow.png`, `settings-appearance-narrow.png`, `settings-notifications-narrow-final.png` and `settings-notification-select.png` and `settings-accessibility-narrow.png`. These record bounded call/chat and settings observations; DM/header and Halo tooltip follow-up recorded in docs/VALIDATION.md. No publication.
+
+
+Native final review disposition: bounded SHIP for the observed 1101 × 801 voice layout and recorded settings states. Native ping measured 16 × 16px. Accessibility settings were also observed in `.impeccable/review/settings-accessibility-narrow.png`. DM/header and Halo tooltip follow-up recorded in docs/VALIDATION.md; no publication.
+
+Follow-up contract: sparse folder previews centre both flex axes inside the native 48px anchor. Do not move the tooltip itself. DM search and conversation headers share `--sibnight-header-height: 60px`, including the border-box boundary. Decorative DM-row banners are neutralised in navigation only; the personal account banner remains native. Real narrow DM alignment and Halo closed/open states were observed; private evidence remains ignored. Voice chat was reopened and closed on the final candidate without title/history overlap. No publication.
+
+Group DM follow-up: keep offline member names readable by removing the native whole-row 0.3 opacity. Presence data, profile badges and identity remain native. This is one scoped rule, with no new relational selector or motion. Group, compact/full profiles and representative popups were observed at 1101 × 801; details and remaining loading-state limit are in docs/VALIDATION.md. No publication.
+
+## 25 October correction contract (supersedes fixed geometry above)
+
+Sidebar width follows the native user preference; 344px is an absent-variable fallback only. The theme must not overwrite --custom-guild-sidebar-width. Native avatar, decoration, reply and text-size geometry remain paired; no isolated portrait width/left overrides. Virtualized categories and channel row heights stay native. Member rows are transparent at rest with restrained hover/focus-within; personal banners remain intact. Current bundle: 36813 bytes, 168 rules, six important declarations, one bounded local has query; SHA256 b333d3ce97436ca0e323e35821be78bbca717a32e90e89607e676d19710a3cb2. Quality 4 tests PASS/audit0; fixture72 PASS, baseline detects five new failures at each width. Runtime evidence and limits are in docs/VALIDATION.md; no universal, hardware or FPS claim. No publication.
+
+## Shared family — 25 October 2026
+
+Sibylla is now the main identity; North Polar, North Snow, Spatial and Tokyo-night reuse its exact approved North layout. Colors and backgrounds alone vary. `scripts/lib/flavors.js` owns these roles, applied after the common modules. North Polar has no appended overrides and retains the approved bundle hash. The old Sibnight code is removed from active sources into a private recovery copy. No legacy CSS is imported.
+
+Sibylla uses the website's midnight #04040b, gold #fada7d and cool #dbe8ff text. Its supplied transparent logo is subdued in the upper right of the message viewport. Spatial uses the exact supplied orbital photograph anchored upper right. North Snow uses Snow Storm surfaces and Polar Night typography, with darker Frost/status tones for legibility. Tokyo-night follows the upstream dark editor palette. Preserve all native account nameplates; artwork never replaces the user's own banner. No extra motion or icon redesign belongs to this pass.
+
+
+Owner approval, 25 October 2026: all five variants were tested and accepted; repository publication is authorized. Historical no-publication statements below earlier checkpoints describe their own dates, not the current scope.

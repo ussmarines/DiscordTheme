@@ -1,0 +1,72 @@
+/* Cabinet initial: an integrated identity row below a distinct native voice card. */
+#app-mount .panels__5e434 {
+    left: var(--sibnight-rail);
+    right: 0;
+    bottom: 0;
+    width: auto;
+    padding: 0;
+    gap: 0;
+    border: 0;
+    border-radius: 0;
+    background: var(--sibnight-index);
+}
+/* Preserve the owner's native account nameplate behind identity and controls. */
+#app-mount .panels__5e434 .fitInAccount_df39b2 { border-radius: 0; }
+#app-mount .panels__5e434 .container__37e49 > .buttons__37e49 { position: relative; z-index: 1; }
+#app-mount .panels__5e434 .container__37e49 {
+    height: auto;
+    min-height: 76px;
+    padding: 10px 4px;
+    gap: 4px;
+    flex-wrap: nowrap;
+    background: transparent;
+    border-top: 1px solid var(--sibnight-line);
+    border-radius: 0;
+    box-sizing: border-box;
+}
+#app-mount .panels__5e434 .accountPopoutButtonWrapper__37e49 { flex: 1 1 auto; min-width: 0; }
+#app-mount .panels__5e434 .avatar__37e49 { width: 36px; height: 36px; }
+#app-mount .panels__5e434 .nameTag__37e49 { min-width: 0; }
+#app-mount .panels__5e434 .nameTag__37e49 :is(.container_dfb989, .innerContainer_dfb989) { color: var(--sibnight-heading); text-shadow: none; -webkit-text-stroke: 0; font-family: inherit; }
+#app-mount .panels__5e434 .buttons__37e49 { flex: 0 0 auto; gap: 0; }
+#app-mount .panels__5e434 .buttons__37e49 :is(button, [role='switch']) { width: 28px; min-width: 0; padding-inline: 0; border-radius: 6px; }
+#app-mount .panels__5e434 .buttons__37e49 :is([aria-label="Options d'entrée"], [aria-label='Options de sortie'], [aria-label='Input Options'], [aria-label='Output Options']) { width: 24px; min-width: 24px; }
+#app-mount .panels__5e434 .wrapper_e131a9 { padding: 8px; margin: 0; }
+/* The native container owns BOTH connection status and the four action buttons. */
+#app-mount .panels__5e434 .container_e131a9 {
+    padding: 12px;
+    gap: 12px;
+    border: 1px solid var(--sibnight-line);
+    border-radius: var(--sibnight-radius);
+    background: var(--sibnight-canvas);
+}
+#app-mount .panels__5e434 .connection_e131a9 {
+    min-height: 40px;
+    height: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+#app-mount .connection_e131a9 > .inner_e131a9 { min-width: 0; height: auto; }
+#app-mount .actionButtons_e131a9 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+#app-mount .actionButtons_e131a9 .button_e131a9 { min-width: 0; min-height: 40px; height: 40px; padding: 0; }
+#app-mount .actionButtons_e131a9 .buttonContents_e131a9 { justify-content: center; width: 100%; }
+#app-mount .actionButtons_e131a9 .buttonIcon_e131a9 { flex: 0 0 20px; }
+#app-mount .rtcConnectionStatusConnected__06d62 { color: var(--sibnight-nord14); }
+/* Native quality paths/levels remain native; remove the large-ping frame and padding. */
+#app-mount .connection_e131a9 .ping__06d62 {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    padding: 0;
+    margin-inline: 0 8px;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#app-mount .actionButtons_e131a9 :is(.button_e131a9.buttonActive_e131a9, .buttonColor_e131a9.buttonActive_e131a9) {
+    background: color-mix(in srgb, var(--sibnight-nord14) 16%, var(--sibnight-canvas));
+    border-color: color-mix(in srgb, var(--sibnight-nord14) 35%, transparent);
+    color: var(--sibnight-nord14);
+}

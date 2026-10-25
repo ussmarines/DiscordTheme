@@ -1,0 +1,133 @@
+/* Discord keeps ownership of its components, permissions and profile themes. */
+.theme-dark:not(.custom-user-profile-theme),
+.theme-light:not(.custom-user-profile-theme) {
+    --brand-500: var(--sibnight-nord8);
+    --brand-560: var(--sibnight-nord9);
+    --brand-600: var(--sibnight-nord10);
+    --brand-experiment: var(--sibnight-nord8);
+    --blurple-50: var(--sibnight-nord8);
+    --bg-brand: var(--sibnight-nord9);
+    --button-filled-brand-background: var(--sibnight-nord8);
+    --button-filled-brand-background-hover: var(--sibnight-nord7);
+    --button-filled-brand-background-active: var(--sibnight-nord9);
+    --button-filled-brand-text: var(--sibnight-nord0);
+    --background-brand: var(--sibnight-nord8);
+    --background-feedback-notification: var(--sibnight-attention);
+    --control-brand-foreground-new: var(--sibnight-nord8);
+    --control-positive-primary-background-default: var(--sibnight-nord14);
+    --control-positive-primary-background-hover: color-mix(in srgb, var(--sibnight-nord14) 85%, var(--sibnight-nord6));
+    --control-positive-primary-text-default: var(--sibnight-nord0);
+    --control-positive-primary-icon-default: var(--sibnight-nord0);
+    --radio-background-selected-default: var(--sibnight-nord8);
+    --radio-border-selected-default: var(--sibnight-nord8);
+    --radio-background-selected-hover: var(--sibnight-nord7);
+    --radio-border-selected-hover: var(--sibnight-nord7);
+    --radio-thumb-background-active: var(--sibnight-nord0);
+    --checkbox-background-selected-default: var(--sibnight-nord8);
+    --checkbox-border-selected-default: var(--sibnight-nord8);
+    --checkbox-background-selected-hover: var(--sibnight-nord7);
+    --checkbox-border-selected-hover: var(--sibnight-nord7);
+    --checkbox-icon-active: var(--sibnight-nord0);
+    --switch-background-selected-default: var(--sibnight-nord8);
+    --switch-background-selected-hover: var(--sibnight-nord7);
+    --switch-background-active: var(--sibnight-nord9);
+    --switch-thumb-background-selected-default: var(--sibnight-nord0);
+    --switch-thumb-icon-active: var(--sibnight-nord8);
+    --control-primary-background-default: var(--sibnight-nord8);
+    --control-primary-background-hover: var(--sibnight-nord7);
+    --control-primary-text-default: var(--sibnight-nord0);
+    --background-primary: var(--sibnight-canvas);
+    --background-secondary: var(--sibnight-index);
+    --background-secondary-alt: var(--sibnight-index);
+    --background-tertiary: var(--sibnight-canvas);
+    --background-floating: var(--sibnight-raised);
+    --background-base-low: var(--sibnight-canvas);
+    --background-base-lower: var(--sibnight-canvas);
+    --background-base-lowest: var(--sibnight-canvas);
+    --background-surface-high: var(--sibnight-raised);
+    --background-surface-higher: var(--sibnight-control);
+    --background-surface-highest: var(--sibnight-nord2);
+    --background-modifier-hover: var(--sibnight-hover);
+    --background-modifier-active: var(--sibnight-selected);
+    --background-modifier-selected: var(--sibnight-selected);
+    --background-message-hover: color-mix(in srgb, var(--sibnight-nord3) 10%, transparent);
+    --background-code: var(--sibnight-index);
+    --channeltextarea-background: var(--sibnight-control);
+    --chat-background: var(--sibnight-canvas);
+    --chat-border: var(--sibnight-line);
+    --input-background: var(--sibnight-control);
+    --modal-background: var(--sibnight-raised);
+    --modal-footer-background: var(--sibnight-index);
+    --text-normal: var(--sibnight-foreground);
+    --text-primary: var(--sibnight-foreground);
+    --text-secondary: var(--sibnight-muted);
+    --text-muted: var(--sibnight-muted);
+    --mention-foreground: var(--sibnight-nord8);
+    --mention-background: color-mix(in srgb, var(--sibnight-nord8) 18%, transparent);
+    --mention-background-hover: color-mix(in srgb, var(--sibnight-nord8) 28%, transparent);
+    --text-link: var(--sibnight-nord8);
+    --text-positive: var(--sibnight-nord14);
+    --text-danger: var(--sibnight-nord11);
+    --text-warning: var(--sibnight-nord13);
+    --header-primary: var(--sibnight-heading);
+    --header-secondary: var(--sibnight-muted);
+    --channels-default: var(--sibnight-muted);
+    --channel-icon: var(--sibnight-muted);
+    --interactive-text-default: var(--sibnight-muted);
+    --interactive-text-hover: var(--sibnight-heading);
+    --interactive-text-active: var(--sibnight-heading);
+    --interactive-icon-default: var(--sibnight-muted);
+    --interactive-icon-hover: var(--sibnight-heading);
+    --interactive-icon-active: var(--sibnight-heading);
+    --control-secondary-background-default: var(--sibnight-control);
+    --control-secondary-background-hover: var(--sibnight-nord3);
+    --control-secondary-text-default: var(--sibnight-heading);
+    --control-secondary-icon-default: var(--sibnight-foreground);
+    --control-critical-primary-background-default: var(--sibnight-attention);
+    --control-critical-primary-text-default: var(--sibnight-nord6);
+    --control-critical-primary-icon-default: var(--sibnight-nord6);
+    --interactive-normal: var(--sibnight-foreground);
+    --interactive-hover: var(--sibnight-heading);
+    --interactive-active: var(--sibnight-heading);
+    --interactive-muted: var(--sibnight-muted);
+    --icon-primary: var(--sibnight-foreground);
+    --icon-secondary: var(--sibnight-muted);
+    --icon-default: var(--sibnight-foreground);
+    --icon-muted: var(--sibnight-muted);
+    --icon-strong: var(--sibnight-heading);
+    --border-subtle: var(--sibnight-line);
+    --border-normal: var(--sibnight-line);
+    --border-strong: var(--sibnight-nord3);
+    --focus-primary: var(--sibnight-focus);
+    --border-focus: var(--sibnight-focus);
+    --notice-background-critical: var(--sibnight-control);
+    --notice-text-critical: var(--sibnight-heading);
+    --notice-background-positive: var(--sibnight-index);
+    --notice-text-positive: var(--sibnight-nord14);
+    --notice-background-warning: var(--sibnight-index);
+    --notice-text-warning: var(--sibnight-nord13);
+    --notice-background-info: var(--sibnight-index);
+    --notice-text-info: var(--sibnight-nord8);
+    --status-positive: var(--sibnight-nord14);
+    --status-danger: var(--sibnight-nord11);
+    --status-warning: var(--sibnight-nord13);
+    --scrollbar-auto-thumb: var(--sibnight-nord3);
+    --scrollbar-auto-track: transparent;
+    --scrollbar-thin-thumb: var(--sibnight-nord3);
+    --scrollbar-thin-track: transparent;
+    --channel-text-area-placeholder: var(--sibnight-muted);
+}
+
+/* Native message/mention notices: distinct from read channels, without hiding state. */
+#app-mount .newMessagesBar__0f481 { background: var(--sibnight-nord8); color: var(--sibnight-nord0); }
+#app-mount .newMessagesBar__0f481 button { color: inherit; }
+#app-mount .unreadPill__908e2 { color: var(--sibnight-nord6); background: var(--sibnight-nord11); }
+#app-mount .numberBadge__463b7 { background-color: var(--sibnight-attention); color: var(--sibnight-nord6); font-weight: 700; }
+
+#app-mount .toolbar__9293f .selected__9293f .icon__9293f { color: var(--sibnight-nord8); }
+#app-mount .toolbar__9293f .iconBadgeStyleImportant__9293f { background: var(--sibnight-attention); }
+#app-mount .toolbar__9293f .iconBadgeStyleUnread__9293f { background: var(--sibnight-nord8); }
+/* One bounded state query: native spring writes this legacy track color inline. */
+#app-mount .container_a28278:has(> .hiddenVisually_b18fe2 > input:checked) > .switchIndicator_a28278 {
+    background-color: var(--sibnight-nord10) !important;
+}

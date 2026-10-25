@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+/* North Polar — approved composition contract (standalone rebuild).
+THESIS: A quiet reading room for long Discord discussions and voice sessions.
+OWN-WORLD: Dark Polar Night planes, Frost affordances, Figtree and reviewed Lucide outlines.
+STORY: Find the channel, read the conversation, reply, and reach native voice controls.
+FIRST VIEWPORT: 72px compact server index, continuous channel index, uninterrupted conversation, single 56px
+composer and integrated identity; Lecture et reperes plus Cabinet initial account reference.
+FORM: Native Discord semantics and state; restrained borders, no decorative nesting,
+glow or blur. Popups open in 130ms and respect reduced motion. No legacy imports.
+*/
+:root {
+    --sibnight-nord0: #2e3440;
+    --sibnight-nord1: #3b4252;
+    --sibnight-nord2: #434c5e;
+    --sibnight-nord3: #4c566a;
+    --sibnight-nord4: #d8dee9;
+    --sibnight-nord5: #e5e9f0;
+    --sibnight-nord6: #eceff4;
+    --sibnight-nord7: #8fbcbb;
+    --sibnight-nord8: #88c0d0;
+    --sibnight-nord9: #81a1c1;
+    --sibnight-nord10: #5e81ac;
+    --sibnight-nord11: #bf616a;
+    --sibnight-nord12: #d08770;
+    --sibnight-nord13: #ebcb8b;
+    --sibnight-nord14: #a3be8c;
+    --sibnight-nord15: #b48ead;
+
+    /* Polar Night depth, derived from Nord; accents retain their exact values. */
+    --sibnight-canvas: color-mix(in srgb, color-mix(in srgb, var(--sibnight-nord0) 55%, var(--sibnight-nord10)) 45%, #000);
+    --sibnight-index: color-mix(in srgb, var(--sibnight-nord0) 90%, var(--sibnight-canvas));
+    --sibnight-header: var(--sibnight-nord0);
+    --sibnight-control: color-mix(in srgb, var(--sibnight-nord2) 60%, var(--sibnight-canvas));
+    --sibnight-raised: var(--sibnight-nord0);
+    --sibnight-hover: color-mix(in srgb, var(--sibnight-nord3) 40%, transparent);
+    --sibnight-selected: color-mix(in srgb, var(--sibnight-nord9) 28%, var(--sibnight-index));
+    --sibnight-line: color-mix(in srgb, var(--sibnight-nord4) 16%, transparent);
+    --sibnight-foreground: var(--sibnight-nord4);
+    --sibnight-heading: var(--sibnight-nord6);
+    --sibnight-muted: color-mix(in srgb, var(--sibnight-nord4) 76%, var(--sibnight-nord0));
+    --sibnight-focus: var(--sibnight-nord8);
+    --sibnight-attention: color-mix(in srgb, var(--sibnight-nord11) 85%, #000);
+    --sibnight-channel-rest: color-mix(in srgb, var(--sibnight-nord4) 55%, var(--sibnight-nord3));
+    --sibnight-radius: 8px;
+    --sibnight-rail: 72px;
+    --sibnight-sidebar: var(--custom-guild-sidebar-width, 344px);
+    --sibnight-members: 272px;
+    --sibnight-reading-measure: 74ch;
+    --sibnight-composer-height: 56px;
+    --sibnight-header-height: 60px;
+    color-scheme: dark;
+}
+
+body {
+    --font-primary: 'Figtree', 'gg sans', sans-serif;
+    --font-display: var(--font-primary);
+    --font-code: 'gg mono', Consolas, monospace;
+    --custom-app-top-bar-height: 36px;
+    --custom-channel-textarea-text-area-height: var(--sibnight-composer-height);
+    font-weight: 400;
+}
+
+@media (max-width: 1200px) {
+    :root { --sibnight-members: 256px; }
+}

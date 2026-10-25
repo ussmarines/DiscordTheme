@@ -1,217 +1,125 @@
-<p align="center">
-  <img width="220" src="./assets/sibylla-logo.svg" alt="Sibylla logo">
-</p>
+# Sibylla — thèmes Discord
 
-<h1 align="center">sibnight</h1>
+**Sibylla** est le thème principal. **North Polar**, **North Snow**, **Spatial** et **Tokyo-night** sont ses quatre flavors autonomes. Les cinq versions conservent le même agencement, les mêmes icônes et les commandes natives de Discord.
 
-<p align="center">
-  A dark Discord theme inspired by Sibylla's visual identity.
-</p>
+Les cinq versions ont été testées et validées visuellement par le propriétaire le **25 octobre 2026**. Les contrôles automatisés et les limites de compatibilité sont détaillés dans [la validation](docs/VALIDATION.md).
 
-<p align="center">
-  <img src="./assets/readme/mockup-base-theme.png" alt="Base Sibnight theme preview">
-</p>
+## Télécharger et installer
 
-## Installation
+| Version | Direction visuelle | Fichier installable |
+| --- | --- | --- |
+| **Sibylla — principale** | Minuit, or, logo discret en haut à droite du chat | [Télécharger Sibylla](https://ussmarines.github.io/DiscordTheme/dist/sibylla.theme.css) |
+| North Polar | Nord sombre, version validée conservée | [Télécharger North Polar](https://ussmarines.github.io/DiscordTheme/dist/north-polar.theme.css) |
+| North Snow | Nord clair, Snow Storm et textes Polar Night | [Télécharger North Snow](https://ussmarines.github.io/DiscordTheme/dist/north-snow.theme.css) |
+| Spatial | Bleu orbital et photographie du vaisseau en haut à droite du chat | [Télécharger Spatial](https://ussmarines.github.io/DiscordTheme/dist/spatial.theme.css) |
+| Tokyo-night | Tons nocturnes, accents bleus, cyan et violets | [Télécharger Tokyo-night](https://ussmarines.github.io/DiscordTheme/dist/tokyo-night.theme.css) |
 
-### File installation
+1. Enregistrer le fichier choisi avec son nom complet se terminant par `.theme.css`. S’il s’affiche comme du texte dans le navigateur, utiliser **Enregistrer sous**.
+2. Ouvrir **Paramètres → Vencord → Themes → Open Themes Folder**, ou le dossier des thèmes de BetterDiscord.
+3. Copier le fichier dans ce dossier et activer la version choisie.
+4. **Activer une seule version à la fois.** Une flavor inclut le thème entier : ne pas la superposer à Sibylla.
 
-For **BetterDiscord** or **Vencord desktop**:
+Pour mettre à jour une installation locale, remplacer le fichier existant par le nouveau téléchargement. Pour passer d’une version à l’autre, désactiver l’ancienne avant d’activer la suivante. Désactiver aussi les anciens thèmes Sibnight et les liens de thème en ligne ; du QuickCSS personnalisé peut entrer en conflit avec le rendu.
 
-1. Download `themes/sibnight.theme.css`.
-2. Place the file in your Discord client's themes folder.
-3. Enable **sibnight-discord** or the chosen flavor. Enable only one Sibnight variant at a time.
+Les fichiers de `dist/` contiennent tout le CSS, les icônes et les fonds locaux. Ils conservent uniquement l’import de police Figtree existant. Les fichiers de [themes/](themes/) sont des wrappers légers qui importent le CSS publié sur GitHub Pages : ils dépendent de cet accès réseau. Le [catalogue de téléchargement](https://ussmarines.github.io/DiscordTheme/) présente les cinq versions.
 
-### Link installation
+## Aperçus
 
-In Vencord, add this URL under **Themes / Online Themes**. BetterDiscord users should use file installation:
+Ces cinq illustrations utilisent le CSS actuel avec un serveur, des membres et des messages entièrement fictifs. Elles ne contiennent aucune capture de compte personnel et ne constituent pas un test Discord natif.
 
-```text
-https://ussmarines.github.io/DiscordTheme/themes/sibnight.theme.css
-```
+<details open>
+<summary>Sibylla — principale</summary>
 
-To customize the theme, copy the relevant `body` or `:root` variable block from the installed file into **Vencord QuickCSS** or **BetterDiscord Custom CSS**. For example:
+![Aperçu Sibylla — principale — contenu fictif](assets/previews/sibylla.png)
 
-```css
-body {
-    --gap: 12px;
-    --animations: off;
-    --panel-blur: off;
-}
-```
+</details>
 
-Existing `--sibylla-*` and legacy variables remain supported. Figtree loads from Google Fonts; the home logo loads from this repository. The theme installs no JavaScript.
+<details>
+<summary>North Polar</summary>
 
-These third-party client modifications are **not officially supported by Discord**. Client modifications conflict with [Discord's terms](https://discord.com/terms), as also stated in the [Vencord FAQ](https://vencord.dev/faq/). Compatibility means CSS theme loading, not certification of every Discord screen or mobile support.
+![Aperçu North Polar — contenu fictif](assets/previews/north-polar.png)
 
-The previews below are historical illustrations, not evidence of current Discord compatibility.
+</details>
 
-## Flavors
+<details>
+<summary>North Snow</summary>
 
-Flavors are predefined variants of **sibnight**. Each flavor is a standalone `.theme.css` file that imports the shared base `build/sibnight-flavor.css`.
+![Aperçu North Snow — contenu fictif](assets/previews/north-snow.png)
 
-To use a flavor, install the matching file from `themes/flavors/` instead of the main theme.
+</details>
 
-<table>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-flat.theme.css">
-        <img src="./assets/readme/mockup-flat.png" alt="sibnight-flat preview">
-      </a>
-      <br>
-      <strong>sibnight-flat</strong>
-      <br>
-      <code>themes/flavors/sibnight-flat.theme.css</code>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-tokyo-night.theme.css">
-        <img src="./assets/readme/mockup-tokyo-night.png" alt="sibnight-tokyo-night preview">
-      </a>
-      <br>
-      <strong>sibnight-tokyo-night</strong>
-      <br>
-      <code>themes/flavors/sibnight-tokyo-night.theme.css</code>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-sun.theme.css">
-        <img src="./assets/readme/mockup-sun.png" alt="sibnight-sun preview">
-      </a>
-      <br>
-      <strong>sibnight-sun</strong>
-      <br>
-      <code>themes/flavors/sibnight-sun.theme.css</code>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-space.theme.css">
-        <img src="./assets/readme/mockup-space.png" alt="sibnight-space preview">
-      </a>
-      <br>
-      <strong>sibnight-space</strong>
-      <br>
-      <code>themes/flavors/sibnight-space.theme.css</code>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-north-polar.theme.css">
-        <img src="./assets/readme/mockup-north-polar.png" alt="sibnight-north-polar preview">
-      </a>
-      <br>
-      <strong>sibnight-north-polar</strong>
-      <br>
-      <code>themes/flavors/sibnight-north-polar.theme.css</code>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-north-snow.theme.css">
-        <img src="./assets/readme/mockup-north-snow.png" alt="sibnight-north-snow preview">
-      </a>
-      <br>
-      <strong>sibnight-north-snow</strong>
-      <br>
-      <code>themes/flavors/sibnight-north-snow.theme.css</code>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-north-aurora-dark.theme.css">
-        <img src="./assets/readme/mockup-north-aurora-dark.png" alt="sibnight-north-aurora-dark preview">
-      </a>
-      <br>
-      <strong>sibnight-north-aurora-dark</strong>
-      <br>
-      <code>themes/flavors/sibnight-north-aurora-dark.theme.css</code>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <a href="./themes/flavors/sibnight-north-aurora-light.theme.css">
-        <img src="./assets/readme/mockup-north-aurora-light.png" alt="sibnight-north-aurora-light preview">
-      </a>
-      <br>
-      <strong>sibnight-north-aurora-light</strong>
-      <br>
-      <code>themes/flavors/sibnight-north-aurora-light.theme.css</code>
-    </td>
-  </tr>
-</table>
+<details>
+<summary>Spatial</summary>
 
-## Remote import links
+![Aperçu Spatial — contenu fictif](assets/previews/spatial.png)
 
-```text
-https://ussmarines.github.io/DiscordTheme/themes/sibnight.theme.css
-https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-flat.theme.css
-https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-tokyo-night.theme.css
-https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-sun.theme.css
-https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-space.theme.css
-https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-north-polar.theme.css
-https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-north-snow.theme.css
-https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-north-aurora-dark.theme.css
-https://ussmarines.github.io/DiscordTheme/themes/flavors/sibnight-north-aurora-light.theme.css
-```
+</details>
 
-## Development
+<details>
+<summary>Tokyo-night</summary>
 
-### Compatibility status — 24 October 2026
+![Aperçu Tokyo-night — contenu fictif](assets/previews/tokyo-night.png)
 
-Sibnight 2.15.1 / North Polar 2.1.1 rebuilds the shared principal theme around **Lecture et repères**, with the connected-user block from **Cabinet initial**. North Polar remains a dark skin using the [official Nord palette](https://www.nordtheme.com/docs/colors-and-palettes/). Native content, custom profiles, unread indicators and keyboard focus are preserved.
+</details>
 
-`src/workspace.css` now owns the continuous columns, reading rhythm, header tools and voice/account dock in the principal source manifest. `src/north-polar.css` supplies the Nord semantic palette after `flavor-base.css`. This is a shared-core change: the other eight variants are retained, but their visual validation is explicitly deferred.
+## Migrer depuis Sibnight
 
-Conversation text uses a 74ch limit and 1.5 line height. Threads remains beside notifications and pins. Four original embedded outline glyphs cover threads, pins, members and search; multi-state notification, voice and composer controls retain Discord glyphs. There is no new icon dependency or remote resource.
+La nouvelle famille remplace les neuf anciens thèmes. Retirer leurs fichiers du dossier actif après en avoir conservé une copie personnelle, puis installer une seule version ci-dessus. Les anciens chemins `build/sibnight.css`, `build/sibnight-flavor.css` et `themes/flavors/sibnight-*.theme.css` ne sont plus maintenus. Ne pas les conserver dans les liens Vencord.
 
-The [function-by-function validation matrix](docs/DISCORD_FUNCTIONS.md) distinguishes visible controls, opened menus and executed operations. Read-only checks cover search results, reception, message menus, reply preparation/cancellation, profiles, media pickers, voice settings and Vencord. A real 1101 × 801 window exposed a clipped account row; the dock now grows with its controls. North Polar is observed active in the installed client.
+L’ancien code reste récupérable dans l’historique Git. Les anciens aperçus de Sibnight ne représentent pas cette famille et ne sont pas utilisés comme captures du nouveau thème.
 
-Build checks, six Node tests, npm audit and 24 North Polar Chromium assertions pass at the recorded checkpoint. Synthetic CSS tests do not certify every Discord interaction. The final targeted Impeccable review passes after correcting account overflow and excessive member-name truncation. Member widths of 288px / 280px preserve native row height, badges and custom nameplates. This review covers the supplied real desktop/narrow views, not every Discord screen. Camera input is unavailable. BetterDiscord, the other variants, OS accessibility modes, new calls/sharing, uploads and content publication are not validated in this pass. See [maintenance](docs/MAINTENANCE.md) and [the design system](DESIGN.md). Gallery images above remain historical.
+## Interface commune
 
-The project keeps two generated CSS files:
+La composition validée *Lecture et repères*, avec le bloc compte de *Cabinet initial*, reste commune aux cinq versions : rail compact, largeur des salons réglable nativement, lecture continue, zone de rédaction unique, commandes vocales intégrées et profils natifs. Les non-lus, mentions et focus clavier restent visibles. Le bouton des MP utilise l’icône de messages cohérente avec les autres icônes.
 
-- `build/sibnight.css` for the main theme.
-- `build/sibnight-flavor.css` for flavors, with their shared base.
+Spatial utilise la photographie fournie, ancrée dans le haut droit de la zone de messages ; son cadrage conserve le vaisseau aux tailles de fenêtre contrôlées. Sibylla garde un fond uni avec son logo transparent atténué dans le haut droit. Les fonds ne remplacent ni les pièces jointes ni les bannières personnelles.
 
-Useful commands:
+Les petites animations de popup respectent la réduction des mouvements. Une seule requête `:has()` locale est autorisée pour le commutateur natif ; le build rejette les requêtes relationnelles plus larges, les sélecteurs de classe partiels, les transitions globales et le masquage des non-lus. Aucun script ni paquet ne s’exécute dans Discord pour appliquer le thème. Ces limites évitent du travail inutile sans promettre zéro lag sur tous les appareils.
 
-```bash
-npm run build
-npm run check
-npm run prepare:release
+## Construire et vérifier
+
+Prérequis : Node.js **24 ou supérieur**.
+
+```sh
+npm ci --ignore-scripts
 npm run quality
-npm run check:urls
-npm run bundle
+git diff --check
+```
+
+Modifier `src/` pour le socle et `scripts/lib/flavors.js` pour les palettes/fonds. L’ordre des modules est explicite dans `scripts/lib/build-theme.js`. `scripts/icons.js` génère les masques depuis les SVG Lucide locaux. Ne pas modifier les sorties générées à la main.
+
+Le build produit, pour chaque version :
+
+- `build/<version>.css` : feuille publiée ;
+- `themes/<version>.theme.css` : wrapper avec métadonnées ;
+- `dist/<version>.theme.css` : téléchargement autonome versionné ;
+- `output/<version>.theme.css` : copie locale ignorée, identique à `dist/`.
+
+`npm run quality` vérifie la fraîcheur des cinq versions, les métadonnées, les budgets, l’isolation du socle et les politiques CSS, puis lance les tests et l’audit des dépendances. Le budget de North Polar reste à 36 Kio ; les flavors sont limitées à 42 Kio hors images embarquées et 240000 octets au total.
+
+```sh
 node scripts/browser-fixture.js
+node scripts/family-fixture.js
+npm run check:urls -- --match-local
 ```
 
-Run `npm run build` after changing CSS sources, then `npm run check` before publishing. `npm run prepare:release` runs both steps in the correct order.
+Les deux fixtures sont des contrôles synthétiques à ouvrir dans un navigateur ; elles ne remplacent pas Discord. Le dernier contrôle compare les **15 URL publiées** (build, wrapper et téléchargement de chaque version) aux fichiers locaux.
 
-Use **Node.js 24 or newer**, then `npm ci --ignore-scripts`. `npm run quality` builds, checks syntax/imports/metadata/freshness and CSS invariants, runs Node tests, checks whitespace and audits all dependencies. Also run `git diff --check`. PostCSS is used only as a parser, without transformation plugins.
+## Compatibilité et documentation
 
-The development watcher uses Chokidar 6, an ESM dependency supported by Node 24's `require(esm)` interoperability; the project scripts remain CommonJS. Both supported runtime lines are tested. Serve `output/browser-fixture.html` on loopback and inspect the nine result rows to run the browser checks; generating the HTML alone is not a passing test.
+Le laboratoire utilise Discord Linux **1.0.166** avec Vencord. Le propriétaire a essayé et approuvé les cinq versions. BetterDiscord utilise le même format de thème, mais son exécution n’a pas été contrôlée pour cette reconstruction. Le matériel audio, la caméra, les lecteurs d’écran et tous les états possibles de Discord ne sont pas certifiés par les captures ou les tests CSS.
 
-For development, set `DEV_OUTPUT_PATH` in the process environment and run `npm run dev`. Comma-separated `.theme.css` destinations must be outside the repository or inside ignored `output/`. `.env` is no longer loaded automatically. PowerShell example:
+- [Validation et limites](docs/VALIDATION.md)
+- [Fonctions Discord contrôlées](docs/DISCORD_FUNCTIONS.md)
+- [Maintenance](docs/MAINTENANCE.md)
+- [Références](docs/RESEARCH.md)
+- [Produit](PRODUCT.md), [système visuel](DESIGN.md), [checkpoint](AGENDA.md)
+- [Sécurité](SECURITY_PRODUCTION_RULES.md)
 
-```powershell
-$env:DEV_OUTPUT_PATH = 'output/dev.theme.css'
-npm run dev
-```
+Les captures privées, sauvegardes, profils utilisateur et données d’authentification ne font pas partie de la distribution.
 
-`npm run bundle` creates nine **frozen CSS snapshots** in `output/themes/`, without remote CSS imports or webfont loading. The home logo remains a remote image. Save a known-good snapshot outside this repository for rollback; disable the live theme before enabling the snapshot. Reverting published changes uses a new revert commit, never a force-push.
+## Crédits
 
-Pages serves `main` from the repository root. After deployment, run `npm run check:urls -- --match-local` to verify MIME types and exact normalized CSS content. The class updater uploads a patch for review, retained 14 days, and cannot push. Releases are manual only. See [maintenance and grouped Discord checks](docs/MAINTENANCE.md).
+Maintenance : [ussmarines](https://github.com/ussmarines). Références de couleurs : [Sibylla](https://sibylla.fr/), [Nord](https://www.nordtheme.com/docs/colors-and-palettes/) et [Tokyo Night VS Code](https://github.com/tokyo-night/tokyo-night-vscode-theme). Les deux images sont fournies par le propriétaire pour cette famille ; voir [leur provenance](assets/backgrounds/SOURCE.md). Aucun code d’extension tiers n’est exécuté.
 
-## Structure
-
-- `themes/sibnight.theme.css`: main file to install.
-- `themes/flavors/`: `.theme.css` files for the eight existing flavors.
-- `src/`: source CSS modules used to generate the build.
-- `build/`: generated CSS published through GitHub Pages.
-- `assets/readme/`: screenshots used in this README.
-- `scripts/`: Node scripts for build, development, and checks.
-- `AGENDA.md`: compact current checkpoint.
-- `docs/MAINTENANCE.md`: module map, evidence, update procedure and manual checklist.
-
-## Credits
-
-- Original design inspired by [Zelk](https://github.com/schnensch0/zelk).
-- Theme design inspired by [Midnight](https://github.com/refact0r/midnight-discord).
-- Window controls inspired by [Tokyo Night](https://github.com/Dyzean/Tokyo-Night).
-
-The main author of this project is **ussmarines**.
+Icônes : [Lucide](https://lucide.dev/), [sources épinglées et licence](assets/icons/lucide/SOURCE.md). Crédits historiques conservés : [Zelk](https://github.com/schnensch0/zelk), [Midnight](https://github.com/refact0r/midnight-discord) et [Tokyo Night Discord](https://github.com/Dyzean/Tokyo-Night).

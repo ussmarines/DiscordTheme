@@ -1,0 +1,13 @@
+#app-mount :is(button, a[href], input, textarea, select, [tabindex], [role='button'], [role='tab'], [role='option']):focus-visible {
+    outline: 2px solid var(--sibnight-focus) !important;
+    outline-offset: -2px;
+}
+#app-mount ::selection { color: var(--sibnight-heading); background: var(--sibnight-nord3); }
+@media (forced-colors: active) {
+    #app-mount :focus-visible { outline-color: Highlight !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #app-mount :is(.menu_c1e9c4, .messagesPopoutWrap__45690, .contentWrapper__08434) { animation: none !important; }
+    #app-mount :is(.messageListItem__5126c, .link__2ea32, .member_c8ffbb) { transition: none !important; }
+}
+.reduce-motion #app-mount :is(.menu_c1e9c4, .messagesPopoutWrap__45690, .contentWrapper__08434) { animation: none !important; }

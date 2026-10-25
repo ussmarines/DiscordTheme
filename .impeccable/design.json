@@ -1,208 +1,131 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-24",
-  "title": "Design System: Sibnight — Lecture et repères",
+  "generatedAt": "2026-10-24T16:06:07.444Z",
+  "title": "Design System: Sibylla Discord family",
   "extensions": {
-    "colorMeta": {
-      "nord0": {
-        "role": "neutral",
-        "displayName": "Polar Night reading page"
-      },
-      "nord1": {
-        "role": "neutral",
-        "displayName": "Polar Night supporting indexes"
-      },
-      "nord2": {
-        "role": "neutral",
-        "displayName": "Polar Night control surface"
-      },
-      "nord3": {
-        "role": "neutral",
-        "displayName": "Polar Night boundaries"
-      },
-      "nord4": {
-        "role": "neutral",
-        "displayName": "Snow Storm reading text"
-      },
-      "nord5": {
-        "role": "neutral",
-        "displayName": "Snow Storm secondary text alias"
-      },
-      "nord6": {
-        "role": "neutral",
-        "displayName": "Snow Storm strong text"
-      },
-      "nord7": {
-        "role": "primary",
-        "displayName": "Frost accent alias"
-      },
-      "nord8": {
-        "role": "primary",
-        "displayName": "Frost active and focus"
-      },
-      "nord9": {
-        "role": "primary",
-        "displayName": "Frost secondary accent alias"
-      },
-      "nord10": {
-        "role": "primary",
-        "displayName": "Frost retained palette color"
-      },
-      "nord11": {
-        "role": "secondary",
-        "displayName": "Aurora danger"
-      },
-      "nord12": {
-        "role": "secondary",
-        "displayName": "Aurora retained palette color"
-      },
-      "nord13": {
-        "role": "secondary",
-        "displayName": "Aurora warning and notification"
-      },
-      "nord14": {
-        "role": "secondary",
-        "displayName": "Aurora connected and positive"
-      },
-      "nord15": {
-        "role": "secondary",
-        "displayName": "Aurora streaming"
-      }
-    },
-    "typographyMeta": {
-      "body": {
-        "displayName": "Reading text",
-        "purpose": "Shared cozy message prose: 1rem / 1.5 with a 74ch maximum reading measure."
-      },
-      "unread-channel": {
-        "displayName": "Unread channel",
-        "purpose": "Weight reinforces native unread indicators."
-      }
-    },
     "shadows": [
       {
-        "name": "panel",
-        "value": "none",
-        "purpose": "Flat tonal hierarchy; no decorative panel elevation."
-      },
-      {
-        "name": "message-state-edge",
-        "value": "inset 1px 0 var(--sibnight-nord8)",
-        "purpose": "Mentions, replies and ephemeral state."
+        "name": "floating-component",
+        "value": "0 12px 32px rgb(0 0 0 / 24%)",
+        "purpose": "Actual native floating menus and pickers only; ordinary layout and composer remain flat."
       }
     ],
     "motion": [
       {
-        "name": "reduced-motion",
-        "value": "prefers-reduced-motion: reduce",
-        "purpose": "Shared source disables decorative animations and transitions; explicit animation opt-out is retained."
+        "name": "popup-open",
+        "value": "130ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Opacity 0 to 1 and translate 0 4px to 0 0. Only when system motion preference and Discord reduce-motion permit it. Native positioning transforms remain intact."
       }
     ],
     "breakpoints": [
       {
-        "name": "compact-workspace",
-        "value": "1200px"
-      },
-      {
-        "name": "compact-message-groups",
-        "value": "1150px"
+        "name": "compact-desktop",
+        "value": "1200px",
+        "purpose": "At or below 1200px: members 256px, native user-controlled sidebar width, account controls retained. Native narrow geometry checked around 1103x803; not every width certified."
       }
     ],
-    "architecture": {
-      "shared": [
-        "src/main.css",
-        "src/workspace.css"
-      ],
-      "skin": "src/north-polar.css",
-      "palette": "themes/flavors/sibnight-north-polar.theme.css",
-      "evidence": [
-        ".impeccable/review/core-member-desktop.jpg",
-        ".impeccable/review/core-member-narrow.jpg"
-      ],
-      "validation": "Current local observations only; other variants not visually validated for this refactor."
+    "focus": {
+      "interactive": "2px solid var(--sibnight-focus), outline-offset: -2px",
+      "composerWithin": "1px solid var(--sibnight-focus), outline-offset: 0",
+      "forcedColors": "Highlight"
     },
-    "workspace": {
-      "sidebarCap": "328px",
-      "compactSidebarCap": "288px",
-      "serverRail": "72px",
-      "memberWidth": "288px",
-      "compactMemberWidth": "280px",
-      "compactBreakpoint": "1200px",
-      "account": "Automatic height and wrapping at all widths; compact controls on second line.",
-      "voiceConnection": "Automatic height; minimum 88px; connection text and commands on separate lines.",
-      "members": "Native internal formatting and row heights; content max-width none.",
-      "narrowObservation": "Native window 1101 × 801; final review in progress."
+    "provenance": {
+      "mode": "scan",
+      "source": "src/00-tokens.css through src/80-accessibility.css in scripts/lib/build-theme.js order",
+      "icons": "assets/icons/lucide/SOURCE.md; commit 7faf87628a1ad6175975bc595344337ce14a7db4",
+      "archive": "legacy/sibnight is preserved and not imported by the active theme",
+      "evidence": "25 October targeted fixes: quality four tests PASS, audit zero. CSS 36813 bytes, 168 rules, six important declarations and one exact local has query. Bundle SHA256 b333d3ce97436ca0e323e35821be78bbca717a32e90e89607e676d19710a3cb2 matches VPS and copied Windows file. Fixture 72/72 PASS; old full CSS fails the five new regression checks at both widths. Native avatar centre delta 0/0 after 10px horizontal before. Native rows restored, wheel sequence +720px with stable 3063px extent, resize both ways and persistence observed. Narrow native window 1103x803. See docs/VALIDATION.md for limits; earlier SHIP reviews do not certify all new states. No publication."
+    },
+    "nativeAdaptations": {
+      "rail": "72px compact rail, sidebar follows the native user preference; 344px is only an absent-variable fallback. The theme does not override the native resizer. Native 40px icons at 48px cadence, no zoom. Only native SVG base path becomes an 8px rounded rectangle; badge cutouts remain intact. Flat selected tab 56 × 48px at left -8px/top -4px, radius 8px, relative positioning/isolation, no ring. Expanded folder track 56px centered at 8px with neutral index tone; closed preview index tone and Frost folder glyph. Native folder variable remains 48px alongside 40px avatars; native header negative margins remain intact for tooltip anchors. No ad hoc tooltip offsets.",
+      "history": "Reuse native base grid page area with display-contents wrappers; title/trailing controls retain titleBar. History observed inline before channel name at correct header height; margin 12px 8px, header reservation 112px. Notice rows own layout. No fixed coordinates or anchor positioning. Main voice header reserves112px through exact headerWrapper_cb9592 > subtitleContainer__49508 > headerBar__49508 hierarchy; nested titles unchanged. Two native open/close cycles observed.",
+      "account": "Preserve native fitInAccount nameplate behind identity and controls; keep combined sidebar 344px and account on one row at narrow widths.",
+      "voice": "One container covers connection status and four actions; status minimum 40px, actions 40px high without horizontal padding, icon flex basis 20px. Active actions use nord14-derived fill/border/text. Eleven licensed pinned SVGs remain vendored; ten masks active (five header/rail, five voice). Signal asset unused. Native 16px network-quality SVG with zero padding preserves Fine/Average/Bad paths. Direct native button nth-of-type(1), (2), (3) and soundboard aria mapping preserve hidden spans; active video overrides video-off. No new runtime fetch/package.",
+      "controls": "Modern native button/radio/checkbox/focus/notification roles map to Nord tokens; modern switches use Frost tracks and dark thumbs. One exact local legacy-switch checked query targets direct hiddenVisually > input:checked to the indicator; nord10 track !important overrides Discord inline color. Checker permits at most one query and validator whitelists its exact selector; no global ancestor :has().",
+      "channelList": "No extra bottom margin; native panel reservation already protects the list. Lower channels reappeared in native 1280 × 720 evidence.",
+      "pinnedEntries": "Transparent, borderless square entries with a thin separator only between siblings; populated native pins panel observed.",
+      "callChat": "At <=1200px an open voice wrapper keeps a full-width call at max(284px, 52%) height; exact general-sibling portal selectors place connected chat below in remaining height. DM/thread panels unaffected. Named call container at <=560px supplies two-row control-grid fallback. Native stacked state observed at 1101 × 801.",
+      "menuLabels": "Native menu labels wrap with normal whitespace and break-word overflow wrapping.",
+      "avatarGeometry": "Portrait, decoration, reply and font-size geometry are native. Do not reintroduce isolated width/left overrides on the avatar.",
+      "virtualRows": "Native category and channel heights remain authoritative for virtual scroll calculations. Colours and unread semantics remain themed.",
+      "memberRows": "Transparent resting background; restrained hover and focus-within. Native personal banners and presence preserved."
+    },
+    "detector": {
+      "report": "review/targeted-detector.json",
+      "runs": 1,
+      "disposition": "Three advisory findings only: intentional 2px unread tips, 4px separator caps and rgb(0 0 0 / 24%) floating shadow. Documented without CSS changes; no rerun asserted."
+    },
+    "colorMeta": {
+      "shadow-black": {
+        "purpose": "Intentional existing popup depth, reported by the one detector run.",
+        "canonical": "rgb(0 0 0 / 24%)",
+        "role": "neutral",
+        "displayName": "Floating shadow black"
+      }
+    },
+    "themeFamily": {
+      "main": "sibylla",
+      "flavors": [
+        "north-polar",
+        "north-snow",
+        "spatial",
+        "tokyo-night"
+      ],
+      "source": "scripts/lib/flavors.js",
+      "constraint": "Colors and message backgrounds only; approved North geometry unchanged"
     }
   },
   "components": [
     {
-      "name": "Threads tool",
-      "kind": "button",
-      "refersTo": "toolbar-control",
-      "description": "Illustrative preview of the original outline artwork. Production styles the native Discord control and preserves its labels and badges.",
-      "html": "<button class=\"ds-threads\" aria-label=\"Threads\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 4h14v11H12l-4 4v-4H5Z\"/><path d=\"M9 7v5m5-5v5M7.5 8.5h8M7.5 11h8\"/></svg></button>",
-      "css": ".ds-threads{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0;border:0;border-radius:6px;background:var(--sibnight-bg-3,#3b4252);color:var(--sibnight-text-3,#d8dee9)}.ds-threads:hover,.ds-threads:active{background:var(--sibnight-bg-2,#434c5e);color:var(--sibnight-accent-1,#88c0d0)}.ds-threads:focus-visible{outline:2px solid var(--sibnight-accent-1,#88c0d0);outline-offset:-2px}@media(forced-colors:active){.ds-threads:focus-visible{outline-color:Highlight}}"
-    },
-    {
-      "name": "Search field",
-      "kind": "input",
-      "description": "Illustrative shared workspace primitive; production styles the native Discord element.",
-      "html": "<input class=\"ds-search\" aria-label=\"Search\" placeholder=\"Search\">",
-      "css": ".ds-search{width:220px;height:34px;border:1px solid var(--sibnight-border,#4c566a);border-radius:6px;padding:0 8px;background:var(--sibnight-bg-4,#2e3440);color:var(--sibnight-text-3,#d8dee9)}.ds-search:hover{border-color:var(--sibnight-accent-1,#88c0d0)}.ds-search:focus-visible{outline:2px solid var(--sibnight-accent-1,#88c0d0);outline-offset:-2px}"
-    },
-    {
       "name": "Selected channel",
       "kind": "nav",
-      "description": "Illustrative shared workspace primitive; production styles the native Discord element.",
-      "html": "<a class=\"ds-channel\" href=\"#channel\" aria-current=\"page\"># général</a>",
-      "css": ".ds-channel{display:block;min-height:34px;padding:6px 8px;border-radius:6px;background:var(--sibnight-bg-2,#434c5e);color:var(--sibnight-text-1,#eceff4);font-weight:650;text-decoration:none}.ds-channel:hover{color:var(--sibnight-accent-1,#88c0d0)}.ds-channel:focus-visible{outline:2px solid var(--sibnight-accent-1,#88c0d0);outline-offset:-2px}"
+      "refersTo": "selected-channel",
+      "description": "Illustrative native selection treatment. Not Discord runtime evidence.",
+      "html": "<a class=\"ds-channel\" href=\"#channel\" aria-current=\"page\"># discussion</a>",
+      "css": ".ds-channel{display:block;min-height:36px;padding:6px 8px;border-radius:6px;background:var(--sibnight-selected,color-mix(in srgb,#81a1c1 28%,color-mix(in srgb,#2e3440 90%,color-mix(in srgb,color-mix(in srgb,#2e3440 55%,#5e81ac) 45%,#000))));color:var(--sibnight-heading,#eceff4);font:650 16px Figtree,'gg sans',sans-serif;text-decoration:none}.ds-channel:hover{background:var(--sibnight-hover,color-mix(in srgb,#4c566a 40%,transparent))}.ds-channel:focus-visible{outline:2px solid var(--sibnight-focus,#88c0d0);outline-offset:-2px}@media(forced-colors:active){.ds-channel:focus-visible{outline-color:Highlight}}"
     },
     {
-      "name": "Selected reaction",
-      "kind": "chip",
-      "description": "Illustrative shared workspace primitive; production styles the native Discord element.",
-      "html": "<button class=\"ds-reaction\" aria-pressed=\"true\">✓ 1</button>",
-      "css": ".ds-reaction{padding:4px 8px;border:1px solid var(--sibnight-accent-1,#88c0d0);border-radius:6px;background:var(--sibnight-bg-2,#434c5e);color:var(--sibnight-text-3,#d8dee9)}.ds-reaction:hover{color:var(--sibnight-text-1,#eceff4)}.ds-reaction:focus-visible{outline:2px solid var(--sibnight-accent-1,#88c0d0);outline-offset:-2px}"
-    },
-    {
-      "name": "Composer",
+      "name": "Composer surface",
       "kind": "input",
-      "description": "Illustrative shared workspace primitive; production styles the native Discord element.",
-      "html": "<textarea class=\"ds-composer\" aria-label=\"Message\" placeholder=\"Message\"></textarea>",
-      "css": ".ds-composer{width:100%;padding:12px;border:0;border-radius:8px;background:var(--sibnight-bg-2,#434c5e);color:var(--sibnight-text-3,#d8dee9);font:1rem/1.5 sans-serif;caret-color:var(--sibnight-accent-1,#88c0d0)}.ds-composer:hover{color:var(--sibnight-text-1,#eceff4)}.ds-composer:focus-visible{outline:1px solid var(--sibnight-accent-1,#88c0d0)}"
+      "refersTo": "composer",
+      "description": "Illustrates the single painted outer surface and transparent editable layer. Production preserves native attachment and command controls.",
+      "html": "<div class=\"ds-composer\"><textarea aria-label=\"Message\" placeholder=\"Message\"></textarea></div>",
+      "css": ".ds-composer{min-height:56px;border-radius:8px;background:var(--sibnight-control,color-mix(in srgb,#434c5e 60%,color-mix(in srgb,color-mix(in srgb,#2e3440 55%,#5e81ac) 45%,#000)));color:var(--sibnight-foreground,#d8dee9)}.ds-composer textarea{display:block;width:calc(100% - 24px);min-height:24px;margin:0;padding:16px 12px;border:0;border-radius:8px;background:transparent;color:inherit;font:400 16px/1.5 Figtree,'gg sans',sans-serif;caret-color:var(--sibnight-focus,#88c0d0);resize:vertical}.ds-composer:focus-within{outline:1px solid var(--sibnight-focus,#88c0d0)}.ds-composer textarea:focus-visible{outline:2px solid var(--sibnight-focus,#88c0d0);outline-offset:-2px}@media(forced-colors:active){.ds-composer:focus-within,.ds-composer textarea:focus-visible{outline-color:Highlight}}"
     }
   ],
   "narrative": {
     "northStar": "Cabinet de lecture",
-    "overview": "North Polar treats Discord as a continuous reading desk. Quiet indexes frame long conversations; a compact account dock and a distinct voice connection remain close at hand. The approved composition combines reference-desk with the connected-user block from the selected assigned concept.\n\nThe structure is shared: `src/main.css` supplies the principal theme and `src/workspace.css` supplies the continuous workspace, reading typography, native account layout and toolbar artwork. The build manifest compiles workspace last in the principal sources, then `flavor-base.css` and `north-polar.css` for flavors. North Polar is a palette skin: its wrapper defines the official Nord tokens and `src/north-polar.css` binds native Discord semantic colors. The eight other variants retain their palettes and installable names; their visual behavior has not been reviewed for this refactor. The Nord tokens below describe the North Polar expression, not a mandatory palette for every variant.",
+    "overview": "A quiet reading room for long Discord discussions and voice sessions. Dark Polar Night planes frame the conversation; Frost marks useful actions and focus. Figtree and a coherent outline icon family keep the interface readable and recognizable. This documents the standalone numbered-module implementation, superseding the rejected shared Sibnight architecture.",
     "keyCharacteristics": [
-      "Continuous dark reading surface; messages are not individual cards.",
-      "Flat tonal hierarchy, restrained Frost accents and compact rounded controls.",
-      "Native navigation, content, accessible labels, unread indicators and voice semantics.",
-      "Original outline toolbar artwork with functional native state preserved."
+      "Continuous conversation canvas with quiet supporting indexes.",
+      "One composer surface and an integrated account area.",
+      "Flat tonal separation, restrained borders and limited popup depth.",
+      "Native content, status, accessible labels and interaction semantics."
     ],
     "rules": [
       {
-        "name": "The Reading Surface Rule",
-        "body": "Preserve the difference between the continuous reading page and its supporting indexes; do not add gradients, glow or decorative message cards.",
+        "name": "The State Rule",
+        "body": "Preserve native unread, mention, mute and connection distinctions.",
         "section": "colors"
       },
       {
-        "name": "The Flat Desk Rule",
-        "body": "Use surface tone and boundaries to separate functions; do not introduce ornamental lifting or shadows to ordinary messages.",
+        "name": "The Continuous Canvas Rule",
+        "body": "Separate functions without ornamental containers around the conversation or every message.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "**Do** reuse existing public tokens and prefix new project tokens with `--sibnight-`.",
-      "**Do** preserve the Sibylla logo, North Polar name and Zelk/Midnight/Tokyo Night credits.",
-      "**Do** edit sources and wrapper, then regenerate builds in the declared order.",
-      "**Do** distinguish static checks, synthetic fixtures and actual Discord observations. Previous validation counts belong to their recorded checkpoint and do not certify this shared refactor. Current observations and remaining limits belong in docs/MAINTENANCE.md."
+      "Reuse existing tokens; prefix new project tokens with --sibnight-.",
+      "Preserve native labels, content, focus, unread state, profile identity and voice semantics.",
+      "Edit declared source modules and regenerate outputs in explicit build order.",
+      "Distinguish source inspection, synthetic fixtures and observed runtime states."
     ],
     "donts": [
-      "**Don't** paint generic layer containers, hide unread state, remove focus or introduce global expensive transitions.",
-      "**Don't** replace the other eight palettes or claim their visual validation from North Polar observations.",
-      "**Don't** publish private conversations or screenshots as design examples. Historical concepts describe intent, not current rendered proof."
+      "No decorative nested cards, blanket rounded panels, glow, blur or global motion.",
+      "No new remote resources, telemetry or unreviewed code.",
+      "No partial class selectors, global ancestor :has() queries or transitions of all properties. Only the exact local legacy-switch checked-state query is permitted.",
+      "No current visual validation claims from mockups, static checks or historical screenshots.",
+      "Do not publish private screenshots or conversation content."
     ]
   }
 }
