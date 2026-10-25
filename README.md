@@ -4,15 +4,51 @@
 
 Les cinq versions ont été testées et validées visuellement par le propriétaire le **25 octobre 2026**. Les contrôles automatisés et les limites de compatibilité sont détaillés dans [la validation](docs/VALIDATION.md).
 
-## Télécharger et installer
+## Choisir et télécharger
 
-| Version | Direction visuelle | Fichier installable |
-| --- | --- | --- |
-| **Sibylla — principale** | Minuit, or, logo discret en haut à droite du chat | [Télécharger Sibylla](https://ussmarines.github.io/DiscordTheme/dist/sibylla.theme.css) |
-| North Polar | Nord sombre, version validée conservée | [Télécharger North Polar](https://ussmarines.github.io/DiscordTheme/dist/north-polar.theme.css) |
-| North Snow | Nord clair, Snow Storm et textes Polar Night | [Télécharger North Snow](https://ussmarines.github.io/DiscordTheme/dist/north-snow.theme.css) |
-| Spatial | Bleu orbital et photographie du vaisseau en haut à droite du chat | [Télécharger Spatial](https://ussmarines.github.io/DiscordTheme/dist/spatial.theme.css) |
-| Tokyo-night | Tons nocturnes, accents bleus, cyan et violets | [Télécharger Tokyo-night](https://ussmarines.github.io/DiscordTheme/dist/tokyo-night.theme.css) |
+Aperçus avec un serveur, des membres et des messages entièrement fictifs, rendus avec le CSS actuel.
+
+### Sibylla — principale
+
+Minuit et or, avec le logo discret en haut à droite du chat.
+
+![Aperçu Sibylla — principale — contenu fictif](assets/previews/sibylla.png)
+
+[**Télécharger Sibylla — principale**](https://ussmarines.github.io/DiscordTheme/dist/sibylla.theme.css)
+
+### North Polar
+
+Nord sombre, version validée conservée.
+
+![Aperçu North Polar — contenu fictif](assets/previews/north-polar.png)
+
+[**Télécharger North Polar**](https://ussmarines.github.io/DiscordTheme/dist/north-polar.theme.css)
+
+### North Snow
+
+Nord clair : surfaces Snow Storm et textes Polar Night.
+
+![Aperçu North Snow — contenu fictif](assets/previews/north-snow.png)
+
+[**Télécharger North Snow**](https://ussmarines.github.io/DiscordTheme/dist/north-snow.theme.css)
+
+### Spatial
+
+Bleu orbital et vaisseau en haut à droite de la zone de messages.
+
+![Aperçu Spatial — contenu fictif](assets/previews/spatial.png)
+
+[**Télécharger Spatial**](https://ussmarines.github.io/DiscordTheme/dist/spatial.theme.css)
+
+### Tokyo-night
+
+Tons nocturnes et accents bleus, cyan et violets.
+
+![Aperçu Tokyo-night — contenu fictif](assets/previews/tokyo-night.png)
+
+[**Télécharger Tokyo-night**](https://ussmarines.github.io/DiscordTheme/dist/tokyo-night.theme.css)
+
+## Installer le thème
 
 1. Enregistrer le fichier choisi avec son nom complet se terminant par `.theme.css`. S’il s’affiche comme du texte dans le navigateur, utiliser **Enregistrer sous**.
 2. Ouvrir **Paramètres → Vencord → Themes → Open Themes Folder**, ou le dossier des thèmes de BetterDiscord.
@@ -22,45 +58,6 @@ Les cinq versions ont été testées et validées visuellement par le propriéta
 Pour mettre à jour une installation locale, remplacer le fichier existant par le nouveau téléchargement. Pour passer d’une version à l’autre, désactiver l’ancienne avant d’activer la suivante. Désactiver aussi les anciens thèmes Sibnight et les liens de thème en ligne ; du QuickCSS personnalisé peut entrer en conflit avec le rendu.
 
 Les fichiers de `dist/` contiennent tout le CSS, les icônes et les fonds locaux. Ils conservent uniquement l’import de police Figtree existant. Les fichiers de [themes/](themes/) sont des wrappers légers qui importent le CSS publié sur GitHub Pages : ils dépendent de cet accès réseau. Le [catalogue de téléchargement](https://ussmarines.github.io/DiscordTheme/) présente les cinq versions.
-
-## Aperçus
-
-Ces cinq illustrations utilisent le CSS actuel avec un serveur, des membres et des messages entièrement fictifs. Elles ne contiennent aucune capture de compte personnel et ne constituent pas un test Discord natif.
-
-<details open>
-<summary>Sibylla — principale</summary>
-
-![Aperçu Sibylla — principale — contenu fictif](assets/previews/sibylla.png)
-
-</details>
-
-<details>
-<summary>North Polar</summary>
-
-![Aperçu North Polar — contenu fictif](assets/previews/north-polar.png)
-
-</details>
-
-<details>
-<summary>North Snow</summary>
-
-![Aperçu North Snow — contenu fictif](assets/previews/north-snow.png)
-
-</details>
-
-<details>
-<summary>Spatial</summary>
-
-![Aperçu Spatial — contenu fictif](assets/previews/spatial.png)
-
-</details>
-
-<details>
-<summary>Tokyo-night</summary>
-
-![Aperçu Tokyo-night — contenu fictif](assets/previews/tokyo-night.png)
-
-</details>
 
 ## Migrer depuis Sibnight
 
