@@ -10,7 +10,7 @@ const candidates=${JSON.stringify(candidates)};
  for(const candidate of candidates){
   const frame=document.createElement('iframe');frame.width=1101;frame.height=801;
   const ready=new Promise(resolve=>frame.onload=resolve);
-  frame.srcdoc='<style>'+candidate.css+'</style><body class="theme-dark"><div id="app-mount"><div class="messagesWrapper__36d07">Test</div></div></body>';
+  frame.srcdoc='<style>'+candidate.css+'</style><body class="theme-dark"><div id="app-mount"><nav class="guilds__5e434"><div data-list-item-id="guildsnav___home" style="color:white"><div class="childWrapper__6e9f8"><svg id="home"></svg></div></div></nav><div class="messagesWrapper__36d07">Test</div></div></body>';
   document.body.append(frame);await ready;
   const d=frame.contentDocument,w=frame.contentWindow;
   const canvas=d.createElement('canvas'),ctx=canvas.getContext('2d',{willReadFrequently:true});
@@ -21,6 +21,8 @@ const candidates=${JSON.stringify(candidates)};
    const value=ratio(token('--sibnight-'+text),token('--sibnight-'+surface));
    results.push({flavor:candidate.id,pair:text+'/'+surface,ratio:Math.round(value*100)/100,pass:value>=4.5});
   }
+  const probe=d.createElement('i');probe.style.color='var(--sibnight-nord8)';d.body.append(probe);
+  results.push({flavor:candidate.id,pair:'home-icon-accent',pass:w.getComputedStyle(d.querySelector('#home')).color===w.getComputedStyle(probe).color});probe.remove();
   const art=w.getComputedStyle(d.querySelector('.messagesWrapper__36d07')).backgroundImage;
   results.push({flavor:candidate.id,pair:'artwork',pass:(candidate.id==='sibylla'||candidate.id==='spatial')?art.includes('data:image'):art==='none'});
   frame.remove();

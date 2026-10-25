@@ -15,3 +15,5 @@
 - Identité finale : dépôt renommé ussmarines/Sibylla-Discord-Theme selon le choix du propriétaire ; origin, description, homepage,8topics, imports des5wrappers et tous liens actifs mis à jour. Historique conservé, ancien lien GitHub redirigé.
 - Bannière1280×640JPEG créée, publiée en tête du README et appliquée comme aperçu social GitHub ; comparaison binaire avec repository-images PASS. Les5aperçus ont leur vraie extension.jpg, sans modification des images.
 - Nouvelles adresses Pages vérifiées : catalogue,15fichiers thèmes,5aperçus etbannière. Qualité5tests/audit0 et25liens Markdown PASS. Déploiement de référence201f8da ; bilan documentaire sans changement CSS.
+
+- Version3.0.1 : icône MP colorée selon l’accent de chaque thème, comme les aperçus. Correctif du générateur icons.js,30octets CSS, aucune nouvelle requête :has(). Contrôle natif Sibylla sur VPS etfixture70/70PASS ; cinq builds etinstallables régénérés. Préserver l’appel courant du laboratoire.

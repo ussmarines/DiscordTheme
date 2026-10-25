@@ -73,7 +73,7 @@ L’ancien code reste récupérable dans l’historique Git. Les anciens aperçu
 
 ## Interface commune
 
-La composition validée *Lecture et repères*, avec le bloc compte de *Cabinet initial*, reste commune aux cinq versions : rail compact, largeur des salons réglable nativement, lecture continue, zone de rédaction unique, commandes vocales intégrées et profils natifs. Les non-lus, mentions et focus clavier restent visibles. Le bouton des MP utilise l’icône de messages cohérente avec les autres icônes.
+La composition validée *Lecture et repères*, avec le bloc compte de *Cabinet initial*, reste commune aux cinq versions : rail compact, largeur des salons réglable nativement, lecture continue, zone de rédaction unique, commandes vocales intégrées et profils natifs. Les non-lus, mentions et focus clavier restent visibles. Depuis la version **3.0.1**, l’icône des MP reprend la couleur d’accent du thème, comme dans les aperçus : or pour Sibylla, Frost pour North Polar, bleu profond pour North Snow, bleu orbital pour Spatial et bleu Tokyo-night.
 
 Spatial utilise la photographie fournie, ancrée dans le haut droit de la zone de messages ; son cadrage conserve le vaisseau aux tailles de fenêtre contrôlées. Sibylla garde un fond uni avec son logo transparent atténué dans le haut droit. Les fonds ne remplacent ni les pièces jointes ni les bannières personnelles.
 

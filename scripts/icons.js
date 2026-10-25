@@ -20,7 +20,7 @@ for (const [name, labels] of entries) {
     css += `${selectors.map(s => `${s} > *`).join(',\n')} { opacity: 0; }\n`;
 }
 const home = "#app-mount .guilds__5e434 [data-list-item-id='guildsnav___home'] .childWrapper__6e9f8 > svg";
-css += `${home} { width: 28px; height: 28px; background: currentColor; mask: ${mask('messages-square')}; }\n${home} > * { opacity: 0; }\n`;
+css += `${home} { width: 28px; height: 28px; color: var(--sibnight-nord8); background: currentColor; mask: ${mask('messages-square')}; }\n${home} > * { opacity: 0; }\n`;
 const search = '#app-mount .toolbar__9293f .searchBar_c322aa svg';
 css += `${search} { background: currentColor; mask: ${mask('search')}; }\n${search} > * { opacity: 0; }\n`;
 const voiceIcons = [

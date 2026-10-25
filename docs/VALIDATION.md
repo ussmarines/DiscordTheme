@@ -128,3 +128,9 @@ The owner selected `ussmarines/Sibylla-Discord-Theme`. GitHub repository name, d
 The 1280×640 JPEG banner is published in the README and applied as GitHub's custom social preview. The public repository-images asset matches the local banner byte-for-byte. Five public preview files retain identical pixels and bytes but now use their actual `.jpg` format instead of the incorrect `.png` extension. All current links were updated accordingly.
 
 Quality passes five tests and the dependency audit; 25 local documentation links pass. The new Pages catalog, all 15 theme URLs and five preview images match local files; the banner at the new Pages address also matches. The old repository redirect was verified. No source declarations, approved layout or theme palette changed during this rename.
+
+## 3.0.1 — Home icon accent, 25 October 2026
+
+The owner's requested preview detail is now applied to the native direct-message/home SVG: its color uses the existing --sibnight-nord8 accent for every flavor. The generated rule changes only color; shape, size, unread badges, native navigation and focus remain intact. Shared CSS grows by 30 bytes to 36843 bytes, within the existing 36 KiB North limit; no selector or :has() is added.
+
+The synthetic family fixture now checks the actual home SVG under an intentionally white parent, ensuring the accent comes from the theme rather than the preview scaffold. All 70 assertions pass, including this inheritance regression in each of the five flavors. Native Discord on the VPS shows the gold Sibylla home icon. Other current call/session state was preserved. Public illustrations already showed the intended colors and remain valid; private native captures are not published.

@@ -1,6 +1,6 @@
 {
     "name": "sibylla-discord-themes",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "scripts": {
         "build": "node scripts/icons.js && node scripts/build.js",
         "check": "node scripts/check.js",
