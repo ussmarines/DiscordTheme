@@ -1,4 +1,9 @@
-build/*.css text eol=lf
-dist/*.css text eol=lf
-themes/*.css text eol=lf
+* text=auto
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.ps1 text eol=lf
 index.html text eol=lf
